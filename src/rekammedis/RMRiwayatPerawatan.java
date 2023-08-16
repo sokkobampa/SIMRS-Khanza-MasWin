@@ -298,7 +298,6 @@ public final class RMRiwayatPerawatan extends javax.swing.JDialog {
         chkAsuhanMedisRalanKulitKelamin = new widget.CekBox();
         chkAsuhanMedisRanap = new widget.CekBox();
         chkAsuhanMedisRanapKandungan = new widget.CekBox();
-        chkAsuhanMedisHemodialisa = new widget.CekBox();
         chkEdukasiPasienTerintegrasiRawatJalan = new widget.CekBox();
         chkPemeriksaanRalan = new widget.CekBox();
         chkPemeriksaanObstetriRalan = new widget.CekBox();
@@ -624,7 +623,7 @@ public final class RMRiwayatPerawatan extends javax.swing.JDialog {
         FormMenu.setBackground(new java.awt.Color(255, 255, 255));
         FormMenu.setBorder(null);
         FormMenu.setName("FormMenu"); // NOI18N
-        FormMenu.setPreferredSize(new java.awt.Dimension(255, 2560));
+        FormMenu.setPreferredSize(new java.awt.Dimension(255, 2538));
         FormMenu.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.CENTER, 1, 1));
 
         chkSemua.setSelected(true);
@@ -879,14 +878,6 @@ public final class RMRiwayatPerawatan extends javax.swing.JDialog {
         chkAsuhanMedisRanapKandungan.setOpaque(false);
         chkAsuhanMedisRanapKandungan.setPreferredSize(new java.awt.Dimension(245, 22));
         FormMenu.add(chkAsuhanMedisRanapKandungan);
-
-        chkAsuhanMedisHemodialisa.setSelected(true);
-        chkAsuhanMedisHemodialisa.setText("Awal Medis Hemodialisa");
-        chkAsuhanMedisHemodialisa.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        chkAsuhanMedisHemodialisa.setName("chkAsuhanMedisHemodialisa"); // NOI18N
-        chkAsuhanMedisHemodialisa.setOpaque(false);
-        chkAsuhanMedisHemodialisa.setPreferredSize(new java.awt.Dimension(245, 22));
-        FormMenu.add(chkAsuhanMedisHemodialisa);
 
         chkEdukasiPasienTerintegrasiRawatJalan.setSelected(true);
         chkEdukasiPasienTerintegrasiRawatJalan.setText("Edukasi Pasien & Keluarga Rawat Jalan");
@@ -2017,7 +2008,6 @@ private void BtnPasienKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event
             chkPemantauanEWSNeonatus.setSelected(true);
             chkAsuhanMedisRalanKulitKelamin.setSelected(true);
             chkPenilaianLevelKecemasanRanapAnak.setSelected(true);
-            chkAsuhanMedisHemodialisa.setSelected(true);
         }else{
             chkTriase.setSelected(false);
             chkAsuhanKeperawatanRalan.setSelected(false);
@@ -2128,7 +2118,6 @@ private void BtnPasienKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event
             chkPemantauanEWSNeonatus.setSelected(false);
             chkAsuhanMedisRalanKulitKelamin.setSelected(false);
             chkPenilaianLevelKecemasanRanapAnak.setSelected(false);
-            chkAsuhanMedisHemodialisa.setSelected(false);
         }
     }//GEN-LAST:event_chkSemuaItemStateChanged
 
@@ -2220,7 +2209,6 @@ private void BtnPasienKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event
     private widget.CekBox chkAsuhanLanjutanRisikoJatuhGeriatri;
     private widget.CekBox chkAsuhanLanjutanRisikoJatuhLansia;
     private widget.CekBox chkAsuhanLanjutanRisikoJatuhNeonatus;
-    private widget.CekBox chkAsuhanMedisHemodialisa;
     private widget.CekBox chkAsuhanMedisIGD;
     private widget.CekBox chkAsuhanMedisRalan;
     private widget.CekBox chkAsuhanMedisRalanBayi;
@@ -2779,8 +2767,6 @@ private void BtnPasienKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event
                     menampilkanAsuhanMedisRawatInap(rs.getString("no_rawat"));
                     //menampilkan asuhan awal medis rawat inap kebidanan
                     menampilkanAsuhanMedisRawatInapKebidanan(rs.getString("no_rawat"));
-                    //menampilkan asuhan awal hemodialisa
-                    menampilkanAsuhanMedisHemodialisa(rs.getString("no_rawat"));
                     //menampilkan edukasi pasien dan keluarga
                     menampilkanEdukasiPasienTerintegrasiRawatJalan(rs.getString("no_rawat"));
                     //menampilkan asuhan awal pre operasi
@@ -20375,252 +20361,6 @@ private void BtnPasienKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event
             }
         } catch (Exception e) {
             System.out.println("Notif Penilaian Kecemasan Ranap Anak : "+e);
-        }
-    }
-    
-    private void menampilkanAsuhanMedisHemodialisa(String norawat) {
-        try {
-            if(chkAsuhanMedisHemodialisa.isSelected()==true){
-                try {
-                    rs2=koneksi.prepareStatement(
-                            "select penilaian_medis_hemodialisa.kd_dokter,penilaian_medis_hemodialisa.anamnesis,penilaian_medis_hemodialisa.hubungan,penilaian_medis_hemodialisa.ruangan,"+
-                            "penilaian_medis_hemodialisa.alergi,penilaian_medis_hemodialisa.nyeri,penilaian_medis_hemodialisa.status_nutrisi,penilaian_medis_hemodialisa.hipertensi,"+
-                            "penilaian_medis_hemodialisa.keterangan_hipertensi,penilaian_medis_hemodialisa.diabetes,penilaian_medis_hemodialisa.keterangan_diabetes,"+
-                            "penilaian_medis_hemodialisa.batu_saluran_kemih,penilaian_medis_hemodialisa.keterangan_batu_saluran_kemih,penilaian_medis_hemodialisa.operasi_saluran_kemih,"+
-                            "penilaian_medis_hemodialisa.keterangan_operasi_saluran_kemih,penilaian_medis_hemodialisa.infeksi_saluran_kemih,penilaian_medis_hemodialisa.keterangan_infeksi_saluran_kemih,"+
-                            "penilaian_medis_hemodialisa.bengkak_seluruh_tubuh,penilaian_medis_hemodialisa.keterangan_bengkak_seluruh_tubuh,penilaian_medis_hemodialisa.urin_berdarah,"+
-                            "penilaian_medis_hemodialisa.keterangan_urin_berdarah,penilaian_medis_hemodialisa.penyakit_ginjal_laom,penilaian_medis_hemodialisa.keterangan_penyakit_ginjal_laom,"+
-                            "penilaian_medis_hemodialisa.penyakit_lain,penilaian_medis_hemodialisa.keterangan_penyakit_lain,penilaian_medis_hemodialisa.konsumsi_obat_nefro,"+
-                            "penilaian_medis_hemodialisa.keterangan_konsumsi_obat_nefro,penilaian_medis_hemodialisa.dialisis_pertama,penilaian_medis_hemodialisa.pernah_cpad,"+
-                            "penilaian_medis_hemodialisa.tanggal_cpad,penilaian_medis_hemodialisa.pernah_transplantasi,penilaian_medis_hemodialisa.tanggal_transplantasi,"+
-                            "penilaian_medis_hemodialisa.keadaan_umum,penilaian_medis_hemodialisa.kesadaran,penilaian_medis_hemodialisa.nadi,penilaian_medis_hemodialisa.bb,"+
-                            "penilaian_medis_hemodialisa.td,penilaian_medis_hemodialisa.suhu,penilaian_medis_hemodialisa.napas,penilaian_medis_hemodialisa.tb,"+
-                            "penilaian_medis_hemodialisa.hepatomegali,penilaian_medis_hemodialisa.splenomegali,penilaian_medis_hemodialisa.ascites,penilaian_medis_hemodialisa.edema,"+
-                            "penilaian_medis_hemodialisa.whezzing,penilaian_medis_hemodialisa.ronchi,penilaian_medis_hemodialisa.ikterik,penilaian_medis_hemodialisa.tekanan_vena,"+
-                            "penilaian_medis_hemodialisa.anemia,penilaian_medis_hemodialisa.kardiomegali,penilaian_medis_hemodialisa.bising,penilaian_medis_hemodialisa.thorax,"+
-                            "penilaian_medis_hemodialisa.tanggal_thorax,penilaian_medis_hemodialisa.ekg,penilaian_medis_hemodialisa.tanggal_ekg,penilaian_medis_hemodialisa.bno,"+
-                            "penilaian_medis_hemodialisa.tanggal_bno,penilaian_medis_hemodialisa.usg,penilaian_medis_hemodialisa.tanggal_usg,penilaian_medis_hemodialisa.renogram,"+
-                            "penilaian_medis_hemodialisa.tanggal_renogram,penilaian_medis_hemodialisa.biopsi,penilaian_medis_hemodialisa.tanggal_biopsi,penilaian_medis_hemodialisa.ctscan,"+
-                            "penilaian_medis_hemodialisa.tanggal_ctscan,penilaian_medis_hemodialisa.arteriografi,penilaian_medis_hemodialisa.tanggal_arteriografi,"+
-                            "penilaian_medis_hemodialisa.kultur_urin,penilaian_medis_hemodialisa.tanggal_kultur_urin,penilaian_medis_hemodialisa.laborat,penilaian_medis_hemodialisa.tanggal_laborat,"+
-                            "penilaian_medis_hemodialisa.hematokrit,penilaian_medis_hemodialisa.hemoglobin,penilaian_medis_hemodialisa.leukosit,penilaian_medis_hemodialisa.trombosit,"+
-                            "penilaian_medis_hemodialisa.hitung_jenis,penilaian_medis_hemodialisa.ureum,penilaian_medis_hemodialisa.urin_lengkap,penilaian_medis_hemodialisa.kreatinin,"+
-                            "penilaian_medis_hemodialisa.cct,penilaian_medis_hemodialisa.sgot,penilaian_medis_hemodialisa.sgpt,penilaian_medis_hemodialisa.ct,penilaian_medis_hemodialisa.asam_urat,"+
-                            "penilaian_medis_hemodialisa.hbsag,penilaian_medis_hemodialisa.anti_hcv,penilaian_medis_hemodialisa.edukasi,dokter.nm_dokter,penilaian_medis_hemodialisa.tanggal "+
-                            "from penilaian_medis_hemodialisa inner join dokter on penilaian_medis_hemodialisa.kd_dokter=dokter.kd_dokter "+
-                            "where penilaian_medis_hemodialisa.no_rawat='"+norawat+"'").executeQuery();
-                    if(rs2.next()){
-                        htmlContent.append(
-                          "<tr class='isi'>"+ 
-                            "<td valign='top' width='2%'></td>"+        
-                            "<td valign='top' width='18%'>Penilaian Awal Medis Hemodialisa</td>"+
-                            "<td valign='top' width='1%' align='center'>:</td>"+
-                            "<td valign='top' width='79%'>"+
-                              "<table width='100%' border='0' align='center' cellpadding='3px' cellspacing='0' class='tbl_form'>"
-                        );
-                        rs2.beforeFirst();
-                        while(rs2.next()){
-                            htmlContent.append(
-                                 "<tr>"+
-                                    "<td valign='top'>"+
-                                       "YANG MELAKUKAN PENGKAJIAN"+  
-                                       "<table width='100%' border='0' align='center' cellpadding='3px' cellspacing='0px' class='tbl_form'>"+
-                                          "<tr>"+
-                                              "<td width='33%' border='0'>Tanggal : "+rs2.getString("tanggal")+"</td>"+
-                                              "<td width='33%' border='0'>Dokter : "+rs2.getString("kd_dokter")+" "+rs2.getString("nm_dokter")+"</td>"+
-                                              "<td width='33%' border='0'>Anamnesis : "+rs2.getString("anamnesis")+(rs2.getString("hubungan").equals("")?"":", "+rs2.getString("hubungan"))+"</td>"+
-                                          "</tr>"+
-                                          "<tr>"+
-                                              "<td width='33%' border='0'>Asal Poli/Ruangan : "+rs2.getString("ruangan")+"</td>"+
-                                              "<td width='66%' border='0' colspan='2'>Riwayat Alergi Obat : "+rs2.getString("alergi")+"</td>"+
-                                          "</tr>"+
-                                          "<tr>"+
-                                              "<td width='33%' border='0'>Skala Nyeri : "+rs2.getString("nyeri")+"</td>"+
-                                              "<td width='66%' border='0'>Status Nutrisi : "+rs2.getString("status_nutrisi")+"</td>"+
-                                          "</tr>"+
-                                       "</table>"+
-                                    "</td>"+
-                                 "</tr>"+
-                                 "<tr>"+
-                                    "<td valign='top'>"+
-                                       "I. RIWAYAT KESEHATAN"+  
-                                       "<table width='100%' border='0' align='center' cellpadding='3px' cellspacing='0px' class='tbl_form'>"+
-                                          "<tr>"+
-                                              "<td width='50%'>Mengalami Hipertensi : "+rs2.getString("hipertensi")+(rs2.getString("keterangan_hipertensi").equals("")?"":", "+rs2.getString("keterangan_hipertensi"))+"</td>"+
-                                              "<td width='50%'>Bengkak Seluruh Tubuh : "+rs2.getString("bengkak_seluruh_tubuh")+(rs2.getString("keterangan_bengkak_seluruh_tubuh").equals("")?"":", "+rs2.getString("keterangan_bengkak_seluruh_tubuh"))+"</td>"+
-                                          "</tr>"+
-                                          "<tr>"+
-                                              "<td width='50%'>Diabetes Melitus : "+rs2.getString("diabetes")+(rs2.getString("keterangan_diabetes").equals("")?"":", "+rs2.getString("keterangan_diabetes"))+"</td>"+
-                                              "<td width='50%'>Urin Berdarah : "+rs2.getString("urin_berdarah")+(rs2.getString("keterangan_urin_berdarah").equals("")?"":", "+rs2.getString("keterangan_urin_berdarah"))+"</td>"+
-                                          "</tr>"+
-                                          "<tr>"+
-                                              "<td width='50%'>Batu Saluran Kemih : "+rs2.getString("batu_saluran_kemih")+(rs2.getString("keterangan_batu_saluran_kemih").equals("")?"":", "+rs2.getString("keterangan_batu_saluran_kemih"))+"</td>"+
-                                              "<td width='50%'>Penyakit Ginjal Laom : "+rs2.getString("penyakit_ginjal_laom")+(rs2.getString("keterangan_penyakit_ginjal_laom").equals("")?"":", "+rs2.getString("keterangan_penyakit_ginjal_laom"))+"</td>"+
-                                          "</tr>"+
-                                          "<tr>"+
-                                              "<td width='50%'>Operasi Saluran Kemih : "+rs2.getString("operasi_saluran_kemih")+(rs2.getString("keterangan_operasi_saluran_kemih").equals("")?"":", "+rs2.getString("keterangan_operasi_saluran_kemih"))+"</td>"+
-                                              "<td width='50%'>Penyakit Lain : "+rs2.getString("penyakit_lain")+(rs2.getString("keterangan_penyakit_lain").equals("")?"":", "+rs2.getString("keterangan_penyakit_lain"))+"</td>"+
-                                          "</tr>"+
-                                          "<tr>"+
-                                              "<td width='50%'>Infeksi Saluran Kemih : "+rs2.getString("infeksi_saluran_kemih")+(rs2.getString("keterangan_infeksi_saluran_kemih").equals("")?"":", "+rs2.getString("keterangan_infeksi_saluran_kemih"))+"</td>"+
-                                              "<td width='50%'>Konsumsi Obat Nefrotoksis : "+rs2.getString("konsumsi_obat_nefro")+(rs2.getString("keterangan_konsumsi_obat_nefro").equals("")?"":", "+rs2.getString("keterangan_konsumsi_obat_nefro"))+"</td>"+
-                                          "</tr>"+
-                                       "</table>"+
-                                    "</td>"+
-                                 "</tr>"+
-                                 "<tr>"+
-                                    "<td valign='top'>"+
-                                       "II. RIWAYAT DIALISIS/TRANSPLANTASI"+  
-                                       "<table width='100%' border='0' align='center' cellpadding='3px' cellspacing='0px' class='tbl_form'>"+
-                                          "<tr>"+
-                                               "<td width='25%'>Dialisis Pertama : "+rs2.getString("dialisis_pertama")+"</td>"+
-                                               "<td width='35%'>Pernah CPAD : "+rs2.getString("pernah_cpad")+(rs2.getString("pernah_cpad").equals("Tidak")?"":", "+rs2.getString("tanggal_cpad"))+"</td>"+
-                                               "<td width='40%'>Pernah Transplantasi Ginjal : "+rs2.getString("pernah_transplantasi")+(rs2.getString("pernah_transplantasi").equals("Tidak")?"":", "+rs2.getString("tanggal_transplantasi"))+"</td>"+
-                                          "</tr>"+
-                                       "</table>"+
-                                    "</td>"+
-                                 "</tr>"+
-                                 "<tr>"+
-                                    "<td valign='top'>"+
-                                       "III. PEMERIKSAAN FISIK PADA HD PERTAMA"+  
-                                       "<table width='100%' border='0' align='center' cellpadding='3px' cellspacing='0px' class='tbl_form'>"+
-                                          "<tr>"+
-                                               "<td width='33%' border='0'>Keadaan Umum : "+rs2.getString("keadaan_umum")+"</td>"+
-                                               "<td width='33%' border='0'>Kesadaran : "+rs2.getString("kesadaran")+"</td>"+
-                                               "<td width='33%' border='0'>Nadi : "+rs2.getString("nadi")+" x/menit</td>"+
-                                          "</tr>"+
-                                          "<tr>"+
-                                               "<td width='33%' border='0'>BB : "+rs2.getString("bb")+" Kg</td>"+
-                                               "<td width='33%' border='0'>TD : "+rs2.getString("td")+" mmHg</td>"+
-                                               "<td width='33%' border='0'>Suhu : "+rs2.getString("suhu")+" °C</td>"+
-                                          "</tr>"+
-                                          "<tr>"+
-                                               "<td width='33%' border='0'>Napas : "+rs2.getString("napas")+" x/menit</td>"+
-                                               "<td width='66%' border='0' colspan='2'>TB : "+rs2.getString("tb")+" Cm</td>"+
-                                          "</tr>"+
-                                          "<tr>"+
-                                               "<td width='33%' border='0'>Abdomen :</td>"+
-                                               "<td width='33%' border='0'>Paru :</td>"+
-                                               "<td width='33%' border='0'>Konjungtiva :</td>"+
-                                          "</tr>"+
-                                          "<tr>"+
-                                               "<td width='33%' border='0' style='margin-left: 10px'>Hepatomegali : "+rs2.getString("hepatomegali")+"</td>"+
-                                               "<td width='33%' border='0' style='margin-left: 10px'>Whezzing : "+rs2.getString("whezzing")+"</td>"+
-                                               "<td width='33%' border='0' style='margin-left: 10px'>Anemia : "+rs2.getString("anemia")+"</td>"+
-                                          "</tr>"+
-                                          "<tr>"+
-                                               "<td width='33%' border='0' style='margin-left: 10px'>Splenomegali : "+rs2.getString("splenomegali")+"</td>"+
-                                               "<td width='33%' border='0' style='margin-left: 10px'>Ronchi : "+rs2.getString("ronchi")+"</td>"+
-                                               "<td width='33%' border='0'>Jantung : </td>"+
-                                          "</tr>"+
-                                          "<tr>"+
-                                               "<td width='33%' border='0' style='margin-left: 10px'>Ascites : "+rs2.getString("ascites")+"</td>"+
-                                               "<td width='33%' border='0'>Sklera :</td>"+
-                                               "<td width='33%' border='0' style='margin-left: 10px'>Kardiomegali : "+rs2.getString("kardiomegali")+"</td>"+
-                                          "</tr>"+
-                                          "<tr>"+
-                                               "<td width='33%' border='0'>Ekstremitas :</td>"+
-                                               "<td width='33%' border='0' style='margin-left: 10px'>Ikterik : "+rs2.getString("ikterik")+"</td>"+
-                                               "<td width='33%' border='0' style='margin-left: 10px'>Bising : "+rs2.getString("bising")+"</td>"+
-                                          "</tr>"+
-                                          "<tr>"+
-                                               "<td width='33%' border='0' style='margin-left: 10px'>Edema : "+rs2.getString("edema")+"</td>"+
-                                               "<td width='66%' border='0' colspan='2'>Tekanan Vena Jugularis (JVP) : "+rs2.getString("tekanan_vena")+"</td>"+
-                                          "</tr>"+
-                                       "</table>"+
-                                    "</td>"+
-                                 "</tr>"+
-                                 "<tr>"+
-                                    "<td valign='top'>"+
-                                       "IV. PEMERIKSAAN PENUNJANG"+  
-                                       "<table width='100%' border='0' align='center' cellpadding='3px' cellspacing='0px' class='tbl_form'>"+
-                                          "<tr>"+
-                                               "<td width='13%' border='0'>1. Foto Thorax</td>"+
-                                               "<td width='20%' border='0'>"+rs2.getString("thorax")+(rs2.getString("thorax").equals("Tidak")?"":", "+rs2.getString("tanggal_thorax"))+"</td>"+
-                                               "<td width='13%' border='0'>5. Renogram</td>"+
-                                               "<td width='20%' border='0'>"+rs2.getString("renogram")+(rs2.getString("renogram").equals("Tidak")?"":", "+rs2.getString("tanggal_renogram"))+"</td>"+
-                                               "<td width='13%' border='0'>9. Kultur Urin</td>"+
-                                               "<td width='20%' border='0'>"+rs2.getString("kultur_urin")+(rs2.getString("kultur_urin").equals("Tidak")?"":", "+rs2.getString("tanggal_kultur_urin"))+"</td>"+
-                                          "</tr>"+
-                                          "<tr>"+
-                                               "<td width='13%' border='0'>2. EKG</td>"+
-                                               "<td width='20%' border='0'>"+rs2.getString("ekg")+(rs2.getString("ekg").equals("Tidak")?"":", "+rs2.getString("tanggal_ekg"))+"</td>"+
-                                               "<td width='13%' border='0'>6. PA Biopsi Ginjal</td>"+
-                                               "<td width='20%' border='0'>"+rs2.getString("biopsi")+(rs2.getString("biopsi").equals("Tidak")?"":", "+rs2.getString("tanggal_biopsi"))+"</td>"+
-                                               "<td width='13%' border='0'>10. Laboratorium</td>"+
-                                               "<td width='20%' border='0'>"+rs2.getString("laborat")+(rs2.getString("laborat").equals("Tidak")?"":", "+rs2.getString("tanggal_laborat"))+"</td>"+
-                                          "</tr>"+
-                                          "<tr>"+
-                                               "<td width='13%' border='0'>3. BNO/IVP</td>"+
-                                               "<td width='20%' border='0'>"+rs2.getString("bno")+(rs2.getString("bno").equals("Tidak")?"":", "+rs2.getString("tanggal_bno"))+"</td>"+
-                                               "<td width='13%' border='0'>7. CT Scan</td>"+
-                                               "<td width='20%' border='0' colspan='3'>"+rs2.getString("ctscan")+(rs2.getString("ctscan").equals("Tidak")?"":", "+rs2.getString("tanggal_ctscan"))+"</td>"+
-                                          "</tr>"+
-                                          "<tr>"+
-                                               "<td width='13%' border='0'>4. USG</td>"+
-                                               "<td width='20%' border='0'>"+rs2.getString("usg")+(rs2.getString("usg").equals("Tidak")?"":", "+rs2.getString("tanggal_usg"))+"</td>"+
-                                               "<td width='13%' border='0'>8. Arteriografi</td>"+
-                                               "<td width='20%' border='0' colspan='3'>"+rs2.getString("arteriografi")+(rs2.getString("arteriografi").equals("Tidak")?"":", "+rs2.getString("tanggal_arteriografi"))+"</td>"+
-                                          "</tr>"+
-                                          "<tr>"+
-                                               "<td width='100%' border='0' colspan='6'>"+
-                                                   "Hasil Pemeriksaan Laboratorium :"+
-                                                   "<table width='100%' border='0' align='center' cellpadding='3px' cellspacing='0px' class='tbl_form'>"+
-                                                       "<tr>"+
-                                                         "<td width='25%' border='0'>Hematokrit : "+rs2.getString("hematokrit")+"</td>"+
-                                                         "<td width='25%' border='0'>Hitung Jenis : "+rs2.getString("hitung_jenis")+"</td>"+
-                                                         "<td width='25%' border='0'>CCT : "+rs2.getString("cct")+"</td>"+
-                                                         "<td width='25%' border='0'>Asam Urat : "+rs2.getString("asam_urat")+"</td>"+
-                                                       "</tr>"+
-                                                       "<tr>"+
-                                                         "<td width='25%' border='0'>Hemoglobin : "+rs2.getString("hemoglobin")+"</td>"+
-                                                         "<td width='25%' border='0'>Ureum : "+rs2.getString("ureum")+"</td>"+
-                                                         "<td width='25%' border='0'>SGOT : "+rs2.getString("sgot")+"</td>"+
-                                                         "<td width='25%' border='0'>HbsAg : "+rs2.getString("hbsag")+"</td>"+
-                                                       "</tr>"+
-                                                       "<tr>"+
-                                                         "<td width='25%' border='0'>Leukosit : "+rs2.getString("leukosit")+"</td>"+
-                                                         "<td width='25%' border='0'>Urin Lengkap : "+rs2.getString("urin_lengkap")+"</td>"+
-                                                         "<td width='25%' border='0'>SGPT : "+rs2.getString("sgpt")+"</td>"+
-                                                         "<td width='25%' border='0'>Anti HCV : "+rs2.getString("anti_hcv")+"</td>"+
-                                                       "</tr>"+
-                                                       "<tr>"+
-                                                         "<td width='25%' border='0'>Trombosit : "+rs2.getString("trombosit")+"</td>"+
-                                                         "<td width='25%' border='0'>Kreatinin : "+rs2.getString("kreatinin")+"</td>"+
-                                                         "<td width='50%' border='0' colspan='2'>CT/BT : "+rs2.getString("ct")+"</td>"+
-                                                       "</tr>"+
-                                                   "</table>"+
-                                               "</td>"+
-                                          "</tr>"+
-                                       "</table>"+
-                                    "</td>"+
-                                 "</tr>"+
-                                 "<tr>"+
-                                    "<td valign='top'>"+
-                                       "VII. EDUKASI"+  
-                                       "<table width='100%' border='0' align='center' cellpadding='3px' cellspacing='0px' class='tbl_form'>"+
-                                          "<tr>"+
-                                               "<td width='100%' border='0'>"+rs2.getString("edukasi").replaceAll("(\r\n|\r|\n|\n\r)","<br>")+"</td>"+
-                                          "</tr>"+
-                                       "</table>"+
-                                    "</td>"+
-                                 "</tr>"); 
-                        }
-                        htmlContent.append(
-                              "</table>"+
-                            "</td>"+
-                          "</tr>");
-                    }
-                } catch (Exception e) {
-                    System.out.println("Notifikasi : "+e);
-                } finally{
-                    if(rs2!=null){
-                        rs2.close();
-                    }
-                }
-            }
-        } catch (Exception e) {
-            System.out.println("Notif Asuhan Medis Hemodialisa : "+e);
         }
     }
 }

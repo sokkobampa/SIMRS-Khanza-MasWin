@@ -6,7 +6,8 @@
     $db_hostname    = "localhost";
     $db_username    = "root";
     $db_password    = "";
-    $db_name        = "sik";
+    $db_name        = "khanza";
+    $db_port        = 3306;
     define('USERHYBRIDWEB', 'yanghack');
     define('PASHYBRIDWEB', 'sialselamanya');
 
@@ -16,8 +17,8 @@
     }
 
     function  bukakoneksi(){
-     	global $db_hostname, $db_username, $db_password, $db_name;
-         $konektor=mysqli_connect($db_hostname,$db_username,$db_password)
+     	global $db_hostname, $db_username, $db_password, $db_name, $db_port;
+         $konektor=mysqli_connect($db_hostname,$db_username,$db_password, null, $db_port)
          or die ("<font color=red><h3>Not Connected ..!!</h3></font>");
          $db_select=mysqli_select_db($konektor, $db_name)
          or die("<font color=red><h3>Cannot chose database..!!</h3></font>". mysqli_error());
@@ -216,7 +217,7 @@
             $save=str_replace("+","",$save);
             $save=str_replace("^","",$save);
             $save=str_replace("#","",$save);
-            $save=str_replace("!","",$save);
+            // $save=str_replace("!","",$save);
             $save=str_replace("='","",$save);
             $save=str_replace("=/","",$save);
             $save=str_replace("=","",$save);
@@ -434,6 +435,14 @@
         or die (/*mysqli_error($konektor)*/"Silahkan hubungi administrator..!");
         mysqli_close($konektor);
         return $result;
+    }
+
+    function queryps($sql, $ps)
+    {
+        $konektor = bukakoneksi();
+
+        $expr = $konektor->prepare($sql);
+        $expr->bind_param();
     }
     
     function fetch_assoc($sql) {
@@ -852,6 +861,8 @@
     
     function Terbilang($x){
         $abil = array("", "satu", "dua", "tiga", "empat", "lima", "enam", "tujuh", "delapan", "sembilan", "sepuluh", "sebelas");
+        $x = intval($x);
+
         if ($x < 12)
           return " " . $abil[$x];
         elseif ($x < 20)

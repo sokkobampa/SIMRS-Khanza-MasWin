@@ -4441,7 +4441,7 @@ public class DlgUser extends javax.swing.JDialog {
                     "rekap_pengajuan_biaya='"+tbUser.getValueAt(i,970).toString()+"',"+
                     "penilaian_awal_medis_ralan_kulit_kelamin='"+tbUser.getValueAt(i,971).toString()+"',"+
                     "akun_host_to_host_bank_mandiri='"+tbUser.getValueAt(i,972).toString()+"',"+
-                    "penilaian_medis_hemodialisa='"+tbUser.getValueAt(i,973).toString()+"',"+
+                    "penilaian_medis_ralan_hemodialisa='"+tbUser.getValueAt(i,973).toString()+"',"+
                     "penilaian_level_kecemasan_ranap_anak='"+tbUser.getValueAt(i,974).toString()+"'")==true){
                     emptTeks();
                 }
@@ -5614,7 +5614,7 @@ private void BtnPrintKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_
                                         "rekap_pengajuan_biaya='"+tbUser.getValueAt(barisdicopy,970).toString()+"',"+
                                         "penilaian_awal_medis_ralan_kulit_kelamin='"+tbUser.getValueAt(barisdicopy,971).toString()+"',"+
                                         "akun_host_to_host_bank_mandiri='"+tbUser.getValueAt(barisdicopy,972).toString()+"',"+
-                                        "penilaian_medis_hemodialisa='"+tbUser.getValueAt(barisdicopy,973).toString()+"',"+
+                                        "penilaian_medis_ralan_hemodialisa='"+tbUser.getValueAt(barisdicopy,973).toString()+"',"+
                                         "penilaian_level_kecemasan_ranap_anak='"+tbUser.getValueAt(barisdicopy,974).toString()+"'");
                                 }
                                 userdicopy="";
@@ -5899,7 +5899,7 @@ private void BtnPrintKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_
                 "user.checklist_kriteria_keluar_icu,user.akses_dokter_lain_rawat_jalan,user.follow_up_dbd,user.penilaian_risiko_jatuh_neonatus,user.persetujuan_pengajuan_biaya,"+
                 "user.pemeriksaan_fisik_ralan_per_penyakit,user.penilaian_lanjutan_resiko_jatuh_geriatri,user.pemantauan_ews_neonatus,user.validasi_persetujuan_pengajuan_biaya,"+
                 "user.riwayat_perawatan_icare_bpjs,user.rekap_pengajuan_biaya,user.penilaian_awal_medis_ralan_kulit_kelamin,user.akun_host_to_host_bank_mandiri,"+
-                "user.penilaian_medis_hemodialisa,user.penilaian_level_kecemasan_ranap_anak from user order by AES_DECRYPT(user.id_user,'nur')");
+                "user.penilaian_medis_ralan_hemodialisa,user.penilaian_level_kecemasan_ranap_anak from user order by AES_DECRYPT(user.id_user,'nur')");
             try {
                 rs=ps.executeQuery();
                 while(rs.next()){
@@ -6885,7 +6885,7 @@ private void BtnPrintKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_
                                rs.getBoolean("rekap_pengajuan_biaya"),
                                rs.getBoolean("penilaian_awal_medis_ralan_kulit_kelamin"),
                                rs.getBoolean("akun_host_to_host_bank_mandiri"),
-                               rs.getBoolean("penilaian_medis_hemodialisa"),
+                               rs.getBoolean("penilaian_medis_ralan_hemodialisa"),
                                rs.getBoolean("penilaian_level_kecemasan_ranap_anak")
                             });
                         }   
@@ -7861,7 +7861,7 @@ private void BtnPrintKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_
                            rs.getBoolean("rekap_pengajuan_biaya"),
                            rs.getBoolean("penilaian_awal_medis_ralan_kulit_kelamin"),
                            rs.getBoolean("akun_host_to_host_bank_mandiri"),
-                           rs.getBoolean("penilaian_medis_hemodialisa"),
+                           rs.getBoolean("penilaian_medis_ralan_hemodialisa"),
                            rs.getBoolean("penilaian_level_kecemasan_ranap_anak")
                         });
                     }                                             
