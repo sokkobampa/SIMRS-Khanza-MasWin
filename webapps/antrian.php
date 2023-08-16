@@ -176,5 +176,5 @@ $jam = date("H:i");
         <script src="https://code.responsivevoice.org/responsivevoice.js?key=OGPOBj1g"></script>
 </body>
 <?php
-echo "<meta http-equiv='refresh' content='10;URL=?iyem=" . encrypt_decrypt("{\"kd_poli\":\"" . $kd_poli . "\",\"kd_dokter\":\"" . $kd_dokter . "\"}", "e") . "'>";
+echo "<meta http-equiv='refresh' content='20;URL=?iyem=" . encrypt_decrypt("{\"kd_poli\":\"" . $kd_poli . "\",\"kd_dokter\":\"" . $kd_dokter . "\"}", "e") . "'>";
 ?>
