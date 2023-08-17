@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Created with Jaspersoft Studio version 6.16.0.final using JasperReports Library version 6.5.1  -->
+<!-- Created with Jaspersoft Studio version 6.8.0.final using JasperReports Library version 6.8.0-2ed8dfabb690ff337a5797129f2cd92902b0c87b  -->
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="6d4fb926-1e5d-488a-8a60-91667ccae5ca">
 	<property name="ireport.zoom" value="2.0"/>
 	<property name="ireport.x" value="0"/>
@@ -378,7 +378,7 @@
 					<font fontName="Tahoma" size="9"/>
 					<paragraph lineSpacing="Single"/>
 				</textElement>
-				<textFieldExpression><![CDATA["Jatuh tempo "+$P{tempo}+" hari setelah tanggal kwitansi dan cantumkan nomor invoice pada bukti transfer. Setelah melakukan pembayaran, bukti transfer dan rincian pembayaran harap di fax ke "+$P{kontakrs}+". Demikian permohonan ini kami ajukan, mohon untuk ditindaklanjuti. Atas perhatian dan kerjasamanya, kami ucapkan terima kasih."]]></textFieldExpression>
+				<textFieldExpression><![CDATA["Jatuh tempo "+$P{tempo}+" hari setelah tanggal kwitansi dan cantumkan nomor invoice pada bukti transfer. Setelah melakukan pembayaran, bukti transfer dan rincian pembayaran wajib dikirim ke email piutang.rssmc@gmail.com atau WA +62 821-5800-8760. Demikian permohonan ini kami ajukan, mohon untuk ditindaklanjuti. Atas perhatian dan kerjasamanya, kami ucapkan terima kasih."]]></textFieldExpression>
 			</textField>
 			<staticText>
 				<reportElement stretchType="RelativeToBandHeight" mode="Transparent" x="88" y="132" width="17" height="12" forecolor="#000000" backcolor="#F0F0DC" uuid="c19011f2-5b79-4ad1-b323-ecfe49b91f27">
