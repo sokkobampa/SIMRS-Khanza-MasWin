@@ -9223,8 +9223,8 @@ private void BtnEditKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
         if(akses.getpemantauan_ews_neonatus()==true){
             tinggi=tinggi+24;
         }
-        BtnAwalMedisHemodialisa.setVisible(akses.getpenilaian_medis_ralan_hemodialisa()); 
-        if(akses.getpenilaian_medis_ralan_hemodialisa()==true){
+        BtnAwalMedisHemodialisa.setVisible(akses.getpenilaian_medis_hemodialisa()); 
+        if(akses.getpenilaian_medis_hemodialisa()==true){
             tinggi=tinggi+24;
         }
         BtnPenilaianKecemasanAnak.setVisible(akses.getpenilaian_level_kecemasan_ranap_anak()); 

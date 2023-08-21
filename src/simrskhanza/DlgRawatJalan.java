@@ -9675,8 +9675,8 @@ private void BtnEditKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
         if(akses.getpenilaian_awal_medis_ralan_kulit_kelamin()==true){
             tinggi=tinggi+24;
         }
-        BtnAwalMedisHemodialisa.setVisible(akses.getpenilaian_medis_ralan_hemodialisa()); 
-        if(akses.getpenilaian_medis_ralan_hemodialisa()==true){
+        BtnAwalMedisHemodialisa.setVisible(akses.getpenilaian_medis_hemodialisa()); 
+        if(akses.getpenilaian_medis_hemodialisa()==true){
             tinggi=tinggi+24;
         }
         BtnPenilaianLanjutanRisikoJatuhPsikiatri.setVisible(akses.getpenilaian_lanjutan_resiko_jatuh_psikiatri()); 

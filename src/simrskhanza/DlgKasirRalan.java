@@ -14190,7 +14190,7 @@ private void MnDataPemberianObatActionPerformed(java.awt.event.ActionEvent evt) 
         MnRiwayatPerawatanICareNoKartu1.setEnabled(akses.getriwayat_perawatan_icare_bpjs());
         MnRiwayatPerawatanICareNIK.setEnabled(akses.getriwayat_perawatan_icare_bpjs());
         MnRiwayatPerawatanICareNIK1.setEnabled(akses.getriwayat_perawatan_icare_bpjs());
-        MnPenilaianAwalMedisRalanHemodialisa.setEnabled(akses.getpenilaian_medis_ralan_hemodialisa());
+        MnPenilaianAwalMedisRalanHemodialisa.setEnabled(akses.getpenilaian_medis_hemodialisa());
         MnPenilaianRisikoJatuhPsikiatri.setEnabled(akses.getpenilaian_lanjutan_resiko_jatuh_psikiatri());
         
         if(akses.getkode().equals("Admin Utama")){

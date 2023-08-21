@@ -2498,7 +2498,7 @@ public final class RMPenilaianAwalMedisHemodialisa extends javax.swing.JDialog {
         }else if(AsalRuangan.getText().trim().equals("")){
             Valid.textKosong(AsalRuangan,"Asal Ruangan");
         }else{
-            if(Sequel.menyimpantf("penilaian_medis_ralan_hemodialisa","?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?","Data",89,new String[]{
+            if(Sequel.menyimpantf("penilaian_medis_hemodialisa","?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?","Data",89,new String[]{
                 TNoRw.getText(),Valid.SetTgl(TglAsuhan.getSelectedItem()+"")+" "+TglAsuhan.getSelectedItem().toString().substring(11,19),KdDokter.getText(),Anamnesis.getSelectedItem().toString(),Hubungan.getText(),AsalRuangan.getText(),Alergi.getText(),Nyeri.getSelectedItem().toString(), 
                 StatusNutrisi.getText(),Hipertensi.getSelectedItem().toString(),KeteranganHipertensi.getText(),DiabetesMelitus.getSelectedItem().toString(),KeteranganDiabetesMelitus.getText(),BatuSaluranKemih.getSelectedItem().toString(),KeteranganBatuSaluranKemih.getText(),
                 OperasiSaluranKemih.getSelectedItem().toString(),KeteranganOperasiSaluranKemih.getText(),InfeksiSaluranKemih.getSelectedItem().toString(),KeteranganInfeksiSaluranKemih.getText(),BengkakSeluruhTubuh.getSelectedItem().toString(),KeteranganBengkakSeluruhTubuh.getText(), 
@@ -2949,34 +2949,34 @@ public final class RMPenilaianAwalMedisHemodialisa extends javax.swing.JDialog {
             finger=Sequel.cariIsi("select sha1(sidikjari.sidikjari) from sidikjari inner join pegawai on pegawai.id=sidikjari.id where pegawai.nik=?",tbObat.getValueAt(tbObat.getSelectedRow(),5).toString());
             param.put("finger","Dikeluarkan di "+akses.getnamars()+", Kabupaten/Kota "+akses.getkabupatenrs()+"\nDitandatangani secara elektronik oleh "+tbObat.getValueAt(tbObat.getSelectedRow(),6).toString()+"\nID "+(finger.equals("")?tbObat.getValueAt(tbObat.getSelectedRow(),5).toString():finger)+"\n"+Valid.SetTgl3(tbObat.getValueAt(tbObat.getSelectedRow(),7).toString())); 
             Valid.MyReportqry("rptCetakPenilaianAwalMedisHemodialisa.jasper","report","::[ Laporan Penilaian Awal Medis Hemodialisa]::",
-                "select reg_periksa.no_rawat,pasien.no_rkm_medis,pasien.nm_pasien,if(pasien.jk='L','Laki-Laki','Perempuan') as jk,pasien.tgl_lahir,penilaian_medis_ralan_hemodialisa.tanggal,"+
-                "penilaian_medis_ralan_hemodialisa.kd_dokter,penilaian_medis_ralan_hemodialisa.anamnesis,penilaian_medis_ralan_hemodialisa.hubungan,penilaian_medis_ralan_hemodialisa.ruangan,"+
-                "penilaian_medis_ralan_hemodialisa.alergi,penilaian_medis_ralan_hemodialisa.nyeri,penilaian_medis_ralan_hemodialisa.status_nutrisi,penilaian_medis_ralan_hemodialisa.hipertensi,"+
-                "penilaian_medis_ralan_hemodialisa.keterangan_hipertensi,penilaian_medis_ralan_hemodialisa.diabetes,penilaian_medis_ralan_hemodialisa.keterangan_diabetes,"+
-                "penilaian_medis_ralan_hemodialisa.batu_saluran_kemih,penilaian_medis_ralan_hemodialisa.keterangan_batu_saluran_kemih,penilaian_medis_ralan_hemodialisa.operasi_saluran_kemih,"+
-                "penilaian_medis_ralan_hemodialisa.keterangan_operasi_saluran_kemih,penilaian_medis_ralan_hemodialisa.infeksi_saluran_kemih,penilaian_medis_ralan_hemodialisa.keterangan_infeksi_saluran_kemih,"+
-                "penilaian_medis_ralan_hemodialisa.bengkak_seluruh_tubuh,penilaian_medis_ralan_hemodialisa.keterangan_bengkak_seluruh_tubuh,penilaian_medis_ralan_hemodialisa.urin_berdarah,"+
-                "penilaian_medis_ralan_hemodialisa.keterangan_urin_berdarah,penilaian_medis_ralan_hemodialisa.penyakit_ginjal_laom,penilaian_medis_ralan_hemodialisa.keterangan_penyakit_ginjal_laom,"+
-                "penilaian_medis_ralan_hemodialisa.penyakit_lain,penilaian_medis_ralan_hemodialisa.keterangan_penyakit_lain,penilaian_medis_ralan_hemodialisa.konsumsi_obat_nefro,"+
-                "penilaian_medis_ralan_hemodialisa.keterangan_konsumsi_obat_nefro,penilaian_medis_ralan_hemodialisa.dialisis_pertama,penilaian_medis_ralan_hemodialisa.pernah_cpad,"+
-                "penilaian_medis_ralan_hemodialisa.tanggal_cpad,penilaian_medis_ralan_hemodialisa.pernah_transplantasi,penilaian_medis_ralan_hemodialisa.tanggal_transplantasi,"+
-                "penilaian_medis_ralan_hemodialisa.keadaan_umum,penilaian_medis_ralan_hemodialisa.kesadaran,penilaian_medis_ralan_hemodialisa.nadi,penilaian_medis_ralan_hemodialisa.bb,"+
-                "penilaian_medis_ralan_hemodialisa.td,penilaian_medis_ralan_hemodialisa.suhu,penilaian_medis_ralan_hemodialisa.napas,penilaian_medis_ralan_hemodialisa.tb,"+
-                "penilaian_medis_ralan_hemodialisa.hepatomegali,penilaian_medis_ralan_hemodialisa.splenomegali,penilaian_medis_ralan_hemodialisa.ascites,penilaian_medis_ralan_hemodialisa.edema,"+
-                "penilaian_medis_ralan_hemodialisa.whezzing,penilaian_medis_ralan_hemodialisa.ronchi,penilaian_medis_ralan_hemodialisa.ikterik,penilaian_medis_ralan_hemodialisa.tekanan_vena,"+
-                "penilaian_medis_ralan_hemodialisa.anemia,penilaian_medis_ralan_hemodialisa.kardiomegali,penilaian_medis_ralan_hemodialisa.bising,penilaian_medis_ralan_hemodialisa.thorax,"+
-                "penilaian_medis_ralan_hemodialisa.tanggal_thorax,penilaian_medis_ralan_hemodialisa.ekg,penilaian_medis_ralan_hemodialisa.tanggal_ekg,penilaian_medis_ralan_hemodialisa.bno,"+
-                "penilaian_medis_ralan_hemodialisa.tanggal_bno,penilaian_medis_ralan_hemodialisa.usg,penilaian_medis_ralan_hemodialisa.tanggal_usg,penilaian_medis_ralan_hemodialisa.renogram,"+
-                "penilaian_medis_ralan_hemodialisa.tanggal_renogram,penilaian_medis_ralan_hemodialisa.biopsi,penilaian_medis_ralan_hemodialisa.tanggal_biopsi,penilaian_medis_ralan_hemodialisa.ctscan,"+
-                "penilaian_medis_ralan_hemodialisa.tanggal_ctscan,penilaian_medis_ralan_hemodialisa.arteriografi,penilaian_medis_ralan_hemodialisa.tanggal_arteriografi,"+
-                "penilaian_medis_ralan_hemodialisa.kultur_urin,penilaian_medis_ralan_hemodialisa.tanggal_kultur_urin,penilaian_medis_ralan_hemodialisa.laborat,penilaian_medis_ralan_hemodialisa.tanggal_laborat,"+
-                "penilaian_medis_ralan_hemodialisa.hematokrit,penilaian_medis_ralan_hemodialisa.hemoglobin,penilaian_medis_ralan_hemodialisa.leukosit,penilaian_medis_ralan_hemodialisa.trombosit,"+
-                "penilaian_medis_ralan_hemodialisa.hitung_jenis,penilaian_medis_ralan_hemodialisa.ureum,penilaian_medis_ralan_hemodialisa.urin_lengkap,penilaian_medis_ralan_hemodialisa.kreatinin,"+
-                "penilaian_medis_ralan_hemodialisa.cct,penilaian_medis_ralan_hemodialisa.sgot,penilaian_medis_ralan_hemodialisa.sgpt,penilaian_medis_ralan_hemodialisa.ct,penilaian_medis_ralan_hemodialisa.asam_urat,"+
-                "penilaian_medis_ralan_hemodialisa.hbsag,penilaian_medis_ralan_hemodialisa.anti_hcv,penilaian_medis_ralan_hemodialisa.edukasi,dokter.nm_dokter "+
+                "select reg_periksa.no_rawat,pasien.no_rkm_medis,pasien.nm_pasien,if(pasien.jk='L','Laki-Laki','Perempuan') as jk,pasien.tgl_lahir,penilaian_medis_hemodialisa.tanggal,"+
+                "penilaian_medis_hemodialisa.kd_dokter,penilaian_medis_hemodialisa.anamnesis,penilaian_medis_hemodialisa.hubungan,penilaian_medis_hemodialisa.ruangan,"+
+                "penilaian_medis_hemodialisa.alergi,penilaian_medis_hemodialisa.nyeri,penilaian_medis_hemodialisa.status_nutrisi,penilaian_medis_hemodialisa.hipertensi,"+
+                "penilaian_medis_hemodialisa.keterangan_hipertensi,penilaian_medis_hemodialisa.diabetes,penilaian_medis_hemodialisa.keterangan_diabetes,"+
+                "penilaian_medis_hemodialisa.batu_saluran_kemih,penilaian_medis_hemodialisa.keterangan_batu_saluran_kemih,penilaian_medis_hemodialisa.operasi_saluran_kemih,"+
+                "penilaian_medis_hemodialisa.keterangan_operasi_saluran_kemih,penilaian_medis_hemodialisa.infeksi_saluran_kemih,penilaian_medis_hemodialisa.keterangan_infeksi_saluran_kemih,"+
+                "penilaian_medis_hemodialisa.bengkak_seluruh_tubuh,penilaian_medis_hemodialisa.keterangan_bengkak_seluruh_tubuh,penilaian_medis_hemodialisa.urin_berdarah,"+
+                "penilaian_medis_hemodialisa.keterangan_urin_berdarah,penilaian_medis_hemodialisa.penyakit_ginjal_laom,penilaian_medis_hemodialisa.keterangan_penyakit_ginjal_laom,"+
+                "penilaian_medis_hemodialisa.penyakit_lain,penilaian_medis_hemodialisa.keterangan_penyakit_lain,penilaian_medis_hemodialisa.konsumsi_obat_nefro,"+
+                "penilaian_medis_hemodialisa.keterangan_konsumsi_obat_nefro,penilaian_medis_hemodialisa.dialisis_pertama,penilaian_medis_hemodialisa.pernah_cpad,"+
+                "penilaian_medis_hemodialisa.tanggal_cpad,penilaian_medis_hemodialisa.pernah_transplantasi,penilaian_medis_hemodialisa.tanggal_transplantasi,"+
+                "penilaian_medis_hemodialisa.keadaan_umum,penilaian_medis_hemodialisa.kesadaran,penilaian_medis_hemodialisa.nadi,penilaian_medis_hemodialisa.bb,"+
+                "penilaian_medis_hemodialisa.td,penilaian_medis_hemodialisa.suhu,penilaian_medis_hemodialisa.napas,penilaian_medis_hemodialisa.tb,"+
+                "penilaian_medis_hemodialisa.hepatomegali,penilaian_medis_hemodialisa.splenomegali,penilaian_medis_hemodialisa.ascites,penilaian_medis_hemodialisa.edema,"+
+                "penilaian_medis_hemodialisa.whezzing,penilaian_medis_hemodialisa.ronchi,penilaian_medis_hemodialisa.ikterik,penilaian_medis_hemodialisa.tekanan_vena,"+
+                "penilaian_medis_hemodialisa.anemia,penilaian_medis_hemodialisa.kardiomegali,penilaian_medis_hemodialisa.bising,penilaian_medis_hemodialisa.thorax,"+
+                "penilaian_medis_hemodialisa.tanggal_thorax,penilaian_medis_hemodialisa.ekg,penilaian_medis_hemodialisa.tanggal_ekg,penilaian_medis_hemodialisa.bno,"+
+                "penilaian_medis_hemodialisa.tanggal_bno,penilaian_medis_hemodialisa.usg,penilaian_medis_hemodialisa.tanggal_usg,penilaian_medis_hemodialisa.renogram,"+
+                "penilaian_medis_hemodialisa.tanggal_renogram,penilaian_medis_hemodialisa.biopsi,penilaian_medis_hemodialisa.tanggal_biopsi,penilaian_medis_hemodialisa.ctscan,"+
+                "penilaian_medis_hemodialisa.tanggal_ctscan,penilaian_medis_hemodialisa.arteriografi,penilaian_medis_hemodialisa.tanggal_arteriografi,"+
+                "penilaian_medis_hemodialisa.kultur_urin,penilaian_medis_hemodialisa.tanggal_kultur_urin,penilaian_medis_hemodialisa.laborat,penilaian_medis_hemodialisa.tanggal_laborat,"+
+                "penilaian_medis_hemodialisa.hematokrit,penilaian_medis_hemodialisa.hemoglobin,penilaian_medis_hemodialisa.leukosit,penilaian_medis_hemodialisa.trombosit,"+
+                "penilaian_medis_hemodialisa.hitung_jenis,penilaian_medis_hemodialisa.ureum,penilaian_medis_hemodialisa.urin_lengkap,penilaian_medis_hemodialisa.kreatinin,"+
+                "penilaian_medis_hemodialisa.cct,penilaian_medis_hemodialisa.sgot,penilaian_medis_hemodialisa.sgpt,penilaian_medis_hemodialisa.ct,penilaian_medis_hemodialisa.asam_urat,"+
+                "penilaian_medis_hemodialisa.hbsag,penilaian_medis_hemodialisa.anti_hcv,penilaian_medis_hemodialisa.edukasi,dokter.nm_dokter "+
                 "from reg_periksa inner join pasien on reg_periksa.no_rkm_medis=pasien.no_rkm_medis "+
-                "inner join penilaian_medis_ralan_hemodialisa on reg_periksa.no_rawat=penilaian_medis_ralan_hemodialisa.no_rawat "+
-                "inner join dokter on penilaian_medis_ralan_hemodialisa.kd_dokter=dokter.kd_dokter where penilaian_medis_ralan_hemodialisa.no_rawat='"+tbObat.getValueAt(tbObat.getSelectedRow(),0).toString()+"'",param);
+                "inner join penilaian_medis_hemodialisa on reg_periksa.no_rawat=penilaian_medis_hemodialisa.no_rawat "+
+                "inner join dokter on penilaian_medis_hemodialisa.kd_dokter=dokter.kd_dokter where penilaian_medis_hemodialisa.no_rawat='"+tbObat.getValueAt(tbObat.getSelectedRow(),0).toString()+"'",param);
         }
     }//GEN-LAST:event_MnPenilaianMedisActionPerformed
 
@@ -3661,67 +3661,67 @@ public final class RMPenilaianAwalMedisHemodialisa extends javax.swing.JDialog {
         try{
             if(TCari.getText().trim().equals("")){
                 ps=koneksi.prepareStatement(
-                        "select reg_periksa.no_rawat,pasien.no_rkm_medis,pasien.nm_pasien,if(pasien.jk='L','Laki-Laki','Perempuan') as jk,pasien.tgl_lahir,penilaian_medis_ralan_hemodialisa.tanggal,"+
-                        "penilaian_medis_ralan_hemodialisa.kd_dokter,penilaian_medis_ralan_hemodialisa.anamnesis,penilaian_medis_ralan_hemodialisa.hubungan,penilaian_medis_ralan_hemodialisa.ruangan,"+
-                        "penilaian_medis_ralan_hemodialisa.alergi,penilaian_medis_ralan_hemodialisa.nyeri,penilaian_medis_ralan_hemodialisa.status_nutrisi,penilaian_medis_ralan_hemodialisa.hipertensi,"+
-                        "penilaian_medis_ralan_hemodialisa.keterangan_hipertensi,penilaian_medis_ralan_hemodialisa.diabetes,penilaian_medis_ralan_hemodialisa.keterangan_diabetes,"+
-                        "penilaian_medis_ralan_hemodialisa.batu_saluran_kemih,penilaian_medis_ralan_hemodialisa.keterangan_batu_saluran_kemih,penilaian_medis_ralan_hemodialisa.operasi_saluran_kemih,"+
-                        "penilaian_medis_ralan_hemodialisa.keterangan_operasi_saluran_kemih,penilaian_medis_ralan_hemodialisa.infeksi_saluran_kemih,penilaian_medis_ralan_hemodialisa.keterangan_infeksi_saluran_kemih,"+
-                        "penilaian_medis_ralan_hemodialisa.bengkak_seluruh_tubuh,penilaian_medis_ralan_hemodialisa.keterangan_bengkak_seluruh_tubuh,penilaian_medis_ralan_hemodialisa.urin_berdarah,"+
-                        "penilaian_medis_ralan_hemodialisa.keterangan_urin_berdarah,penilaian_medis_ralan_hemodialisa.penyakit_ginjal_laom,penilaian_medis_ralan_hemodialisa.keterangan_penyakit_ginjal_laom,"+
-                        "penilaian_medis_ralan_hemodialisa.penyakit_lain,penilaian_medis_ralan_hemodialisa.keterangan_penyakit_lain,penilaian_medis_ralan_hemodialisa.konsumsi_obat_nefro,"+
-                        "penilaian_medis_ralan_hemodialisa.keterangan_konsumsi_obat_nefro,penilaian_medis_ralan_hemodialisa.dialisis_pertama,penilaian_medis_ralan_hemodialisa.pernah_cpad,"+
-                        "penilaian_medis_ralan_hemodialisa.tanggal_cpad,penilaian_medis_ralan_hemodialisa.pernah_transplantasi,penilaian_medis_ralan_hemodialisa.tanggal_transplantasi,"+
-                        "penilaian_medis_ralan_hemodialisa.keadaan_umum,penilaian_medis_ralan_hemodialisa.kesadaran,penilaian_medis_ralan_hemodialisa.nadi,penilaian_medis_ralan_hemodialisa.bb,"+
-                        "penilaian_medis_ralan_hemodialisa.td,penilaian_medis_ralan_hemodialisa.suhu,penilaian_medis_ralan_hemodialisa.napas,penilaian_medis_ralan_hemodialisa.tb,"+
-                        "penilaian_medis_ralan_hemodialisa.hepatomegali,penilaian_medis_ralan_hemodialisa.splenomegali,penilaian_medis_ralan_hemodialisa.ascites,penilaian_medis_ralan_hemodialisa.edema,"+
-                        "penilaian_medis_ralan_hemodialisa.whezzing,penilaian_medis_ralan_hemodialisa.ronchi,penilaian_medis_ralan_hemodialisa.ikterik,penilaian_medis_ralan_hemodialisa.tekanan_vena,"+
-                        "penilaian_medis_ralan_hemodialisa.anemia,penilaian_medis_ralan_hemodialisa.kardiomegali,penilaian_medis_ralan_hemodialisa.bising,penilaian_medis_ralan_hemodialisa.thorax,"+
-                        "penilaian_medis_ralan_hemodialisa.tanggal_thorax,penilaian_medis_ralan_hemodialisa.ekg,penilaian_medis_ralan_hemodialisa.tanggal_ekg,penilaian_medis_ralan_hemodialisa.bno,"+
-                        "penilaian_medis_ralan_hemodialisa.tanggal_bno,penilaian_medis_ralan_hemodialisa.usg,penilaian_medis_ralan_hemodialisa.tanggal_usg,penilaian_medis_ralan_hemodialisa.renogram,"+
-                        "penilaian_medis_ralan_hemodialisa.tanggal_renogram,penilaian_medis_ralan_hemodialisa.biopsi,penilaian_medis_ralan_hemodialisa.tanggal_biopsi,penilaian_medis_ralan_hemodialisa.ctscan,"+
-                        "penilaian_medis_ralan_hemodialisa.tanggal_ctscan,penilaian_medis_ralan_hemodialisa.arteriografi,penilaian_medis_ralan_hemodialisa.tanggal_arteriografi,"+
-                        "penilaian_medis_ralan_hemodialisa.kultur_urin,penilaian_medis_ralan_hemodialisa.tanggal_kultur_urin,penilaian_medis_ralan_hemodialisa.laborat,penilaian_medis_ralan_hemodialisa.tanggal_laborat,"+
-                        "penilaian_medis_ralan_hemodialisa.hematokrit,penilaian_medis_ralan_hemodialisa.hemoglobin,penilaian_medis_ralan_hemodialisa.leukosit,penilaian_medis_ralan_hemodialisa.trombosit,"+
-                        "penilaian_medis_ralan_hemodialisa.hitung_jenis,penilaian_medis_ralan_hemodialisa.ureum,penilaian_medis_ralan_hemodialisa.urin_lengkap,penilaian_medis_ralan_hemodialisa.kreatinin,"+
-                        "penilaian_medis_ralan_hemodialisa.cct,penilaian_medis_ralan_hemodialisa.sgot,penilaian_medis_ralan_hemodialisa.sgpt,penilaian_medis_ralan_hemodialisa.ct,penilaian_medis_ralan_hemodialisa.asam_urat,"+
-                        "penilaian_medis_ralan_hemodialisa.hbsag,penilaian_medis_ralan_hemodialisa.anti_hcv,penilaian_medis_ralan_hemodialisa.edukasi,dokter.nm_dokter "+
+                        "select reg_periksa.no_rawat,pasien.no_rkm_medis,pasien.nm_pasien,if(pasien.jk='L','Laki-Laki','Perempuan') as jk,pasien.tgl_lahir,penilaian_medis_hemodialisa.tanggal,"+
+                        "penilaian_medis_hemodialisa.kd_dokter,penilaian_medis_hemodialisa.anamnesis,penilaian_medis_hemodialisa.hubungan,penilaian_medis_hemodialisa.ruangan,"+
+                        "penilaian_medis_hemodialisa.alergi,penilaian_medis_hemodialisa.nyeri,penilaian_medis_hemodialisa.status_nutrisi,penilaian_medis_hemodialisa.hipertensi,"+
+                        "penilaian_medis_hemodialisa.keterangan_hipertensi,penilaian_medis_hemodialisa.diabetes,penilaian_medis_hemodialisa.keterangan_diabetes,"+
+                        "penilaian_medis_hemodialisa.batu_saluran_kemih,penilaian_medis_hemodialisa.keterangan_batu_saluran_kemih,penilaian_medis_hemodialisa.operasi_saluran_kemih,"+
+                        "penilaian_medis_hemodialisa.keterangan_operasi_saluran_kemih,penilaian_medis_hemodialisa.infeksi_saluran_kemih,penilaian_medis_hemodialisa.keterangan_infeksi_saluran_kemih,"+
+                        "penilaian_medis_hemodialisa.bengkak_seluruh_tubuh,penilaian_medis_hemodialisa.keterangan_bengkak_seluruh_tubuh,penilaian_medis_hemodialisa.urin_berdarah,"+
+                        "penilaian_medis_hemodialisa.keterangan_urin_berdarah,penilaian_medis_hemodialisa.penyakit_ginjal_laom,penilaian_medis_hemodialisa.keterangan_penyakit_ginjal_laom,"+
+                        "penilaian_medis_hemodialisa.penyakit_lain,penilaian_medis_hemodialisa.keterangan_penyakit_lain,penilaian_medis_hemodialisa.konsumsi_obat_nefro,"+
+                        "penilaian_medis_hemodialisa.keterangan_konsumsi_obat_nefro,penilaian_medis_hemodialisa.dialisis_pertama,penilaian_medis_hemodialisa.pernah_cpad,"+
+                        "penilaian_medis_hemodialisa.tanggal_cpad,penilaian_medis_hemodialisa.pernah_transplantasi,penilaian_medis_hemodialisa.tanggal_transplantasi,"+
+                        "penilaian_medis_hemodialisa.keadaan_umum,penilaian_medis_hemodialisa.kesadaran,penilaian_medis_hemodialisa.nadi,penilaian_medis_hemodialisa.bb,"+
+                        "penilaian_medis_hemodialisa.td,penilaian_medis_hemodialisa.suhu,penilaian_medis_hemodialisa.napas,penilaian_medis_hemodialisa.tb,"+
+                        "penilaian_medis_hemodialisa.hepatomegali,penilaian_medis_hemodialisa.splenomegali,penilaian_medis_hemodialisa.ascites,penilaian_medis_hemodialisa.edema,"+
+                        "penilaian_medis_hemodialisa.whezzing,penilaian_medis_hemodialisa.ronchi,penilaian_medis_hemodialisa.ikterik,penilaian_medis_hemodialisa.tekanan_vena,"+
+                        "penilaian_medis_hemodialisa.anemia,penilaian_medis_hemodialisa.kardiomegali,penilaian_medis_hemodialisa.bising,penilaian_medis_hemodialisa.thorax,"+
+                        "penilaian_medis_hemodialisa.tanggal_thorax,penilaian_medis_hemodialisa.ekg,penilaian_medis_hemodialisa.tanggal_ekg,penilaian_medis_hemodialisa.bno,"+
+                        "penilaian_medis_hemodialisa.tanggal_bno,penilaian_medis_hemodialisa.usg,penilaian_medis_hemodialisa.tanggal_usg,penilaian_medis_hemodialisa.renogram,"+
+                        "penilaian_medis_hemodialisa.tanggal_renogram,penilaian_medis_hemodialisa.biopsi,penilaian_medis_hemodialisa.tanggal_biopsi,penilaian_medis_hemodialisa.ctscan,"+
+                        "penilaian_medis_hemodialisa.tanggal_ctscan,penilaian_medis_hemodialisa.arteriografi,penilaian_medis_hemodialisa.tanggal_arteriografi,"+
+                        "penilaian_medis_hemodialisa.kultur_urin,penilaian_medis_hemodialisa.tanggal_kultur_urin,penilaian_medis_hemodialisa.laborat,penilaian_medis_hemodialisa.tanggal_laborat,"+
+                        "penilaian_medis_hemodialisa.hematokrit,penilaian_medis_hemodialisa.hemoglobin,penilaian_medis_hemodialisa.leukosit,penilaian_medis_hemodialisa.trombosit,"+
+                        "penilaian_medis_hemodialisa.hitung_jenis,penilaian_medis_hemodialisa.ureum,penilaian_medis_hemodialisa.urin_lengkap,penilaian_medis_hemodialisa.kreatinin,"+
+                        "penilaian_medis_hemodialisa.cct,penilaian_medis_hemodialisa.sgot,penilaian_medis_hemodialisa.sgpt,penilaian_medis_hemodialisa.ct,penilaian_medis_hemodialisa.asam_urat,"+
+                        "penilaian_medis_hemodialisa.hbsag,penilaian_medis_hemodialisa.anti_hcv,penilaian_medis_hemodialisa.edukasi,dokter.nm_dokter "+
                         "from reg_periksa inner join pasien on reg_periksa.no_rkm_medis=pasien.no_rkm_medis "+
-                        "inner join penilaian_medis_ralan_hemodialisa on reg_periksa.no_rawat=penilaian_medis_ralan_hemodialisa.no_rawat "+
-                        "inner join dokter on penilaian_medis_ralan_hemodialisa.kd_dokter=dokter.kd_dokter where "+
-                        "penilaian_medis_ralan_hemodialisa.tanggal between ? and ? order by penilaian_medis_ralan_hemodialisa.tanggal");
+                        "inner join penilaian_medis_hemodialisa on reg_periksa.no_rawat=penilaian_medis_hemodialisa.no_rawat "+
+                        "inner join dokter on penilaian_medis_hemodialisa.kd_dokter=dokter.kd_dokter where "+
+                        "penilaian_medis_hemodialisa.tanggal between ? and ? order by penilaian_medis_hemodialisa.tanggal");
             }else{
                 ps=koneksi.prepareStatement(
-                        "select reg_periksa.no_rawat,pasien.no_rkm_medis,pasien.nm_pasien,if(pasien.jk='L','Laki-Laki','Perempuan') as jk,pasien.tgl_lahir,penilaian_medis_ralan_hemodialisa.tanggal,"+
-                        "penilaian_medis_ralan_hemodialisa.kd_dokter,penilaian_medis_ralan_hemodialisa.anamnesis,penilaian_medis_ralan_hemodialisa.hubungan,penilaian_medis_ralan_hemodialisa.ruangan,"+
-                        "penilaian_medis_ralan_hemodialisa.alergi,penilaian_medis_ralan_hemodialisa.nyeri,penilaian_medis_ralan_hemodialisa.status_nutrisi,penilaian_medis_ralan_hemodialisa.hipertensi,"+
-                        "penilaian_medis_ralan_hemodialisa.keterangan_hipertensi,penilaian_medis_ralan_hemodialisa.diabetes,penilaian_medis_ralan_hemodialisa.keterangan_diabetes,"+
-                        "penilaian_medis_ralan_hemodialisa.batu_saluran_kemih,penilaian_medis_ralan_hemodialisa.keterangan_batu_saluran_kemih,penilaian_medis_ralan_hemodialisa.operasi_saluran_kemih,"+
-                        "penilaian_medis_ralan_hemodialisa.keterangan_operasi_saluran_kemih,penilaian_medis_ralan_hemodialisa.infeksi_saluran_kemih,penilaian_medis_ralan_hemodialisa.keterangan_infeksi_saluran_kemih,"+
-                        "penilaian_medis_ralan_hemodialisa.bengkak_seluruh_tubuh,penilaian_medis_ralan_hemodialisa.keterangan_bengkak_seluruh_tubuh,penilaian_medis_ralan_hemodialisa.urin_berdarah,"+
-                        "penilaian_medis_ralan_hemodialisa.keterangan_urin_berdarah,penilaian_medis_ralan_hemodialisa.penyakit_ginjal_laom,penilaian_medis_ralan_hemodialisa.keterangan_penyakit_ginjal_laom,"+
-                        "penilaian_medis_ralan_hemodialisa.penyakit_lain,penilaian_medis_ralan_hemodialisa.keterangan_penyakit_lain,penilaian_medis_ralan_hemodialisa.konsumsi_obat_nefro,"+
-                        "penilaian_medis_ralan_hemodialisa.keterangan_konsumsi_obat_nefro,penilaian_medis_ralan_hemodialisa.dialisis_pertama,penilaian_medis_ralan_hemodialisa.pernah_cpad,"+
-                        "penilaian_medis_ralan_hemodialisa.tanggal_cpad,penilaian_medis_ralan_hemodialisa.pernah_transplantasi,penilaian_medis_ralan_hemodialisa.tanggal_transplantasi,"+
-                        "penilaian_medis_ralan_hemodialisa.keadaan_umum,penilaian_medis_ralan_hemodialisa.kesadaran,penilaian_medis_ralan_hemodialisa.nadi,penilaian_medis_ralan_hemodialisa.bb,"+
-                        "penilaian_medis_ralan_hemodialisa.td,penilaian_medis_ralan_hemodialisa.suhu,penilaian_medis_ralan_hemodialisa.napas,penilaian_medis_ralan_hemodialisa.tb,"+
-                        "penilaian_medis_ralan_hemodialisa.hepatomegali,penilaian_medis_ralan_hemodialisa.splenomegali,penilaian_medis_ralan_hemodialisa.ascites,penilaian_medis_ralan_hemodialisa.edema,"+
-                        "penilaian_medis_ralan_hemodialisa.whezzing,penilaian_medis_ralan_hemodialisa.ronchi,penilaian_medis_ralan_hemodialisa.ikterik,penilaian_medis_ralan_hemodialisa.tekanan_vena,"+
-                        "penilaian_medis_ralan_hemodialisa.anemia,penilaian_medis_ralan_hemodialisa.kardiomegali,penilaian_medis_ralan_hemodialisa.bising,penilaian_medis_ralan_hemodialisa.thorax,"+
-                        "penilaian_medis_ralan_hemodialisa.tanggal_thorax,penilaian_medis_ralan_hemodialisa.ekg,penilaian_medis_ralan_hemodialisa.tanggal_ekg,penilaian_medis_ralan_hemodialisa.bno,"+
-                        "penilaian_medis_ralan_hemodialisa.tanggal_bno,penilaian_medis_ralan_hemodialisa.usg,penilaian_medis_ralan_hemodialisa.tanggal_usg,penilaian_medis_ralan_hemodialisa.renogram,"+
-                        "penilaian_medis_ralan_hemodialisa.tanggal_renogram,penilaian_medis_ralan_hemodialisa.biopsi,penilaian_medis_ralan_hemodialisa.tanggal_biopsi,penilaian_medis_ralan_hemodialisa.ctscan,"+
-                        "penilaian_medis_ralan_hemodialisa.tanggal_ctscan,penilaian_medis_ralan_hemodialisa.arteriografi,penilaian_medis_ralan_hemodialisa.tanggal_arteriografi,"+
-                        "penilaian_medis_ralan_hemodialisa.kultur_urin,penilaian_medis_ralan_hemodialisa.tanggal_kultur_urin,penilaian_medis_ralan_hemodialisa.laborat,penilaian_medis_ralan_hemodialisa.tanggal_laborat,"+
-                        "penilaian_medis_ralan_hemodialisa.hematokrit,penilaian_medis_ralan_hemodialisa.hemoglobin,penilaian_medis_ralan_hemodialisa.leukosit,penilaian_medis_ralan_hemodialisa.trombosit,"+
-                        "penilaian_medis_ralan_hemodialisa.hitung_jenis,penilaian_medis_ralan_hemodialisa.ureum,penilaian_medis_ralan_hemodialisa.urin_lengkap,penilaian_medis_ralan_hemodialisa.kreatinin,"+
-                        "penilaian_medis_ralan_hemodialisa.cct,penilaian_medis_ralan_hemodialisa.sgot,penilaian_medis_ralan_hemodialisa.sgpt,penilaian_medis_ralan_hemodialisa.ct,penilaian_medis_ralan_hemodialisa.asam_urat,"+
-                        "penilaian_medis_ralan_hemodialisa.hbsag,penilaian_medis_ralan_hemodialisa.anti_hcv,penilaian_medis_ralan_hemodialisa.edukasi,dokter.nm_dokter "+
+                        "select reg_periksa.no_rawat,pasien.no_rkm_medis,pasien.nm_pasien,if(pasien.jk='L','Laki-Laki','Perempuan') as jk,pasien.tgl_lahir,penilaian_medis_hemodialisa.tanggal,"+
+                        "penilaian_medis_hemodialisa.kd_dokter,penilaian_medis_hemodialisa.anamnesis,penilaian_medis_hemodialisa.hubungan,penilaian_medis_hemodialisa.ruangan,"+
+                        "penilaian_medis_hemodialisa.alergi,penilaian_medis_hemodialisa.nyeri,penilaian_medis_hemodialisa.status_nutrisi,penilaian_medis_hemodialisa.hipertensi,"+
+                        "penilaian_medis_hemodialisa.keterangan_hipertensi,penilaian_medis_hemodialisa.diabetes,penilaian_medis_hemodialisa.keterangan_diabetes,"+
+                        "penilaian_medis_hemodialisa.batu_saluran_kemih,penilaian_medis_hemodialisa.keterangan_batu_saluran_kemih,penilaian_medis_hemodialisa.operasi_saluran_kemih,"+
+                        "penilaian_medis_hemodialisa.keterangan_operasi_saluran_kemih,penilaian_medis_hemodialisa.infeksi_saluran_kemih,penilaian_medis_hemodialisa.keterangan_infeksi_saluran_kemih,"+
+                        "penilaian_medis_hemodialisa.bengkak_seluruh_tubuh,penilaian_medis_hemodialisa.keterangan_bengkak_seluruh_tubuh,penilaian_medis_hemodialisa.urin_berdarah,"+
+                        "penilaian_medis_hemodialisa.keterangan_urin_berdarah,penilaian_medis_hemodialisa.penyakit_ginjal_laom,penilaian_medis_hemodialisa.keterangan_penyakit_ginjal_laom,"+
+                        "penilaian_medis_hemodialisa.penyakit_lain,penilaian_medis_hemodialisa.keterangan_penyakit_lain,penilaian_medis_hemodialisa.konsumsi_obat_nefro,"+
+                        "penilaian_medis_hemodialisa.keterangan_konsumsi_obat_nefro,penilaian_medis_hemodialisa.dialisis_pertama,penilaian_medis_hemodialisa.pernah_cpad,"+
+                        "penilaian_medis_hemodialisa.tanggal_cpad,penilaian_medis_hemodialisa.pernah_transplantasi,penilaian_medis_hemodialisa.tanggal_transplantasi,"+
+                        "penilaian_medis_hemodialisa.keadaan_umum,penilaian_medis_hemodialisa.kesadaran,penilaian_medis_hemodialisa.nadi,penilaian_medis_hemodialisa.bb,"+
+                        "penilaian_medis_hemodialisa.td,penilaian_medis_hemodialisa.suhu,penilaian_medis_hemodialisa.napas,penilaian_medis_hemodialisa.tb,"+
+                        "penilaian_medis_hemodialisa.hepatomegali,penilaian_medis_hemodialisa.splenomegali,penilaian_medis_hemodialisa.ascites,penilaian_medis_hemodialisa.edema,"+
+                        "penilaian_medis_hemodialisa.whezzing,penilaian_medis_hemodialisa.ronchi,penilaian_medis_hemodialisa.ikterik,penilaian_medis_hemodialisa.tekanan_vena,"+
+                        "penilaian_medis_hemodialisa.anemia,penilaian_medis_hemodialisa.kardiomegali,penilaian_medis_hemodialisa.bising,penilaian_medis_hemodialisa.thorax,"+
+                        "penilaian_medis_hemodialisa.tanggal_thorax,penilaian_medis_hemodialisa.ekg,penilaian_medis_hemodialisa.tanggal_ekg,penilaian_medis_hemodialisa.bno,"+
+                        "penilaian_medis_hemodialisa.tanggal_bno,penilaian_medis_hemodialisa.usg,penilaian_medis_hemodialisa.tanggal_usg,penilaian_medis_hemodialisa.renogram,"+
+                        "penilaian_medis_hemodialisa.tanggal_renogram,penilaian_medis_hemodialisa.biopsi,penilaian_medis_hemodialisa.tanggal_biopsi,penilaian_medis_hemodialisa.ctscan,"+
+                        "penilaian_medis_hemodialisa.tanggal_ctscan,penilaian_medis_hemodialisa.arteriografi,penilaian_medis_hemodialisa.tanggal_arteriografi,"+
+                        "penilaian_medis_hemodialisa.kultur_urin,penilaian_medis_hemodialisa.tanggal_kultur_urin,penilaian_medis_hemodialisa.laborat,penilaian_medis_hemodialisa.tanggal_laborat,"+
+                        "penilaian_medis_hemodialisa.hematokrit,penilaian_medis_hemodialisa.hemoglobin,penilaian_medis_hemodialisa.leukosit,penilaian_medis_hemodialisa.trombosit,"+
+                        "penilaian_medis_hemodialisa.hitung_jenis,penilaian_medis_hemodialisa.ureum,penilaian_medis_hemodialisa.urin_lengkap,penilaian_medis_hemodialisa.kreatinin,"+
+                        "penilaian_medis_hemodialisa.cct,penilaian_medis_hemodialisa.sgot,penilaian_medis_hemodialisa.sgpt,penilaian_medis_hemodialisa.ct,penilaian_medis_hemodialisa.asam_urat,"+
+                        "penilaian_medis_hemodialisa.hbsag,penilaian_medis_hemodialisa.anti_hcv,penilaian_medis_hemodialisa.edukasi,dokter.nm_dokter "+
                         "from reg_periksa inner join pasien on reg_periksa.no_rkm_medis=pasien.no_rkm_medis "+
-                        "inner join penilaian_medis_ralan_hemodialisa on reg_periksa.no_rawat=penilaian_medis_ralan_hemodialisa.no_rawat "+
-                        "inner join dokter on penilaian_medis_ralan_hemodialisa.kd_dokter=dokter.kd_dokter where "+
-                        "penilaian_medis_ralan_hemodialisa.tanggal between ? and ? and (reg_periksa.no_rawat like ? or pasien.no_rkm_medis like ? or pasien.nm_pasien like ? or "+
-                        "penilaian_medis_ralan_hemodialisa.kd_dokter like ? or dokter.nm_dokter like ?) order by penilaian_medis_ralan_hemodialisa.tanggal");
+                        "inner join penilaian_medis_hemodialisa on reg_periksa.no_rawat=penilaian_medis_hemodialisa.no_rawat "+
+                        "inner join dokter on penilaian_medis_hemodialisa.kd_dokter=dokter.kd_dokter where "+
+                        "penilaian_medis_hemodialisa.tanggal between ? and ? and (reg_periksa.no_rawat like ? or pasien.no_rkm_medis like ? or pasien.nm_pasien like ? or "+
+                        "penilaian_medis_hemodialisa.kd_dokter like ? or dokter.nm_dokter like ?) order by penilaian_medis_hemodialisa.tanggal");
             }
                 
             try {
@@ -4073,7 +4073,7 @@ public final class RMPenilaianAwalMedisHemodialisa extends javax.swing.JDialog {
     }
 
     private void hapus() {
-        if(Sequel.queryu2tf("delete from penilaian_medis_ralan_hemodialisa where no_rawat=?",1,new String[]{
+        if(Sequel.queryu2tf("delete from penilaian_medis_hemodialisa where no_rawat=?",1,new String[]{
             tbObat.getValueAt(tbObat.getSelectedRow(),0).toString()
         })==true){
             tabMode.removeRow(tbObat.getSelectedRow());
@@ -4085,7 +4085,7 @@ public final class RMPenilaianAwalMedisHemodialisa extends javax.swing.JDialog {
     }
 
     private void ganti() {
-        if(Sequel.mengedittf("penilaian_medis_ralan_hemodialisa","no_rawat=?","no_rawat=?,tanggal=?,kd_dokter=?,anamnesis=?,hubungan=?,ruangan=?,alergi=?,nyeri=?,status_nutrisi=?,hipertensi=?,keterangan_hipertensi=?,diabetes=?,"+
+        if(Sequel.mengedittf("penilaian_medis_hemodialisa","no_rawat=?","no_rawat=?,tanggal=?,kd_dokter=?,anamnesis=?,hubungan=?,ruangan=?,alergi=?,nyeri=?,status_nutrisi=?,hipertensi=?,keterangan_hipertensi=?,diabetes=?,"+
                 "keterangan_diabetes=?,batu_saluran_kemih=?,keterangan_batu_saluran_kemih=?,operasi_saluran_kemih=?,keterangan_operasi_saluran_kemih=?,infeksi_saluran_kemih=?,keterangan_infeksi_saluran_kemih=?,bengkak_seluruh_tubuh=?,"+
                 "keterangan_bengkak_seluruh_tubuh=?,urin_berdarah=?,keterangan_urin_berdarah=?,penyakit_ginjal_laom=?,keterangan_penyakit_ginjal_laom=?,penyakit_lain=?,keterangan_penyakit_lain=?,konsumsi_obat_nefro=?,"+
                 "keterangan_konsumsi_obat_nefro=?,dialisis_pertama=?,pernah_cpad=?,tanggal_cpad=?,pernah_transplantasi=?,tanggal_transplantasi=?,keadaan_umum=?,kesadaran=?,nadi=?,bb=?,td=?,suhu=?,napas=?,tb=?,hepatomegali=?,"+

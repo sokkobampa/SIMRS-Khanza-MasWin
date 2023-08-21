@@ -4074,7 +4074,7 @@ public class DlgUpdateUser extends javax.swing.JDialog {
         }
         
         if("[M]Penilaian Awal Medis Pasien Hemodialisa".toLowerCase().contains(TCari.getText().toLowerCase())){
-            tabMode.addRow(new Object[]{false,"[M]Penilaian Awal Medis Pasien Hemodialisa",penilaian_medis_ralan_hemodialisa});
+            tabMode.addRow(new Object[]{false,"[M]Penilaian Awal Medis Pasien Hemodialisa",penilaian_medis_hemodialisa});
         }
         
         if("[M]Penilaian Level Kecemasan Ranap Anak".toLowerCase().contains(TCari.getText().toLowerCase())){
@@ -7977,7 +7977,7 @@ public class DlgUpdateUser extends javax.swing.JDialog {
             }
             
             if("[M]Penilaian Awal Medis Pasien Hemodialisa".equals(tbUser.getValueAt(i,1).toString())){
-                Sequel.mengedit("user","id_user=AES_ENCRYPT('"+TKd.getText()+"','nur')","penilaian_medis_ralan_hemodialisa='"+tbUser.getValueAt(i,2).toString()+"'");
+                Sequel.mengedit("user","id_user=AES_ENCRYPT('"+TKd.getText()+"','nur')","penilaian_medis_hemodialisa='"+tbUser.getValueAt(i,2).toString()+"'");
             }
             
             if("[M]Penilaian Level Kecemasan Ranap Anak".equals(tbUser.getValueAt(i,1).toString())){

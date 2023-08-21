@@ -2,10 +2,12 @@
 <!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
 <properties>
     <comment>KhanzaHMS</comment>
+    <entry key="URLFINGERPRINTBPJS">https://fp.bpjs-kesehatan.go.id/finger-rest/</entry>
+    <entry key="URLAPLIKASIFINGERPRINTBPJS">C:\Program Files (x86)\Aplikasi Sidik Jari BPJS Kesehatan\After.exe</entry>
+    <entry key="USERFINGERPRINTBPJS"></entry>
+    <entry key="PASSWORDFINGERPRINTBPJS"></entry>
     <entry key="HOST">5k7+C7EnUw9nUv2Nix+DBA==</entry>                  <!-- localhost -->
-    <entry key="DATABASE">Ik2s4XsaQsmZvQ7dbKq8wA==</entry>              <!-- sik_baru -->
-    <!-- <entry key="DATABASE">JQaP+LYE5t2ClrKPgi1wgQ==</entry>              khanza -->
-    <!-- <entry key="DATABASE">AZHNccBwSmSho84f+X8GyQ==</entry>              sik -->
+    <entry key="DATABASE">AZHNccBwSmSho84f+X8GyQ==</entry>              <!-- sik -->
     <entry key="PORT">nioxtijcpDaKSUiUiP5FAg==</entry>                  <!-- 3306 -->
     <entry key="USER">kMR3WfAwUK6MbhCyydxa0g==</entry>                  <!-- root -->
     <entry key="PAS">l4nh5eVYrLAER/I2A4b3Tw==</entry>                   <!-- [null] -->
