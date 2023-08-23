@@ -139,16 +139,20 @@ public final class sekuel {
     
     public void insertOrUpdateTampJurnal(String kdRek, String nmRek, double d, double k)
     {
+        if (d == 0 && k == 0) {
+            return;
+        }
+        
         String track;
         String insertQuery = "insert into tampjurnal_smc (kd_rek, nm_rek, debet, kredit, user_id, ip) values (?, ?, ?, ?, ?, ?)";
         String updateQuery = "update tampjurnal_smc set ?? where kd_rek = ? and user_id = ? and ip = ?";
         
-        if (d > 0) {
-            updateQuery = updateQuery.replaceFirst("\\?\\?", "debet = debet + " + d);
-        } else if (k > 0) {
-            updateQuery = updateQuery.replaceFirst("\\?\\?", "kredit = kredit + " + k);
+        if (d > 0 && k == 0) {
+            updateQuery = updateQuery.replaceFirst("\\?\\?", "debet = debet + ?");
+        } else if (d == 0 && k > 0) {
+            updateQuery = updateQuery.replaceFirst("\\?\\?", "kredit = kredit + ?");
         } else if (d > 0 && k > 0) {
-            updateQuery = updateQuery.replaceFirst("\\?\\?", "debet = debet + " + d + ", kredit = kredit + " + k);
+            updateQuery = updateQuery.replaceFirst("\\?\\?", "debet = debet + ?, kredit = kredit + ?");
         }
         
         try {
@@ -180,13 +184,35 @@ public final class sekuel {
             System.out.println("Melakukan update...");
             try {
                 ps = connect.prepareStatement(updateQuery);
-                ps.setString(1, kdRek);
-                ps.setString(2, akses.getkode());
-                ps.setString(3, akses.getalamatip());
+                track = updateQuery;
+                
+                if (d > 0 && k == 0) {
+                    ps.setDouble(1, d);
+                    ps.setString(2, kdRek);
+                    ps.setString(3, akses.getkode());
+                    ps.setString(4, akses.getalamatip());
+                    
+                    track = track.replaceFirst("\\?", "'"+(new BigDecimal(d)).setScale(2, RoundingMode.HALF_EVEN).toString()+"'");
+                } else if (d == 0 && k > 0) {
+                    ps.setDouble(1, k);
+                    ps.setString(2, kdRek);
+                    ps.setString(3, akses.getkode());
+                    ps.setString(4, akses.getalamatip());
+                    
+                    track = track.replaceFirst("\\?", "'"+(new BigDecimal(k)).setScale(2, RoundingMode.HALF_EVEN).toString()+"'");
+                } else if (d > 0 && k > 0) {
+                    ps.setDouble(1, d);
+                    ps.setDouble(2, k);
+                    ps.setString(3, kdRek);
+                    ps.setString(4, akses.getkode());
+                    ps.setString(5, akses.getalamatip());
+                    
+                    track = track.replaceFirst("\\?", "'"+(new BigDecimal(d)).setScale(2, RoundingMode.HALF_EVEN).toString()+"'");
+                    track = track.replaceFirst("\\?", "'"+(new BigDecimal(k)).setScale(2, RoundingMode.HALF_EVEN).toString()+"'");
+                }
                 
                 ps.executeUpdate();
                 
-                track = updateQuery;
                 track = track.replaceFirst("\\?", "'"+kdRek+"'");
                 track = track.replaceFirst("\\?", "'"+akses.getkode()+"'");
                 track = track.replaceFirst("\\?", "'"+akses.getalamatip()+"'");
@@ -199,7 +225,7 @@ public final class sekuel {
             } catch (SQLException ex) {
                 System.out.println("Notifikasi : " + ex);
             
-                JOptionPane.showMessageDialog(null, "Gagal menyimpan data!");
+                JOptionPane.showMessageDialog(null, "Gagal menyimpan data! Kemungkinan ada rekening yang samsa dimasukkan sebelumnya!");
             }
         }
     }

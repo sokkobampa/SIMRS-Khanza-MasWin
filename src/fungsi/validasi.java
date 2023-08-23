@@ -1361,6 +1361,10 @@ public final class validasi {
         return x;
     }
     
+    public double setAngkaSmc(String value) {
+        return (new BigDecimal(value)).setScale(2, RoundingMode.HALF_EVEN).doubleValue();
+    }
+    
     public int SetInteger(String txt){
         int x;   
         try {
