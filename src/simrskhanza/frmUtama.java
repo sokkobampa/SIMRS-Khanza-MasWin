@@ -25830,6 +25830,11 @@ private void MnGantiPasswordBtnLogActionPerformed(java.awt.event.ActionEvent evt
                 Panelmenu.add(btnPenolakanAnjuranMedis);
                 jmlmenu++;
             }
+            
+            if (akses.gettemplate_persetujuan_penolakan_tindakan()) {
+                Panelmenu.add(btnTemplatePersetujuanPenolakanTindakan);
+                jmlmenu++;
+            }
         }else if(cmbMenu.getSelectedIndex()==16){ 
             jmlmenu=0;
             if(akses.getruang_perpustakaan()==true){
@@ -31068,6 +31073,11 @@ private void MnGantiPasswordBtnLogActionPerformed(java.awt.event.ActionEvent evt
         
         if(akses.getruang_ok()==true){
             Panelmenu.add(btnRuangOperasi);
+            jmlmenu++;
+        }
+        
+        if (akses.gettemplate_persetujuan_penolakan_tindakan()) {
+            Panelmenu.add(btnTemplatePersetujuanPenolakanTindakan);
             jmlmenu++;
         }
     }
@@ -37821,6 +37831,13 @@ private void MnGantiPasswordBtnLogActionPerformed(java.awt.event.ActionEvent evt
                 Panelmenu.add(btnRuangOperasi);
                 jmlmenu++;
             }                
+        }
+        
+        if (akses.gettemplate_persetujuan_penolakan_tindakan()) {
+            if (btnTemplatePersetujuanPenolakanTindakan.getText().toLowerCase().trim().contains(TCari.getText().toLowerCase().trim())) {
+                Panelmenu.add(btnTemplatePersetujuanPenolakanTindakan);
+                jmlmenu++;
+            }
         }
     }
 
