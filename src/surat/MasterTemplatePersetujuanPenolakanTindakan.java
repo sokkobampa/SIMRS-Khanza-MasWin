@@ -148,7 +148,7 @@ public class MasterTemplatePersetujuanPenolakanTindakan extends javax.swing.JDia
         setUndecorated(true);
         setResizable(false);
 
-        internalFrame1.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(240, 245, 235)), "::[ Master Template Hasil Pemeriksaan Radiologi ]::", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 11), new java.awt.Color(50, 50, 50))); // NOI18N
+        internalFrame1.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(240, 245, 235)), "::[ Master Template Persetujuan Penolakan Tindakan ]::", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 11), new java.awt.Color(50, 50, 50))); // NOI18N
         internalFrame1.setName("internalFrame1"); // NOI18N
         internalFrame1.setPreferredSize(new java.awt.Dimension(893, 664));
         internalFrame1.setLayout(new java.awt.BorderLayout(1, 1));
@@ -212,28 +212,235 @@ public class MasterTemplatePersetujuanPenolakanTindakan extends javax.swing.JDia
         });
         scrollPane7.setViewportView(Diagnosa);
 
-        jLabel40.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        jLabel40.setText("Template Hasil Pemeriksaan Radiologi :");
-        jLabel40.setName("jLabel40"); // NOI18N
-        FormInput.add(jLabel40);
-        jLabel40.setBounds(16, 40, 410, 20);
+        FormInput.add(scrollPane7);
+        scrollPane7.setBounds(14, 60, 350, 43);
 
-        scrollPane2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        scrollPane2.setName("scrollPane2"); // NOI18N
+        jLabel83.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        jLabel83.setText("Tindakan Kedokteran :");
+        jLabel83.setName("jLabel83"); // NOI18N
+        FormInput.add(jLabel83);
+        jLabel83.setBounds(374, 40, 150, 23);
 
-        Template.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
-        Template.setColumns(20);
-        Template.setRows(30);
-        Template.setName("Template"); // NOI18N
-        Template.addKeyListener(new java.awt.event.KeyAdapter() {
+        scrollPane8.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        scrollPane8.setName("scrollPane8"); // NOI18N
+
+        TindakanKedokteran.setColumns(20);
+        TindakanKedokteran.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
+        TindakanKedokteran.setRows(5);
+        TindakanKedokteran.setName("TindakanKedokteran"); // NOI18N
+        TindakanKedokteran.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 TindakanKedokteranKeyPressed(evt);
             }
         });
         scrollPane8.setViewportView(TindakanKedokteran);
 
-        FormInput.add(scrollPane2);
-        scrollPane2.setBounds(16, 60, 670, 510);
+        FormInput.add(scrollPane8);
+        scrollPane8.setBounds(374, 60, 350, 43);
+
+        jLabel84.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        jLabel84.setText("Tata Cara :");
+        jLabel84.setName("jLabel84"); // NOI18N
+        FormInput.add(jLabel84);
+        jLabel84.setBounds(374, 110, 150, 23);
+
+        scrollPane10.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        scrollPane10.setName("scrollPane10"); // NOI18N
+
+        TataCara.setColumns(20);
+        TataCara.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
+        TataCara.setRows(5);
+        TataCara.setName("TataCara"); // NOI18N
+        TataCara.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                TataCaraKeyPressed(evt);
+            }
+        });
+        scrollPane10.setViewportView(TataCara);
+
+        FormInput.add(scrollPane10);
+        scrollPane10.setBounds(374, 130, 350, 43);
+
+        jLabel86.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        jLabel86.setText("Risiko :");
+        jLabel86.setName("jLabel86"); // NOI18N
+        FormInput.add(jLabel86);
+        jLabel86.setBounds(374, 180, 150, 23);
+
+        scrollPane11.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        scrollPane11.setName("scrollPane11"); // NOI18N
+
+        Risiko.setColumns(20);
+        Risiko.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
+        Risiko.setRows(5);
+        Risiko.setName("Risiko"); // NOI18N
+        Risiko.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                RisikoKeyPressed(evt);
+            }
+        });
+        scrollPane11.setViewportView(Risiko);
+
+        FormInput.add(scrollPane11);
+        scrollPane11.setBounds(374, 200, 350, 43);
+
+        jLabel88.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        jLabel88.setText("Prognosis :");
+        jLabel88.setName("jLabel88"); // NOI18N
+        FormInput.add(jLabel88);
+        jLabel88.setBounds(374, 250, 150, 23);
+
+        scrollPane14.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        scrollPane14.setName("scrollPane14"); // NOI18N
+
+        Prognosis.setColumns(20);
+        Prognosis.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
+        Prognosis.setRows(5);
+        Prognosis.setName("Prognosis"); // NOI18N
+        Prognosis.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                PrognosisKeyPressed(evt);
+            }
+        });
+        scrollPane14.setViewportView(Prognosis);
+
+        FormInput.add(scrollPane14);
+        scrollPane14.setBounds(374, 270, 350, 43);
+
+        jLabel90.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        jLabel90.setText("Lain-lain :");
+        jLabel90.setName("jLabel90"); // NOI18N
+        FormInput.add(jLabel90);
+        jLabel90.setBounds(374, 320, 150, 23);
+
+        scrollPane16.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        scrollPane16.setName("scrollPane16"); // NOI18N
+
+        LainLain.setColumns(20);
+        LainLain.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
+        LainLain.setRows(5);
+        LainLain.setName("LainLain"); // NOI18N
+        LainLain.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                LainLainKeyPressed(evt);
+            }
+        });
+        scrollPane16.setViewportView(LainLain);
+
+        FormInput.add(scrollPane16);
+        scrollPane16.setBounds(374, 340, 350, 43);
+
+        jLabel85.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        jLabel85.setText("Indikasi Tindakan :");
+        jLabel85.setName("jLabel85"); // NOI18N
+        FormInput.add(jLabel85);
+        jLabel85.setBounds(14, 110, 150, 23);
+
+        scrollPane9.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        scrollPane9.setName("scrollPane9"); // NOI18N
+
+        IndikasiTindakan.setColumns(20);
+        IndikasiTindakan.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
+        IndikasiTindakan.setRows(5);
+        IndikasiTindakan.setName("IndikasiTindakan"); // NOI18N
+        IndikasiTindakan.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                IndikasiTindakanKeyPressed(evt);
+            }
+        });
+        scrollPane9.setViewportView(IndikasiTindakan);
+
+        FormInput.add(scrollPane9);
+        scrollPane9.setBounds(14, 130, 350, 43);
+
+        jLabel87.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        jLabel87.setText("Tujuan :");
+        jLabel87.setName("jLabel87"); // NOI18N
+        FormInput.add(jLabel87);
+        jLabel87.setBounds(14, 180, 150, 23);
+
+        scrollPane12.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        scrollPane12.setName("scrollPane12"); // NOI18N
+
+        Tujuan.setColumns(20);
+        Tujuan.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
+        Tujuan.setRows(5);
+        Tujuan.setName("Tujuan"); // NOI18N
+        Tujuan.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                TujuanKeyPressed(evt);
+            }
+        });
+        scrollPane12.setViewportView(Tujuan);
+
+        FormInput.add(scrollPane12);
+        scrollPane12.setBounds(14, 200, 350, 43);
+
+        jLabel89.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        jLabel89.setText("Komplikasi :");
+        jLabel89.setName("jLabel89"); // NOI18N
+        FormInput.add(jLabel89);
+        jLabel89.setBounds(14, 250, 150, 23);
+
+        scrollPane13.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        scrollPane13.setName("scrollPane13"); // NOI18N
+
+        Komplikasi.setColumns(20);
+        Komplikasi.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
+        Komplikasi.setRows(5);
+        Komplikasi.setName("Komplikasi"); // NOI18N
+        Komplikasi.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                KomplikasiKeyPressed(evt);
+            }
+        });
+        scrollPane13.setViewportView(Komplikasi);
+
+        FormInput.add(scrollPane13);
+        scrollPane13.setBounds(14, 270, 350, 43);
+
+        jLabel91.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        jLabel91.setText("Alternatif & Resikonya :");
+        jLabel91.setName("jLabel91"); // NOI18N
+        FormInput.add(jLabel91);
+        jLabel91.setBounds(14, 320, 150, 23);
+
+        scrollPane15.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        scrollPane15.setName("scrollPane15"); // NOI18N
+
+        AlternatifResiko.setColumns(20);
+        AlternatifResiko.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
+        AlternatifResiko.setRows(5);
+        AlternatifResiko.setName("AlternatifResiko"); // NOI18N
+        AlternatifResiko.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                AlternatifResikoKeyPressed(evt);
+            }
+        });
+        scrollPane15.setViewportView(AlternatifResiko);
+
+        FormInput.add(scrollPane15);
+        scrollPane15.setBounds(14, 340, 350, 43);
+
+        Biaya.setHighlighter(null);
+        Biaya.setName("Biaya"); // NOI18N
+        Biaya.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BiayaActionPerformed(evt);
+            }
+        });
+        Biaya.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                BiayaKeyPressed(evt);
+            }
+        });
+        FormInput.add(Biaya);
+        Biaya.setBounds(354, 10, 160, 23);
+
+        jLabel12.setText("Perkiraan Biaya Tindakan :");
+        jLabel12.setName("jLabel12"); // NOI18N
+        FormInput.add(jLabel12);
+        jLabel12.setBounds(200, 10, 150, 23);
 
         scrollInput.setViewportView(FormInput);
 
@@ -621,11 +828,11 @@ private void KdKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TKdKey
     }//GEN-LAST:event_KdKeyPressed
 
     private void NmKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_NmKeyPressed
-        Valid.pindah(evt,Kd,Template);
+        
     }//GEN-LAST:event_NmKeyPressed
 
     private void TemplateKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TemplateKeyPressed
-        Valid.pindah2(evt,Nm,BtnSimpan);
+        
     }//GEN-LAST:event_TemplateKeyPressed
 
     private void TabRawatMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TabRawatMouseClicked
@@ -633,6 +840,10 @@ private void KdKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TKdKey
             tampil();
         }
     }//GEN-LAST:event_TabRawatMouseClicked
+
+    private void BiayaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BiayaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_BiayaActionPerformed
 
     /**
     * @param args the command line arguments
@@ -651,6 +862,8 @@ private void KdKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TKdKey
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextArea AlternatifResiko;
+    private widget.TextBox Biaya;
     private widget.Button BtnAll;
     private widget.Button BtnBatal;
     private widget.Button BtnCari;
@@ -664,7 +877,9 @@ private void KdKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TKdKey
     private widget.TextBox Kd;
     private javax.swing.JTextArea Komplikasi;
     private widget.Label LCount;
-    private widget.TextBox Nm;
+    private javax.swing.JTextArea LainLain;
+    private javax.swing.JTextArea Prognosis;
+    private javax.swing.JTextArea Risiko;
     private widget.ScrollPane Scroll;
     private widget.TextBox TCari;
     private javax.swing.JTabbedPane TabRawat;
@@ -674,7 +889,17 @@ private void KdKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TKdKey
     private widget.InternalFrame internalFrame1;
     private widget.InternalFrame internalFrame2;
     private widget.InternalFrame internalFrame3;
-    private widget.Label jLabel40;
+    private widget.Label jLabel12;
+    private widget.Label jLabel82;
+    private widget.Label jLabel83;
+    private widget.Label jLabel84;
+    private widget.Label jLabel85;
+    private widget.Label jLabel86;
+    private widget.Label jLabel87;
+    private widget.Label jLabel88;
+    private widget.Label jLabel89;
+    private widget.Label jLabel90;
+    private widget.Label jLabel91;
     private widget.Label label10;
     private widget.Label label12;
     private widget.Label label9;

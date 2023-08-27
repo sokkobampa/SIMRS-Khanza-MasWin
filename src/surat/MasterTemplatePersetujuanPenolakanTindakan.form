@@ -29,7 +29,7 @@
       <Properties>
         <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
           <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
-            <TitledBorder title="::[ Master Template Hasil Pemeriksaan Radiologi ]::">
+            <TitledBorder title="::[ Master Template Persetujuan Penolakan Tindakan ]::">
               <Border PropertyName="innerBorder" info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
                 <LineBorder>
                   <Color PropertyName="color" blue="eb" green="f5" red="f0" type="rgb"/>
@@ -611,6 +611,7 @@
                             <Property name="name" type="java.lang.String" value="Biaya" noResource="true"/>
                           </Properties>
                           <Events>
+                            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BiayaActionPerformed"/>
                             <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="BiayaKeyPressed"/>
                           </Events>
                           <Constraints>
