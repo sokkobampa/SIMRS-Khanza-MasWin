@@ -8,4 +8,11 @@
 	</buildSpec>
 	<natures>
 	</natures>
+	<linkedResources>
+		<link>
+			<name>rptLembarObat_1.jrxml</name>
+			<type>1</type>
+			<location>D:/KhanzaLinux 2023-08-04/report/rptLembarObat.jrxml</location>
+		</link>
+	</linkedResources>
 </projectDescription>

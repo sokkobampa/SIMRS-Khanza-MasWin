@@ -75,7 +75,7 @@ group by
 				<text><![CDATA[R/]]></text>
 			</staticText>
 			<textField isStretchWithOverflow="true">
-				<reportElement positionType="Float" mode="Transparent" x="30" y="1" width="160" height="9" uuid="1fba2c8a-6241-4fe0-8d80-65646d9d930a"/>
+				<reportElement positionType="Float" mode="Transparent" x="30" y="1" width="170" height="9" uuid="1fba2c8a-6241-4fe0-8d80-65646d9d930a"/>
 				<textElement>
 					<font fontName="Tahoma" size="7"/>
 					<paragraph lineSpacing="Single"/>

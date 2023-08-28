@@ -609,7 +609,6 @@
                             <Property name="name" type="java.lang.String" value="Biaya" noResource="true"/>
                           </Properties>
                           <Events>
-                            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BiayaActionPerformed"/>
                             <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="BiayaKeyPressed"/>
                           </Events>
                           <Constraints>

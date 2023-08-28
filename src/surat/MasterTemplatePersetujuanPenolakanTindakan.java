@@ -433,11 +433,6 @@ public class MasterTemplatePersetujuanPenolakanTindakan extends javax.swing.JDia
 
         Biaya.setHighlighter(null);
         Biaya.setName("Biaya"); // NOI18N
-        Biaya.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BiayaActionPerformed(evt);
-            }
-        });
         Biaya.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 BiayaKeyPressed(evt);
