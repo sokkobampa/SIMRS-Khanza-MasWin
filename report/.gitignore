@@ -1,8 +1,4 @@
 /.settings
 .project
+*.pdf
 !.gitignore
-/rptLembarObat1Resep.jasper
-/rptLembarObat1Kwitansi.jasper
-/rptLembarObat.jasper
-/rptLembarObat1Header.jasper
-/rptKwitansiPenagihanPiutang.jasper
