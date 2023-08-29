@@ -1084,13 +1084,7 @@ public class DlgRegistrasiWalkIn extends javax.swing.JDialog {
         param.put("kotars", Sequel.cariIsi("select kabupaten from setting"));
         param.put("kontakrs", Sequel.cariIsi("select kontak from setting"));
         param.put("norawat", norawat);
-        String sql = "select reg_periksa.no_reg,reg_periksa.no_rawat,reg_periksa.tgl_registrasi,reg_periksa.jam_reg,pasien.no_tlp, reg_periksa.kd_dokter,dokter.nm_dokter,reg_periksa.no_rkm_medis,pasien.nm_pasien,pasien.jk,pasien.umur,poliklinik.nm_poli,\n" +
-                    "reg_periksa.p_jawab,reg_periksa.almt_pj,reg_periksa.hubunganpj,reg_periksa.biaya_reg,\n" +
-                    "reg_periksa.stts_daftar,penjab.png_jawab \n" +
-                    "from reg_periksa inner join dokter inner join pasien inner join poliklinik inner join penjab\n" +
-                    "on reg_periksa.kd_dokter=dokter.kd_dokter and reg_periksa.no_rkm_medis=pasien.no_rkm_medis and reg_periksa.kd_pj=penjab.kd_pj and reg_periksa.kd_poli=poliklinik.kd_poli\n" +
-                    "where reg_periksa.no_rawat = '"+norawat+"'";
-        Valid.MyReportqryabdul("rptBuktiRegister.jasper", "report", "::[ Bukti Registrasi ]::", sql, param);
+        Valid.MyReport("rptBuktiRegisterAPM.jasper", "report", "::[ Bukti Registrasi ]::", param);
         System.out.println(norawat);
         this.setCursor(Cursor.getDefaultCursor());
     }

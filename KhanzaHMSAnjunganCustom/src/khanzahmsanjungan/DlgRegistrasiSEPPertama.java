@@ -2093,26 +2093,34 @@ public class DlgRegistrasiSEPPertama extends javax.swing.JDialog {
         this.setCursor(Cursor.getDefaultCursor());
     }
     
-    private void MnCetakRegisterActionPerformed(String norawat, String nosep) {
+    private void printSEPdanBuktiRegistrasi(String norawat, String nosep) {
         this.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
+        
         Map<String, Object> param = new HashMap<>();
         param.put("namars",akses.getnamars());
         param.put("alamatrs",akses.getalamatrs());
         param.put("kotars",akses.getkabupatenrs());
         param.put("propinsirs",akses.getpropinsirs());
         param.put("kontakrs",akses.getkontakrs());
+        param.put("emailrs",akses.getemailrs());
         param.put("norawat",TNoRw.getText());
         param.put("prb",Sequel.cariIsi("select bpjs_prb.prb from bpjs_prb where bpjs_prb.no_sep=?", nosep));
         param.put("dokter",Sequel.cariIsi("select kd_dokter from maping_dokter_dpjpvclaim where kd_dokter_bpjs=?", KdDPJP.getText()));
         param.put("noreg",Sequel.cariIsi("select no_reg from reg_periksa where no_rawat=?", norawat));
         param.put("logo",Sequel.cariGambar("select gambar.bpjs from gambar")); 
         param.put("parameter",nosep);
+        
         if(JenisPelayanan.getSelectedIndex()==0){
             Valid.MyReport("rptBridgingSEP7.jasper","report","::[ Cetak SEP ]::",param);
         }else{
             Valid.MyReport("rptBridgingSEP8.jasper","report","::[ Cetak SEP ]::",param);
-        }  
-        System.out.println(norawat);
+        }
+        
+        Valid.MyReport("rptBuktiRegisterAPM.jasper", "report", "::[ Bukti Register ]::", param);
+        
+        System.out.println("Cetak Registrasi:" + norawat);
+        System.out.println("Cetak SEP:" + nosep);
+        
         this.setCursor(Cursor.getDefaultCursor());
     }
 
@@ -2285,7 +2293,7 @@ public class DlgRegistrasiSEPPertama extends javax.swing.JDialog {
                             TNoRM.getText(), Valid.SetTgl(TanggalSEP.getSelectedItem().toString()), kodedokterreg, kodepolireg
                         });
                     }
-                    MnCetakRegisterActionPerformed(TNoRw.getText(), response.asText());
+                    printSEPdanBuktiRegistrasi(TNoRw.getText(), response.asText());
 
                     emptTeks();
                     dispose();
