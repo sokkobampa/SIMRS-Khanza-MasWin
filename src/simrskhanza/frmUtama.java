@@ -841,6 +841,7 @@ import rekammedis.RMPenilaianAwalKeperawatanRalanPsikiatri;
 import rekammedis.RMPenilaianAwalKeperawatanRanap;
 import rekammedis.RMPenilaianAwalMedisHemodialisa;
 import rekammedis.RMPenilaianAwalMedisIGD;
+import rekammedis.RMPenilaianAwalMedisIGDPsikiatri;
 import rekammedis.RMPenilaianAwalMedisRalanAnak;
 import rekammedis.RMPenilaianAwalMedisRalanBedah;
 import rekammedis.RMPenilaianAwalMedisRalanBedahMulut;
@@ -20591,33 +20592,19 @@ private void MnGantiPasswordBtnLogActionPerformed(java.awt.event.ActionEvent evt
         this.setCursor(Cursor.getDefaultCursor());
     }
     
-//    private void btnPenilaianAwalMedisRalanRehabMedikActionPerformed(java.awt.event.ActionEvent evt) {
-//        isTutup();
-//        DlgHome.dispose();
-//        this.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
-//        RMPenilaianAwalMedisRalanRehabMedik aplikasi=new RMPenilaianAwalMedisRalanRehabMedik(this,false);
-//        aplikasi.isCek();
-//        aplikasi.emptTeks();
-//        aplikasi.setTampil();
-//        aplikasi.setSize(PanelUtama.getWidth(), PanelUtama.getHeight());
-//        aplikasi.setLocationRelativeTo(PanelUtama);
-//        aplikasi.setVisible(true);
-//        this.setCursor(Cursor.getDefaultCursor());
-//    }
-//    
-//    private void btnTemplatePersetujuanPenolakanTindakanActionPerformed(java.awt.event.ActionEvent evt) {
-//        isTutup();
-//        DlgHome.dispose();
-//        this.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
-//        MasterTemplatePersetujuanPenolakanTindakan aplikasi=new MasterTemplatePersetujuanPenolakanTindakan(this,false);
-//        aplikasi.isCek();
-//        aplikasi.emptTeks();
-//        aplikasi.setTampil();
-//        aplikasi.setSize(PanelUtama.getWidth(), PanelUtama.getHeight());
-//        aplikasi.setLocationRelativeTo(PanelUtama);
-//        aplikasi.setVisible(true);
-//        this.setCursor(Cursor.getDefaultCursor());
-//    }
+    private void btnPenilaianAwalMedisRalanIGDPsikiatriActionPerformed(java.awt.event.ActionEvent evt) {
+        isTutup();
+        DlgHome.dispose();
+        this.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
+        RMPenilaianAwalMedisIGDPsikiatri aplikasi=new RMPenilaianAwalMedisIGDPsikiatri(this,false);
+        aplikasi.isCek();
+        aplikasi.emptTeks();
+        aplikasi.setTampil();
+        aplikasi.setSize(PanelUtama.getWidth(), PanelUtama.getHeight());
+        aplikasi.setLocationRelativeTo(PanelUtama);
+        aplikasi.setVisible(true);
+        this.setCursor(Cursor.getDefaultCursor());
+    }
     
     /**
     * @param args the command line arguments
@@ -21299,7 +21286,8 @@ private void MnGantiPasswordBtnLogActionPerformed(java.awt.event.ActionEvent evt
             btnChecklistKriteriaKeluarICU,btnDataFollowUpDBD,btnPengajuanBiayaKuangan,btnPenilaianRisikoJatuhNeonatus,btnPemeriksaanFisikRalanPerPenyakit,
             btnPenilaianRisikoJatuhGeriatri,btnPersetujuanPengajuanBiaya,btnPemantauanEWSNeonatus,btnValidasiPersetujuanPengajuanBiaya,btnRiwayatPerawatanICare,
             btnRekapPengajuanBiaya,btnPenilaianAwalMedisRalanKulitKelamin,btnHostToHostBankMandiri,btnPenilaianLevelKecemasanRanapAnak,btnPenilaianAwalMedisHemodialisa,
-            btnPenilaianRisikoJatuhPsikiatri,btnPenilaianLanjutanSkriningFungsional,btnPenilaianAwalMedisRalanRehabMedik,btnTemplatePersetujuanPenolakanTindakan;
+            btnPenilaianRisikoJatuhPsikiatri,btnPenilaianLanjutanSkriningFungsional,btnPenilaianAwalMedisRalanRehabMedik,btnTemplatePersetujuanPenolakanTindakan,
+            btnPenilaianAwalMedisRalanIGDPsikiatri;
     
     public void isWall(){
         try{            
@@ -24686,6 +24674,11 @@ private void MnGantiPasswordBtnLogActionPerformed(java.awt.event.ActionEvent evt
             
             if(akses.getpenilaian_awal_medis_igd()==true){
                 Panelmenu.add(btnPenilaianAwalMedisIGD);
+                jmlmenu++;
+            }
+            
+            if(akses.getpenilaian_medis_ralan_gawat_darurat_psikiatri()==true){
+                Panelmenu.add(btnPenilaianAwalMedisRalanIGDPsikiatri);
                 jmlmenu++;
             }
             
@@ -29520,6 +29513,11 @@ private void MnGantiPasswordBtnLogActionPerformed(java.awt.event.ActionEvent evt
         
         if(akses.getpenilaian_awal_medis_igd()==true){
             Panelmenu.add(btnPenilaianAwalMedisIGD);
+            jmlmenu++;
+        }
+        
+        if(akses.getpenilaian_medis_ralan_gawat_darurat_psikiatri()==true){
+            Panelmenu.add(btnPenilaianAwalMedisRalanIGDPsikiatri);
             jmlmenu++;
         }
         
@@ -35650,6 +35648,13 @@ private void MnGantiPasswordBtnLogActionPerformed(java.awt.event.ActionEvent evt
         if(akses.getpenilaian_awal_medis_igd()==true){
             if(btnPenilaianAwalMedisIGD.getText().toLowerCase().trim().contains(TCari.getText().toLowerCase().trim())){
                 Panelmenu.add(btnPenilaianAwalMedisIGD);
+                jmlmenu++;
+            }                
+        }
+        
+        if(akses.getpenilaian_medis_ralan_gawat_darurat_psikiatri()==true){
+            if(btnPenilaianAwalMedisRalanIGDPsikiatri.getText().toLowerCase().trim().contains(TCari.getText().toLowerCase().trim())){
+                Panelmenu.add(btnPenilaianAwalMedisRalanIGDPsikiatri);
                 jmlmenu++;
             }                
         }
@@ -41930,5 +41935,13 @@ private void MnGantiPasswordBtnLogActionPerformed(java.awt.event.ActionEvent evt
         btnTemplatePersetujuanPenolakanTindakan.setName("btnTemplatePersetujuanPenolakanTindakan"); 
         btnTemplatePersetujuanPenolakanTindakan.setPreferredSize(new java.awt.Dimension(200, 90));
         btnTemplatePersetujuanPenolakanTindakan.addActionListener(this::btnTemplatePersetujuanPenolakanTindakanActionPerformed);
+        
+        btnPenilaianAwalMedisRalanIGDPsikiatri = new widget.ButtonBig();
+        btnPenilaianAwalMedisRalanIGDPsikiatri.setIcon(new javax.swing.ImageIcon(getClass().getResource("/48x48/6141467_covid19_health_problem_tired_hard breathing_icon.png"))); 
+        btnPenilaianAwalMedisRalanIGDPsikiatri.setText("Awal Medis IGD Psikiatri");
+        btnPenilaianAwalMedisRalanIGDPsikiatri.setIconTextGap(0);
+        btnPenilaianAwalMedisRalanIGDPsikiatri.setName("btnPenilaianAwalMedisRalanIGDPsikiatri"); 
+        btnPenilaianAwalMedisRalanIGDPsikiatri.setPreferredSize(new java.awt.Dimension(200, 90));
+        btnPenilaianAwalMedisRalanIGDPsikiatri.addActionListener(this::btnPenilaianAwalMedisRalanIGDPsikiatriActionPerformed);
     }
 }
