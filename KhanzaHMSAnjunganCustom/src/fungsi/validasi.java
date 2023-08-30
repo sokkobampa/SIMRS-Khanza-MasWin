@@ -726,26 +726,103 @@ public final class validasi {
         try {
             JasperReport jr = (JasperReport) JRLoader.loadObject(report);
             System.out.println(jr.getQuery());
+            
             JasperPrint jp = JasperFillManager.fillReport(jr, params, connect);
             JasperViewer jv = new JasperViewer(jp, false);
             
             PrinterJob pj = PrinterJob.getPrinterJob();
             
-            PrintRequestAttributeSet printAttr = new HashPrintRequestAttributeSet();
-            printAttr.add(new Copies(1));
+            PrintRequestAttributeSet pa = new HashPrintRequestAttributeSet();
+            pa.add(new Copies(1));
             
             SimplePrintServiceExporterConfiguration config = new SimplePrintServiceExporterConfiguration();
-            config.setPrintRequestAttributeSet(printAttr);
+            
+            config.setPrintRequestAttributeSet(pa);
             config.setPrintServiceAttributeSet(pj.getPrintService().getAttributes());
             config.setDisplayPageDialog(false);
             config.setDisplayPrintDialog(true);
             
             JRPrintServiceExporter exporter = new JRPrintServiceExporter();
+            
             exporter.setExporterInput(new SimpleExporterInput(jp));
             exporter.setConfiguration(config);
             exporter.exportReport();
             
             Dimension screen = Toolkit.getDefaultToolkit().getScreenSize();
+            
+            jv.setTitle(judul);
+            jv.setSize(screen.width - 50, screen.height - 50);
+            jv.setModalExclusionType(ModalExclusionType.TOOLKIT_EXCLUDE);
+            jv.setLocationRelativeTo(null);
+            jv.setVisible(true);
+        } catch (Exception e) {
+            System.out.println(e);
+            
+            for (StackTraceElement ste: e.getStackTrace()) {
+                System.out.println(ste);
+            }
+            
+            JOptionPane.showMessageDialog(null, "Tidak bisa menampilkan hasil cetak!");
+        }
+    }
+    
+    public void printBarcodeReport(String name, String reportDir, String judul, Map params) {
+        
+        String currentDir = System.getProperties().getProperty("user.dir");
+
+        File dir = new File(currentDir);
+        System.out.println("Current directory: " + dir);
+
+        File report = null;
+        String relativePath = "";
+        
+        if (! dir.isDirectory()) {
+            JOptionPane.showMessageDialog(null, "Direktori tidak ditemukan!");
+            return;
+        }
+        
+        for (String file: dir.list()) {
+            report = new File(currentDir + File.separatorChar + file + File.separatorChar + reportDir + File.separatorChar + name);
+            System.out.println(currentDir + File.separatorChar + file + File.separatorChar + reportDir + File.separatorChar + name);
+            
+            if (report.isFile()) {
+                relativePath = "." + File.separatorChar + file + File.separatorChar + reportDir + File.separatorChar + name;
+                System.out.println("Found report file at: " + report.toString());
+            }
+        }
+        
+        if (relativePath.isBlank() || report == null) {
+            JOptionPane.showMessageDialog(null, "File tidak ditemukan!");
+            return;
+        }
+        
+        try {
+            JasperReport jr = (JasperReport) JRLoader.loadObject(report);
+            System.out.println(jr.getQuery());
+            
+            JasperPrint jp = JasperFillManager.fillReport(jr, params, connect);
+            JasperViewer jv = new JasperViewer(jp, false);
+            
+            PrinterJob pj = PrinterJob.getPrinterJob();
+            
+            PrintRequestAttributeSet pa = new HashPrintRequestAttributeSet();
+            pa.add(new Copies(1));
+            
+            SimplePrintServiceExporterConfiguration config = new SimplePrintServiceExporterConfiguration();
+            
+            config.setPrintRequestAttributeSet(pa);
+            config.setPrintServiceAttributeSet(pj.getPrintService().getAttributes());
+            config.setDisplayPageDialog(false);
+            config.setDisplayPrintDialog(true);
+            
+            JRPrintServiceExporter exporter = new JRPrintServiceExporter();
+            
+            exporter.setExporterInput(new SimpleExporterInput(jp));
+            exporter.setConfiguration(config);
+            exporter.exportReport();
+            
+            Dimension screen = Toolkit.getDefaultToolkit().getScreenSize();
+            
             jv.setTitle(judul);
             jv.setSize(screen.width - 50, screen.height - 50);
             jv.setModalExclusionType(ModalExclusionType.TOOLKIT_EXCLUDE);

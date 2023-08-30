@@ -1321,10 +1321,10 @@ private void tgl_permintaanKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:
         if(akses.getjml2()>=1){
             nip.setEditable(false);
             btnPtg.setEnabled(false);
-            BtnSimpan.setEnabled(akses.getperbaikan_inventaris());
-            BtnHapus.setEnabled(akses.getperbaikan_inventaris());
-            BtnEdit.setEnabled(akses.getperbaikan_inventaris());
-            BtnPrint.setEnabled(akses.getperbaikan_inventaris());
+            BtnSimpan.setEnabled(akses.getpermintaan_perbaikan_inventaris());
+            BtnHapus.setEnabled(akses.getpermintaan_perbaikan_inventaris());
+            BtnEdit.setEnabled(akses.getpermintaan_perbaikan_inventaris());
+            BtnPrint.setEnabled(akses.getpermintaan_perbaikan_inventaris());
             nip.setText(akses.getkode());
             nama_petugas.setText(petugas.tampil3(nip.getText()));
         } 

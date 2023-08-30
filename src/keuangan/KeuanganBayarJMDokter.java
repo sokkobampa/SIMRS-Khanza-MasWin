@@ -1679,6 +1679,9 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
             if(chkOperasi.isSelected()==true){
                  psbiayaoperator1=koneksi.prepareStatement(
                      "select pasien.nm_pasien,paket_operasi.nm_perawatan,operasi.biayaoperator1,operasi.status,"+
+                     "(select group_concat(bridging_sep.no_sep separator ', ') "+
+                     "from bridging_sep join maping_dokter_dpjpvclaim on bridging_sep.kddpjp = maping_dokter_dpjpvclaim.kd_dokter_bpjs "+
+                     "where bridging_sep.no_rawat = rawat_jl_dr.no_rawat and maping_dokter_dpjpvclaim.kd_dokter = rawat_jl_dr.kd_dokter) as no_sep,"+
                      "operasi.tgl_operasi,reg_periksa.kd_pj,operasi.kode_paket,reg_periksa.no_rawat,reg_periksa.no_rkm_medis "+
                      "from operasi inner join reg_periksa on operasi.no_rawat=reg_periksa.no_rawat "+
                      "inner join pasien on reg_periksa.no_rkm_medis=pasien.no_rkm_medis "+

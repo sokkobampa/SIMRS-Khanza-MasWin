@@ -1084,7 +1084,7 @@ public class DlgRegistrasiWalkIn extends javax.swing.JDialog {
         param.put("kotars", Sequel.cariIsi("select kabupaten from setting"));
         param.put("kontakrs", Sequel.cariIsi("select kontak from setting"));
         param.put("norawat", norawat);
-        Valid.MyReport("rptBuktiRegisterAPM.jasper", "report", "::[ Bukti Registrasi ]::", param);
+        Valid.printBarcodeReport("rptBuktiRegisterAPM.jasper", "report", "::[ Bukti Registrasi ]::", param);
         System.out.println(norawat);
         this.setCursor(Cursor.getDefaultCursor());
     }

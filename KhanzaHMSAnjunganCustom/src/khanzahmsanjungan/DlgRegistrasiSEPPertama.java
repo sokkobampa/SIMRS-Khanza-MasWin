@@ -2116,7 +2116,7 @@ public class DlgRegistrasiSEPPertama extends javax.swing.JDialog {
             Valid.MyReport("rptBridgingSEP8.jasper","report","::[ Cetak SEP ]::",param);
         }
         
-        Valid.MyReport("rptBuktiRegisterAPM.jasper", "report", "::[ Bukti Register ]::", param);
+        Valid.MyReportqry("rptBarcodeRawat.jasper","report","::[ Barcode No.Rawat ]::", "select reg_periksa.no_rawat from reg_periksa where reg_periksa.no_rawat='"+TNoRw.getText()+"'",param); 
         
         System.out.println("Cetak Registrasi:" + norawat);
         System.out.println("Cetak SEP:" + nosep);
