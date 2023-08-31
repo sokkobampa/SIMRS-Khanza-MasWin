@@ -774,7 +774,6 @@ public final class validasi {
         System.out.println("Current directory: " + dir);
 
         File report = null;
-        String relativePath = "";
         
         if (! dir.isDirectory()) {
             JOptionPane.showMessageDialog(null, "Direktori tidak ditemukan!");
@@ -783,15 +782,14 @@ public final class validasi {
         
         for (String file: dir.list()) {
             report = new File(currentDir + File.separatorChar + file + File.separatorChar + reportDir + File.separatorChar + name);
-            System.out.println(currentDir + File.separatorChar + file + File.separatorChar + reportDir + File.separatorChar + name);
             
             if (report.isFile()) {
-                relativePath = "." + File.separatorChar + file + File.separatorChar + reportDir + File.separatorChar + name;
                 System.out.println("Found report file at: " + report.toString());
+                break;
             }
         }
         
-        if (relativePath.isBlank() || report == null) {
+        if (report == null) {
             JOptionPane.showMessageDialog(null, "File tidak ditemukan!");
             return;
         }
