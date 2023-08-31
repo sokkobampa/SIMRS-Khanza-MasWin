@@ -371,7 +371,7 @@ public class DlgRegistrasiWalkIn extends javax.swing.JDialog {
         jPanel2.add(jLabel31);
         jLabel31.setBounds(20, 140, 250, 40);
 
-        TanggalPeriksa.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "13-06-2023" }));
+        TanggalPeriksa.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "29-08-2023" }));
         TanggalPeriksa.setDisplayFormat("dd-MM-yyyy");
         TanggalPeriksa.setOpaque(false);
         TanggalPeriksa.setPreferredSize(new java.awt.Dimension(95, 23));
@@ -427,6 +427,11 @@ public class DlgRegistrasiWalkIn extends javax.swing.JDialog {
         cmbCaraBayar.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
                 cmbCaraBayarItemStateChanged(evt);
+            }
+        });
+        cmbCaraBayar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmbCaraBayarActionPerformed(evt);
             }
         });
         cmbCaraBayar.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -719,6 +724,10 @@ public class DlgRegistrasiWalkIn extends javax.swing.JDialog {
     private void NamaDokterKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_NamaDokterKeyPressed
         // TODO add your handling code here:
     }//GEN-LAST:event_NamaDokterKeyPressed
+
+    private void cmbCaraBayarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbCaraBayarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cmbCaraBayarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -1084,7 +1093,7 @@ public class DlgRegistrasiWalkIn extends javax.swing.JDialog {
         param.put("kotars", Sequel.cariIsi("select kabupaten from setting"));
         param.put("kontakrs", Sequel.cariIsi("select kontak from setting"));
         param.put("norawat", norawat);
-        Valid.printBarcodeReport("rptBuktiRegisterAPM.jasper", "report", "::[ Bukti Registrasi ]::", param);
+        Valid.printReport("rptBuktiRegisterAPM.jasper", koneksiDB.PRINTER_REGISTRASI(), 1, param);
         System.out.println(norawat);
         this.setCursor(Cursor.getDefaultCursor());
     }

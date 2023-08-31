@@ -28,12 +28,14 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.Map;
 import java.util.Properties;
+import javax.print.PrintServiceLookup;
 import javax.print.attribute.Attribute;
 import javax.print.attribute.HashPrintRequestAttributeSet;
 import javax.print.attribute.HashPrintServiceAttributeSet;
 import javax.print.attribute.PrintRequestAttributeSet;
 import javax.print.attribute.PrintServiceAttributeSet;
 import javax.print.attribute.standard.Copies;
+import javax.print.PrintService;
 import javax.swing.JButton;
 import javax.swing.JCheckBox;
 import javax.swing.JComboBox;
@@ -693,80 +695,8 @@ public final class validasi {
         }
     }
     
-    public void createReport(String filename, String path, String judul, Map params) {
-        Properties systemProp = System.getProperties();
-        
-        String currentDir = systemProp.getProperty("user.dir");
-
-        File dir = new File(currentDir);
-        System.out.println(dir);
-
-        File report = null;
-        String relativePath = "";
-        
-        if (! dir.isDirectory()) {
-            JOptionPane.showMessageDialog(null, "Direktori tidak ditemukan!");
-            return;
-        }
-        
-        for (String file: dir.list()) {
-            report = new File(currentDir + File.separatorChar + file + File.separatorChar + path + File.separatorChar + filename);
-            
-            if (report.isFile()) {
-                relativePath = "./" + path + "/" + filename;
-                System.out.println("Found report file at: " + report.toString());
-            }
-        }
-        
-        if (relativePath.isBlank() || report == null) {
-            JOptionPane.showMessageDialog(null, "File tidak ditemukan!");
-            return;
-        }
-        
-        try {
-            JasperReport jr = (JasperReport) JRLoader.loadObject(report);
-            System.out.println(jr.getQuery());
-            
-            JasperPrint jp = JasperFillManager.fillReport(jr, params, connect);
-            JasperViewer jv = new JasperViewer(jp, false);
-            
-            PrinterJob pj = PrinterJob.getPrinterJob();
-            
-            PrintRequestAttributeSet pa = new HashPrintRequestAttributeSet();
-            pa.add(new Copies(1));
-            
-            SimplePrintServiceExporterConfiguration config = new SimplePrintServiceExporterConfiguration();
-            
-            config.setPrintRequestAttributeSet(pa);
-            config.setPrintServiceAttributeSet(pj.getPrintService().getAttributes());
-            config.setDisplayPageDialog(false);
-            config.setDisplayPrintDialog(true);
-            
-            JRPrintServiceExporter exporter = new JRPrintServiceExporter();
-            
-            exporter.setExporterInput(new SimpleExporterInput(jp));
-            exporter.setConfiguration(config);
-            exporter.exportReport();
-            
-            Dimension screen = Toolkit.getDefaultToolkit().getScreenSize();
-            
-            jv.setTitle(judul);
-            jv.setSize(screen.width - 50, screen.height - 50);
-            jv.setModalExclusionType(ModalExclusionType.TOOLKIT_EXCLUDE);
-            jv.setLocationRelativeTo(null);
-            jv.setVisible(true);
-        } catch (Exception e) {
-            System.out.println(e);
-            
-            for (StackTraceElement ste: e.getStackTrace()) {
-                System.out.println(ste);
-            }
-            
-            JOptionPane.showMessageDialog(null, "Tidak bisa menampilkan hasil cetak!");
-        }
-    }
     
-    public void printBarcodeReport(String name, String reportDir, String judul, Map params) {
+    public void printReport(String namaReport, String namaPrinter, int jumlah, Map params) {
         
         String currentDir = System.getProperties().getProperty("user.dir");
 
@@ -775,17 +705,15 @@ public final class validasi {
 
         File report = null;
         
-        if (! dir.isDirectory()) {
-            JOptionPane.showMessageDialog(null, "Direktori tidak ditemukan!");
-            return;
-        }
-        
-        for (String file: dir.list()) {
-            report = new File(currentDir + File.separatorChar + file + File.separatorChar + reportDir + File.separatorChar + name);
-            
-            if (report.isFile()) {
-                System.out.println("Found report file at: " + report.toString());
-                break;
+        if (dir.isDirectory()) {
+            for (String file: dir.list()) {
+                report = new File(currentDir + File.separatorChar + file + File.separatorChar + namaReport);
+                System.out.println(report.toString());
+                
+                if (report.isFile()) {
+                    System.out.println("Found report file at: " + report.toString());
+                    break;
+                }
             }
         }
         
@@ -799,33 +727,37 @@ public final class validasi {
             System.out.println(jr.getQuery());
             
             JasperPrint jp = JasperFillManager.fillReport(jr, params, connect);
-            JasperViewer jv = new JasperViewer(jp, false);
             
-            PrinterJob pj = PrinterJob.getPrinterJob();
+            PrintService ps = null;
             
-            PrintRequestAttributeSet pa = new HashPrintRequestAttributeSet();
-            pa.add(new Copies(1));
+            for (PrintService a: PrintServiceLookup.lookupPrintServices(null, null)) {
+                if (a.getName().equals(namaPrinter)) {
+                    ps = a;
+                    break;
+                }
+            }
+            
+            if (ps == null) {
+                JOptionPane.showMessageDialog(null, "Printer tidak ditemukan!");
+                return;
+            }
+            
+            PrintRequestAttributeSet pra = new HashPrintRequestAttributeSet();
+            pra.add(new Copies(jumlah));
             
             SimplePrintServiceExporterConfiguration config = new SimplePrintServiceExporterConfiguration();
             
-            config.setPrintRequestAttributeSet(pa);
-            config.setPrintServiceAttributeSet(pj.getPrintService().getAttributes());
+            config.setPrintService(ps);
+            config.setPrintRequestAttributeSet(pra);
+            config.setPrintServiceAttributeSet(ps.getAttributes());
             config.setDisplayPageDialog(false);
-            config.setDisplayPrintDialog(true);
+            config.setDisplayPrintDialog(false);
             
             JRPrintServiceExporter exporter = new JRPrintServiceExporter();
             
             exporter.setExporterInput(new SimpleExporterInput(jp));
             exporter.setConfiguration(config);
             exporter.exportReport();
-            
-            Dimension screen = Toolkit.getDefaultToolkit().getScreenSize();
-            
-            jv.setTitle(judul);
-            jv.setSize(screen.width - 50, screen.height - 50);
-            jv.setModalExclusionType(ModalExclusionType.TOOLKIT_EXCLUDE);
-            jv.setLocationRelativeTo(null);
-            jv.setVisible(true);
         } catch (Exception e) {
             System.out.println(e);
             

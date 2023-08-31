@@ -63,6 +63,24 @@ public class koneksiDB {
         }
         return connection;
     }
+    
+    public static String PRINTER_REGISTRASI() {
+        try {
+            prop.loadFromXML(new FileInputStream("setting/database.xml"));
+            return prop.getProperty("PRINTER_REGISTRASI");
+        } catch (Exception e) {
+            return "";
+        }
+    }
+    
+    public static String PRINTER_BARCODE() {
+        try {
+            prop.loadFromXML(new FileInputStream("setting/database.xml"));
+            return prop.getProperty("PRINTER_BARCODE");
+        } catch (Exception e) {
+            return "";
+        }
+    }
 
     public static String HOST() {
         try {
