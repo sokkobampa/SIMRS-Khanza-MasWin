@@ -696,7 +696,7 @@ public final class validasi {
     }
     
     
-    public void printReport(String namaReport, String namaPrinter, int jumlah, Map params) {
+    public void printReport(String namaReport, String namaPrinter, String judul, int jumlah, Map params) {
         
         String currentDir = System.getProperties().getProperty("user.dir");
 
@@ -731,6 +731,7 @@ public final class validasi {
             PrintService ps = null;
             
             for (PrintService a: PrintServiceLookup.lookupPrintServices(null, null)) {
+                System.out.println("Printer ditemukan: " + a.getName());
                 if (a.getName().equals(namaPrinter)) {
                     ps = a;
                     break;

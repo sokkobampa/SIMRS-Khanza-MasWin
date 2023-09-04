@@ -1087,14 +1087,26 @@ public class DlgRegistrasiWalkIn extends javax.swing.JDialog {
 
     private void MnCetakRegisterActionPerformed(String norawat) {
         this.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
+        
         Map<String, Object> param = new HashMap<>();
+        
+        param.put("nama", Sequel.cariIsi("select pasien.nm_pasien from reg_periksa join pasien on reg_periksa.no_rkm_medis = pasien.no_rkm_medis where reg_periksa.no_rawat = '" + norawat + "'"));
+        param.put("norm", Sequel.cariIsi("select reg_periksa.no_rkm_medis from reg_periksa where reg_periksa.no_rawat = '"+norawat+"'"));
+        param.put("no_rawat", norawat);
+        param.put("alamat", Sequel.cariIsi("select date_format(pasien.tgl_lahir, '%d/%m/%Y') from pasien where pasien.no_rkm_medis = (select reg_periksa.no_rkm_medis from reg_periksa where reg_periksa.no_rawat = '"+norawat+"')"));
         param.put("namars", Sequel.cariIsi("select nama_instansi from setting"));
         param.put("alamatrs", Sequel.cariIsi("select alamat_instansi from setting"));
         param.put("kotars", Sequel.cariIsi("select kabupaten from setting"));
         param.put("kontakrs", Sequel.cariIsi("select kontak from setting"));
         param.put("norawat", norawat);
-        Valid.printReport("rptBuktiRegisterAPM.jasper", koneksiDB.PRINTER_REGISTRASI(), 1, param);
+        
+        Valid.printReport("rptBuktiRegisterAPM.jasper", koneksiDB.PRINTER_REGISTRASI(), "::[ Bukti Registrasi 1 ]::", 1, param);
+        Valid.MyReport("rptBuktiRegisterAPM.jasper", "report", "::[ Bukti Registrasi 1 ]::", param);
+        Valid.printReport("rptBarcodeRawat.jasper", koneksiDB.PRINTER_BARCODE(), "::[ Barcode Perawatan ]::", 3, param);
+        Valid.MyReport("rptBarcodeRawat.jasper", "report", "::[ Barcode Perawatan ]::", param);
+        
         System.out.println(norawat);
+        
         this.setCursor(Cursor.getDefaultCursor());
     }
 

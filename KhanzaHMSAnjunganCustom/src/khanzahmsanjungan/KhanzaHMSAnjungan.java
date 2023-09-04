@@ -8,6 +8,8 @@ package khanzahmsanjungan;
 import com.formdev.flatlaf.FlatDarkLaf;
 import com.formdev.flatlaf.FlatLightLaf;
 import java.awt.Color;
+import javax.print.PrintService;
+import javax.print.PrintServiceLookup;
 import javax.swing.UIManager;
 import usu.widget.util.WidgetUtilities;
 
@@ -25,6 +27,11 @@ public class KhanzaHMSAnjungan {
         WidgetUtilities.invokeLater(() -> {
             HalamanUtamaDepan utama = HalamanUtamaDepan.getInstance();
             utama.setVisible(true);
+            
+            for (PrintService ps: PrintServiceLookup.lookupPrintServices(null, null)) {
+                System.out.println("Printer ditemukan: " + ps.getName());
+            }
+            
         });
         try {
             UIManager.setLookAndFeel(new FlatLightLaf());

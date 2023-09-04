@@ -592,7 +592,7 @@ public class DlgRegistrasiSEPPertama extends javax.swing.JDialog {
         });
 
         Tanggal.setForeground(new java.awt.Color(50, 70, 50));
-        Tanggal.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "10-08-2023" }));
+        Tanggal.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "01-09-2023" }));
         Tanggal.setDisplayFormat("dd-MM-yyyy");
         Tanggal.setFont(new java.awt.Font("Poppins", 0, 12)); // NOI18N
         Tanggal.setOpaque(false);
@@ -652,7 +652,7 @@ public class DlgRegistrasiSEPPertama extends javax.swing.JDialog {
         jLabel20.setBounds(660, 130, 70, 30);
 
         TanggalSEP.setForeground(new java.awt.Color(50, 70, 50));
-        TanggalSEP.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "10-08-2023" }));
+        TanggalSEP.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "01-09-2023" }));
         TanggalSEP.setDisplayFormat("dd-MM-yyyy");
         TanggalSEP.setFont(new java.awt.Font("Poppins", 0, 12)); // NOI18N
         TanggalSEP.setOpaque(false);
@@ -673,7 +673,7 @@ public class DlgRegistrasiSEPPertama extends javax.swing.JDialog {
         jLabel22.setBounds(650, 160, 80, 30);
 
         TanggalRujuk.setForeground(new java.awt.Color(50, 70, 50));
-        TanggalRujuk.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "10-08-2023" }));
+        TanggalRujuk.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "01-09-2023" }));
         TanggalRujuk.setDisplayFormat("dd-MM-yyyy");
         TanggalRujuk.setFont(new java.awt.Font("Poppins", 0, 12)); // NOI18N
         TanggalRujuk.setOpaque(false);
@@ -959,7 +959,7 @@ public class DlgRegistrasiSEPPertama extends javax.swing.JDialog {
         jLabel38.setBounds(650, 280, 80, 30);
 
         TanggalKKL.setForeground(new java.awt.Color(50, 70, 50));
-        TanggalKKL.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "10-08-2023" }));
+        TanggalKKL.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "01-09-2023" }));
         TanggalKKL.setDisplayFormat("dd-MM-yyyy");
         TanggalKKL.setEnabled(false);
         TanggalKKL.setFont(new java.awt.Font("Poppins", 0, 12)); // NOI18N
@@ -2097,13 +2097,16 @@ public class DlgRegistrasiSEPPertama extends javax.swing.JDialog {
         this.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
         
         Map<String, Object> param = new HashMap<>();
+        param.put("nama", Sequel.cariIsi("select pasien.nm_pasien from reg_periksa join pasien on reg_periksa.no_rkm_medis = pasien.no_rkm_medis where reg_periksa.no_rawat = '" + norawat + "'"));
+        param.put("norm", Sequel.cariIsi("select reg_periksa.no_rkm_medis from reg_periksa where reg_periksa.no_rawat = '"+norawat+"'"));
+        param.put("no_rawat", norawat);
         param.put("namars",akses.getnamars());
         param.put("alamatrs",akses.getalamatrs());
         param.put("kotars",akses.getkabupatenrs());
         param.put("propinsirs",akses.getpropinsirs());
         param.put("kontakrs",akses.getkontakrs());
         param.put("emailrs",akses.getemailrs());
-        param.put("norawat",TNoRw.getText());
+        param.put("norawat",norawat);
         param.put("prb",Sequel.cariIsi("select bpjs_prb.prb from bpjs_prb where bpjs_prb.no_sep=?", nosep));
         param.put("dokter",Sequel.cariIsi("select kd_dokter from maping_dokter_dpjpvclaim where kd_dokter_bpjs=?", KdDPJP.getText()));
         param.put("noreg",Sequel.cariIsi("select no_reg from reg_periksa where no_rawat=?", norawat));
@@ -2111,15 +2114,11 @@ public class DlgRegistrasiSEPPertama extends javax.swing.JDialog {
         param.put("parameter",nosep);
         
         if(JenisPelayanan.getSelectedIndex()==0){
-            Valid.MyReport("rptBridgingSEP7.jasper","report","::[ Cetak SEP ]::",param);
+            Valid.printReport("rptBridgingSEP7.jasper", koneksiDB.PRINTER_REGISTRASI(), "::[ SEP Model 4 ]::", 1, param);
         }else{
-            Valid.MyReport("rptBridgingSEP8.jasper","report","::[ Cetak SEP ]::",param);
+            Valid.printReport("rptBridgingSEP8.jasper", koneksiDB.PRINTER_REGISTRASI(), "::[ SEP Model 4 ]::", 1, param);
         }
-        
-        Valid.MyReportqry("rptBarcodeRawat.jasper","report","::[ Barcode No.Rawat ]::", "select reg_periksa.no_rawat from reg_periksa where reg_periksa.no_rawat='"+TNoRw.getText()+"'",param); 
-        
-        System.out.println("Cetak Registrasi:" + norawat);
-        System.out.println("Cetak SEP:" + nosep);
+        Valid.printReport("rptBarcodeRawat.jasper", koneksiDB.PRINTER_BARCODE(), "::[ Barcode Perawatan ]::", 3, param);
         
         this.setCursor(Cursor.getDefaultCursor());
     }
