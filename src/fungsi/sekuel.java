@@ -67,6 +67,48 @@ public final class sekuel {
         super();
     }
     
+    public void temporaryLab(String[] values, int count) {
+        String query = "insert into temporary_lab values(";
+        String track;
+        
+        int length = values.length;
+        
+        for (int i = 0; i < count; i++) {
+            query = query.concat("?, ");
+        }
+        
+        query = query
+            .concat(")")
+            .replaceFirst("\\?, \\)", "?)");
+        
+        track = query;
+        
+        try {
+            ps = connect.prepareStatement(query);
+        
+            for (int i = 0; i < count; i++) {
+                if (i < length) {
+                    ps.setString(i + 1, values[i]);
+                    track = track.replaceFirst("\\?", "'"+values[i]+"'");
+                } else {
+                    ps.setString(i + 1, "");
+                    track = track.replaceFirst("\\?", "''");
+                }
+            }
+            
+            ps.setString(length + 1, akses.getkode());
+            ps.setString(length + 2, akses.getalamatip());
+            
+            ps.executeUpdate();
+            
+            SimpanTrack(track);
+        } catch (Exception e) {
+            System.out.println("Notifikasi temporary_lab: " + e);
+            
+            JOptionPane.showMessageDialog(null, "Gagal memproses cetak hasil lab!");
+        }
+    }
+    
     public void insertTampJurnal(String kdRek, String nmRek, double d, double k)
     {
         String track;
