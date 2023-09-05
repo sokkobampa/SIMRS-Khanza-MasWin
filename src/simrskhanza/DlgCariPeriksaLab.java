@@ -1411,14 +1411,16 @@ private void KdKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TKdKey
                     Sequel.queryu("delete from temporary_lab where temp36 = '"+akses.getkode()+"' and temp37 = '"+akses.getalamatip()+"'");
                     int row=tabMode.getRowCount();
                     for(i=0;i<row;i++){
-                        Sequel.menyimpan("temporary_lab","'0','"+
-                                tabMode.getValueAt(i,0).toString()+"','"+
-                                tabMode.getValueAt(i,1).toString()+"','"+
-                                tabMode.getValueAt(i,2).toString()+"','"+
-                                tabMode.getValueAt(i,3).toString()+"','"+
-                                tabMode.getValueAt(i,4).toString()+"','"+
-                                tabMode.getValueAt(i,5).toString()+"','"+
-                                tabMode.getValueAt(i,6).toString()+"','','','','','','','','','','','','','','','','','','','','','','','','','','','','','"+akses.getkode()+"','"+akses.getalamatip()+"'","Periksa Lab");
+                        Sequel.temporaryLab(new String[] {
+                            "0",
+                            tabMode.getValueAt(i, 0).toString(),
+                            tabMode.getValueAt(i, 1).toString(),
+                            tabMode.getValueAt(i, 2).toString(),
+                            tabMode.getValueAt(i, 3).toString(),
+                            tabMode.getValueAt(i, 4).toString(),
+                            tabMode.getValueAt(i, 5).toString(),
+                            tabMode.getValueAt(i, 6).toString()
+                        }, 36);
                     }
                     
                     Map<String, Object> param = new HashMap<>();
@@ -1428,6 +1430,8 @@ private void KdKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TKdKey
                     param.put("propinsirs",akses.getpropinsirs());
                     param.put("kontakrs",akses.getkontakrs());
                     param.put("emailrs",akses.getemailrs());
+                    param.put("userid", akses.getkode());
+                    param.put("ipaddress", akses.getalamatip());
                     param.put("logo",Sequel.cariGambar("select setting.logo from setting"));
                     Valid.MyReport("rptDataLab.jasper","report","::[ Data Pemeriksaan Laboratorium ]::",param);
                 }   break;
@@ -1440,23 +1444,24 @@ private void KdKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TKdKey
                     Sequel.queryu("delete from temporary_lab where temp36 = '"+akses.getkode()+"' and temp37 = '"+akses.getalamatip()+"'");
                     int row=tabMode2.getRowCount();
                     for(i=0;i<row;i++){
-                        Sequel.menyimpan("temporary_lab","'0','"+
-                                tabMode2.getValueAt(i,0).toString()+"','"+
-                                tabMode2.getValueAt(i,1).toString()+"','"+
-                                tabMode2.getValueAt(i,2).toString()+"','"+
-                                tabMode2.getValueAt(i,3).toString()+"','"+
-                                tabMode2.getValueAt(i,4).toString()+"','"+
-                                tabMode2.getValueAt(i,5).toString()+"','"+
-                                tabMode2.getValueAt(i,6).toString()+"','"+
-                                tabMode2.getValueAt(i,7).toString()+"','"+
-                                tabMode2.getValueAt(i,8).toString()+"','"+
-                                tabMode2.getValueAt(i,9).toString()+"','"+
-                                tabMode2.getValueAt(i,10).toString()+"','"+
-                                tabMode2.getValueAt(i,11).toString()+"','"+
-                                tabMode2.getValueAt(i,12).toString()+"','"+
-                                tabMode2.getValueAt(i,13).toString()+"','','','','','','','','','','','','','','','','','','','','','','"+akses.getkode()+"','"+akses.getalamatip()+"'","Periksa Lab");
+                        Sequel.temporaryLab(new String[] {
+                            "0",
+                            tabMode.getValueAt(i, 0).toString(),
+                            tabMode.getValueAt(i, 1).toString(),
+                            tabMode.getValueAt(i, 2).toString(),
+                            tabMode.getValueAt(i, 3).toString(),
+                            tabMode.getValueAt(i, 4).toString(),
+                            tabMode.getValueAt(i, 5).toString(),
+                            tabMode.getValueAt(i, 6).toString(),
+                            tabMode.getValueAt(i, 7).toString(),
+                            tabMode.getValueAt(i, 8).toString(),
+                            tabMode.getValueAt(i, 9).toString(),
+                            tabMode.getValueAt(i, 10).toString(),
+                            tabMode.getValueAt(i, 11).toString(),
+                            tabMode.getValueAt(i, 12).toString(),
+                            tabMode.getValueAt(i, 13).toString(),
+                        }, 36);
                     }
-                    
                     Map<String, Object> param = new HashMap<>();
                     param.put("namars",akses.getnamars());
                     param.put("alamatrs",akses.getalamatrs());
@@ -1465,6 +1470,8 @@ private void KdKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TKdKey
                     param.put("kontakrs",akses.getkontakrs());
                     param.put("emailrs",akses.getemailrs());
                     param.put("logo",Sequel.cariGambar("select setting.logo from setting"));
+                    param.put("userid", akses.getkode());
+                    param.put("ipaddress", akses.getalamatip());
                     Valid.MyReport("rptDataLab2.jasper","report","::[ Data Item Pemeriksaan Laboratorium ]::",param);
                 }   break;
             case 2:

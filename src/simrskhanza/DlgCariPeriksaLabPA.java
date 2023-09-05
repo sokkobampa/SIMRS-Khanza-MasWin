@@ -1753,21 +1753,23 @@ private void tbDokterKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_
                 Sequel.queryu("delete from temporary_lab where temp36 = '"+akses.getkode()+"' and temp37 = '"+akses.getalamatip()+"'");
                 int row=tabMode.getRowCount();
                 for(i=0;i<row;i++){
-                    Sequel.menyimpan("temporary_lab","'0','"+
-                        tabMode.getValueAt(i,0).toString()+"','"+
-                        tabMode.getValueAt(i,1).toString()+"','"+
-                        tabMode.getValueAt(i,2).toString()+"','"+
-                        tabMode.getValueAt(i,3).toString()+"','"+
-                        tabMode.getValueAt(i,4).toString()+"','"+
-                        tabMode.getValueAt(i,5).toString()+"','"+
-                        tabMode.getValueAt(i,6).toString()+"','"+
-                        tabMode.getValueAt(i,7).toString()+"','"+
-                        tabMode.getValueAt(i,8).toString()+"','"+
-                        tabMode.getValueAt(i,9).toString()+"','"+
-                        tabMode.getValueAt(i,10).toString()+"','"+
-                        tabMode.getValueAt(i,11).toString()+"','"+
-                        tabMode.getValueAt(i,12).toString()+"','"+
-                        tabMode.getValueAt(i,13).toString()+"','','','','','','','','','','','','','','','','','','','','','','"+akses.getkode()+"','"+akses.getalamatip()+"'","Periksa Lab");
+                    Sequel.temporaryLab(new String[] {
+                        "0",
+                        tabMode.getValueAt(i, 0).toString(),
+                        tabMode.getValueAt(i, 1).toString(),
+                        tabMode.getValueAt(i, 2).toString(),
+                        tabMode.getValueAt(i, 3).toString(),
+                        tabMode.getValueAt(i, 4).toString(),
+                        tabMode.getValueAt(i, 5).toString(),
+                        tabMode.getValueAt(i, 6).toString(),
+                        tabMode.getValueAt(i, 7).toString(),
+                        tabMode.getValueAt(i, 8).toString(),
+                        tabMode.getValueAt(i, 9).toString(),
+                        tabMode.getValueAt(i, 10).toString(),
+                        tabMode.getValueAt(i, 11).toString(),
+                        tabMode.getValueAt(i, 12).toString(),
+                        tabMode.getValueAt(i, 13).toString(),
+                    }, 36);
                 }
 
                 Map<String, Object> param = new HashMap<>();
@@ -1778,6 +1780,8 @@ private void tbDokterKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_
                 param.put("kontakrs",akses.getkontakrs());
                 param.put("emailrs",akses.getemailrs());
                 param.put("logo",Sequel.cariGambar("select setting.logo from setting"));
+                param.put("userid", akses.getkode());
+                param.put("ipaddress", akses.getalamatip());
                 Valid.MyReport("rptDataLabPA.jasper","report","::[ Data Pemeriksaan Laboratorium ]::",param);
             }   break;
             case 1:

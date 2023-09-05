@@ -2,4 +2,3 @@
 .project
 *.pdf
 !.gitignore
-/rptBuktiRegisterAPM.jasper

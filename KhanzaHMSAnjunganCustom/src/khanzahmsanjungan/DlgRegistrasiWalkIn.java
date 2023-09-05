@@ -229,6 +229,9 @@ public class DlgRegistrasiWalkIn extends javax.swing.JDialog {
         TNoRw = new widget.TextBox();
         btnSimpan2 = new component.Button();
         NamaDokter = new widget.TextBox();
+        jLabel12 = new component.Label();
+        lblTglLahir = new component.Label();
+        jLabel13 = new component.Label();
         jPanel3 = new javax.swing.JPanel();
         btnSimpan = new component.Button();
         btnKeluar = new component.Button();
@@ -332,21 +335,21 @@ public class DlgRegistrasiWalkIn extends javax.swing.JDialog {
         jLabel11.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel11.setPreferredSize(new java.awt.Dimension(20, 14));
         jPanel2.add(jLabel11);
-        jLabel11.setBounds(270, 60, 20, 23);
+        jLabel11.setBounds(270, 100, 20, 23);
 
         lblNamaPasien.setForeground(new java.awt.Color(0, 131, 62));
         lblNamaPasien.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         lblNamaPasien.setFont(new java.awt.Font("Poppins", 0, 18)); // NOI18N
         lblNamaPasien.setPreferredSize(new java.awt.Dimension(20, 14));
         jPanel2.add(lblNamaPasien);
-        lblNamaPasien.setBounds(470, 50, 410, 40);
+        lblNamaPasien.setBounds(380, 50, 500, 40);
 
         jLabel28.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         jLabel28.setText(":");
         jLabel28.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel28.setPreferredSize(new java.awt.Dimension(20, 14));
         jPanel2.add(jLabel28);
-        jLabel28.setBounds(270, 100, 20, 23);
+        jLabel28.setBounds(270, 140, 20, 23);
 
         jLabel29.setForeground(new java.awt.Color(0, 131, 62));
         jLabel29.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
@@ -354,14 +357,14 @@ public class DlgRegistrasiWalkIn extends javax.swing.JDialog {
         jLabel29.setFont(new java.awt.Font("Poppins", 0, 18)); // NOI18N
         jLabel29.setPreferredSize(new java.awt.Dimension(20, 14));
         jPanel2.add(jLabel29);
-        jLabel29.setBounds(20, 90, 250, 40);
+        jLabel29.setBounds(20, 130, 250, 40);
 
         jLabel30.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         jLabel30.setText(":");
         jLabel30.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel30.setPreferredSize(new java.awt.Dimension(20, 14));
         jPanel2.add(jLabel30);
-        jLabel30.setBounds(270, 150, 20, 23);
+        jLabel30.setBounds(270, 190, 20, 23);
 
         jLabel31.setForeground(new java.awt.Color(0, 131, 62));
         jLabel31.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
@@ -369,36 +372,24 @@ public class DlgRegistrasiWalkIn extends javax.swing.JDialog {
         jLabel31.setFont(new java.awt.Font("Poppins", 0, 18)); // NOI18N
         jLabel31.setPreferredSize(new java.awt.Dimension(20, 14));
         jPanel2.add(jLabel31);
-        jLabel31.setBounds(20, 140, 250, 40);
+        jLabel31.setBounds(20, 180, 250, 40);
 
-        TanggalPeriksa.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "29-08-2023" }));
+        TanggalPeriksa.setEditable(false);
+        TanggalPeriksa.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "05-09-2023" }));
         TanggalPeriksa.setDisplayFormat("dd-MM-yyyy");
+        TanggalPeriksa.setEnabled(false);
+        TanggalPeriksa.setFocusable(false);
         TanggalPeriksa.setOpaque(false);
         TanggalPeriksa.setPreferredSize(new java.awt.Dimension(95, 23));
-        TanggalPeriksa.addItemListener(new java.awt.event.ItemListener() {
-            public void itemStateChanged(java.awt.event.ItemEvent evt) {
-                TanggalPeriksaItemStateChanged(evt);
-            }
-        });
-        TanggalPeriksa.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                TanggalPeriksaActionPerformed(evt);
-            }
-        });
-        TanggalPeriksa.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                TanggalPeriksaKeyPressed(evt);
-            }
-        });
         jPanel2.add(TanggalPeriksa);
-        TanggalPeriksa.setBounds(290, 90, 190, 40);
+        TanggalPeriksa.setBounds(290, 130, 190, 40);
 
         lblNoRM.setForeground(new java.awt.Color(0, 131, 62));
         lblNoRM.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         lblNoRM.setFont(new java.awt.Font("Poppins", 0, 18)); // NOI18N
         lblNoRM.setPreferredSize(new java.awt.Dimension(20, 14));
         jPanel2.add(lblNoRM);
-        lblNoRM.setBounds(290, 50, 170, 40);
+        lblNoRM.setBounds(290, 50, 80, 40);
 
         jLabel32.setForeground(new java.awt.Color(0, 131, 62));
         jLabel32.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
@@ -406,21 +397,21 @@ public class DlgRegistrasiWalkIn extends javax.swing.JDialog {
         jLabel32.setFont(new java.awt.Font("Poppins", 0, 18)); // NOI18N
         jLabel32.setPreferredSize(new java.awt.Dimension(20, 14));
         jPanel2.add(jLabel32);
-        jLabel32.setBounds(20, 180, 250, 40);
+        jLabel32.setBounds(20, 220, 250, 40);
 
         jLabel33.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         jLabel33.setText(":");
         jLabel33.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel33.setPreferredSize(new java.awt.Dimension(20, 14));
         jPanel2.add(jLabel33);
-        jLabel33.setBounds(270, 190, 20, 23);
+        jLabel33.setBounds(270, 230, 20, 23);
 
         jLabel35.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         jLabel35.setText(":");
         jLabel35.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel35.setPreferredSize(new java.awt.Dimension(20, 14));
         jPanel2.add(jLabel35);
-        jLabel35.setBounds(270, 230, 20, 23);
+        jLabel35.setBounds(270, 270, 20, 23);
 
         cmbCaraBayar.setForeground(new java.awt.Color(0, 131, 62));
         cmbCaraBayar.setFont(new java.awt.Font("Poppins", 1, 14)); // NOI18N
@@ -429,18 +420,13 @@ public class DlgRegistrasiWalkIn extends javax.swing.JDialog {
                 cmbCaraBayarItemStateChanged(evt);
             }
         });
-        cmbCaraBayar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cmbCaraBayarActionPerformed(evt);
-            }
-        });
         cmbCaraBayar.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 cmbCaraBayarKeyPressed(evt);
             }
         });
         jPanel2.add(cmbCaraBayar);
-        cmbCaraBayar.setBounds(290, 220, 520, 40);
+        cmbCaraBayar.setBounds(290, 260, 520, 40);
 
         btnSimpan1.setForeground(new java.awt.Color(0, 131, 62));
         btnSimpan1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/48x48/pilih.png"))); // NOI18N
@@ -460,18 +446,13 @@ public class DlgRegistrasiWalkIn extends javax.swing.JDialog {
             }
         });
         jPanel2.add(btnSimpan1);
-        btnSimpan1.setBounds(810, 140, 70, 40);
+        btnSimpan1.setBounds(810, 180, 70, 40);
 
         NamaPoli.setEditable(false);
         NamaPoli.setFont(new java.awt.Font("Poppins", 0, 18)); // NOI18N
         NamaPoli.setPreferredSize(new java.awt.Dimension(72, 28));
-        NamaPoli.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                NamaPoliKeyPressed(evt);
-            }
-        });
         jPanel2.add(NamaPoli);
-        NamaPoli.setBounds(290, 140, 520, 40);
+        NamaPoli.setBounds(290, 180, 520, 40);
 
         jLabel36.setForeground(new java.awt.Color(0, 131, 62));
         jLabel36.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
@@ -479,7 +460,7 @@ public class DlgRegistrasiWalkIn extends javax.swing.JDialog {
         jLabel36.setFont(new java.awt.Font("Poppins", 0, 18)); // NOI18N
         jLabel36.setPreferredSize(new java.awt.Dimension(20, 14));
         jPanel2.add(jLabel36);
-        jLabel36.setBounds(20, 220, 250, 40);
+        jLabel36.setBounds(20, 260, 250, 40);
 
         TNoRw.setEditable(false);
         TNoRw.setFont(new java.awt.Font("Poppins", 0, 18)); // NOI18N
@@ -490,7 +471,7 @@ public class DlgRegistrasiWalkIn extends javax.swing.JDialog {
             }
         });
         jPanel2.add(TNoRw);
-        TNoRw.setBounds(290, 260, 520, 40);
+        TNoRw.setBounds(290, 300, 520, 40);
 
         btnSimpan2.setForeground(new java.awt.Color(0, 131, 62));
         btnSimpan2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/48x48/pilih.png"))); // NOI18N
@@ -510,18 +491,35 @@ public class DlgRegistrasiWalkIn extends javax.swing.JDialog {
             }
         });
         jPanel2.add(btnSimpan2);
-        btnSimpan2.setBounds(810, 180, 70, 40);
+        btnSimpan2.setBounds(810, 220, 70, 40);
 
         NamaDokter.setEditable(false);
         NamaDokter.setFont(new java.awt.Font("Poppins", 0, 18)); // NOI18N
         NamaDokter.setPreferredSize(new java.awt.Dimension(72, 28));
-        NamaDokter.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                NamaDokterKeyPressed(evt);
-            }
-        });
         jPanel2.add(NamaDokter);
-        NamaDokter.setBounds(290, 180, 520, 40);
+        NamaDokter.setBounds(290, 220, 520, 40);
+
+        jLabel12.setForeground(new java.awt.Color(0, 131, 62));
+        jLabel12.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        jLabel12.setText("Tgl. Lahir");
+        jLabel12.setFont(new java.awt.Font("Poppins", 0, 18)); // NOI18N
+        jLabel12.setPreferredSize(new java.awt.Dimension(20, 14));
+        jPanel2.add(jLabel12);
+        jLabel12.setBounds(20, 90, 250, 40);
+
+        lblTglLahir.setForeground(new java.awt.Color(0, 131, 62));
+        lblTglLahir.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        lblTglLahir.setFont(new java.awt.Font("Poppins", 0, 18)); // NOI18N
+        lblTglLahir.setPreferredSize(new java.awt.Dimension(20, 14));
+        jPanel2.add(lblTglLahir);
+        lblTglLahir.setBounds(290, 90, 520, 40);
+
+        jLabel13.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        jLabel13.setText(":");
+        jLabel13.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel13.setPreferredSize(new java.awt.Dimension(20, 14));
+        jPanel2.add(jLabel13);
+        jLabel13.setBounds(270, 60, 20, 23);
 
         jPanel1.add(jPanel2, java.awt.BorderLayout.CENTER);
 
@@ -603,10 +601,6 @@ public class DlgRegistrasiWalkIn extends javax.swing.JDialog {
         // TODO add your handling code here:
     }//GEN-LAST:event_BiayaKeyPressed
 
-    private void TanggalPeriksaKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TanggalPeriksaKeyPressed
-
-    }//GEN-LAST:event_TanggalPeriksaKeyPressed
-
     private void cmbCaraBayarItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cmbCaraBayarItemStateChanged
 //        tentukanPilihan();
     }//GEN-LAST:event_cmbCaraBayarItemStateChanged
@@ -675,18 +669,6 @@ public class DlgRegistrasiWalkIn extends javax.swing.JDialog {
         }
     }//GEN-LAST:event_btnSimpanActionPerformed
 
-    private void TanggalPeriksaItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_TanggalPeriksaItemStateChanged
-        tentukanHari();
-        kode_poli = "";
-        NamaPoli.setText("");
-        NamaDokter.setText("");
-        kode_dokter = "";
-//        poli.tampil(hari);
-//        poli.setSize(jPanel2.getWidth() - 50, jPanel2.getHeight() - 50);
-//        poli.setLocationRelativeTo(jPanel2);
-//        poli.setVisible(true);
-    }//GEN-LAST:event_TanggalPeriksaItemStateChanged
-
     private void btnSimpan1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSimpan1ActionPerformed
         poli.tampil(hari);
         poli.setSize(jPanel1.getWidth() - 50, jPanel1.getHeight() - 50);
@@ -698,19 +680,15 @@ public class DlgRegistrasiWalkIn extends javax.swing.JDialog {
         // TODO add your handling code here:
     }//GEN-LAST:event_btnSimpan1KeyPressed
 
-    private void NamaPoliKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_NamaPoliKeyPressed
-
-    }//GEN-LAST:event_NamaPoliKeyPressed
-
-    private void TanggalPeriksaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TanggalPeriksaActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_TanggalPeriksaActionPerformed
-
     private void TNoRwKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TNoRwKeyPressed
         // TODO add your handling code here:
     }//GEN-LAST:event_TNoRwKeyPressed
 
     private void btnSimpan2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSimpan2ActionPerformed
+        if (kode_poli.isBlank()) {
+            JOptionPane.showMessageDialog(null, "Silahkan pilih poli dokter terlebih dahulu!");
+            return;
+        }
         dokter.tampil(hari, kode_poli);
         dokter.setSize(jPanel1.getWidth() - 50, jPanel1.getHeight() - 50);
         dokter.setLocationRelativeTo(jPanel2);
@@ -720,14 +698,6 @@ public class DlgRegistrasiWalkIn extends javax.swing.JDialog {
     private void btnSimpan2KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_btnSimpan2KeyPressed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnSimpan2KeyPressed
-
-    private void NamaDokterKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_NamaDokterKeyPressed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_NamaDokterKeyPressed
-
-    private void cmbCaraBayarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbCaraBayarActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_cmbCaraBayarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -766,6 +736,8 @@ public class DlgRegistrasiWalkIn extends javax.swing.JDialog {
     private widget.ComboBox cmbCaraBayar;
     private component.Label jLabel10;
     private component.Label jLabel11;
+    private component.Label jLabel12;
+    private component.Label jLabel13;
     private component.Label jLabel28;
     private component.Label jLabel29;
     private component.Label jLabel30;
@@ -779,12 +751,14 @@ public class DlgRegistrasiWalkIn extends javax.swing.JDialog {
     private javax.swing.JPanel jPanel3;
     private component.Label lblNamaPasien;
     private component.Label lblNoRM;
+    private component.Label lblTglLahir;
     // End of variables declaration//GEN-END:variables
 
     public void setPasien(String norm) {
         System.out.println(norm);
         lblNoRM.setText(norm);
-        lblNamaPasien.setText(Sequel.cariIsi("select pasien.nm_pasien from pasien where pasien.no_rkm_medis='" + norm + "'"));
+        lblNamaPasien.setText(Sequel.cariIsi("select pasien.nm_pasien from pasien where pasien.no_rkm_medis=?", norm));
+        lblTglLahir.setText(Sequel.cariIsi("select date_format(pasien.tgl_lahir, '%d-%m/%Y') from pasien where pasien.no_rkm_medis =?", norm));
         if (!lblNoRM.getText().equals("") && !lblNamaPasien.getText().equals("")) {
             tentukanHari();
 //            cmbDokterTujuan.setVisible(false);

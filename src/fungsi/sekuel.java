@@ -73,7 +73,7 @@ public final class sekuel {
         
         int length = values.length;
         
-        for (int i = 0; i < count; i++) {
+        for (int i = 0; i < count + 2; i++) {
             query = query.concat("?, ");
         }
         
@@ -96,8 +96,10 @@ public final class sekuel {
                 }
             }
             
-            ps.setString(length + 1, akses.getkode());
-            ps.setString(length + 2, akses.getalamatip());
+            ps.setString(count + 1, akses.getkode());
+            track = track.replaceFirst("\\?", "'"+akses.getkode()+"'");
+            ps.setString(count + 2, akses.getalamatip());
+            track = track.replaceFirst("\\?", "'"+akses.getalamatip()+"'");
             
             ps.executeUpdate();
             

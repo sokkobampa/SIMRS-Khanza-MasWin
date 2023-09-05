@@ -184,33 +184,26 @@ public final class DlgCariDokter2 extends javax.swing.JDialog {
 
     public void tampil(String harikerja, String kodepoli) {
         Valid.tabelKosong(tabMode);
+        
+        String query = "select dokter.kd_dokter, dokter.nm_dokter, concat(jadwal.jam_mulai, ' - ', jadwal.jam_selesai) as jam_kerja from dokter join jadwal on dokter.kd_dokter = jadwal.kd_dokter where jadwal.hari_kerja = ? and jadwal.kd_poli = ?";
         try {
-            ps = koneksi.prepareStatement("SELECT\n"
-                    + "	dokter.nm_dokter, \n"
-                    + "	jadwal.kd_dokter, jadwal.jam_mulai,jadwal.jam_selesai\n"
-                    + "FROM\n"
-                    + "	dokter\n"
-                    + "	INNER JOIN\n"
-                    + "	jadwal\n"
-                    + "	ON \n"
-                    + "		dokter.kd_dokter = jadwal.kd_dokter\n"
-                    + "		where jadwal.hari_kerja='" + harikerja + "' and jadwal.kd_poli='" + kodepoli + "'");
-            try {
-                rs = ps.executeQuery();
-                while (rs.next()) {
-                    tabMode.addRow(new Object[]{rs.getString(2), rs.getString(1)});
-                }
-            } catch (Exception e) {
-                System.out.println("Notifikasi : " + e);
-            } finally {
-                if (rs != null) {
-                    rs.close();
-                }
-
-                if (ps != null) {
-                    ps.close();
-                }
+            ps = koneksi.prepareStatement(query);
+            ps.setString(1, harikerja);
+            ps.setString(2, kodepoli);
+            
+            rs = ps.executeQuery();
+            
+            while (rs.next()) {
+                tabMode.addRow(new Object[]{
+                    rs.getString("kd_dokter"),
+                    rs.getString("nm_dokter"),
+                    rs.getString("jam_kerja")
+                });
             }
+            
+            rs.close();
+            
+            ps.close();
         } catch (Exception e) {
             System.out.println("Notifikasi : " + e);
         }
