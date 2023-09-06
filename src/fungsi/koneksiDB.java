@@ -78,6 +78,26 @@ public class koneksiDB {
         }
     }
     
+    public static String URL_ERROR_REPORTER() {
+        try {
+            prop.loadFromXML(new FileInputStream("setting/database.xml"));
+            
+            return prop.getProperty("URL_ERROR_REPORTER");
+        } catch (Exception e) {
+            return null;
+        }
+    }
+
+    public static String PORT_ERROR_REPORTER() {
+        try {
+            prop.loadFromXML(new FileInputStream("setting/database.xml"));
+            
+            return prop.getProperty("PORT_ERROR_REPORTER");
+        } catch (Exception e) {
+            return null;
+        }
+    }
+    
     public static String HOST(){
         try{
             prop.loadFromXML(new FileInputStream("setting/database.xml"));
