@@ -2100,6 +2100,7 @@ public class DlgRegistrasiSEPPertama extends javax.swing.JDialog {
         param.put("nama", Sequel.cariIsi("select pasien.nm_pasien from reg_periksa join pasien on reg_periksa.no_rkm_medis = pasien.no_rkm_medis where reg_periksa.no_rawat = '" + norawat + "'"));
         param.put("norm", Sequel.cariIsi("select reg_periksa.no_rkm_medis from reg_periksa where reg_periksa.no_rawat = '"+norawat+"'"));
         param.put("no_rawat", norawat);
+        param.put("alamat", Sequel.cariIsi("select date_format(pasien.tgl_lahir, '%d/%m/%Y') from pasien where pasien.no_rkm_medis = (select reg_periksa.no_rkm_medis from reg_periksa where reg_periksa.no_rawat = '"+norawat+"')"));
         param.put("namars",akses.getnamars());
         param.put("alamatrs",akses.getalamatrs());
         param.put("kotars",akses.getkabupatenrs());
@@ -2115,10 +2116,13 @@ public class DlgRegistrasiSEPPertama extends javax.swing.JDialog {
         
         if(JenisPelayanan.getSelectedIndex()==0){
             Valid.printReport("rptBridgingSEP7.jasper", koneksiDB.PRINTER_REGISTRASI(), "::[ SEP Model 4 ]::", 1, param);
+            Valid.MyReport("rptBridgingSEP7.jasper", "report", "::[ SEP Model 4 ]::", param);
         }else{
             Valid.printReport("rptBridgingSEP8.jasper", koneksiDB.PRINTER_REGISTRASI(), "::[ SEP Model 4 ]::", 1, param);
+            Valid.MyReport("rptBridgingSEP7.jasper", "report", "::[ SEP Model 4 ]::", param);
         }
         Valid.printReport("rptBarcodeRawat.jasper", koneksiDB.PRINTER_BARCODE(), "::[ Barcode Perawatan ]::", 3, param);
+        Valid.MyReport("rptBarcodeRawat.jasper", "report", "::[ Barcode Perawatan ]::", param);
         
         this.setCursor(Cursor.getDefaultCursor());
     }
