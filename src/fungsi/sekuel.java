@@ -62,6 +62,7 @@ public final class sekuel {
     private String dicari="";
     private Date tanggal=new Date();
     private boolean bool=false;
+    private validasi Valid = new validasi();
     private final DecimalFormat df2 = new DecimalFormat("####");
     public sekuel(){
         super();
@@ -148,37 +149,7 @@ public final class sekuel {
     
     public void insertTampJurnal(String kdRek, String nmRek, String d, String k)
     {
-        String track;
-        String query = track = "insert into tampjurnal_smc (kd_rek, nm_rek, debet, kredit, user_id, ip) values (?, ?, ?, ?, ?, ?)";
-        
-        track = track.replaceFirst("\\?", "'"+kdRek+"'");
-        track = track.replaceFirst("\\?", "'"+nmRek+"'");
-        track = track.replaceFirst("\\?", d);
-        track = track.replaceFirst("\\?", k);
-        track = track.replaceFirst("\\?", "'"+akses.getkode()+"'");
-        track = track.replaceFirst("\\?", "'"+akses.getalamatip()+"'");
-        
-        try {
-            ps = connect.prepareStatement(query);
-            ps.setString(1, kdRek);
-            ps.setString(2, nmRek);
-            ps.setString(3, d);
-            ps.setString(4, k);
-            ps.setString(5, akses.getkode());
-            ps.setString(6, akses.getalamatip());
-            
-            ps.executeUpdate();
-            
-            SimpanTrack(track);
-            
-            if (ps != null) {
-                ps.close();
-            }
-        } catch (SQLException e) {
-            System.out.println("Notifikasi: " + e);
-            
-            JOptionPane.showMessageDialog(null, "Gagal menyimpan data! Kemungkinan ada rekening yang sama dimasukkan sebelumnya!");
-        }
+        this.insertTampJurnal(kdRek, nmRek, Valid.setAngkaSmc(d), Valid.setAngkaSmc(k));
     }
     
     public void insertOrUpdateTampJurnal(String kdRek, String nmRek, double d, double k)
@@ -274,63 +245,8 @@ public final class sekuel {
         }
     }
     
-    public void insertOrUpdateTampJurnal(String kdRek, String nmRek, String[] insertDK, String[] updateDK)
-    {
-        String track;
-        String insertQuery = "insert into tampjurnal_smc (kd_rek, nm_rek, debet, kredit, user_id, ip) values (?, ?, ?, ?, ?, ?)";
-        String updateQuery = "update tampjurnal_smc set debet = " + updateDK[0] + ", kredit = " + updateDK[1] + " where kd_rek = ? and user_id = ? and ip = ?";
-        
-        try {
-            ps = connect.prepareStatement(insertQuery);
-            ps.setString(1, kdRek);
-            ps.setString(2, nmRek);
-            ps.setString(3, insertDK[0]);
-            ps.setString(4, insertDK[1]);
-            ps.setString(5, akses.getkode());
-            ps.setString(6, akses.getalamatip());
-            
-            ps.executeUpdate();
-            
-            track = insertQuery;
-            track = track.replaceFirst("\\?", "'"+kdRek+"'");
-            track = track.replaceFirst("\\?", "'"+nmRek+"'");
-            track = track.replaceFirst("\\?", insertDK[0]);
-            track = track.replaceFirst("\\?", insertDK[1]);
-            track = track.replaceFirst("\\?", "'"+akses.getkode()+"'");
-            track = track.replaceFirst("\\?", "'"+akses.getalamatip()+"'");
-            
-            if (ps != null) {
-                ps.close();
-            }
-            
-            SimpanTrack(track);
-        } catch (SQLException e) {
-            System.out.println("Notifikasi : " + e);
-            System.out.println("Melakukan update...");
-            try {
-                ps = connect.prepareStatement(updateQuery);
-                ps.setString(1, kdRek);
-                ps.setString(2, akses.getkode());
-                ps.setString(3, akses.getalamatip());
-                
-                ps.executeUpdate();
-                
-                track = updateQuery;
-                track = track.replaceFirst("\\?", "'"+kdRek+"'");
-                track = track.replaceFirst("\\?", "'"+akses.getkode()+"'");
-                track = track.replaceFirst("\\?", "'"+akses.getalamatip()+"'");
-                
-                if (ps != null) {
-                    ps.close();
-                }
-                
-                SimpanTrack(track);
-            } catch (SQLException ex) {
-                System.out.println("Notifikasi : " + ex);
-            
-                JOptionPane.showMessageDialog(null, "Gagal menyimpan data!");
-            }
-        }
+    public void insertOrUpdateTampJurnal(String kdRek, String nmRek, String d, String k) {
+        this.insertOrUpdateTampJurnal(kdRek, nmRek, Double.parseDouble(d), Double.parseDouble(k));
     }
     
     public void deleteTampJurnal()
