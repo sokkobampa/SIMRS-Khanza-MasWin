@@ -896,7 +896,6 @@ public final class DlgPeresepanDokter extends javax.swing.JDialog {
         FormInput.add(LTotalTagihan);
         LTotalTagihan.setBounds(588, 42, 95, 23);
 
-        textTemplateResep.setEditable(false);
         textTemplateResep.setHighlighter(null);
         textTemplateResep.setName("textTemplateResep"); // NOI18N
         FormInput.add(textTemplateResep);
@@ -1546,8 +1545,11 @@ private void ppBersihkanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-F
     private void checkboxSimpanTemplateResepItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_checkboxSimpanTemplateResepItemStateChanged
         if (evt.getStateChange() == ItemEvent.SELECTED) {
             textTemplateResep.setEnabled(true);
+            textTemplateResep.setEditable(true);
         } else {
             textTemplateResep.setEnabled(false);
+            textTemplateResep.setEditable(false);
+            textTemplateResep.setText(null);
         }
     }//GEN-LAST:event_checkboxSimpanTemplateResepItemStateChanged
 

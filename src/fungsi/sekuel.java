@@ -62,7 +62,6 @@ public final class sekuel {
     private String dicari="";
     private Date tanggal=new Date();
     private boolean bool=false;
-    private validasi Valid = new validasi();
     private final DecimalFormat df2 = new DecimalFormat("####");
     public sekuel(){
         super();
@@ -149,7 +148,15 @@ public final class sekuel {
     
     public void insertTampJurnal(String kdRek, String nmRek, String d, String k)
     {
-        this.insertTampJurnal(kdRek, nmRek, Valid.setAngkaSmc(d), Valid.setAngkaSmc(k));
+        this.insertTampJurnal(kdRek, nmRek, parseDouble(d), parseDouble(k));
+    }
+    
+    private double parseDouble(String value) {
+        try {
+            return Double.parseDouble(value);
+        } catch (NumberFormatException e) {
+            return 0;
+        }
     }
     
     public void insertOrUpdateTampJurnal(String kdRek, String nmRek, double d, double k)
