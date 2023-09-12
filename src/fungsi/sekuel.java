@@ -1396,6 +1396,8 @@ public final class sekuel {
     }
     
     public void queryu(String qry,String parameter){
+        String track = qry;
+        track = track.replaceFirst("\\?", parameter);
         try {
             ps=connect.prepareStatement(qry);
             try{
@@ -1409,7 +1411,7 @@ public final class sekuel {
                     ps.close();
                 }
             }
-            SimpanTrack(qry);
+            SimpanTrack(track);
         } catch (Exception e) {
             System.out.println("Notifikasi : "+e);
         }    

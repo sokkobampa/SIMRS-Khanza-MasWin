@@ -23,6 +23,7 @@ import java.awt.Cursor;
 import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.ItemEvent;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.awt.event.WindowEvent;
@@ -64,6 +65,7 @@ public final class DlgPeresepanDokter extends javax.swing.JDialog {
     private WarnaTable2 warna3=new WarnaTable2();
     private DlgCariMetodeRacik metoderacik=new DlgCariMetodeRacik(null,false);
     public DlgCariDokter dokter=new DlgCariDokter(null,false);
+    private DlgTemplateResep templateResep = new DlgTemplateResep(null, false);
     private String noracik="",aktifkanbatch="no",STOKKOSONGRESEP="no",qrystokkosong="",tampilkan_ppnobat_ralan="",status="",bangsal="",resep="",DEPOAKTIFOBAT="",
             kamar="",norawatibu="",kelas,bangsaldefault=Sequel.cariIsi("select set_lokasi.kd_bangsal from set_lokasi limit 1"),RESEPRAJALKEPLAN="no";
     /** Creates new form DlgPenyakit
@@ -328,6 +330,31 @@ public final class DlgPeresepanDokter extends javax.swing.JDialog {
             public void windowDeactivated(WindowEvent e) {}
         });
         
+        templateResep.addWindowListener(new WindowListener() {
+            @Override
+            public void windowOpened(WindowEvent e) {}
+
+            @Override
+            public void windowClosing(WindowEvent e) {}
+
+            @Override
+            public void windowClosed(WindowEvent e) {
+                
+            }
+
+            @Override
+            public void windowIconified(WindowEvent e) {}
+
+            @Override
+            public void windowDeiconified(WindowEvent e) {}
+
+            @Override
+            public void windowActivated(WindowEvent e) {}
+
+            @Override
+            public void windowDeactivated(WindowEvent e) {}
+        });
+        
         metoderacik.addWindowListener(new WindowListener() {
             @Override
             public void windowOpened(WindowEvent e) {}
@@ -362,7 +389,7 @@ public final class DlgPeresepanDokter extends javax.swing.JDialog {
             }
             @Override
             public void keyReleased(KeyEvent e) {}
-        }); 
+        });
         jam();
         
         tampilkan_ppnobat_ralan=Sequel.cariIsi("select set_nota.tampilkan_ppnobat_ralan from set_nota"); 
@@ -435,12 +462,15 @@ public final class DlgPeresepanDokter extends javax.swing.JDialog {
         cmbJam = new widget.ComboBox();
         cmbMnt = new widget.ComboBox();
         cmbDtk = new widget.ComboBox();
-        ChkRM = new widget.CekBox();
         ChkJln = new widget.CekBox();
         jLabel5 = new widget.Label();
+        checkboxSimpanTemplateResep = new widget.CekBox();
+        ChkRM = new widget.CekBox();
         LTotal = new widget.Label();
         jLabel7 = new widget.Label();
         LTotalTagihan = new widget.Label();
+        textTemplateResep = new widget.TextBox();
+        btnPilihTemplateResep = new widget.Button();
         TabRawat = new javax.swing.JTabbedPane();
         Scroll = new widget.ScrollPane();
         tbResep = new widget.Table();
@@ -663,7 +693,7 @@ public final class DlgPeresepanDokter extends javax.swing.JDialog {
         internalFrame1.add(panelisi3, java.awt.BorderLayout.PAGE_END);
 
         FormInput.setName("FormInput"); // NOI18N
-        FormInput.setPreferredSize(new java.awt.Dimension(440, 107));
+        FormInput.setPreferredSize(new java.awt.Dimension(440, 137));
         FormInput.setLayout(null);
 
         TNoRw.setHighlighter(null);
@@ -746,7 +776,7 @@ public final class DlgPeresepanDokter extends javax.swing.JDialog {
         jLabel8.setBounds(0, 42, 72, 23);
 
         DTPBeri.setForeground(new java.awt.Color(50, 70, 50));
-        DTPBeri.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "13-04-2023" }));
+        DTPBeri.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "11-09-2023" }));
         DTPBeri.setDisplayFormat("dd-MM-yyyy");
         DTPBeri.setName("DTPBeri"); // NOI18N
         DTPBeri.setOpaque(false);
@@ -794,20 +824,6 @@ public final class DlgPeresepanDokter extends javax.swing.JDialog {
         FormInput.add(cmbDtk);
         cmbDtk.setBounds(298, 42, 62, 23);
 
-        ChkRM.setBorder(null);
-        ChkRM.setSelected(true);
-        ChkRM.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        ChkRM.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        ChkRM.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        ChkRM.setName("ChkRM"); // NOI18N
-        ChkRM.addItemListener(new java.awt.event.ItemListener() {
-            public void itemStateChanged(java.awt.event.ItemEvent evt) {
-                ChkRMItemStateChanged(evt);
-            }
-        });
-        FormInput.add(ChkRM);
-        ChkRM.setBounds(660, 72, 23, 23);
-
         ChkJln.setBorder(null);
         ChkJln.setSelected(true);
         ChkJln.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
@@ -828,6 +844,35 @@ public final class DlgPeresepanDokter extends javax.swing.JDialog {
         jLabel5.setPreferredSize(new java.awt.Dimension(45, 23));
         FormInput.add(jLabel5);
         jLabel5.setBounds(385, 42, 45, 23);
+
+        checkboxSimpanTemplateResep.setBorder(null);
+        checkboxSimpanTemplateResep.setSelected(true);
+        checkboxSimpanTemplateResep.setText("Nama Template Resep :");
+        checkboxSimpanTemplateResep.setToolTipText("Apabila pilihan ini dicentang, resep yang dibuat akan disimpan sebagai template resep dengan nama yang diberikan");
+        checkboxSimpanTemplateResep.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        checkboxSimpanTemplateResep.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
+        checkboxSimpanTemplateResep.setName("checkboxSimpanTemplateResep"); // NOI18N
+        checkboxSimpanTemplateResep.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                checkboxSimpanTemplateResepItemStateChanged(evt);
+            }
+        });
+        FormInput.add(checkboxSimpanTemplateResep);
+        checkboxSimpanTemplateResep.setBounds(0, 102, 140, 23);
+
+        ChkRM.setBorder(null);
+        ChkRM.setSelected(true);
+        ChkRM.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        ChkRM.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        ChkRM.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        ChkRM.setName("ChkRM"); // NOI18N
+        ChkRM.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                ChkRMItemStateChanged(evt);
+            }
+        });
+        FormInput.add(ChkRM);
+        ChkRM.setBounds(660, 72, 23, 23);
 
         LTotal.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         LTotal.setText("0");
@@ -850,6 +895,29 @@ public final class DlgPeresepanDokter extends javax.swing.JDialog {
         LTotalTagihan.setPreferredSize(new java.awt.Dimension(80, 23));
         FormInput.add(LTotalTagihan);
         LTotalTagihan.setBounds(588, 42, 95, 23);
+
+        textTemplateResep.setEditable(false);
+        textTemplateResep.setHighlighter(null);
+        textTemplateResep.setName("textTemplateResep"); // NOI18N
+        FormInput.add(textTemplateResep);
+        textTemplateResep.setBounds(143, 102, 283, 23);
+
+        btnPilihTemplateResep.setIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/190.png"))); // NOI18N
+        btnPilihTemplateResep.setMnemonic('3');
+        btnPilihTemplateResep.setToolTipText("Pilih template resep");
+        btnPilihTemplateResep.setName("btnPilihTemplateResep"); // NOI18N
+        btnPilihTemplateResep.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnPilihTemplateResepActionPerformed(evt);
+            }
+        });
+        btnPilihTemplateResep.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                btnPilihTemplateResepKeyPressed(evt);
+            }
+        });
+        FormInput.add(btnPilihTemplateResep);
+        btnPilihTemplateResep.setBounds(428, 102, 28, 23);
 
         internalFrame1.add(FormInput, java.awt.BorderLayout.PAGE_START);
 
@@ -1282,17 +1350,6 @@ private void ppBersihkanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-F
         }
     }//GEN-LAST:event_KdDokterKeyPressed
 
-    private void btnDokterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDokterActionPerformed
-        dokter.setSize(internalFrame1.getWidth()-20,internalFrame1.getHeight()-20);
-        dokter.isCek();
-        dokter.setLocationRelativeTo(internalFrame1);
-        dokter.setVisible(true);
-    }//GEN-LAST:event_btnDokterActionPerformed
-
-    private void btnDokterKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_btnDokterKeyPressed
-        Valid.pindah(evt,KdDokter,BtnSimpan);
-    }//GEN-LAST:event_btnDokterKeyPressed
-
     private void NoResepKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_NoResepKeyPressed
         Valid.pindah(evt,cmbDtk,KdDokter);
     }//GEN-LAST:event_NoResepKeyPressed
@@ -1473,6 +1530,38 @@ private void ppBersihkanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-F
             
     }//GEN-LAST:event_DTPBeriItemStateChanged
 
+    private void btnPilihTemplateResepActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPilihTemplateResepActionPerformed
+        templateResep.setSize(internalFrame1.getWidth() - 20, internalFrame1.getHeight() - 20);
+        templateResep.isCek();
+        templateResep.setLocationRelativeTo(internalFrame1);
+        templateResep.setVisible(true);
+    }//GEN-LAST:event_btnPilihTemplateResepActionPerformed
+
+    private void btnPilihTemplateResepKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_btnPilihTemplateResepKeyPressed
+        if (checkboxSimpanTemplateResep.isSelected()) {
+            Valid.pindah(evt,textTemplateResep,BtnSimpan);
+        }
+    }//GEN-LAST:event_btnPilihTemplateResepKeyPressed
+
+    private void checkboxSimpanTemplateResepItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_checkboxSimpanTemplateResepItemStateChanged
+        if (evt.getStateChange() == ItemEvent.SELECTED) {
+            textTemplateResep.setEnabled(true);
+        } else {
+            textTemplateResep.setEnabled(false);
+        }
+    }//GEN-LAST:event_checkboxSimpanTemplateResepItemStateChanged
+
+    private void btnDokterKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_btnDokterKeyPressed
+        Valid.pindah(evt,KdDokter,BtnSimpan);
+    }//GEN-LAST:event_btnDokterKeyPressed
+
+    private void btnDokterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDokterActionPerformed
+        dokter.setSize(internalFrame1.getWidth()-20,internalFrame1.getHeight()-20);
+        dokter.isCek();
+        dokter.setLocationRelativeTo(internalFrame1);
+        dokter.setVisible(true);
+    }//GEN-LAST:event_btnDokterActionPerformed
+
     /**
     * @param args the command line arguments
     */
@@ -1519,6 +1608,8 @@ private void ppBersihkanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-F
     private widget.TextBox TPasien;
     private javax.swing.JTabbedPane TabRawat;
     private widget.Button btnDokter;
+    private widget.Button btnPilihTemplateResep;
+    private widget.CekBox checkboxSimpanTemplateResep;
     private widget.ComboBox cmbDtk;
     private widget.ComboBox cmbJam;
     private widget.ComboBox cmbMnt;
@@ -1539,6 +1630,7 @@ private void ppBersihkanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-F
     private widget.Table tbDetailResepObatRacikan;
     private widget.Table tbObatResepRacikan;
     private widget.Table tbResep;
+    private widget.TextBox textTemplateResep;
     // End of variables declaration//GEN-END:variables
 
     public void tampilobat() {        
