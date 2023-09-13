@@ -567,6 +567,41 @@ public final class sekuel {
         }
     }
     
+    public boolean menyimpantfSmc(String table, String kolom, String[] values) {
+        
+        String sql = "insert into " + table + " (" + kolom + ") values (";
+        String bindings = "";
+        
+        for (int i = 0; i < values.length; i++) {
+            bindings = bindings.concat("?, ");
+        }
+        
+        bindings = bindings
+            .concat(")")
+            .replaceFirst("\\?\\, \\)", "?)");
+        
+        sql = sql.concat(bindings);
+        
+        try {
+            ps = connect.prepareStatement(sql);
+            
+            for (int i = 0; i < values.length; i++) {
+                ps.setString(i + 1, values[i]);
+            }
+            
+            ps.executeUpdate();
+            
+            if (ps != null) {
+                ps.close();
+            }
+            
+            return true;
+        } catch (Exception e) {
+            System.out.println("Notifikasi : " + e);
+            return false;
+        }
+    }
+    
     public boolean menyimpantf2(String table,String value,String sama,int i,String[] a){
         bool=true;
         try{ 
