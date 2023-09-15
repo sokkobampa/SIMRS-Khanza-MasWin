@@ -25,6 +25,7 @@ import java.io.IOException;
 import java.net.InetAddress;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.net.UnknownHostException;
 import java.nio.ByteBuffer;
 import java.nio.channels.FileChannel;
 import java.sql.Blob;
@@ -164,7 +165,59 @@ public final class sekuel {
         }
         return bool;
     }
+    
+    public boolean menyimpantfSmc(String table, String kolom, String[] values) {
+        
+        try {
+            menyimpanSmc(table, kolom, values);
+            
+            return true;
+        } catch (Exception e) {
+            System.out.println("Notifikasi : " + e);
+            
+            return false;
+        }
+    }
+    
+    public void menyimpanSmc(String table, String kolom, String[] values) throws SQLException {
+        
+        String sql = "insert into " + table + " (" + kolom + ") values (";
+        String bindings = "";
+        String track;
+        
+        if (kolom == null) {
+            sql = "insert into " + table + " values (";
+        }
+        
+        for (int i = 0; i < values.length; i++) {
+            bindings = bindings.concat("?, ");
+        }
+        
+        bindings = bindings
+            .concat(")")
+            .replaceFirst("\\?\\, \\)", "?)");
+        
+        track = sql = sql.concat(bindings);
+        
+        ps = connect.prepareStatement(sql);
 
+        for (int i = 0; i < values.length; i++) {
+            ps.setString(i + 1, values[i]);
+        }
+
+        ps.executeUpdate();
+
+        if (ps != null) {
+            ps.close();
+        }
+        
+        for (int i = 0; i < values.length; i++) {
+            track = track.replaceFirst("\\?", "'" + values[i] + "'");
+        }
+        
+        SimpanTrack(track);
+    }
+    
     public void menyimpan(String table, String value, String sama, int i, String[] a) {
         try {
             ps = connect.prepareStatement("insert into " + table + " values(" + value + ")");
@@ -1570,25 +1623,30 @@ public final class sekuel {
     }
 
     private void SimpanTrack(String sql) {
-        if (AKTIFKANTRACKSQL.equals("yes")) {
-
-            try {
-                ps = connect.prepareStatement("insert into trackersql values(now(),?,?)");
-                try {
-                    InetAddress inetAddress = InetAddress.getLocalHost();
-                    ps.setString(1, inetAddress.getHostName() + " " + inetAddress.getHostAddress() + " " + sql);
-                    ps.setString(2, akses.getkode());
-                    ps.executeUpdate();
-                } catch (Exception e) {
-                    System.out.println("Notifikasi : " + e);
-                } finally {
-                    if (ps != null) {
-                        ps.close();
-                    }
-                }
-            } catch (Exception e) {
-                System.out.println("Notifikasi : " + e);
+        if (AKTIFKANTRACKSQL.equals("no")) return;
+        
+        String ip = "null";
+        
+        try {
+            InetAddress ia = InetAddress.getLocalHost();
+            ip = ia.getHostAddress();
+        } catch (UnknownHostException e) {
+            System.out.println("Notif IP : " + e);
+        }
+        
+        try {
+            ps = connect.prepareStatement("insert into trackersql values(now(), ?, ?)");
+            
+            ps.setString(1, sql);
+            ps.setString(2, "APM " + ip);
+            
+            ps.executeUpdate();
+            
+            if (ps != null) {
+                ps.close();
             }
+        } catch (Exception e) {
+            System.out.println("Notif track : " + e);
         }
     }
 

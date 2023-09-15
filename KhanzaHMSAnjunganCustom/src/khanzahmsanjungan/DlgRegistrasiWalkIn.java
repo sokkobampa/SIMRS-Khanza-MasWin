@@ -634,41 +634,52 @@ public class DlgRegistrasiWalkIn extends javax.swing.JDialog {
         } else if (kode_dokter == "") {
             JOptionPane.showMessageDialog(rootPane, "Pilih Dokter terlebih dahulu");
         } else if (Sequel.cariInteger("select count(jadwal_cuti_libur.kd_dokter) from jadwal_cuti_libur where jadwal_cuti_libur.tanggallibur='" + Valid.SetTgl(TanggalPeriksa.getSelectedItem().toString() + "") + "' and jadwal_cuti_libur.kd_dokter='" + kode_dokter + "' and jadwal_cuti_libur.kd_poli='" + kode_poli + "' ") > 0) {
-            JOptionPane.showMessageDialog(rootPane, "Maaf, dokter  tidak berpraktek pada tanggal yang anda pilih ");
+            JOptionPane.showMessageDialog(rootPane, "Maaf, dokter tidak praktek hari ini!");
         } else if (Sequel.cariInteger("select count(no_rkm_medis) from reg_periksa where kd_pj='A09' and no_rkm_medis='" + lblNoRM.getText() + "' and kd_poli='" + kode_poli + "' and kd_dokter='" + kode_dokter + "' and tgl_registrasi='" + Valid.SetTgl(TanggalPeriksa.getSelectedItem() + "") + "' ") > 0) {
-            JOptionPane.showMessageDialog(rootPane, "Maaf, anda sudah terdaftar pada hari ini dengan dokter yang sama ");
+            JOptionPane.showMessageDialog(rootPane, "Maaf, anda sudah terdaftar pada hari ini dengan dokter yang sama!");
         } else {
-            isNumber();
+            int coba = 0, maxCoba = 5;
+            
             String biayareg = Sequel.cariIsi("SELECT registrasilama FROM poliklinik WHERE kd_poli='" + kode_poli + "'");
+            
+            while (! Sequel.menyimpantfSmc("reg_periksa", null, new String[]{
+                NoReg.getText(), NoRawat.getText(), Valid.SetTgl(TanggalPeriksa.getSelectedItem() + ""), Sequel.cariIsi("select current_time()"),
+                kode_dokter, lblNoRM.getText(), kode_poli, TPngJwb.getText(), TAlmt.getText(), THbngn.getText(), biayareg, "Belum",
+                "Lama", "Ralan", "A09", umur, sttsumur, "Belum Bayar", status
+            }) && coba < maxCoba) {
+                isNumber();
+                coba++;
+            }
+            
             UpdateUmur();
             isCekPasien();
-            if (Sequel.menyimpantf2("reg_periksa", "?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?", "No.Rawat", 19,
-                    new String[]{NoReg.getText(), NoRawat.getText(), Valid.SetTgl(TanggalPeriksa.getSelectedItem() + ""), Sequel.cariIsi("select current_time()"),
-                        kode_dokter, lblNoRM.getText(), kode_poli, TPngJwb.getText(), TAlmt.getText(), THbngn.getText(), biayareg, "Belum",
-                        "Lama", "Ralan", "A09", umur, sttsumur, "Belum Bayar", status}) == true) {
-                MnCetakRegisterActionPerformed(NoRawat.getText());
-                NoReg.setText("");
-                TNoRw.setText("");
-                NoRawat.setText("");
-                lblNoRM.setText("");
-                TPngJwb.setText("");
-                TAlmt.setText("");
-                THbngn.setText("");
-                umur = "";
-                sttsumur = "";
-
-                kode_poli = "";
-                NamaPoli.setText("");
-                NamaDokter.setText("");
-                kode_dokter = "";
-                JOptionPane.showMessageDialog(rootPane, "Berhasil");
-                this.dispose();
-
-            }
-
+            emptyText();
+            
+            JOptionPane.showMessageDialog(null, "Berhasil");
+            
+            printBuktiRegistrasi(NoRawat.getText());
+            
+            dispose();
         }
     }//GEN-LAST:event_btnSimpanActionPerformed
 
+    private void emptyText() {
+        NoReg.setText("");
+        TNoRw.setText("");
+        NoRawat.setText("");
+        lblNoRM.setText("");
+        TPngJwb.setText("");
+        TAlmt.setText("");
+        THbngn.setText("");
+        umur = "";
+        sttsumur = "";
+
+        kode_poli = "";
+        NamaPoli.setText("");
+        NamaDokter.setText("");
+        kode_dokter = "";
+    }
+    
     private void btnSimpan1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSimpan1ActionPerformed
         poli.tampil(hari);
         poli.setSize(jPanel1.getWidth() - 50, jPanel1.getHeight() - 50);
@@ -1059,7 +1070,7 @@ public class DlgRegistrasiWalkIn extends javax.swing.JDialog {
 
     }
 
-    private void MnCetakRegisterActionPerformed(String norawat) {
+    private void printBuktiRegistrasi(String norawat) {
         this.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
         
         Map<String, Object> param = new HashMap<>();
