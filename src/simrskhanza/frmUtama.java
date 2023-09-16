@@ -702,6 +702,7 @@ import kepegawaian.DlgAuditPenempatanPasien;
 import kepegawaian.DlgAuditPengelolaanLinenKotor;
 import kepegawaian.DlgAuditSterilisasiAlat;
 import keuangan.DlgLhtBankJabar;
+import keuangan.DlgLhtBankMandiri;
 import keuangan.DlgLhtBankPapua;
 import keuangan.DlgRekapBiayaRegistrasi;
 import keuangan.KeuanganPengajuanBiaya;
@@ -20630,6 +20631,17 @@ private void MnGantiPasswordBtnLogActionPerformed(java.awt.event.ActionEvent evt
         this.setCursor(Cursor.getDefaultCursor());
     }
     
+    private void btnPembayaranBankMandiriActionPerformed(java.awt.event.ActionEvent evt) {
+        isTutup();
+        DlgHome.dispose();
+        this.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
+        DlgLhtBankMandiri form=new DlgLhtBankMandiri(this,false);
+        form.setSize(PanelUtama.getWidth(), PanelUtama.getHeight());
+        form.setLocationRelativeTo(PanelUtama);
+        form.setVisible(true);
+        this.setCursor(Cursor.getDefaultCursor());
+    }
+    
     /**
     * @param args the command line arguments
     */
@@ -21311,7 +21323,7 @@ private void MnGantiPasswordBtnLogActionPerformed(java.awt.event.ActionEvent evt
             btnPenilaianRisikoJatuhGeriatri,btnPersetujuanPengajuanBiaya,btnPemantauanEWSNeonatus,btnValidasiPersetujuanPengajuanBiaya,btnRiwayatPerawatanICare,
             btnRekapPengajuanBiaya,btnPenilaianAwalMedisRalanKulitKelamin,btnHostToHostBankMandiri,btnPenilaianLevelKecemasanRanapAnak,btnPenilaianAwalMedisHemodialisa,
             btnPenilaianRisikoJatuhPsikiatri,btnPenilaianLanjutanSkriningFungsional,btnPenilaianAwalMedisRalanRehabMedik,btnTemplatePersetujuanPenolakanTindakan,
-            btnPenilaianAwalMedisRalanIGDPsikiatri,btnBPJSReferensiSettingPPKApotek,btnBPJSReferensiObatApotek;
+            btnPenilaianAwalMedisRalanIGDPsikiatri,btnBPJSReferensiSettingPPKApotek,btnBPJSReferensiObatApotek,btnPembayaranBankMandiri;
     
     public void isWall(){
         try{            
@@ -23524,6 +23536,11 @@ private void MnGantiPasswordBtnLogActionPerformed(java.awt.event.ActionEvent evt
             
             if(akses.getpembayaran_bank_jabar()==true){
                Panelmenu.add(btnPembayaranBankJabar); 
+               jmlmenu++;
+            }
+            
+            if(akses.getpembayaran_bank_mandiri()==true){
+               Panelmenu.add(btnPembayaranBankMandiri); 
                jmlmenu++;
             }
             
@@ -28375,6 +28392,11 @@ private void MnGantiPasswordBtnLogActionPerformed(java.awt.event.ActionEvent evt
         
         if(akses.getpembayaran_bank_jabar()==true){
            Panelmenu.add(btnPembayaranBankJabar); 
+           jmlmenu++;
+        }
+        
+        if(akses.getpembayaran_bank_mandiri()==true){
+           Panelmenu.add(btnPembayaranBankMandiri); 
            jmlmenu++;
         }
         
@@ -34055,6 +34077,13 @@ private void MnGantiPasswordBtnLogActionPerformed(java.awt.event.ActionEvent evt
         if(akses.getpembayaran_bank_jabar()==true){
             if(btnPembayaranBankJabar.getText().toLowerCase().trim().contains(TCari.getText().toLowerCase().trim())){
                 Panelmenu.add(btnPembayaranBankJabar); 
+                jmlmenu++;
+            }                
+        }
+        
+        if(akses.getpembayaran_bank_mandiri()==true){
+            if(btnPembayaranBankMandiri.getText().toLowerCase().trim().contains(TCari.getText().toLowerCase().trim())){
+                Panelmenu.add(btnPembayaranBankMandiri); 
                 jmlmenu++;
             }                
         }
@@ -42017,5 +42046,13 @@ private void MnGantiPasswordBtnLogActionPerformed(java.awt.event.ActionEvent evt
         btnBPJSReferensiObatApotek.setName("btnBPJSReferensiObatApotek"); 
         btnBPJSReferensiObatApotek.setPreferredSize(new java.awt.Dimension(200, 90));
         btnBPJSReferensiObatApotek.addActionListener(this::btnBPJSReferensiObatApotekActionPerformed);
+        
+        btnPembayaranBankMandiri = new widget.ButtonBig();
+        btnPembayaranBankMandiri.setIcon(new javax.swing.ImageIcon(getClass().getResource("/48x48/iconfinder_eccomerce_-_wallet_3440917.png")));
+        btnPembayaranBankMandiri.setText("Pembayaran Bank Mandiri");
+        btnPembayaranBankMandiri.setIconTextGap(0);
+        btnPembayaranBankMandiri.setName("btnPembayaranBankMandiri"); 
+        btnPembayaranBankMandiri.setPreferredSize(new java.awt.Dimension(200, 90));
+        btnPembayaranBankMandiri.addActionListener(this::btnPembayaranBankMandiriActionPerformed);
     }
 }
