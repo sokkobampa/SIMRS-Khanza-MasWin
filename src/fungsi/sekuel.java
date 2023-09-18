@@ -570,7 +570,11 @@ public final class sekuel {
     public boolean menyimpantfSmc(String table, String kolom, String[] values) {
         
         String sql = "insert into " + table + " (" + kolom + ") values (";
-        String bindings = "";
+        String bindings = "", track = null;
+        
+        if (kolom == null) {
+            sql = "insert into " + table + " values (";
+        }
         
         for (int i = 0; i < values.length; i++) {
             bindings = bindings.concat("?, ");
@@ -580,7 +584,11 @@ public final class sekuel {
             .concat(")")
             .replaceFirst("\\?\\, \\)", "?)");
         
-        sql = sql.concat(bindings);
+        track = sql = sql.concat(bindings);
+        
+        for (int i = 0; i < values.length; i++) {
+            track = track.replaceFirst("\\?", "'"+values[i]+"'");
+        }
         
         try {
             ps = connect.prepareStatement(sql);
@@ -594,6 +602,8 @@ public final class sekuel {
             if (ps != null) {
                 ps.close();
             }
+            
+            SimpanTrack(track);
             
             return true;
         } catch (Exception e) {

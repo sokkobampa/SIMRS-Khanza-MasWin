@@ -643,9 +643,25 @@ public class DlgRegistrasiWalkIn extends javax.swing.JDialog {
             String biayareg = Sequel.cariIsi("SELECT registrasilama FROM poliklinik WHERE kd_poli='" + kode_poli + "'");
             
             while (! Sequel.menyimpantfSmc("reg_periksa", null, new String[]{
-                NoReg.getText(), NoRawat.getText(), Valid.SetTgl(TanggalPeriksa.getSelectedItem() + ""), Sequel.cariIsi("select current_time()"),
-                kode_dokter, lblNoRM.getText(), kode_poli, TPngJwb.getText(), TAlmt.getText(), THbngn.getText(), biayareg, "Belum",
-                "Lama", "Ralan", "A09", umur, sttsumur, "Belum Bayar", status
+                NoReg.getText(),
+                NoRawat.getText(),
+                Valid.SetTgl(TanggalPeriksa.getSelectedItem() + ""),
+                Sequel.cariIsi("select current_time()"),
+                kode_dokter,
+                lblNoRM.getText(),
+                kode_poli,
+                TPngJwb.getText(),
+                TAlmt.getText(),
+                THbngn.getText(),
+                biayareg,
+                "Belum",
+                "Lama",
+                "Ralan",
+                "A09",
+                umur,
+                sttsumur,
+                "Belum Bayar",
+                status
             }) && coba < maxCoba) {
                 isNumber();
                 coba++;
@@ -653,11 +669,12 @@ public class DlgRegistrasiWalkIn extends javax.swing.JDialog {
             
             UpdateUmur();
             isCekPasien();
+            
+            printBuktiRegistrasi(NoRawat.getText());
+            
             emptyText();
             
             JOptionPane.showMessageDialog(null, "Berhasil");
-            
-            printBuktiRegistrasi(NoRawat.getText());
             
             dispose();
         }
@@ -769,7 +786,7 @@ public class DlgRegistrasiWalkIn extends javax.swing.JDialog {
         System.out.println(norm);
         lblNoRM.setText(norm);
         lblNamaPasien.setText(Sequel.cariIsi("select pasien.nm_pasien from pasien where pasien.no_rkm_medis=?", norm));
-        lblTglLahir.setText(Sequel.cariIsi("select date_format(pasien.tgl_lahir, '%d-%m/%Y') from pasien where pasien.no_rkm_medis =?", norm));
+        lblTglLahir.setText(Sequel.cariIsi("select date_format(pasien.tgl_lahir, '%d-%m-%Y') from pasien where pasien.no_rkm_medis =?", norm));
         if (!lblNoRM.getText().equals("") && !lblNamaPasien.getText().equals("")) {
             tentukanHari();
 //            cmbDokterTujuan.setVisible(false);

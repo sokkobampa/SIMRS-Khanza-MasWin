@@ -1199,7 +1199,12 @@ public class DlgRegistrasiSEPPertama extends javax.swing.JDialog {
             Valid.textKosong(Keterangan, "Keterangan");
         } else if (KdDPJP.getText().trim().equals("") || NmDPJP.getText().trim().equals("")) {
             Valid.textKosong(KdDPJP, "DPJP");
-        } else if (statusfinger == false && Sequel.cariInteger("select timestampdiff(year, '" + TglLahir.getText() + "', CURRENT_DATE())") >= 17 && JenisPelayanan.getSelectedIndex() != 0 && !KdPoli.getText().equals("IGD")) {
+        } else if (
+            statusfinger == false &&
+            Sequel.cariInteger("select timestampdiff(year, '" + TglLahir.getText() + "', CURRENT_DATE())") >= 17 &&
+            JenisPelayanan.getSelectedIndex() != 0 &&
+            !KdPoli.getText().equals("IGD")
+        ) {
             JOptionPane.showMessageDialog(rootPane, "Maaf, Pasien belum melakukan Fingerprint");
             BukaFingerPrint(NoKartu.getText());
         } else {
@@ -1804,6 +1809,7 @@ public class DlgRegistrasiSEPPertama extends javax.swing.JDialog {
                     + "}"
                 + "}"
             + "}";
+            
             requestEntity = new HttpEntity(requestJson, headers);
 
             root = mapper.readTree(api.getRest().exchange(URL, HttpMethod.POST, requestEntity, String.class).getBody());
@@ -1818,7 +1824,7 @@ public class DlgRegistrasiSEPPertama extends javax.swing.JDialog {
                 response = mapper.readTree(api.Decrypt(root.path("response").asText(), utc)).path("sep").path("noSep");
 
                 int coba = 0, maxCoba = 5;
-
+                
                 while (! Sequel.menyimpantfSmc("reg_periksa", null, new String[] {
                     NoReg.getText(), TNoRw.getText(), Valid.SetTgl(TanggalSEP.getSelectedItem() + ""), Sequel.cariIsi("select current_time()"),
                     kodedokterreg, TNoRM.getText(), kodepolireg, TPngJwb.getText(), TAlmt.getText(), THbngn.getText(), TBiaya.getText(),
@@ -1910,6 +1916,7 @@ public class DlgRegistrasiSEPPertama extends javax.swing.JDialog {
                         TNoRM.getText(), Valid.SetTgl(TanggalSEP.getSelectedItem().toString()), kodedokterreg, kodepolireg
                     });
                 }
+                
                 printSEPdanBuktiRegistrasi(TNoRw.getText(), response.asText());
 
                 emptTeks();
@@ -2243,10 +2250,7 @@ public class DlgRegistrasiSEPPertama extends javax.swing.JDialog {
                     KdPenyakit.setText(response.path("diagnosa").path("kode").asText());
                     NmPenyakit.setText(response.path("diagnosa").path("nama").asText());
 
-                    if (Sequel.cariIsi("SELECT\n"
-                            + "	bridging_sep.jnspelayanan\n"
-                            + "FROM\n"
-                            + "	bridging_sep where bridging_sep.no_sep='" + noSEP + "' ").equals("1")) {
+                    if (Sequel.cariIsi("select bridging_sep.jns_pelayanan from bridging_sep where bridging_sep.no_sep = ?", noSEP).equals("1")) {
                         NoRujukan.setText(noSEP);
                         TujuanKunjungan.setSelectedIndex(0);
                         FlagProsedur.setSelectedIndex(0);
