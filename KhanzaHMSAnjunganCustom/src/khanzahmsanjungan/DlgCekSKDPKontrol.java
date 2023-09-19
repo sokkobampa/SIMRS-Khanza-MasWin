@@ -331,6 +331,23 @@ public class DlgCekSKDPKontrol extends javax.swing.JDialog {
 
     private void BtnClose2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnClose2ActionPerformed
 
+//        String tglkontrol = Sequel.cariIsi("select bridging_surat_kontrol_bpjs.tgl_rencana from bridging_surat_kontrol_bpjs where bridging_surat_kontrol_bpjs.no_surat = ?", NoRMPasien.getText());
+//        String tglKontrol2 = Sequel.cariIsi("select date_format(bridging_surat_kontrol_bpjs.tgl_rencana, '%d %M %Y') from bridging_surat_kontrol_bpjs where bridging_surat_kontrol_bpjs.no_surat = ?", NoRMPasien.getText());
+//        
+//        Date today = new Date(),
+//             current = new Date(tglKontrol);
+//        
+//        SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
+//        
+//        String tanggal = format.format(today);
+//        
+//        boolean data = today.before(current);
+//
+//        if (data && JOptionPane.showConfirmDialog(rootPane, "Anda direncanakan untuk kontrol pada tanggal " + tglKontrol2 + ",\nApakah anda ingin mengupdate ke tanggal hari ini?", "Update rencana kontrol", JOptionPane.YES_NO_OPTION) == JOptionPane.NO_OPTION) {
+//            JOptionPane.showMessageDialog(rootPane, "Maaf, anda tidak boleh untuk mendaftar pada hari ini.\nSilahkan daftar kembali pada tanggal rencana kontrol anda.");
+//            return;
+//        }
+        
         if (Sequel.cariInteger("select count(bridging_surat_kontrol_bpjs.no_surat) from bridging_surat_kontrol_bpjs where bridging_surat_kontrol_bpjs.no_surat='" + NoRMPasien.getText() + "'") > 0) {
             this.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
             DlgRegistrasiSEPPertama form = new DlgRegistrasiSEPPertama(null, true);

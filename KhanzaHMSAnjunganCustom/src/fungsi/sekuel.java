@@ -167,9 +167,8 @@ public final class sekuel {
     }
     
     public boolean menyimpantfSmc(String table, String kolom, String[] values) {
-        
         try {
-            menyimpanSmc(table, kolom, values);
+            simpanSMC(table, kolom, values);
             
             return true;
         } catch (Exception e) {
@@ -179,7 +178,21 @@ public final class sekuel {
         }
     }
     
-    public void menyimpanSmc(String table, String kolom, String[] values) throws SQLException {
+    public void menyimpanSmc(String table, String kolom, String[] values) {
+        try {
+            simpanSMC(table, kolom, values);
+            
+            return;
+        } catch (Exception e) {
+            System.out.println("Notifikasi : " + e);
+            
+            JOptionPane.showMessageDialog(null, "Terjadi kesalahan pada saat menyimpan data!");
+            
+            return;
+        }
+    }
+    
+    private void simpanSMC(String table, String kolom, String[] values) throws SQLException {
         
         String sql = "insert into " + table + " (" + kolom + ") values (";
         String bindings = "";
@@ -686,7 +699,7 @@ public final class sekuel {
             System.out.println("Notifikasi : " + e);
         }
     }
-
+    
     public boolean mengedittf(String table, String acuan_field, String update, int i, String[] a) {
         bool = true;
         try {
@@ -1638,7 +1651,7 @@ public final class sekuel {
             ps = connect.prepareStatement("insert into trackersql values(now(), ?, ?)");
             
             ps.setString(1, sql);
-            ps.setString(2, "APM " + ip);
+            ps.setString(2, "APM" + ip);
             
             ps.executeUpdate();
             

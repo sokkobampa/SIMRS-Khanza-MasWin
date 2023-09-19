@@ -642,7 +642,10 @@ public class DlgRegistrasiWalkIn extends javax.swing.JDialog {
             
             String biayareg = Sequel.cariIsi("SELECT registrasilama FROM poliklinik WHERE kd_poli='" + kode_poli + "'");
             
-            while (! Sequel.menyimpantfSmc("reg_periksa", null, new String[]{
+            UpdateUmur();
+            isCekPasien();
+            
+            String[] values = new String[] {
                 NoReg.getText(),
                 NoRawat.getText(),
                 Valid.SetTgl(TanggalPeriksa.getSelectedItem() + ""),
@@ -662,13 +665,33 @@ public class DlgRegistrasiWalkIn extends javax.swing.JDialog {
                 sttsumur,
                 "Belum Bayar",
                 status
-            }) && coba < maxCoba) {
+            };
+            
+            while (! Sequel.menyimpantfSmc("reg_periksa", null, values) && coba < maxCoba) {
                 isNumber();
+                values = new String[] {
+                    NoReg.getText(),
+                    NoRawat.getText(),
+                    Valid.SetTgl(TanggalPeriksa.getSelectedItem() + ""),
+                    Sequel.cariIsi("select current_time()"),
+                    kode_dokter,
+                    lblNoRM.getText(),
+                    kode_poli,
+                    TPngJwb.getText(),
+                    TAlmt.getText(),
+                    THbngn.getText(),
+                    biayareg,
+                    "Belum",
+                    "Lama",
+                    "Ralan",
+                    "A09",
+                    umur,
+                    sttsumur,
+                    "Belum Bayar",
+                    status
+                };
                 coba++;
             }
-            
-            UpdateUmur();
-            isCekPasien();
             
             printBuktiRegistrasi(NoRawat.getText());
             
