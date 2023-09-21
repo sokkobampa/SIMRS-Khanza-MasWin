@@ -121,10 +121,9 @@
                                                     );
                                                     http_response_code(401);
                                                 }else{
-                                                    $query = bukaquery2("select tagihan_mandiri.no_rkm_medis,tagihan_mandiri.nm_pasien,tagihan_mandiri.alamat,
-                                                                         tagihan_mandiri.jk,tagihan_mandiri.tgl_lahir,tagihan_mandiri.tgl_registrasi,tagihan_mandiri.no_nota,
-                                                                         tagihan_mandiri.besar_bayar,tagihan_mandiri.no_rawat,tagihan_mandiri.status_lanjut,tagihan_mandiri.tgl_closing,
-                                                                         tagihan_mandiri.status_bayar,tagihan_mandiri.pembatalan,tagihan_mandiri.dibatalkan_oleh,tagihan_mandiri.besar_batal 
+                                                    $query = bukaquery2("select tagihan_mandiri.no_rkm_medis,tagihan_mandiri.nm_pasien,tagihan_mandiri.jk,tagihan_mandiri.tgl_lahir,tagihan_mandiri.tgl_registrasi,
+                                                                         tagihan_mandiri.no_nota,tagihan_mandiri.besar_bayar,tagihan_mandiri.no_rawat,tagihan_mandiri.status_lanjut,tagihan_mandiri.tgl_closing,
+                                                                         tagihan_mandiri.status_bayar,tagihan_mandiri.pembatalan,tagihan_mandiri.dibatalkan_oleh,tagihan_mandiri.besar_batal,tagihan_mandiri.no_id 
                                                                          from tagihan_mandiri where tagihan_mandiri.no_id='".validTeks3($decode['regNo'],14)."' and tagihan_mandiri.status_bayar='Pending'");
                                                     if(num_rows($query)>0) {
                                                         if($rsquery = mysqli_fetch_array($query)) {
@@ -143,26 +142,25 @@
                                                                     $namadokter = $rsqueryralan["nm_dokter"];
                                                                 }
                                                             }else if($rsquery["status_lanjut"]=="Ranap"){
-                                                                $queryranap = bukaquery2("select reg_periksa.kd_dokter,dokter.nm_dokter,reg_periksa.kd_poli,poliklinik.nm_poli from reg_periksa 
-                                                                                        inner join dokter on reg_periksa.kd_dokter=dokter.kd_dokter inner join poliklinik on reg_periksa.kd_poli=poliklinik.kd_poli 
-                                                                                        where reg_periksa.no_rawat='".$rsquery["no_rawat"]."'");
+                                                                $queryranap = bukaquery2("select kamar_inap.kd_kamar,kamar.kelas,bangsal.kd_bangsal,bangsal.nm_bangsal from kamar_inap inner join kamar on kamar_inap.kd_kamar=kamar.kd_kamar
+                                                                                          inner join bangsal on kamar.kd_bangsal=bangsal.kd_bangsal where kamar_inap.no_rawat='".$rsquery["no_rawat"]."' order by kamar_inap.tgl_masuk desc limit 1");
                                                                 if($rsqueryranap = mysqli_fetch_array($queryranap)) {
-                                                                    $kodelokasi = $rsqueryranap["kd_poli"];
-                                                                    $namalokasi = $rsqueryranap["nm_poli"];
-                                                                    $kodedokter = $rsqueryranap["kd_dokter"];
-                                                                    $namadokter = $rsqueryranap["nm_dokter"];
+                                                                    $kodelokasi = $rsqueryranap["kd_bangsal"];
+                                                                    $namalokasi = $rsqueryranap["nm_bangsal"];
+                                                                    $kodedokter = $rsqueryranap["kd_kamar"];
+                                                                    $namadokter = $rsqueryranap["kelas"];
                                                                 }
                                                             }
                                                             $dataarray[] = array(
-                                                                'billCode' => '1',
-                                                                'regNo' => $decode['regNo'],
+                                                                'billCode' => strval('1'),
+                                                                'regNo' => $rsquery['no_id'],
                                                                 'regDate' => $rsquery["tgl_registrasi"],
                                                                 'noKuitansi' => '',
                                                                 'componentId' => $kodelokasi,
                                                                 'kodeUnitPoli' => $kodedokter,
-                                                                'namaDokter' => $namadokter,
+                                                                'namaDokter' => ($rsquery["status_lanjut"]=="Ralan"?$namadokter:"DPJP Ranap"),
                                                                 'trxNo' => $rsquery["no_nota"],
-                                                                'jenisPelayananId' => '1',
+                                                                'jenisPelayananId' => ($rsquery["status_lanjut"]=="Ralan"?"1":"2"),
                                                                 'paymentTp' => '2',
                                                                 'paidFlag' => ($rsquery["status_bayar"]=="Sudah"?"1":"0"),
                                                                 'cancelFlag' => ($rsquery["pembatalan"]=="Sudah Dibatalkan"?"1":"0"),
@@ -170,7 +168,7 @@
                                                                 'paymentBill' => $rsquery["besar_bayar"],
                                                                 'cancelNominal' => $rsquery["besar_batal"],
                                                                 'additional1' => $namalokasi,
-                                                                'additional2' => '',
+                                                                'additional2' => ($rsquery["status_lanjut"]=="Ralan"?"":$namadokter),
                                                                 'additional3' => ''
                                                             ); 
                                                             $response = array(
@@ -259,13 +257,88 @@
                                                     );
                                                     http_response_code(401);
                                                 }else{
-                                                    $query = bukaquery2("select tagihan_mandiri.no_rkm_medis,tagihan_mandiri.nm_pasien,tagihan_mandiri.alamat,tagihan_mandiri.jk,tagihan_mandiri.tgl_lahir,
-                                                                         tagihan_mandiri.tgl_registrasi,tagihan_mandiri.no_nota,tagihan_mandiri.besar_bayar,tagihan_mandiri.no_rawat,tagihan_mandiri.status_lanjut,
-                                                                         tagihan_mandiri.tgl_closing,tagihan_mandiri.status_bayar,tagihan_mandiri.pembatalan,tagihan_mandiri.dibatalkan_oleh,tagihan_mandiri.besar_batal 
-                                                                         from tagihan_mandiri where tagihan_mandiri.no_rkm_medis='".validTeks3($decode['rmNo'],14)."' and tagihan_mandiri.tgl_closing 
-                                                                         between '".validTeks3($decode['startDate'],10)." 00:00:01' and '".validTeks3($decode['endDate'],10)." 23:59:59'");
+                                                    $query = bukaquery2("select tagihan_mandiri.no_rkm_medis,tagihan_mandiri.nm_pasien,tagihan_mandiri.jk,tagihan_mandiri.tgl_lahir from tagihan_mandiri 
+                                                                         where tagihan_mandiri.no_rkm_medis='".validTeks3($decode['rmNo'],14)."' and tagihan_mandiri.tgl_closing between  
+                                                                         '".validTeks3($decode['startDate'],10)." 00:00:01' and '".validTeks3($decode['endDate'],10)." 23:59:59'");
                                                     if(num_rows($query)>0) {
-                                                        
+                                                        if($rsquery = mysqli_fetch_array($query)) {
+                                                            $nomor=1;
+                                                            $querycari=bukaquery2("select tagihan_mandiri.tgl_registrasi,tagihan_mandiri.no_nota,tagihan_mandiri.besar_bayar,tagihan_mandiri.no_rawat,tagihan_mandiri.no_id,
+                                                                                   tagihan_mandiri.status_lanjut,tagihan_mandiri.status_bayar,tagihan_mandiri.pembatalan,tagihan_mandiri.dibatalkan_oleh,
+                                                                                   tagihan_mandiri.besar_batal from tagihan_mandiri where tagihan_mandiri.no_rkm_medis='".validTeks3($decode['rmNo'],14)."' and 
+                                                                                   tagihan_mandiri.tgl_closing between '".validTeks3($decode['startDate'],10)." 00:00:01' and '".validTeks3($decode['endDate'],10)." 23:59:59'");
+                                                            while($rsquerycari = mysqli_fetch_array($querycari)) {
+                                                                $kodelokasi = "";
+                                                                $namalokasi = "";
+                                                                $kodedokter = "";
+                                                                $namadokter = "";
+                                                                if($rsquerycari["status_lanjut"]=="Ralan"){
+                                                                    $queryralan = bukaquery2("select reg_periksa.kd_dokter,dokter.nm_dokter,reg_periksa.kd_poli,poliklinik.nm_poli from reg_periksa 
+                                                                                            inner join dokter on reg_periksa.kd_dokter=dokter.kd_dokter inner join poliklinik on reg_periksa.kd_poli=poliklinik.kd_poli 
+                                                                                            where reg_periksa.no_rawat='".$rsquerycari["no_rawat"]."'");
+                                                                    if($rsqueryralan = mysqli_fetch_array($queryralan)) {
+                                                                        $kodelokasi = $rsqueryralan["kd_poli"];
+                                                                        $namalokasi = $rsqueryralan["nm_poli"];
+                                                                        $kodedokter = $rsqueryralan["kd_dokter"];
+                                                                        $namadokter = $rsqueryralan["nm_dokter"];
+                                                                    }
+                                                                }else if($rsquerycari["status_lanjut"]=="Ranap"){
+                                                                    $queryranap = bukaquery2("select kamar_inap.kd_kamar,kamar.kelas,bangsal.kd_bangsal,bangsal.nm_bangsal from kamar_inap inner join kamar on kamar_inap.kd_kamar=kamar.kd_kamar
+                                                                                              inner join bangsal on kamar.kd_bangsal=bangsal.kd_bangsal where kamar_inap.no_rawat='".$rsquerycari["no_rawat"]."' order by kamar_inap.tgl_masuk desc limit 1");
+                                                                    if($rsqueryranap = mysqli_fetch_array($queryranap)) {
+                                                                        $kodelokasi = $rsqueryranap["kd_bangsal"];
+                                                                        $namalokasi = $rsqueryranap["nm_bangsal"];
+                                                                        $kodedokter = $rsqueryranap["kd_kamar"];
+                                                                        $namadokter = $rsqueryranap["kelas"];
+                                                                    }
+                                                                }
+                                                                $dataarray[] = array(
+                                                                    'billCode' => strval($nomor),
+                                                                    'regNo' => $rsquerycari['no_id'],
+                                                                    'regDate' => $rsquerycari["tgl_registrasi"],
+                                                                    'noKuitansi' => '',
+                                                                    'componentId' => $kodelokasi,
+                                                                    'kodeUnitPoli' => $kodedokter,
+                                                                    'namaDokter' => ($rsquerycari["status_lanjut"]=="Ralan"?$namadokter:"DPJP Ranap"),
+                                                                    'trxNo' => $rsquerycari["no_nota"],
+                                                                    'jenisPelayananId' => ($rsquerycari["status_lanjut"]=="Ralan"?"1":"2"),
+                                                                    'paymentTp' => '2',
+                                                                    'paidFlag' => ($rsquerycari["status_bayar"]=="Sudah"?"1":"0"),
+                                                                    'cancelFlag' => ($rsquerycari["pembatalan"]=="Sudah Dibatalkan"?"1":"0"),
+                                                                    'isCancel' => ($rsquerycari["dibatalkan_oleh"]=="Faskes"?"1":"0"),
+                                                                    'paymentBill' => $rsquerycari["besar_bayar"],
+                                                                    'cancelNominal' => $rsquerycari["besar_batal"],
+                                                                    'additional1' => $namalokasi,
+                                                                    'additional2' => ($rsquerycari["status_lanjut"]=="Ralan"?"":$namadokter),
+                                                                    'additional3' => ''
+                                                                ); 
+                                                                $nomor++;
+                                                            }
+                                                            $response = array(
+                                                                'code' => 200,
+                                                                'message' => 'success',
+                                                                'inquiryResponse' => array(
+                                                                    'rsId' => $idrs,
+                                                                    'rmNo' => $rsquery["no_rkm_medis"],
+                                                                    'pasienName' => $rsquery["nm_pasien"],
+                                                                    'dob' => $rsquery["tgl_lahir"],
+                                                                    'gender' => $rsquery["jk"],
+                                                                    'golDarah' => '-',
+                                                                    'timeStamp' => date('Y-m-d H:i:s').'.000',
+                                                                    'status' => array(
+                                                                        'inquryCode' => $rsquery["no_rkm_medis"],
+                                                                        'statusCode' => '1',
+                                                                        'statusDescription' => 'Sukses'
+                                                                    ),
+                                                                    'billDetails' => array(
+                                                                        'billDetail' => (
+                                                                            $dataarray
+                                                                        )
+                                                                    )
+                                                                )
+                                                            );
+                                                            http_response_code(200);
+                                                        }
                                                     }else{
                                                         $response = array(
                                                             'code' => 200,
@@ -382,6 +455,112 @@
         echo '          }'."\n";
         echo '      ],'."\n";
         echo '      "jti": "XXXXX"'."\n";
+        echo '   }'."\n\n";
+        echo "2. Pencarian data dengan nomor registrasi/rawat/id, methode POST\n";
+        echo "   gunakan URL http://ipserverws:port/mandiri/penerimaan/inquirypenerimaan \n";
+        echo "   Body berisi : \n";
+        echo '   {'."\n";
+	echo '      "regNo": "xxxxxxxxx",'."\n";
+        echo '      "rmNo": "",'."\n";
+        echo '      "startDate": "",'."\n";
+        echo '      "endDate": "",'."\n";
+        echo '      "timeStamp": "0000-00-00 00:00:00.000"'."\n";
+        echo '   }'."\n\n";
+        echo "   Hasilnya : \n";
+        echo '   {'."\n";
+        echo '      "code": 200,'."\n";
+        echo '      "message": "success",'."\n";
+        echo '      "inquiryResponse": {'."\n";
+        echo '          "rsId": "xxxxxxxxx",'."\n";
+        echo '          "rmNo": "xxxxxxxxx",'."\n";
+        echo '          "pasienName": "xxxxxxxxx",'."\n";
+        echo '          "dob": "0000-00-00",'."\n";
+        echo '          "gender": "x",'."\n";
+        echo '          "golDarah": "x",'."\n";
+        echo '          "timeStamp": "0000-00-00 00:00:00.000",'."\n";
+        echo '          "status": {'."\n";
+        echo '              "inquryCode": "xxxxxxxxx",'."\n";
+        echo '              "statusCode": "0",'."\n";
+        echo '              "statusDescription": "xxxxxxxxx"'."\n";
+        echo '          },'."\n";
+        echo '          "billDetails": {'."\n";
+        echo '              "billDetail": ['."\n";
+        echo '                  {'."\n";
+        echo '                      "billCode": "0",'."\n";
+        echo '                      "regNo": "xxxxxxxxx",'."\n";
+        echo '                      "regDate": "0000-00-00",'."\n";
+        echo '                      "noKuitansi": "",'."\n";
+        echo '                      "componentId": "xxxxxxxxx",'."\n";
+        echo '                      "kodeUnitPoli": "xxxxxxxxx",'."\n";
+        echo '                      "namaDokter": "xxxxxxxxx",'."\n";
+        echo '                      "trxNo": "0000000000000",'."\n";
+        echo '                      "jenisPelayananId": "0",'."\n";
+        echo '                      "paymentTp": "0",'."\n";
+        echo '                      "paidFlag": "0",'."\n";
+        echo '                      "cancelFlag": "0",'."\n";
+        echo '                      "isCancel": "0",'."\n";
+        echo '                      "paymentBill": "000000000",'."\n";
+        echo '                      "cancelNominal": "0",'."\n";
+        echo '                      "additional1": "xxxxxxxxx",'."\n";
+        echo '                      "additional2": "xxxxxxxxx",'."\n";
+        echo '                      "additional3": "xxxxxxxxx"'."\n";
+        echo '                  }'."\n";
+        echo '              ]'."\n";
+        echo '          }'."\n";
+        echo '      }'."\n";
+        echo '   }'."\n\n";
+        echo "3. Pencarian data dengan nomor rekam medis, methode POST\n";
+        echo "   gunakan URL http://ipserverws:port/mandiri/penerimaan/inquirypenerimaan \n";
+        echo "   Body berisi : \n";
+        echo '   {'."\n";
+	echo '      "regNo": "",'."\n";
+        echo '      "rmNo": "xxxxxxxxx",'."\n";
+        echo '      "startDate": "0000-00-00",'."\n";
+        echo '      "endDate": "0000-00-00",'."\n";
+        echo '      "timeStamp": "0000-00-00 00:00:00.000"'."\n";
+        echo '   }'."\n\n";
+        echo "   Hasilnya : \n";
+        echo '   {'."\n";
+        echo '      "code": 200,'."\n";
+        echo '      "message": "success",'."\n";
+        echo '      "inquiryResponse": {'."\n";
+        echo '          "rsId": "xxxxxxxxx",'."\n";
+        echo '          "rmNo": "xxxxxxxxx",'."\n";
+        echo '          "pasienName": "xxxxxxxxx",'."\n";
+        echo '          "dob": "0000-00-00",'."\n";
+        echo '          "gender": "x",'."\n";
+        echo '          "golDarah": "x",'."\n";
+        echo '          "timeStamp": "0000-00-00 00:00:00.000",'."\n";
+        echo '          "status": {'."\n";
+        echo '              "inquryCode": "xxxxxxxxx",'."\n";
+        echo '              "statusCode": "0",'."\n";
+        echo '              "statusDescription": "xxxxxxxxx"'."\n";
+        echo '          },'."\n";
+        echo '          "billDetails": {'."\n";
+        echo '              "billDetail": ['."\n";
+        echo '                  {'."\n";
+        echo '                      "billCode": "0",'."\n";
+        echo '                      "regNo": "xxxxxxxxx",'."\n";
+        echo '                      "regDate": "0000-00-00",'."\n";
+        echo '                      "noKuitansi": "",'."\n";
+        echo '                      "componentId": "xxxxxxxxx",'."\n";
+        echo '                      "kodeUnitPoli": "xxxxxxxxx",'."\n";
+        echo '                      "namaDokter": "xxxxxxxxx",'."\n";
+        echo '                      "trxNo": "0000000000000",'."\n";
+        echo '                      "jenisPelayananId": "0",'."\n";
+        echo '                      "paymentTp": "0",'."\n";
+        echo '                      "paidFlag": "0",'."\n";
+        echo '                      "cancelFlag": "0",'."\n";
+        echo '                      "isCancel": "0",'."\n";
+        echo '                      "paymentBill": "000000000",'."\n";
+        echo '                      "cancelNominal": "0",'."\n";
+        echo '                      "additional1": "xxxxxxxxx",'."\n";
+        echo '                      "additional2": "xxxxxxxxx",'."\n";
+        echo '                      "additional3": "xxxxxxxxx"'."\n";
+        echo '                  }'."\n";
+        echo '              ]'."\n";
+        echo '          }'."\n";
+        echo '      }'."\n";
         echo '   }'."\n\n";
     }
 ?>
