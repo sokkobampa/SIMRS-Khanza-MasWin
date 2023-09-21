@@ -1689,15 +1689,7 @@ public class DlgRegistrasiSEPPertama extends javax.swing.JDialog {
                emailRS = Sequel.cariIsi("select setting.email from setting limit 1");
         
         Map<String, Object> paramBarcode = new HashMap<>();
-        paramBarcode.put("nama", TPasien.getText());
-        paramBarcode.put("alamat", Sequel.cariIsi("select date_format(pasien.tgl_lahir, '%d/%m/%Y') from pasien where pasien.no_rkm_medis = (select reg_periksa.no_rkm_medis from reg_periksa where reg_periksa.no_rawat = ?)", norawat));
-        paramBarcode.put("norm", TNoRM.getText());
         paramBarcode.put("no_rawat", norawat);
-        paramBarcode.put("namars", namaRS);
-        paramBarcode.put("alamatrs", alamatRS);
-        paramBarcode.put("kotars", kotaRS);
-        paramBarcode.put("propinsirs", propinsiRS);
-        paramBarcode.put("kontakrs", kontakRS);
         
         Map<String, Object> paramSEP = new HashMap<>();
         paramSEP.put("parameter", nosep);
@@ -1838,20 +1830,6 @@ public class DlgRegistrasiSEPPertama extends javax.swing.JDialog {
     private void insertSEP() {
         this.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
         
-        if (! registerPasien()) {
-            JOptionPane.showMessageDialog(null, "Terjadi kesalahan pada saat pendaftaran pasien!");
-            setCursor(Cursor.getDefaultCursor());
-            
-            return;
-        }
-        
-        if (! simpanRujukan()) {
-            JOptionPane.showMessageDialog(null, "Terjadi kesalahan pada saat proses rujukan masuk pasien!");
-            setCursor(Cursor.getDefaultCursor());
-            
-            return;
-        }
-        
         try {
             tglkkl = "0000-00-00";
             
@@ -1946,6 +1924,14 @@ public class DlgRegistrasiSEPPertama extends javax.swing.JDialog {
 
             if (nameNode.path("code").asText().equals("200")) {
                 response = mapper.readTree(api.Decrypt(root.path("response").asText(), utc)).path("sep").path("noSep");
+                
+                if (! registerPasien()) {
+                    JOptionPane.showMessageDialog(null, "Terjadi kesalahan pada saat pendaftaran pasien!");
+                }
+
+                if (! simpanRujukan()) {
+                    System.out.println("Terjadi kesalahan pada saat proses rujukan masuk pasien!");
+                }
 
                 Sequel.menyimpanSmc("bridging_sep", null, new String[] {
                     response.asText(),
@@ -1968,7 +1954,7 @@ public class DlgRegistrasiSEPPertama extends javax.swing.JDialog {
                     "",
                     "",
                     LakaLantas.getSelectedItem().toString().substring(0, 1),
-                    TNoRM.getText(),
+                    "APM",
                     TNoRM.getText(),
                     TPasien.getText(),
                     TglLahir.getText(),
