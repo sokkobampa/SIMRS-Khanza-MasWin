@@ -1,4 +1,5 @@
 /.settings
 .project
-*.pdf
+**/*.pdf
+**/*.jasper
 !.gitignore
