@@ -10,24 +10,9 @@
  */
 package khanzahmsanjungan;
 
-import bridging.BPJSCekRujukanKartuPCare;
-import fungsi.koneksiDB;
 import fungsi.sekuel;
-import fungsi.validasi;
 import java.awt.Cursor;
 import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
-import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
-import java.awt.event.WindowEvent;
-import java.awt.event.WindowListener;
-import java.io.FileInputStream;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.Properties;
 import javax.swing.JOptionPane;
 
 /**
@@ -35,17 +20,8 @@ import javax.swing.JOptionPane;
  * @author Kode
  */
 public class DlgCekSKDPKontrol extends javax.swing.JDialog {
-
-    private Connection koneksi = koneksiDB.condb();
+    
     private sekuel Sequel = new sekuel();
-    private validasi Valid = new validasi();
-    private PreparedStatement ps;
-    private ResultSet rs;
-    private SimpleDateFormat dateformat = new SimpleDateFormat("yyyy/MM/dd");
-    private String umur = "0", sttsumur = "Th";
-    private String status = "Baru", BASENOREG = "", URUTNOREG = "", aktifjadwal = "";
-    private Properties prop = new Properties();
-    private int lebar = 0, tinggi = 0;
 
     /**
      * Creates new form DlgAdmin
@@ -56,33 +32,6 @@ public class DlgCekSKDPKontrol extends javax.swing.JDialog {
     public DlgCekSKDPKontrol(java.awt.Frame parent, boolean id) {
         super(parent, id);
         initComponents();
-
-        try {
-            ps = koneksi.prepareStatement(
-                    "select nm_pasien,concat(pasien.alamat,', ',kelurahan.nm_kel,', ',kecamatan.nm_kec,', ',kabupaten.nm_kab) asal,"
-                    + "namakeluarga,keluarga,pasien.kd_pj,penjab.png_jawab,if(tgl_daftar=?,'Baru','Lama') as daftar, "
-                    + "TIMESTAMPDIFF(YEAR, tgl_lahir, CURDATE()) as tahun, "
-                    + "(TIMESTAMPDIFF(MONTH, tgl_lahir, CURDATE()) - ((TIMESTAMPDIFF(MONTH, tgl_lahir, CURDATE()) div 12) * 12)) as bulan, "
-                    + "TIMESTAMPDIFF(DAY, DATE_ADD(DATE_ADD(tgl_lahir,INTERVAL TIMESTAMPDIFF(YEAR, tgl_lahir, CURDATE()) YEAR), INTERVAL TIMESTAMPDIFF(MONTH, tgl_lahir, CURDATE()) - ((TIMESTAMPDIFF(MONTH, tgl_lahir, CURDATE()) div 12) * 12) MONTH), CURDATE()) as hari from pasien "
-                    + "inner join kelurahan inner join kecamatan inner join kabupaten inner join penjab "
-                    + "on pasien.kd_kel=kelurahan.kd_kel and pasien.kd_pj=penjab.kd_pj "
-                    + "and pasien.kd_kec=kecamatan.kd_kec and pasien.kd_kab=kabupaten.kd_kab "
-                    + "where pasien.no_rkm_medis=?");
-        } catch (Exception ex) {
-            System.out.println(ex);
-        }
-
-        try {
-            prop.loadFromXML(new FileInputStream("setting/database.xml"));
-            aktifjadwal = prop.getProperty("JADWALDOKTERDIREGISTRASI");
-            URUTNOREG = prop.getProperty("URUTNOREG");
-            BASENOREG = prop.getProperty("BASENOREG");
-        } catch (Exception ex) {
-            aktifjadwal = "";
-            URUTNOREG = "";
-            BASENOREG = "";
-        }
-
     }
 
     /**
@@ -95,74 +44,18 @@ public class DlgCekSKDPKontrol extends javax.swing.JDialog {
     private void initComponents() {
         java.awt.GridBagConstraints gridBagConstraints;
 
-        LblKdPoli = new component.Label();
-        LblKdDokter = new component.Label();
-        NoReg = new component.TextBox();
-        NoRawat = new component.TextBox();
-        Biaya = new component.TextBox();
         jPanel2 = new javax.swing.JPanel();
         PanelWall = new usu.widget.glass.PanelGlass();
         jPanel1 = new component.Panel();
-        NoRMPasien = new component.TextBox();
+        textNoSKDP = new component.TextBox();
         jLabel28 = new component.Label();
-        BtnClose = new widget.ButtonBig();
-        BtnClose2 = new widget.ButtonBig();
-
-        LblKdPoli.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        LblKdPoli.setText("Norm");
-        LblKdPoli.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        LblKdPoli.setPreferredSize(new java.awt.Dimension(20, 14));
-
-        LblKdDokter.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        LblKdDokter.setText("Norm");
-        LblKdDokter.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        LblKdDokter.setPreferredSize(new java.awt.Dimension(20, 14));
-
-        NoReg.setPreferredSize(new java.awt.Dimension(320, 30));
-        NoReg.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                NoRegActionPerformed(evt);
-            }
-        });
-        NoReg.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                NoRegKeyPressed(evt);
-            }
-        });
-
-        NoRawat.setPreferredSize(new java.awt.Dimension(320, 30));
-        NoRawat.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                NoRawatActionPerformed(evt);
-            }
-        });
-        NoRawat.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                NoRawatKeyPressed(evt);
-            }
-        });
-
-        Biaya.setPreferredSize(new java.awt.Dimension(320, 30));
-        Biaya.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BiayaActionPerformed(evt);
-            }
-        });
-        Biaya.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                BiayaKeyPressed(evt);
-            }
-        });
+        buttonTutup = new widget.ButtonBig();
+        buttonCekNoSKDP = new widget.ButtonBig();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setModal(true);
         setUndecorated(true);
         setResizable(false);
-        addWindowListener(new java.awt.event.WindowAdapter() {
-            public void windowOpened(java.awt.event.WindowEvent evt) {
-                formWindowOpened(evt);
-            }
-        });
         getContentPane().setLayout(new java.awt.BorderLayout(1, 1));
 
         jPanel2.setBackground(new java.awt.Color(238, 238, 255));
@@ -197,29 +90,24 @@ public class DlgCekSKDPKontrol extends javax.swing.JDialog {
         jPanel1.setPreferredSize(new java.awt.Dimension(400, 70));
         jPanel1.setLayout(new java.awt.GridBagLayout());
 
-        NoRMPasien.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 131, 62), 2, true));
-        NoRMPasien.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        NoRMPasien.setFont(new java.awt.Font("Poppins", 0, 24)); // NOI18N
-        NoRMPasien.setPreferredSize(new java.awt.Dimension(350, 75));
-        NoRMPasien.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                NoRMPasienActionPerformed(evt);
-            }
-        });
-        NoRMPasien.addKeyListener(new java.awt.event.KeyAdapter() {
+        textNoSKDP.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 131, 62), 2, true));
+        textNoSKDP.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        textNoSKDP.setFont(new java.awt.Font("Poppins", 0, 24)); // NOI18N
+        textNoSKDP.setPreferredSize(new java.awt.Dimension(350, 75));
+        textNoSKDP.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
-                NoRMPasienKeyPressed(evt);
+                textNoSKDPKeyPressed(evt);
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 14;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
-        jPanel1.add(NoRMPasien, gridBagConstraints);
+        jPanel1.add(textNoSKDP, gridBagConstraints);
 
         jLabel28.setForeground(new java.awt.Color(0, 131, 62));
         jLabel28.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel28.setText("No Surat Kontrol");
+        jLabel28.setText("No. Surat Kontrol");
         jLabel28.setFont(new java.awt.Font("Poppins", 0, 24)); // NOI18N
         jLabel28.setPreferredSize(new java.awt.Dimension(300, 75));
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -228,90 +116,53 @@ public class DlgCekSKDPKontrol extends javax.swing.JDialog {
         gridBagConstraints.ipady = 5;
         jPanel1.add(jLabel28, gridBagConstraints);
 
-        BtnClose.setBackground(new java.awt.Color(255, 255, 255));
-        BtnClose.setForeground(new java.awt.Color(51, 51, 51));
-        BtnClose.setIcon(new javax.swing.ImageIcon(getClass().getResource("/48x48/exit.png"))); // NOI18N
-        BtnClose.setMnemonic('U');
-        BtnClose.setToolTipText("Alt+U");
-        BtnClose.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        BtnClose.setHorizontalTextPosition(javax.swing.SwingConstants.TRAILING);
-        BtnClose.setIconTextGap(2);
-        BtnClose.setMargin(new java.awt.Insets(0, 0, 0, 0));
-        BtnClose.setPreferredSize(new java.awt.Dimension(100, 75));
-        BtnClose.setVerticalTextPosition(javax.swing.SwingConstants.CENTER);
-        BtnClose.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BtnCloseActionPerformed(evt);
-            }
-        });
+        buttonTutup.setBackground(new java.awt.Color(255, 255, 255));
+        buttonTutup.setForeground(new java.awt.Color(51, 51, 51));
+        buttonTutup.setIcon(new javax.swing.ImageIcon(getClass().getResource("/48x48/exit.png"))); // NOI18N
+        buttonTutup.setMnemonic('U');
+        buttonTutup.setToolTipText("Alt+U");
+        buttonTutup.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        buttonTutup.setHorizontalTextPosition(javax.swing.SwingConstants.TRAILING);
+        buttonTutup.setIconTextGap(2);
+        buttonTutup.setMargin(new java.awt.Insets(0, 0, 0, 0));
+        buttonTutup.setPreferredSize(new java.awt.Dimension(100, 75));
+        buttonTutup.setVerticalTextPosition(javax.swing.SwingConstants.CENTER);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 4;
         gridBagConstraints.gridy = 14;
-        jPanel1.add(BtnClose, gridBagConstraints);
+        jPanel1.add(buttonTutup, gridBagConstraints);
 
-        BtnClose2.setBackground(new java.awt.Color(255, 255, 255));
-        BtnClose2.setForeground(new java.awt.Color(51, 51, 51));
-        BtnClose2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/48x48/konfirmasi.png"))); // NOI18N
-        BtnClose2.setMnemonic('U');
-        BtnClose2.setToolTipText("Alt+U");
-        BtnClose2.setFont(new java.awt.Font("Poppins", 1, 11)); // NOI18N
-        BtnClose2.setIconTextGap(0);
-        BtnClose2.setMargin(new java.awt.Insets(0, 0, 0, 0));
-        BtnClose2.setPreferredSize(new java.awt.Dimension(100, 75));
-        BtnClose2.setVerticalTextPosition(javax.swing.SwingConstants.CENTER);
-        BtnClose2.addActionListener(new java.awt.event.ActionListener() {
+        buttonCekNoSKDP.setBackground(new java.awt.Color(255, 255, 255));
+        buttonCekNoSKDP.setForeground(new java.awt.Color(51, 51, 51));
+        buttonCekNoSKDP.setIcon(new javax.swing.ImageIcon(getClass().getResource("/48x48/konfirmasi.png"))); // NOI18N
+        buttonCekNoSKDP.setMnemonic('U');
+        buttonCekNoSKDP.setToolTipText("Alt+U");
+        buttonCekNoSKDP.setFont(new java.awt.Font("Poppins", 1, 11)); // NOI18N
+        buttonCekNoSKDP.setIconTextGap(0);
+        buttonCekNoSKDP.setMargin(new java.awt.Insets(0, 0, 0, 0));
+        buttonCekNoSKDP.setPreferredSize(new java.awt.Dimension(100, 75));
+        buttonCekNoSKDP.setVerticalTextPosition(javax.swing.SwingConstants.CENTER);
+        buttonCekNoSKDP.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BtnClose2ActionPerformed(evt);
+                buttonCekNoSKDPActionPerformed(evt);
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 3;
         gridBagConstraints.gridy = 14;
-        jPanel1.add(BtnClose2, gridBagConstraints);
+        jPanel1.add(buttonCekNoSKDP, gridBagConstraints);
 
         getContentPane().add(jPanel1, java.awt.BorderLayout.CENTER);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
-
-    }//GEN-LAST:event_formWindowOpened
-
-    private void NoRegActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NoRegActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_NoRegActionPerformed
-
-    private void NoRegKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_NoRegKeyPressed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_NoRegKeyPressed
-
-    private void NoRawatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NoRawatActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_NoRawatActionPerformed
-
-    private void NoRawatKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_NoRawatKeyPressed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_NoRawatKeyPressed
-
-    private void BiayaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BiayaActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_BiayaActionPerformed
-
-    private void BiayaKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_BiayaKeyPressed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_BiayaKeyPressed
-
-    private void NoRMPasienActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NoRMPasienActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_NoRMPasienActionPerformed
-
-    private void NoRMPasienKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_NoRMPasienKeyPressed
+    private void textNoSKDPKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_textNoSKDPKeyPressed
         if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
-            if (Sequel.cariInteger("select count(bridging_surat_kontrol_bpjs.no_surat) from bridging_surat_kontrol_bpjs where bridging_surat_kontrol_bpjs.no_surat='" + NoRMPasien.getText() + "'") > 0) {
+            if (Sequel.cariInteger("select count(bridging_surat_kontrol_bpjs.no_surat) from bridging_surat_kontrol_bpjs where bridging_surat_kontrol_bpjs.no_surat = ?", textNoSKDP.getText()) > 0) {
                 this.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
                 DlgRegistrasiSEPPertama form = new DlgRegistrasiSEPPertama(null, true);
-                form.tampilKontrol(NoRMPasien.getText());
+                form.tampilKontrol(textNoSKDP.getText());
                 form.setSize(this.getWidth(), this.getHeight());
                 form.setLocationRelativeTo(jPanel1);
                 this.dispose();
@@ -322,46 +173,11 @@ public class DlgCekSKDPKontrol extends javax.swing.JDialog {
             }
         }
 
-    }//GEN-LAST:event_NoRMPasienKeyPressed
+    }//GEN-LAST:event_textNoSKDPKeyPressed
 
-    private void BtnCloseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnCloseActionPerformed
-
+    private void buttonCekNoSKDPActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonCekNoSKDPActionPerformed
         dispose();
-    }//GEN-LAST:event_BtnCloseActionPerformed
-
-    private void BtnClose2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnClose2ActionPerformed
-
-//        String tglkontrol = Sequel.cariIsi("select bridging_surat_kontrol_bpjs.tgl_rencana from bridging_surat_kontrol_bpjs where bridging_surat_kontrol_bpjs.no_surat = ?", NoRMPasien.getText());
-//        String tglKontrol2 = Sequel.cariIsi("select date_format(bridging_surat_kontrol_bpjs.tgl_rencana, '%d %M %Y') from bridging_surat_kontrol_bpjs where bridging_surat_kontrol_bpjs.no_surat = ?", NoRMPasien.getText());
-//        
-//        Date today = new Date(),
-//             current = new Date(tglKontrol);
-//        
-//        SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
-//        
-//        String tanggal = format.format(today);
-//        
-//        boolean data = today.before(current);
-//
-//        if (data && JOptionPane.showConfirmDialog(rootPane, "Anda direncanakan untuk kontrol pada tanggal " + tglKontrol2 + ",\nApakah anda ingin mengupdate ke tanggal hari ini?", "Update rencana kontrol", JOptionPane.YES_NO_OPTION) == JOptionPane.NO_OPTION) {
-//            JOptionPane.showMessageDialog(rootPane, "Maaf, anda tidak boleh untuk mendaftar pada hari ini.\nSilahkan daftar kembali pada tanggal rencana kontrol anda.");
-//            return;
-//        }
-        
-        if (Sequel.cariInteger("select count(bridging_surat_kontrol_bpjs.no_surat) from bridging_surat_kontrol_bpjs where bridging_surat_kontrol_bpjs.no_surat='" + NoRMPasien.getText() + "'") > 0) {
-            this.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
-            DlgRegistrasiSEPPertama form = new DlgRegistrasiSEPPertama(null, true);
-            form.tampilKontrol(NoRMPasien.getText());
-            form.setSize(this.getWidth(), this.getHeight());
-            form.setLocationRelativeTo(jPanel1);
-            this.dispose();
-            form.setVisible(true);
-            this.setCursor(Cursor.getDefaultCursor());
-        } else {
-            JOptionPane.showMessageDialog(rootPane, "Data surat kontrol tidak ditemukan!");
-        }
-
-    }//GEN-LAST:event_BtnClose2ActionPerformed
+    }//GEN-LAST:event_buttonCekNoSKDPActionPerformed
 
     /**
      * @param args the command line arguments
@@ -380,27 +196,12 @@ public class DlgCekSKDPKontrol extends javax.swing.JDialog {
         });
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private component.TextBox Biaya;
-    private widget.ButtonBig BtnClose;
-    private widget.ButtonBig BtnClose2;
-    private component.Label LblKdDokter;
-    private component.Label LblKdPoli;
-    private component.TextBox NoRMPasien;
-    private component.TextBox NoRawat;
-    private component.TextBox NoReg;
     private usu.widget.glass.PanelGlass PanelWall;
+    private widget.ButtonBig buttonCekNoSKDP;
+    private widget.ButtonBig buttonTutup;
     private component.Label jLabel28;
     private component.Panel jPanel1;
     private javax.swing.JPanel jPanel2;
+    private component.TextBox textNoSKDP;
     // End of variables declaration//GEN-END:variables
-
-    public void setPasien(String norm, String kodepoli, String kddokter) {
-    }
-
-    private void UpdateUmur() {
-
-    }
-
-    private void isNumber() {
-    }
 }
