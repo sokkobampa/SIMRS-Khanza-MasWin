@@ -88,45 +88,43 @@ public class DlgRegistrasiSEPMobileJKN extends javax.swing.JDialog {
                    BPJS_PASSWORD_FINGERPRINT = "";
     
     private String umur = "0",
-                   sttsumur = "Th",
+                   statusUmur = "Th",
                    hari = "",
-                   kdDokter = "",
-                   kdPoli = "",
+                   kodeDokter = "",
+                   kodePoli = "",
                    namaInstansi,
                    alamatInstansi,
                    kabupaten,
                    propinsi,
                    kontak,
                    email,
-                   kdkel = "",
-                   kdkec = "",
-                   kdkab = "",
-                   kdprop = "",
-                   nosisrute = "",
-                   BASENOREG = "",
-                   URUTNOREG = "",
+                   kodeKelurahan = "",
+                   kodeKecamatan = "",
+                   kodeKabupaten = "",
+                   kodeProvinsi = "",
+                   noSisrute = "",
                    link = "",
-                   hubunganKeluarga = "SAUDARA",
+                   hubunganPJ = "SAUDARA",
                    statusPasien = "",
                    pengurutan = "",
                    tahun = "",
                    bulan = "",
-                   posisitahun = "",
-                   awalantahun = "",
-                   awalanbulan = "",
-                   no_ktp = "",
-                   tmp_lahir = "",
-                   nm_ibu = "",
+                   posisiTahun = "",
+                   awalanTahun = "",
+                   awalanBulan = "",
+                   noKTP = "",
+                   tempatLahir = "",
+                   namaIbu = "",
                    alamat = "",
                    pekerjaan = "",
-                   no_tlp = "",
+                   noTelpon = "",
                    tglKLL = "0000-00-00",
-                   umurdaftar = "0",
-                   namakeluarga = "",
+                   umurDaftar = "0",
+                   namaPJ = "",
                    noPeserta = "",
                    kelurahan = "",
                    kecamatan = "",
-                   datajam = "",
+                   dataJam = "",
                    jamMulai = "",
                    jamSelesai = "",
                    kabupatenPJ = "",
@@ -143,11 +141,7 @@ public class DlgRegistrasiSEPMobileJKN extends javax.swing.JDialog {
                    utc = "",
                    jenisKunjungan = "",
                    noReg = "",
-                   urlaplikasi = "",
-                   urlfinger = "",
-                   userfinger = "",
-                   passfinger = "",
-                   tampilkantni = Sequel.cariIsi("select tampilkan_tni_polri from set_tni_polri");
+                   tampilkanTNI = Sequel.cariIsi("select tampilkan_tni_polri from set_tni_polri");
     
     private int kuota = 0;
     private Properties prop = new Properties();
@@ -1807,7 +1801,7 @@ public class DlgRegistrasiSEPMobileJKN extends javax.swing.JDialog {
                         Valid.autoNomer3("select ifnull(MAX(CONVERT(no_reg,signed)),0) from reg_periksa where kd_dokter='" + kdDokterBPJS + "' and tgl_registrasi='" + Valid.SetTgl(dateTglSEP.getSelectedItem().toString()) + "'", "", 3, NoReg);
                         break;
                     case "dokter + poli":
-                        Valid.autoNomer3("select ifnull(MAX(CONVERT(no_reg,signed)),0) from reg_periksa where kd_dokter='" + kdDokterBPJS + "' and kd_poli='" + kdPoli + "' and tgl_registrasi='" + Valid.SetTgl(dateTglSEP.getSelectedItem().toString()) + "'", "", 3, NoReg);
+                        Valid.autoNomer3("select ifnull(MAX(CONVERT(no_reg,signed)),0) from reg_periksa where kd_dokter='" + kdDokterBPJS + "' and kd_poli='" + kodePoli + "' and tgl_registrasi='" + Valid.SetTgl(dateTglSEP.getSelectedItem().toString()) + "'", "", 3, NoReg);
                         break;
                     default:
                         Valid.autoNomer3("select ifnull(MAX(CONVERT(no_reg,signed)),0) from reg_periksa where kd_dokter='" + kdDokterBPJS + "' and tgl_registrasi='" + Valid.SetTgl(dateTglSEP.getSelectedItem().toString()) + "'", "", 3, NoReg);
@@ -1879,18 +1873,18 @@ public class DlgRegistrasiSEPMobileJKN extends javax.swing.JDialog {
                     THbngn.setText(rs.getString("keluarga"));
                     NoTelpPasien.setText(rs.getString("no_tlp"));
                     umur = "0";
-                    sttsumur = "Th";
+                    statusUmur = "Th";
                     statusPasien = rs.getString("daftar");
                     if (rs.getInt("tahun") > 0) {
                         umur = rs.getString("tahun");
-                        sttsumur = "Th";
+                        statusUmur = "Th";
                     } else if (rs.getInt("tahun") == 0) {
                         if (rs.getInt("bulan") > 0) {
                             umur = rs.getString("bulan");
-                            sttsumur = "Bl";
+                            statusUmur = "Bl";
                         } else if (rs.getInt("bulan") == 0) {
                             umur = rs.getString("hari");
-                            sttsumur = "Hr";
+                            statusUmur = "Hr";
                         }
                     }
                 }
@@ -2060,7 +2054,7 @@ public class DlgRegistrasiSEPMobileJKN extends javax.swing.JDialog {
                 if (Sequel.menyimpantf2("reg_periksa", "?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?", "No.Rawat", 19,
                         new String[]{NoReg.getText(), TNoRw.getText(), Valid.SetTgl(dateTglSEP.getSelectedItem() + ""), Sequel.cariIsi("select current_time()"),
                             kdDokterBPJS, textNoRM.getText(), kdPoliBPJS, TPngJwb.getText(), TAlmt.getText(), THbngn.getText(), TBiaya.getText(), "Belum",
-                            statusPasien, "Ralan", Kdpnj.getText(), umur, sttsumur, "Belum Bayar", status}) == true) {
+                            statusPasien, "Ralan", Kdpnj.getText(), umur, statusUmur, "Belum Bayar", status}) == true) {
 
                     Valid.autoNomer3("select ifnull(MAX(CONVERT(RIGHT(rujuk_masuk.no_rawat,4),signed)),0) from reg_periksa inner join rujuk_masuk on reg_periksa.no_rawat=rujuk_masuk.no_rawat where reg_periksa.tgl_registrasi='" + Valid.SetTgl(dateTglSEP.getSelectedItem() + "") + "' ", "BR/" + dateformat.format(dateTglSEP.getDate()) + "/", 4, NoRujukMasuk);
                     Sequel.menyimpan("rujuk_masuk", "?,?,?,?,?,?,?,?,?,?", 10, new String[]{
@@ -2177,7 +2171,7 @@ public class DlgRegistrasiSEPMobileJKN extends javax.swing.JDialog {
             "Ralan",
             Kdpnj.getText(),
             umur,
-            sttsumur,
+            statusUmur,
             "Belum Bayar",
             status
         };
@@ -2202,7 +2196,7 @@ public class DlgRegistrasiSEPMobileJKN extends javax.swing.JDialog {
                 "Ralan",
                 Kdpnj.getText(),
                 umur,
-                sttsumur,
+                statusUmur,
                 "Belum Bayar",
                 status
             };
@@ -2715,8 +2709,8 @@ public class DlgRegistrasiSEPMobileJKN extends javax.swing.JDialog {
                         jamSelesai = rs.getString("jam_mulai");
                         jamMulai = rs.getString("jam_selesai");
                         kuota = rs.getInt("kuota");
-                        datajam = Sequel.cariIsi("select DATE_ADD(concat('" + Valid.SetTgl(dateTglSEP.getSelectedItem() + "") + "',' ','" + jamSelesai + "'),INTERVAL " + (Integer.parseInt(NoReg.getText()) * 10) + " MINUTE) ");
-                        parsedDate = dateFormat.parse(datajam);
+                        dataJam = Sequel.cariIsi("select DATE_ADD(concat('" + Valid.SetTgl(dateTglSEP.getSelectedItem() + "") + "',' ','" + jamSelesai + "'),INTERVAL " + (Integer.parseInt(NoReg.getText()) * 10) + " MINUTE) ");
+                        parsedDate = dateFormat.parse(dataJam);
                     } else {
                         System.out.println("Jadwal tidak ditemukan...!");
                     }
