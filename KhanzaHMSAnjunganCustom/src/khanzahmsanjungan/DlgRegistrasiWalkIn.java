@@ -635,13 +635,19 @@ public class DlgRegistrasiWalkIn extends javax.swing.JDialog {
             JOptionPane.showMessageDialog(rootPane, "Pilih Dokter terlebih dahulu");
         } else if (Sequel.cariInteger("select count(jadwal_cuti_libur.kd_dokter) from jadwal_cuti_libur where jadwal_cuti_libur.tanggallibur='" + Valid.SetTgl(TanggalPeriksa.getSelectedItem().toString() + "") + "' and jadwal_cuti_libur.kd_dokter='" + kode_dokter + "' and jadwal_cuti_libur.kd_poli='" + kode_poli + "' ") > 0) {
             JOptionPane.showMessageDialog(rootPane, "Maaf, dokter tidak praktek hari ini!");
-        } else if (Sequel.cariInteger("select count(no_rkm_medis) from reg_periksa where kd_pj='A09' and no_rkm_medis='" + lblNoRM.getText() + "' and kd_poli='" + kode_poli + "' and kd_dokter='" + kode_dokter + "' and tgl_registrasi='" + Valid.SetTgl(TanggalPeriksa.getSelectedItem() + "") + "' ") > 0) {
+        } else if (Sequel.cariInteger("select count(no_rkm_medis) from reg_periksa where kd_pj = 'A09' and no_rkm_medis = '" + lblNoRM.getText() + "' and kd_poli = '" + kode_poli + "' and kd_dokter = '" + kode_dokter + "' and tgl_registrasi = '" + Valid.SetTgl(TanggalPeriksa.getSelectedItem().toString()) + "'") > 0) {
             JOptionPane.showMessageDialog(rootPane, "Maaf, anda sudah terdaftar pada hari ini dengan dokter yang sama!");
+        } else if (Sequel.cariInteger(
+            "select count(pasien.no_rkm_medis) from pasien inner join reg_periksa on reg_periksa.no_rkm_medis = pasien.no_rkm_medis "+
+            "inner join kamar_inap on reg_periksa.no_rawat = kamar_inap.no_rawat where kamar_inap.stts_pulang = '-' and pasien.no_rkm_medis = ?", lblNoRM.getText()) > 0
+        ) {
+            JOptionPane.showMessageDialog(rootPane, "Pasien sedang dalam masa perawatan di kamar inap..!!");
         } else {
             int coba = 0, maxCoba = 5;
             
             String biayareg = Sequel.cariIsi("SELECT registrasilama FROM poliklinik WHERE kd_poli='" + kode_poli + "'");
             
+            isNumber();
             UpdateUmur();
             isCekPasien();
             

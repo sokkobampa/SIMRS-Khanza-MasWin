@@ -127,6 +127,11 @@ public class DlgCekSKDPKontrol extends javax.swing.JDialog {
         buttonTutup.setMargin(new java.awt.Insets(0, 0, 0, 0));
         buttonTutup.setPreferredSize(new java.awt.Dimension(100, 75));
         buttonTutup.setVerticalTextPosition(javax.swing.SwingConstants.CENTER);
+        buttonTutup.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonTutupActionPerformed(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 4;
         gridBagConstraints.gridy = 14;
@@ -176,8 +181,23 @@ public class DlgCekSKDPKontrol extends javax.swing.JDialog {
     }//GEN-LAST:event_textNoSKDPKeyPressed
 
     private void buttonCekNoSKDPActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonCekNoSKDPActionPerformed
-        dispose();
+        if (Sequel.cariInteger("select count(bridging_surat_kontrol_bpjs.no_surat) from bridging_surat_kontrol_bpjs where bridging_surat_kontrol_bpjs.no_surat = ?", textNoSKDP.getText()) > 0) {
+            this.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
+            DlgRegistrasiSEPPertama form = new DlgRegistrasiSEPPertama(null, true);
+            form.tampilKontrol(textNoSKDP.getText());
+            form.setSize(this.getWidth(), this.getHeight());
+            form.setLocationRelativeTo(jPanel1);
+            this.dispose();
+            form.setVisible(true);
+            this.setCursor(Cursor.getDefaultCursor());
+        } else {
+            JOptionPane.showMessageDialog(rootPane, "Data surat kontrol tidak ditemukan!");
+        }
     }//GEN-LAST:event_buttonCekNoSKDPActionPerformed
+
+    private void buttonTutupActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonTutupActionPerformed
+        dispose();
+    }//GEN-LAST:event_buttonTutupActionPerformed
 
     /**
      * @param args the command line arguments

@@ -1721,6 +1721,8 @@ public class DlgRegistrasiSEPPertama extends javax.swing.JDialog {
     private boolean registerPasien() {
         int coba = 0, maxCoba = 5;
         
+        isNumber();
+        
         String[] values = new String[] {
             NoReg.getText(),
             TNoRw.getText(),
@@ -1782,6 +1784,13 @@ public class DlgRegistrasiSEPPertama extends javax.swing.JDialog {
     
     private boolean simpanRujukan() {
         int coba = 0, maxCoba = 5;
+        
+        Valid.autoNomer3(
+            "select ifnull(max(convert(right(rujuk_masuk.no_rawat, 4),signed)), 0) from reg_periksa inner join rujuk_masuk on reg_periksa.no_rawat = rujuk_masuk.no_rawat where reg_periksa.tgl_registrasi = '" + Valid.SetTgl(TanggalSEP.getSelectedItem().toString()) + "'",
+            "BR/" + dateformat.format(TanggalSEP.getDate()) + "/",
+            4,
+            NoRujukMasuk
+        );
         
         String[] values = new String[] {
             TNoRw.getText(),
