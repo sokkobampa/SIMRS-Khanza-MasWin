@@ -38,10 +38,7 @@ public class DlgCekKunjunganBedaPoli extends javax.swing.JDialog {
 
     private Connection koneksi = koneksiDB.condb();
     private sekuel Sequel = new sekuel();
-    private validasi Valid = new validasi();
     private PreparedStatement ps;
-    private ResultSet rs;
-    private SimpleDateFormat dateformat = new SimpleDateFormat("yyyy/MM/dd");
     private String umur = "0", sttsumur = "Th";
     private String status = "Baru", BASENOREG = "", URUTNOREG = "", aktifjadwal = "";
     private Properties prop = new Properties();
@@ -56,33 +53,6 @@ public class DlgCekKunjunganBedaPoli extends javax.swing.JDialog {
     public DlgCekKunjunganBedaPoli(java.awt.Frame parent, boolean id) {
         super(parent, id);
         initComponents();
-
-        try {
-            ps = koneksi.prepareStatement(
-                    "select nm_pasien,concat(pasien.alamat,', ',kelurahan.nm_kel,', ',kecamatan.nm_kec,', ',kabupaten.nm_kab) asal,"
-                    + "namakeluarga,keluarga,pasien.kd_pj,penjab.png_jawab,if(tgl_daftar=?,'Baru','Lama') as daftar, "
-                    + "TIMESTAMPDIFF(YEAR, tgl_lahir, CURDATE()) as tahun, "
-                    + "(TIMESTAMPDIFF(MONTH, tgl_lahir, CURDATE()) - ((TIMESTAMPDIFF(MONTH, tgl_lahir, CURDATE()) div 12) * 12)) as bulan, "
-                    + "TIMESTAMPDIFF(DAY, DATE_ADD(DATE_ADD(tgl_lahir,INTERVAL TIMESTAMPDIFF(YEAR, tgl_lahir, CURDATE()) YEAR), INTERVAL TIMESTAMPDIFF(MONTH, tgl_lahir, CURDATE()) - ((TIMESTAMPDIFF(MONTH, tgl_lahir, CURDATE()) div 12) * 12) MONTH), CURDATE()) as hari from pasien "
-                    + "inner join kelurahan inner join kecamatan inner join kabupaten inner join penjab "
-                    + "on pasien.kd_kel=kelurahan.kd_kel and pasien.kd_pj=penjab.kd_pj "
-                    + "and pasien.kd_kec=kecamatan.kd_kec and pasien.kd_kab=kabupaten.kd_kab "
-                    + "where pasien.no_rkm_medis=?");
-        } catch (Exception ex) {
-            System.out.println(ex);
-        }
-
-        try {
-            prop.loadFromXML(new FileInputStream("setting/database.xml"));
-            aktifjadwal = prop.getProperty("JADWALDOKTERDIREGISTRASI");
-            URUTNOREG = prop.getProperty("URUTNOREG");
-            BASENOREG = prop.getProperty("BASENOREG");
-        } catch (Exception ex) {
-            aktifjadwal = "";
-            URUTNOREG = "";
-            BASENOREG = "";
-        }
-
     }
 
     /**
@@ -350,48 +320,37 @@ public class DlgCekKunjunganBedaPoli extends javax.swing.JDialog {
     }//GEN-LAST:event_NoRMPasienKeyPressed
 
     private void BtnCloseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnCloseActionPerformed
-
         dispose();
     }//GEN-LAST:event_BtnCloseActionPerformed
 
     private void BtnClose2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnClose2ActionPerformed
-        if (!NoRMPasien.getText().equals("")) {
-            if (Sequel.cariInteger("select count(pasien.no_peserta) from pasien where pasien.no_peserta='" + NoRMPasien.getText() + "'") == 1) {
-                this.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
-                DlgRegistrasiSEPPertama form = new DlgRegistrasiSEPPertama(null, true);
-                form.tampilPecahSEP(NoRMPasien.getText());
-                form.setSize(this.getWidth(), this.getHeight());
-                form.setLocationRelativeTo(jPanel1);
-                this.dispose();
-                form.setVisible(true);
-                this.setCursor(Cursor.getDefaultCursor());
-            } else if (Sequel.cariInteger("select count(pasien.no_rkm_medis) from pasien where pasien.no_rkm_medis='" + NoRMPasien.getText() + "'") == 1) {
-                this.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
-                DlgRegistrasiSEPPertama form = new DlgRegistrasiSEPPertama(null, true);
-                form.tampilPecahSEP(Sequel.cariIsi("select pasien.no_peserta from pasien where pasien.no_rkm_medis='" + NoRMPasien.getText() + "'"));
-                form.setSize(this.getWidth(), this.getHeight());
-                form.setLocationRelativeTo(jPanel1);
-                this.dispose();
-                form.setVisible(true);
-                this.setCursor(Cursor.getDefaultCursor());
-
-            } else if (Sequel.cariInteger("select count(pasien.no_ktp) from pasien where pasien.no_ktp='" + NoRMPasien.getText() + "'") == 1) {
-                this.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
-                DlgRegistrasiSEPPertama form = new DlgRegistrasiSEPPertama(null, true);
-                form.tampilPecahSEP(Sequel.cariIsi("select pasien.no_peserta from pasien where pasien.no_ktp='" + NoRMPasien.getText() + "'"));
-                form.setSize(this.getWidth(), this.getHeight());
-                form.setLocationRelativeTo(jPanel1);
-                this.dispose();
-                form.setVisible(true);
-                this.setCursor(Cursor.getDefaultCursor());
-
-            } else {
-                JOptionPane.showMessageDialog(rootPane, "Data pasien tidak ditemukan!");
-            }
-
-        } else {
+        if (NoRMPasien.getText().equals("")) {
             JOptionPane.showMessageDialog(rootPane, "isian masih kosong ");
+            return;
         }
+        
+        String noRM;
+        this.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
+
+        if (Sequel.cariInteger("select count(pasien.no_peserta) from pasien where pasien.no_peserta = ?", NoRMPasien.getText()) == 1) {
+            noRM = NoRMPasien.getText();
+        } else if (Sequel.cariInteger("select count(pasien.no_rkm_medis) from pasien where pasien.no_rkm_medis = ?", NoRMPasien.getText()) == 1) {
+            noRM = Sequel.cariIsi("select pasien.no_peserta from pasien where pasien.no_rkm_medis = ?", NoRMPasien.getText());
+        } else if (Sequel.cariInteger("select count(pasien.no_ktp) from pasien where pasien.no_ktp = ?", NoRMPasien.getText()) == 1) {
+            noRM = Sequel.cariIsi("select pasien.no_peserta from pasien where pasien.no_ktp = ?", NoRMPasien.getText());
+        } else {
+            JOptionPane.showMessageDialog(rootPane, "Data pasien tidak ditemukan!");
+            this.setCursor(Cursor.getDefaultCursor());
+            return;
+        }
+
+        DlgRegistrasiSEPPertama form = new DlgRegistrasiSEPPertama(null, true);
+        form.tampilPecahSEP(noRM);
+        form.setSize(this.getWidth(), this.getHeight());
+        form.setLocationRelativeTo(jPanel1);
+        this.dispose();
+        form.setVisible(true);
+        this.setCursor(Cursor.getDefaultCursor());
     }//GEN-LAST:event_BtnClose2ActionPerformed
 
     /**

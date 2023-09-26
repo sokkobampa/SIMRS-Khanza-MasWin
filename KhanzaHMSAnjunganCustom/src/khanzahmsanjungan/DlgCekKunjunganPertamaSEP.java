@@ -312,7 +312,7 @@ public class DlgCekKunjunganPertamaSEP extends javax.swing.JDialog {
                 if (Sequel.cariInteger("select count(pasien.no_peserta) from pasien where pasien.no_peserta='" + NoRMPasien.getText() + "'") == 1) {
                     this.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
                     DlgRegistrasiSEPPertama form = new DlgRegistrasiSEPPertama(null, true);
-                    form.tampil(NoRMPasien.getText());
+                    form.tampilRujukanPertama(NoRMPasien.getText());
                     form.setSize(this.getWidth(), this.getHeight());
                     form.setLocationRelativeTo(jPanel1);
                     this.dispose();
@@ -321,7 +321,7 @@ public class DlgCekKunjunganPertamaSEP extends javax.swing.JDialog {
                 } else if (Sequel.cariInteger("select count(pasien.no_rkm_medis) from pasien where pasien.no_rkm_medis='" + NoRMPasien.getText() + "'") == 1) {
                     this.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
                     DlgRegistrasiSEPPertama form = new DlgRegistrasiSEPPertama(null, true);
-                    form.tampil(Sequel.cariIsi("select pasien.no_peserta from pasien where pasien.no_rkm_medis='" + NoRMPasien.getText() + "'"));
+                    form.tampilRujukanPertama(Sequel.cariIsi("select pasien.no_peserta from pasien where pasien.no_rkm_medis='" + NoRMPasien.getText() + "'"));
                     form.setSize(this.getWidth(), this.getHeight());
                     form.setLocationRelativeTo(jPanel1);
                     this.dispose();
@@ -331,7 +331,7 @@ public class DlgCekKunjunganPertamaSEP extends javax.swing.JDialog {
                 } else if (Sequel.cariInteger("select count(pasien.no_ktp) from pasien where pasien.no_ktp='" + NoRMPasien.getText() + "'") == 1) {
                     this.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
                     DlgRegistrasiSEPPertama form = new DlgRegistrasiSEPPertama(null, true);
-                    form.tampil(Sequel.cariIsi("select pasien.no_peserta from pasien where pasien.no_ktp='" + NoRMPasien.getText() + "'"));
+                    form.tampilRujukanPertama(Sequel.cariIsi("select pasien.no_peserta from pasien where pasien.no_ktp='" + NoRMPasien.getText() + "'"));
                     form.setSize(this.getWidth(), this.getHeight());
                     form.setLocationRelativeTo(jPanel1);
                     this.dispose();
@@ -356,45 +356,33 @@ public class DlgCekKunjunganPertamaSEP extends javax.swing.JDialog {
     }//GEN-LAST:event_BtnCloseActionPerformed
 
     private void BtnClose2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnClose2ActionPerformed
-
-        if (!NoRMPasien.getText().equals("")) {
-            if (Sequel.cariInteger("select count(pasien.no_peserta) from pasien where pasien.no_peserta='" + NoRMPasien.getText() + "'") == 1) {
-                this.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
-                DlgRegistrasiSEPPertama form = new DlgRegistrasiSEPPertama(null, true);
-                form.tampil(NoRMPasien.getText());
-                form.setSize(this.getWidth(), this.getHeight());
-                form.setLocationRelativeTo(jPanel1);
-                this.dispose();
-                form.setVisible(true);
-                this.setCursor(Cursor.getDefaultCursor());
-            } else if (Sequel.cariInteger("select count(pasien.no_rkm_medis) from pasien where pasien.no_rkm_medis='" + NoRMPasien.getText() + "'") == 1) {
-                this.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
-                DlgRegistrasiSEPPertama form = new DlgRegistrasiSEPPertama(null, true);
-                form.tampil(Sequel.cariIsi("select pasien.no_peserta from pasien where pasien.no_rkm_medis='" + NoRMPasien.getText() + "'"));
-                form.setSize(this.getWidth(), this.getHeight());
-                form.setLocationRelativeTo(jPanel1);
-                this.dispose();
-                form.setVisible(true);
-                this.setCursor(Cursor.getDefaultCursor());
-
-            } else if (Sequel.cariInteger("select count(pasien.no_ktp) from pasien where pasien.no_ktp='" + NoRMPasien.getText() + "'") == 1) {
-                this.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
-                DlgRegistrasiSEPPertama form = new DlgRegistrasiSEPPertama(null, true);
-                form.tampil(Sequel.cariIsi("select pasien.no_peserta from pasien where pasien.no_ktp='" + NoRMPasien.getText() + "'"));
-                form.setSize(this.getWidth(), this.getHeight());
-                form.setLocationRelativeTo(jPanel1);
-                this.dispose();
-                form.setVisible(true);
-                this.setCursor(Cursor.getDefaultCursor());
-
-            } else {
-                JOptionPane.showMessageDialog(rootPane, "Data pasien tidak ditemukan!");
-            }
-
-        } else {
+        if (NoRMPasien.getText().equals("")) {
             JOptionPane.showMessageDialog(rootPane, "isian masih kosong ");
+            return;
+        }
+        
+        String noRM;
+        this.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
+
+        if (Sequel.cariInteger("select count(pasien.no_peserta) from pasien where pasien.no_peserta = ?", NoRMPasien.getText()) == 1) {
+            noRM = NoRMPasien.getText();
+        } else if (Sequel.cariInteger("select count(pasien.no_rkm_medis) from pasien where pasien.no_rkm_medis = ?", NoRMPasien.getText()) == 1) {
+            noRM = Sequel.cariIsi("select pasien.no_peserta from pasien where pasien.no_rkm_medis = ?", NoRMPasien.getText());
+        } else if (Sequel.cariInteger("select count(pasien.no_ktp) from pasien where pasien.no_ktp = ?", NoRMPasien.getText()) == 1) {
+            noRM = Sequel.cariIsi("select pasien.no_peserta from pasien where pasien.no_ktp = ?", NoRMPasien.getText());
+        } else {
+            JOptionPane.showMessageDialog(rootPane, "Data pasien tidak ditemukan!");
+            this.setCursor(Cursor.getDefaultCursor());
+            return;
         }
 
+        DlgRegistrasiSEPPertama form = new DlgRegistrasiSEPPertama(null, true);
+        form.tampilRujukanPertama(noRM);
+        form.setSize(this.getWidth(), this.getHeight());
+        form.setLocationRelativeTo(jPanel1);
+        this.dispose();
+        form.setVisible(true);
+        this.setCursor(Cursor.getDefaultCursor());
     }//GEN-LAST:event_BtnClose2ActionPerformed
 
     /**

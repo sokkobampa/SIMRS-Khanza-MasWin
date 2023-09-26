@@ -9,7 +9,6 @@
 	<parameter name="namars" class="java.lang.String"/>
 	<parameter name="alamatrs" class="java.lang.String"/>
 	<parameter name="kotars" class="java.lang.String"/>
-	<parameter name="propinsirs" class="java.lang.String"/>
 	<parameter name="kontakrs" class="java.lang.String"/>
 	<parameter name="norawat" class="java.lang.String"/>
 	<queryString>
