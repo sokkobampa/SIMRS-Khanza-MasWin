@@ -309,7 +309,7 @@ public class DlgCekinMobileJKN extends javax.swing.JDialog {
         if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
             this.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
             DlgRegistrasiSEPPertama form = new DlgRegistrasiSEPPertama(null, true);
-            form.tampil(NoRMPasien.getText());
+            form.tampilRujukanPertama(NoRMPasien.getText());
             form.setSize(this.getWidth(), this.getHeight());
             form.setLocationRelativeTo(jPanel1);
             this.dispose();
@@ -327,7 +327,7 @@ public class DlgCekinMobileJKN extends javax.swing.JDialog {
     private void BtnClose2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnClose2ActionPerformed
         this.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
         DlgRegistrasiSEPPertama form = new DlgRegistrasiSEPPertama(null, true);
-        form.tampil(NoRMPasien.getText());
+        form.tampilRujukanPertama(NoRMPasien.getText());
         form.setSize(this.getWidth(), this.getHeight());
         form.setLocationRelativeTo(jPanel1);
         this.dispose();

@@ -183,7 +183,7 @@ public class DlgCekSKDPKontrol extends javax.swing.JDialog {
     private void buttonCekNoSKDPActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonCekNoSKDPActionPerformed
         if (Sequel.cariInteger("select count(bridging_surat_kontrol_bpjs.no_surat) from bridging_surat_kontrol_bpjs where bridging_surat_kontrol_bpjs.no_surat = ?", textNoSKDP.getText()) > 0) {
             this.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
-            DlgRegistrasiSEPPertama form = new DlgRegistrasiSEPPertama(null, true);
+            DlgRegistrasiSEPPertama form = new DlgRegistrasiSEPPertama(null, true);            
             form.tampilKontrol(textNoSKDP.getText());
             form.setSize(this.getWidth(), this.getHeight());
             form.setLocationRelativeTo(jPanel1);
