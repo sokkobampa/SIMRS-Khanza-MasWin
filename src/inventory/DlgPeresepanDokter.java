@@ -194,7 +194,7 @@ public final class DlgPeresepanDokter extends javax.swing.JDialog {
                 "Komposisi","Kategori Obat"
             }){
              @Override public boolean isCellEditable(int rowIndex, int colIndex){
-                if (colIndex == 1 || colIndex == 9 || colIndex == 12 || colIndex == 13) {
+                if (colIndex == 9 || colIndex == 12 || colIndex == 13) {
                     return true;
                 }
                 
@@ -1108,8 +1108,8 @@ public final class DlgPeresepanDokter extends javax.swing.JDialog {
                     hitungResep();
                     TCari.requestFocus();
                 } 
-            }   
-        }
+            } 
+       }
 }//GEN-LAST:event_tbResepKeyPressed
 
     private void BtnKeluarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnKeluarActionPerformed
@@ -1660,7 +1660,7 @@ private void ppBersihkanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-F
     public void tampilobat() {        
         z=0;
         for(i=0;i<tbResep.getRowCount();i++){
-            if(!tbResep.getValueAt(i,0).toString().equals("")){
+            if(!tbResep.getValueAt(i,1).toString().equals("")){
                 z++;
             }
         }    
@@ -2436,8 +2436,8 @@ private void ppBersihkanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-F
         }
     }
     
-    public void tampilkanTemplateObat(String namatemplate) {
-        String no_resep = Sequel.cariIsi("select resep_obat.no_resep from resep_obat where resep_obat.nama_template = ?", namatemplate);
+    public void tampilkanTemplateObat(String namaTemplate) {
+        String noResep = Sequel.cariIsi("select resep_obat.no_resep from resep_obat where resep_obat.nama_template = ?", namaTemplate);
         try {
             Valid.tabelKosong(tabModeResep);
             Valid.tabelKosong(tabModeResepRacikan);
@@ -2475,12 +2475,12 @@ private void ppBersihkanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-F
                 try{
                     psresepasuransi.setDouble(1,kenaikan);
                     psresepasuransi.setString(2,bangsal);
-                    psresepasuransi.setString(3,no_resep);
+                    psresepasuransi.setString(3,noResep);
                     rsobat=psresepasuransi.executeQuery();
                     if(STOKKOSONGRESEP.equals("no")){
                         while(rsobat.next()){
                             if(rsobat.getDouble("jml")>rsobat.getDouble("stok")){
-                                JOptionPane.showMessageDialog(rootPane,"Maaf stok tidak mencukupi..!!");
+                                JOptionPane.showMessageDialog(rootPane,"Maaf stok "+ rsobat.getString("nama_brng") +" tidak mencukupi..!!");
                                 tabModeResep.addRow(new Object[] {
                                    false,"",rsobat.getString("kode_brng"),rsobat.getString("nama_brng"),
                                    rsobat.getString("kode_sat"),rsobat.getString("letak_barang"),Valid.roundUp(rsobat.getDouble("harga"),100),
@@ -2555,12 +2555,12 @@ private void ppBersihkanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-F
                 }
                 try{
                     psresep.setString(1,bangsal);
-                    psresep.setString(2,no_resep);
+                    psresep.setString(2,noResep);
                     rsobat=psresep.executeQuery();
                     if(STOKKOSONGRESEP.equals("no")){
                         while(rsobat.next()){
                             if(rsobat.getDouble("jml")>rsobat.getDouble("stok")){
-                                JOptionPane.showMessageDialog(rootPane,"Maaf stok tidak mencukupi..!!");
+                                JOptionPane.showMessageDialog(rootPane,"Maaf stok "+ rsobat.getString("nama_brng") +" tidak mencukupi..!!");
                                 if(Jeniskelas.getSelectedItem().equals("Karyawan")){
                                     tabModeResep.addRow(new Object[] {
                                        false,"",rsobat.getString("kode_brng"),rsobat.getString("nama_brng"),
@@ -2780,7 +2780,7 @@ private void ppBersihkanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-F
                     "on resep_dokter_racikan.kd_racik=metode_racik.kd_racik where "+
                     "resep_dokter_racikan.no_resep=? ");
             try {
-                psresep.setString(1,no_resep);
+                psresep.setString(1,noResep);
                 rsobat=psresep.executeQuery();
                 while(rsobat.next()){
                     tabModeResepRacikan.addRow(new String[]{
@@ -2819,13 +2819,13 @@ private void ppBersihkanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-F
                         try{ 
                             ps2.setDouble(1,kenaikan);
                             ps2.setString(2,bangsal);
-                            ps2.setString(3,no_resep);
+                            ps2.setString(3,noResep);
                             ps2.setString(4,rsobat.getString("no_racik"));
                             rs2=ps2.executeQuery();
                             if(STOKKOSONGRESEP.equals("no")){
                                 while(rs2.next()){
                                     if(rs2.getDouble("jml")>rs2.getDouble("stok")){
-                                        JOptionPane.showMessageDialog(rootPane,"Maaf stok tidak mencukupi..!!");
+                                        JOptionPane.showMessageDialog(rootPane,"Maaf stok "+ rs2.getString("nama_brng") +" tidak mencukupi..!!");
                                         tabModeDetailResepRacikan.addRow(new Object[] {
                                             rsobat.getString("no_racik"),rs2.getString("kode_brng"),rs2.getString("nama_brng"),
                                             rs2.getString("kode_sat"),Valid.roundUp(rs2.getDouble("harga"),100),
@@ -2901,13 +2901,13 @@ private void ppBersihkanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-F
                         }
                         try{ 
                             ps2.setString(1,bangsal);
-                            ps2.setString(2,no_resep);
+                            ps2.setString(2,noResep);
                             ps2.setString(3,rsobat.getString("no_racik"));
                             rs2=ps2.executeQuery();
                             if(STOKKOSONGRESEP.equals("no")){
                                 while(rs2.next()){
                                     if(rs2.getDouble("jml")>rs2.getDouble("stok")){
-                                        JOptionPane.showMessageDialog(rootPane,"Maaf stok tidak mencukupi..!!");
+                                        JOptionPane.showMessageDialog(rootPane,"Maaf stok "+ rs2.getString("nama_brng") +" tidak mencukupi..!!");
                                         if(Jeniskelas.getSelectedItem().equals("Karyawan")){
                                             tabModeDetailResepRacikan.addRow(new Object[] {
                                                 rsobat.getString("no_racik"),rs2.getString("kode_brng"),rs2.getString("nama_brng"),
@@ -3207,7 +3207,7 @@ private void ppBersihkanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-F
                     if(STOKKOSONGRESEP.equals("no")){
                         while(rsobat.next()){
                             if(rsobat.getDouble("jml")>rsobat.getDouble("stok")){
-                                JOptionPane.showMessageDialog(rootPane,"Maaf stok tidak mencukupi..!!");
+                                JOptionPane.showMessageDialog(rootPane,"Maaf stok "+rsobat.getString("nama_brng")+" tidak mencukupi..!!");
                                 tabModeResep.addRow(new Object[] {
                                    false,"",rsobat.getString("kode_brng"),rsobat.getString("nama_brng"),
                                    rsobat.getString("kode_sat"),rsobat.getString("letak_barang"),Valid.roundUp(rsobat.getDouble("harga"),100),
@@ -3287,7 +3287,7 @@ private void ppBersihkanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-F
                     if(STOKKOSONGRESEP.equals("no")){
                         while(rsobat.next()){
                             if(rsobat.getDouble("jml")>rsobat.getDouble("stok")){
-                                JOptionPane.showMessageDialog(rootPane,"Maaf stok tidak mencukupi..!!");
+                                JOptionPane.showMessageDialog(rootPane,"Maaf stok "+rsobat.getString("nama_brng")+" tidak mencukupi..!!");
                                 if(Jeniskelas.getSelectedItem().equals("Karyawan")){
                                     tabModeResep.addRow(new Object[] {
                                        false,"",rsobat.getString("kode_brng"),rsobat.getString("nama_brng"),
@@ -3552,7 +3552,7 @@ private void ppBersihkanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-F
                             if(STOKKOSONGRESEP.equals("no")){
                                 while(rs2.next()){
                                     if(rs2.getDouble("jml")>rs2.getDouble("stok")){
-                                        JOptionPane.showMessageDialog(rootPane,"Maaf stok tidak mencukupi..!!");
+                                        JOptionPane.showMessageDialog(rootPane,"Maaf stok "+rs2.getString("nama_brng")+" tidak mencukupi..!!");
                                         tabModeDetailResepRacikan.addRow(new Object[] {
                                             rsobat.getString("no_racik"),rs2.getString("kode_brng"),rs2.getString("nama_brng"),
                                             rs2.getString("kode_sat"),Valid.roundUp(rs2.getDouble("harga"),100),
@@ -3634,7 +3634,7 @@ private void ppBersihkanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-F
                             if(STOKKOSONGRESEP.equals("no")){
                                 while(rs2.next()){
                                     if(rs2.getDouble("jml")>rs2.getDouble("stok")){
-                                        JOptionPane.showMessageDialog(rootPane,"Maaf stok tidak mencukupi..!!");
+                                        JOptionPane.showMessageDialog(rootPane,"Maaf stok "+rs2.getString("nama_brng")+" tidak mencukupi..!!");
                                         if(Jeniskelas.getSelectedItem().equals("Karyawan")){
                                             tabModeDetailResepRacikan.addRow(new Object[] {
                                                 rsobat.getString("no_racik"),rs2.getString("kode_brng"),rs2.getString("nama_brng"),
@@ -3934,7 +3934,7 @@ private void ppBersihkanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-F
                     if(STOKKOSONGRESEP.equals("no")){
                         while(rsobat.next()){
                             if(rsobat.getDouble("jml")>rsobat.getDouble("stok")){
-                                JOptionPane.showMessageDialog(rootPane,"Maaf stok tidak mencukupi..!!");
+                                JOptionPane.showMessageDialog(rootPane,"Maaf stok "+rsobat.getString("nama_brng")+" tidak mencukupi..!!");
                                 tabModeResep.addRow(new Object[] {
                                    false,"",rsobat.getString("kode_brng"),rsobat.getString("nama_brng"),
                                    rsobat.getString("kode_sat"),rsobat.getString("letak_barang"),Valid.roundUp(rsobat.getDouble("harga"),100),
@@ -4015,7 +4015,7 @@ private void ppBersihkanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-F
                     if(STOKKOSONGRESEP.equals("no")){
                         while(rsobat.next()){
                             if(rsobat.getDouble("jml")>rsobat.getDouble("stok")){
-                                JOptionPane.showMessageDialog(rootPane,"Maaf stok tidak mencukupi..!!");
+                                JOptionPane.showMessageDialog(rootPane,"Maaf stok "+rsobat.getString("nama_brng")+" tidak mencukupi..!!");
                                 if(Jeniskelas.getSelectedItem().equals("Karyawan")){
                                     tabModeResep.addRow(new Object[] {
                                        false,"",rsobat.getString("kode_brng"),rsobat.getString("nama_brng"),
@@ -4281,7 +4281,7 @@ private void ppBersihkanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-F
                             if(STOKKOSONGRESEP.equals("no")){
                                 while(rs2.next()){
                                     if(rs2.getDouble("jml")>rs2.getDouble("stok")){
-                                        JOptionPane.showMessageDialog(rootPane,"Maaf stok tidak mencukupi..!!");
+                                        JOptionPane.showMessageDialog(rootPane,"Maaf stok "+rs2.getString("nama_brng")+" tidak mencukupi..!!");
                                         tabModeDetailResepRacikan.addRow(new Object[] {
                                             rsobat.getString("no_racik"),rs2.getString("kode_brng"),rs2.getString("nama_brng"),
                                             rs2.getString("kode_sat"),Valid.roundUp(rs2.getDouble("harga"),100),
@@ -4362,7 +4362,7 @@ private void ppBersihkanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-F
                             if(STOKKOSONGRESEP.equals("no")){
                                 while(rs2.next()){
                                     if(rs2.getDouble("jml")>rs2.getDouble("stok")){
-                                        JOptionPane.showMessageDialog(rootPane,"Maaf stok tidak mencukupi..!!");
+                                        JOptionPane.showMessageDialog(rootPane,"Maaf stok "+rs2.getString("nama_brng")+" tidak mencukupi..!!");
                                         if(Jeniskelas.getSelectedItem().equals("Karyawan")){
                                             tabModeDetailResepRacikan.addRow(new Object[] {
                                                 rsobat.getString("no_racik"),rs2.getString("kode_brng"),rs2.getString("nama_brng"),
