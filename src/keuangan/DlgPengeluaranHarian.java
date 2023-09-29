@@ -423,7 +423,7 @@ public final class DlgPengeluaranHarian extends javax.swing.JDialog {
         panelGlass9.add(jLabel19);
 
         DTPCari1.setForeground(new java.awt.Color(50, 70, 50));
-        DTPCari1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "26-01-2020" }));
+        DTPCari1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "27-09-2023" }));
         DTPCari1.setDisplayFormat("dd-MM-yyyy");
         DTPCari1.setName("DTPCari1"); // NOI18N
         DTPCari1.setOpaque(false);
@@ -437,7 +437,7 @@ public final class DlgPengeluaranHarian extends javax.swing.JDialog {
         panelGlass9.add(jLabel21);
 
         DTPCari2.setForeground(new java.awt.Color(50, 70, 50));
-        DTPCari2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "26-01-2020" }));
+        DTPCari2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "27-09-2023" }));
         DTPCari2.setDisplayFormat("dd-MM-yyyy");
         DTPCari2.setName("DTPCari2"); // NOI18N
         DTPCari2.setOpaque(false);
@@ -580,7 +580,7 @@ public final class DlgPengeluaranHarian extends javax.swing.JDialog {
         btnKategori.setBounds(409, 12, 28, 23);
 
         Tanggal.setForeground(new java.awt.Color(50, 70, 50));
-        Tanggal.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "26-01-2020 09:54:57" }));
+        Tanggal.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "27-09-2023 15:34:37" }));
         Tanggal.setDisplayFormat("dd-MM-yyyy HH:mm:ss");
         Tanggal.setName("Tanggal"); // NOI18N
         Tanggal.setOpaque(false);
@@ -671,6 +671,7 @@ public final class DlgPengeluaranHarian extends javax.swing.JDialog {
         }else if(Pengeluaran.getText().trim().equals("")||Pengeluaran.getText().trim().equals("0")){
             Valid.textKosong(Pengeluaran,"Pengeluaran");
         }else{
+            autoNomor();
             Sequel.AutoComitFalse();
             sukses=true;    
             if(Sequel.menyimpantf2("pengeluaran_harian","?,?,?,?,?,?","Pengeluaran",6,new String[]{
@@ -1048,6 +1049,7 @@ private void ChkInputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRS
 
     private void tampil() {
         Valid.tabelKosong(tabMode);
+        autoNomor();
         try{     
             total=0;
             ps=koneksi.prepareStatement(
