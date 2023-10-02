@@ -5,7 +5,7 @@
     header("Cache-Control: no-store, no-cache, must-revalidate"); 
     header("Cache-Control: post-check=0, pre-check=0", false);
     header("Pragma: no-cache"); // HTTP/1.0
-    date_default_timezone_set("Asia/Bangkok");
+    date_default_timezone_set("Asia/Makassar");
     $tanggal= mktime(date("m"),date("d"),date("Y"));
     $jam=date("H:i");
 ?>
