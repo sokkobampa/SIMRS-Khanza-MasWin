@@ -162,6 +162,61 @@ public final class validasi {
             System.out.println("Notifikasi : " + e);
         }
     }
+    
+    public String padLeft(String str, int length, String value) {
+        int valueLength = str.length();
+        
+        for (int i = 0; i < length - valueLength; i++) {
+            str = value + str;
+        }
+        
+        return str;
+    }
+    
+    public String autoNomorSmc(String prefix, int length, String sql) {
+        int num = 1;
+        
+        try {
+            ps = connect.prepareStatement(sql);
+            rs = ps.executeQuery();
+            
+            if (rs.next()) {
+                i += rs.getInt(1);
+            }
+            
+            rs.close();
+            ps.close();
+        } catch (Exception e) {
+            System.out.println("Notifikasi : " + e);
+        }
+        
+        return prefix + padLeft(String.valueOf(num), length, "0");
+    }
+    
+    public String autoNomorSmc(String prefix, int length, String sql, String... data) {
+        int num = 1;
+        
+        try {
+            ps = connect.prepareStatement(sql);
+            
+            for (int i = 0; i < data.length; i++) {
+                ps.setString(i + 1, data[i]);
+            }
+            
+            rs = ps.executeQuery();
+            
+            if (rs.next()) {
+                i += rs.getInt(1);
+            }
+            
+            rs.close();
+            ps.close();
+        } catch (Exception e) {
+            System.out.println("Notifikasi : " + e);
+        }
+        
+        return prefix + padLeft(String.valueOf(num), length, "0");
+    }
 
     public void autoNomer3(String sql, String strAwal, Integer pnj, javax.swing.JTextField teks) {
         try {

@@ -224,8 +224,8 @@ public final class sekuel {
             ps.close();
         }
         
-        for (int i = 0; i < values.length; i++) {
-            track = track.replaceFirst("\\?", "'" + values[i] + "'");
+        for (String value : values) {
+            track = track.replaceFirst("\\?", "'" + value + "'");
         }
         
         SimpanTrack(track);
@@ -847,6 +847,53 @@ public final class sekuel {
             System.out.println("Notifikasi : " + e);
         }
     }
+    
+    public void updateSMC(String table, String kolom, String kondisi, String[] values) throws SQLException {
+        String sql = "update " + table + " set " + kolom + " where " + kondisi;
+        
+        if (kondisi == null) {
+            sql = "update " + table + " set " + kolom;
+        }
+        
+        String track = sql;
+        
+        ps = connect.prepareStatement(sql);
+
+        for (int i = 0; i < values.length; i++) {
+            ps.setString(i + 1, values[i]);
+
+            track = track.replaceFirst("\\?", values[i]);
+        }
+
+        ps.executeUpdate();
+
+        ps.close();
+
+        SimpanTrack(track);
+    }
+    
+    public void queryUpdateSmc(String table, String kolom, String kondisi, String... values) {
+        try {
+            updateSMC(table, kolom, kondisi, values);
+            
+            return;
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Terjadi kesalahan pada saat memproses data!");
+            System.out.println("Notifikasi : " + e);
+        }
+    }
+    
+    public boolean queryUpdatetfSmc(String table, String kolom, String kondisi, String... values) {
+        try {
+            updateSMC(table, kolom, kondisi, values);
+            
+            return true;
+        } catch (Exception e) {
+            System.out.println("Notifikasi : " + e);
+            
+            return false;
+        }
+    }
 
     public void queryu2(String qry, int i, String[] a) {
         try {
@@ -1140,6 +1187,30 @@ public final class sekuel {
             System.out.println("Notifikasi : " + e);
         }
     }
+    
+    public String cariIsiSmc(String sql, String... data) {
+        String output = null;
+        
+        try {
+            ps = connect.prepareStatement(sql);
+            for (int i = 0; i < data.length; i++) {
+                ps.setString(i + 1, data[i]);
+            }
+            
+            rs = ps.executeQuery();
+            
+            if (rs.next()) {
+                dicari = rs.getString(1);
+            }
+            
+            rs.close();
+            ps.close();
+        } catch (Exception e) {
+            System.out.println("Notifikasi : " + e);
+        }
+        
+        return output;
+    }
 
     public String cariIsi(String sql) {
         dicari = "";
@@ -1255,6 +1326,32 @@ public final class sekuel {
         }
         return tanggal;
     }
+    
+    public boolean cariExistsSmc(String sql, String... values) {
+        try {
+            ps = connect.prepareStatement(sql);
+            boolean exists = false;
+            
+            for (int i = 0; i < values.length; i++) {
+                ps.setString(i + 1, values[i]);
+            }
+            
+            rs = ps.executeQuery();
+            
+            if (rs.next()) {
+                exists = rs.getBoolean(1);
+            }
+            
+            rs.close();
+            ps.close();
+            
+            return exists;
+        } catch (Exception e) {
+            System.out.println("Notifikasi : " + e);
+            
+            return false;
+        }
+    }
 
     public Integer cariInteger(String sql) {
         angka = 0;
@@ -1310,6 +1407,31 @@ public final class sekuel {
         }
 
         return angka;
+    }
+    
+    public int cariIntegerSmc(String sql, String... data) {
+        int output = 0;
+        
+        try {
+            ps = connect.prepareStatement(sql + " limit 1");
+            
+            for (int i = 0; i < data.length; i++) {
+                ps.setString(i + 1, data[i]);
+            }
+            
+            rs = ps.executeQuery();
+            
+            if (rs.next()) {
+                output = rs.getInt(1);
+            }
+            
+            rs.close();
+            ps.close();
+        } catch (Exception e) {
+            System.out.println("Notifikasi : " + e);
+        }
+        
+        return output;
     }
 
     public Integer cariInteger(String sql, String data) {

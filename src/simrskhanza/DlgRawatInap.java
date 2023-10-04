@@ -87,6 +87,7 @@ import rekammedis.RMPenilaianLanjutanRisikoJatuhDewasa;
 import rekammedis.RMPenilaianLanjutanRisikoJatuhGeriatri;
 import rekammedis.RMPenilaianLanjutanRisikoJatuhLansia;
 import rekammedis.RMPenilaianLanjutanRisikoJatuhPsikiatri;
+import rekammedis.RMPenilaianLanjutanSkriningFungsional;
 import rekammedis.RMPenilaianLevelKecemasanRanapAnak;
 import rekammedis.RMPenilaianPasienPenyakitMenular;
 import rekammedis.RMPenilaianPasienTerminal;
@@ -1318,6 +1319,7 @@ public final class DlgRawatInap extends javax.swing.JDialog {
         BtnPenilaianLanjutanResikoJatuhNeonatus = new widget.Button();
         BtnPenilaianLanjutanResikoJatuhGeriatri = new widget.Button();
         BtnPenilaianLanjutanResikoJatuhPsikiatri = new widget.Button();
+        BtnPenilaianLanjutanSkriningFungsional = new widget.Button();
         BtnPenilaianResikoDekubitus = new widget.Button();
         BtnHasilPemeriksaanUSG = new widget.Button();
         BtnDokumentasiESWL = new widget.Button();
@@ -3939,6 +3941,23 @@ public final class DlgRawatInap extends javax.swing.JDialog {
             }
         });
         FormMenu.add(BtnPenilaianLanjutanResikoJatuhPsikiatri);
+
+        BtnPenilaianLanjutanSkriningFungsional.setIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/item.png"))); // NOI18N
+        BtnPenilaianLanjutanSkriningFungsional.setText("Lanjutan Skrining Fungsional");
+        BtnPenilaianLanjutanSkriningFungsional.setFocusPainted(false);
+        BtnPenilaianLanjutanSkriningFungsional.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
+        BtnPenilaianLanjutanSkriningFungsional.setGlassColor(new java.awt.Color(255, 255, 255));
+        BtnPenilaianLanjutanSkriningFungsional.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        BtnPenilaianLanjutanSkriningFungsional.setMargin(new java.awt.Insets(1, 1, 1, 1));
+        BtnPenilaianLanjutanSkriningFungsional.setName("BtnPenilaianLanjutanSkriningFungsional"); // NOI18N
+        BtnPenilaianLanjutanSkriningFungsional.setPreferredSize(new java.awt.Dimension(190, 23));
+        BtnPenilaianLanjutanSkriningFungsional.setRoundRect(false);
+        BtnPenilaianLanjutanSkriningFungsional.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnPenilaianLanjutanSkriningFungsionalActionPerformed(evt);
+            }
+        });
+        FormMenu.add(BtnPenilaianLanjutanSkriningFungsional);
 
         BtnPenilaianResikoDekubitus.setIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/item.png"))); // NOI18N
         BtnPenilaianResikoDekubitus.setText("Risiko Dekubitus");
@@ -8402,6 +8421,7 @@ private void BtnEditKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
     private widget.Button BtnPenilaianLanjutanResikoJatuhLansia;
     private widget.Button BtnPenilaianLanjutanResikoJatuhNeonatus;
     private widget.Button BtnPenilaianLanjutanResikoJatuhPsikiatri;
+    private widget.Button BtnPenilaianLanjutanSkriningFungsional;
     private widget.Button BtnPenilaianPasienPenyakitMenular;
     private widget.Button BtnPenilaianPasienTerminal;
     private widget.Button BtnPenilaianPreAnestesi;

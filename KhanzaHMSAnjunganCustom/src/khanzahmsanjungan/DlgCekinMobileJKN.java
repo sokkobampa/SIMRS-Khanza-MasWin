@@ -103,10 +103,10 @@ public class DlgCekinMobileJKN extends javax.swing.JDialog {
         jPanel2 = new javax.swing.JPanel();
         PanelWall = new usu.widget.glass.PanelGlass();
         jPanel1 = new component.Panel();
-        NoRMPasien = new component.TextBox();
+        textInput = new component.TextBox();
         jLabel28 = new component.Label();
-        BtnClose = new widget.ButtonBig();
-        BtnClose2 = new widget.ButtonBig();
+        btnTutup = new widget.ButtonBig();
+        btnCekRujukanMobileJKN = new widget.ButtonBig();
 
         LblKdPoli.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         LblKdPoli.setText("Norm");
@@ -196,30 +196,30 @@ public class DlgCekinMobileJKN extends javax.swing.JDialog {
         jPanel1.setPreferredSize(new java.awt.Dimension(400, 70));
         jPanel1.setLayout(new java.awt.GridBagLayout());
 
-        NoRMPasien.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 131, 62), 2, true));
-        NoRMPasien.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        NoRMPasien.setFont(new java.awt.Font("Poppins", 0, 36)); // NOI18N
-        NoRMPasien.setPreferredSize(new java.awt.Dimension(350, 75));
-        NoRMPasien.addActionListener(new java.awt.event.ActionListener() {
+        textInput.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 131, 62), 2, true));
+        textInput.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        textInput.setFont(new java.awt.Font("Poppins", 0, 36)); // NOI18N
+        textInput.setPreferredSize(new java.awt.Dimension(350, 75));
+        textInput.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                NoRMPasienActionPerformed(evt);
+                textInputActionPerformed(evt);
             }
         });
-        NoRMPasien.addKeyListener(new java.awt.event.KeyAdapter() {
+        textInput.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
-                NoRMPasienKeyPressed(evt);
+                textInputKeyPressed(evt);
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 13;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
-        jPanel1.add(NoRMPasien, gridBagConstraints);
+        jPanel1.add(textInput, gridBagConstraints);
 
         jLabel28.setForeground(new java.awt.Color(0, 131, 62));
         jLabel28.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel28.setText("No Rujukan / No Peserta");
-        jLabel28.setFont(new java.awt.Font("Poppins", 0, 36)); // NOI18N
+        jLabel28.setText("No. Rujukan / No. Peserta / NIK / No. RM");
+        jLabel28.setFont(new java.awt.Font("Poppins", 0, 24)); // NOI18N
         jLabel28.setPreferredSize(new java.awt.Dimension(500, 75));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
@@ -227,46 +227,46 @@ public class DlgCekinMobileJKN extends javax.swing.JDialog {
         gridBagConstraints.ipady = 5;
         jPanel1.add(jLabel28, gridBagConstraints);
 
-        BtnClose.setBackground(new java.awt.Color(255, 255, 255));
-        BtnClose.setForeground(new java.awt.Color(51, 51, 51));
-        BtnClose.setIcon(new javax.swing.ImageIcon(getClass().getResource("/48x48/exit.png"))); // NOI18N
-        BtnClose.setMnemonic('U');
-        BtnClose.setToolTipText("Alt+U");
-        BtnClose.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        BtnClose.setHorizontalTextPosition(javax.swing.SwingConstants.TRAILING);
-        BtnClose.setIconTextGap(2);
-        BtnClose.setMargin(new java.awt.Insets(0, 0, 0, 0));
-        BtnClose.setPreferredSize(new java.awt.Dimension(100, 75));
-        BtnClose.setVerticalAlignment(javax.swing.SwingConstants.TOP);
-        BtnClose.addActionListener(new java.awt.event.ActionListener() {
+        btnTutup.setBackground(new java.awt.Color(255, 255, 255));
+        btnTutup.setForeground(new java.awt.Color(51, 51, 51));
+        btnTutup.setIcon(new javax.swing.ImageIcon(getClass().getResource("/48x48/exit.png"))); // NOI18N
+        btnTutup.setMnemonic('U');
+        btnTutup.setToolTipText("Alt+U");
+        btnTutup.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        btnTutup.setHorizontalTextPosition(javax.swing.SwingConstants.TRAILING);
+        btnTutup.setIconTextGap(2);
+        btnTutup.setMargin(new java.awt.Insets(0, 0, 0, 0));
+        btnTutup.setPreferredSize(new java.awt.Dimension(100, 75));
+        btnTutup.setVerticalAlignment(javax.swing.SwingConstants.TOP);
+        btnTutup.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BtnCloseActionPerformed(evt);
+                btnTutupActionPerformed(evt);
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 4;
         gridBagConstraints.gridy = 13;
-        jPanel1.add(BtnClose, gridBagConstraints);
+        jPanel1.add(btnTutup, gridBagConstraints);
 
-        BtnClose2.setBackground(new java.awt.Color(255, 255, 255));
-        BtnClose2.setForeground(new java.awt.Color(51, 51, 51));
-        BtnClose2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/48x48/konfirmasi.png"))); // NOI18N
-        BtnClose2.setMnemonic('U');
-        BtnClose2.setToolTipText("Alt+U");
-        BtnClose2.setFont(new java.awt.Font("Poppins", 1, 11)); // NOI18N
-        BtnClose2.setIconTextGap(0);
-        BtnClose2.setMargin(new java.awt.Insets(0, 0, 0, 0));
-        BtnClose2.setPreferredSize(new java.awt.Dimension(100, 75));
-        BtnClose2.setVerticalAlignment(javax.swing.SwingConstants.TOP);
-        BtnClose2.addActionListener(new java.awt.event.ActionListener() {
+        btnCekRujukanMobileJKN.setBackground(new java.awt.Color(255, 255, 255));
+        btnCekRujukanMobileJKN.setForeground(new java.awt.Color(51, 51, 51));
+        btnCekRujukanMobileJKN.setIcon(new javax.swing.ImageIcon(getClass().getResource("/48x48/konfirmasi.png"))); // NOI18N
+        btnCekRujukanMobileJKN.setMnemonic('U');
+        btnCekRujukanMobileJKN.setToolTipText("Alt+U");
+        btnCekRujukanMobileJKN.setFont(new java.awt.Font("Poppins", 1, 11)); // NOI18N
+        btnCekRujukanMobileJKN.setIconTextGap(0);
+        btnCekRujukanMobileJKN.setMargin(new java.awt.Insets(0, 0, 0, 0));
+        btnCekRujukanMobileJKN.setPreferredSize(new java.awt.Dimension(100, 75));
+        btnCekRujukanMobileJKN.setVerticalAlignment(javax.swing.SwingConstants.TOP);
+        btnCekRujukanMobileJKN.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BtnClose2ActionPerformed(evt);
+                btnCekRujukanMobileJKNActionPerformed(evt);
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 3;
         gridBagConstraints.gridy = 13;
-        jPanel1.add(BtnClose2, gridBagConstraints);
+        jPanel1.add(btnCekRujukanMobileJKN, gridBagConstraints);
 
         getContentPane().add(jPanel1, java.awt.BorderLayout.CENTER);
 
@@ -301,15 +301,15 @@ public class DlgCekinMobileJKN extends javax.swing.JDialog {
         // TODO add your handling code here:
     }//GEN-LAST:event_BiayaKeyPressed
 
-    private void NoRMPasienActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NoRMPasienActionPerformed
+    private void textInputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textInputActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_NoRMPasienActionPerformed
+    }//GEN-LAST:event_textInputActionPerformed
 
-    private void NoRMPasienKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_NoRMPasienKeyPressed
+    private void textInputKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_textInputKeyPressed
         if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
             this.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
             DlgRegistrasiSEPPertama form = new DlgRegistrasiSEPPertama(null, true);
-            form.tampilRujukanPertama(NoRMPasien.getText());
+            form.tampilRujukanPertama(textInput.getText());
             form.setSize(this.getWidth(), this.getHeight());
             form.setLocationRelativeTo(jPanel1);
             this.dispose();
@@ -317,23 +317,25 @@ public class DlgCekinMobileJKN extends javax.swing.JDialog {
             this.setCursor(Cursor.getDefaultCursor());
         }
 
-    }//GEN-LAST:event_NoRMPasienKeyPressed
+    }//GEN-LAST:event_textInputKeyPressed
 
-    private void BtnCloseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnCloseActionPerformed
+    private void btnTutupActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTutupActionPerformed
 
         dispose();
-    }//GEN-LAST:event_BtnCloseActionPerformed
+    }//GEN-LAST:event_btnTutupActionPerformed
 
-    private void BtnClose2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnClose2ActionPerformed
+    private void btnCekRujukanMobileJKNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCekRujukanMobileJKNActionPerformed
+        if (Sequel.cariExistsSmc("select"))
+        
         this.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
-        DlgRegistrasiSEPPertama form = new DlgRegistrasiSEPPertama(null, true);
-        form.tampilRujukanPertama(NoRMPasien.getText());
+        DlgRegistrasiSEPMobileJKN form = new DlgRegistrasiSEPMobileJKN(null, true);
+        form.tampilRujukanMobileJKN(textInput.getText());
         form.setSize(this.getWidth(), this.getHeight());
         form.setLocationRelativeTo(jPanel1);
         this.dispose();
         form.setVisible(true);
         this.setCursor(Cursor.getDefaultCursor());
-    }//GEN-LAST:event_BtnClose2ActionPerformed
+    }//GEN-LAST:event_btnCekRujukanMobileJKNActionPerformed
 
     /**
      * @param args the command line arguments
@@ -353,17 +355,17 @@ public class DlgCekinMobileJKN extends javax.swing.JDialog {
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private component.TextBox Biaya;
-    private widget.ButtonBig BtnClose;
-    private widget.ButtonBig BtnClose2;
     private component.Label LblKdDokter;
     private component.Label LblKdPoli;
-    private component.TextBox NoRMPasien;
     private component.TextBox NoRawat;
     private component.TextBox NoReg;
     private usu.widget.glass.PanelGlass PanelWall;
+    private widget.ButtonBig btnCekRujukanMobileJKN;
+    private widget.ButtonBig btnTutup;
     private component.Label jLabel28;
     private component.Panel jPanel1;
     private javax.swing.JPanel jPanel2;
+    private component.TextBox textInput;
     // End of variables declaration//GEN-END:variables
 
     public void setPasien(String norm, String kodepoli, String kddokter) {

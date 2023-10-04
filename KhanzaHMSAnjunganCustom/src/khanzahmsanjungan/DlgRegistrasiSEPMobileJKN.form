@@ -158,7 +158,7 @@
                 </Property>
                 <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
                   <StringArray count="1">
-                    <StringItem index="0" value="22-09-2023"/>
+                    <StringItem index="0" value="04-10-2023"/>
                   </StringArray>
                 </Property>
                 <Property name="displayFormat" type="java.lang.String" value="dd-MM-yyyy"/>
@@ -205,7 +205,7 @@
                 </Property>
                 <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
                   <StringArray count="1">
-                    <StringItem index="0" value="22-09-2023"/>
+                    <StringItem index="0" value="04-10-2023"/>
                   </StringArray>
                 </Property>
                 <Property name="displayFormat" type="java.lang.String" value="dd-MM-yyyy"/>
@@ -283,7 +283,7 @@
                 </Constraint>
               </Constraints>
             </Component>
-            <Component class="widget.TextBox" name="textPPKPelayananKode">
+            <Component class="widget.TextBox" name="textKodePPKPelayanan">
               <Properties>
                 <Property name="editable" type="boolean" value="false"/>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
@@ -299,7 +299,7 @@
                 </Constraint>
               </Constraints>
             </Component>
-            <Component class="widget.TextBox" name="textPPKPelayananNama">
+            <Component class="widget.TextBox" name="textNamaPPKPelayanan">
               <Properties>
                 <Property name="editable" type="boolean" value="false"/>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
@@ -334,7 +334,7 @@
                 </Constraint>
               </Constraints>
             </Component>
-            <Component class="widget.TextBox" name="textPPKRujukanKode">
+            <Component class="widget.TextBox" name="textKodePPKRujukan">
               <Properties>
                 <Property name="editable" type="boolean" value="false"/>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
@@ -350,7 +350,7 @@
                 </Constraint>
               </Constraints>
             </Component>
-            <Component class="widget.TextBox" name="textPPKRujukanNama">
+            <Component class="widget.TextBox" name="textNamaPPKRujukan">
               <Properties>
                 <Property name="editable" type="boolean" value="false"/>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
@@ -417,7 +417,7 @@
                 </Constraint>
               </Constraints>
             </Component>
-            <Component class="widget.TextBox" name="textNamaPoli">
+            <Component class="widget.TextBox" name="textNamaPoliTujuan">
               <Properties>
                 <Property name="editable" type="boolean" value="false"/>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
@@ -433,7 +433,7 @@
                 </Constraint>
               </Constraints>
             </Component>
-            <Component class="widget.TextBox" name="textKdPoli">
+            <Component class="widget.TextBox" name="textKodePoliTujuan">
               <Properties>
                 <Property name="editable" type="boolean" value="false"/>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
@@ -503,7 +503,7 @@
                 </Constraint>
               </Constraints>
             </Component>
-            <Component class="widget.TextBox" name="Catatan">
+            <Component class="widget.TextBox" name="textCatatan">
               <Properties>
                 <Property name="editable" type="boolean" value="false"/>
                 <Property name="highlighter" type="javax.swing.text.Highlighter" editor="org.netbeans.modules.form.ComponentChooserEditor">
@@ -511,7 +511,7 @@
                 </Property>
               </Properties>
               <Events>
-                <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="CatatanKeyPressed"/>
+                <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="textCatatanKeyPressed"/>
               </Events>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
@@ -741,7 +741,7 @@
                 </Constraint>
               </Constraints>
             </Component>
-            <Component class="widget.TextBox" name="textStatus">
+            <Component class="widget.TextBox" name="textStatusPendaftaran">
               <Properties>
                 <Property name="editable" type="boolean" value="false"/>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
@@ -881,7 +881,7 @@
                 </Property>
                 <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
                   <StringArray count="1">
-                    <StringItem index="0" value="22-09-2023"/>
+                    <StringItem index="0" value="04-10-2023"/>
                   </StringArray>
                 </Property>
                 <Property name="displayFormat" type="java.lang.String" value="dd-MM-yyyy"/>
@@ -922,7 +922,7 @@
                 </Constraint>
               </Constraints>
             </Component>
-            <Component class="widget.TextBox" name="textDPJPRujukanKode">
+            <Component class="widget.TextBox" name="textKodeDPJPTujuan">
               <Properties>
                 <Property name="editable" type="boolean" value="false"/>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
@@ -933,7 +933,7 @@
                 </Property>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="textDPJPRujukanKodeActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="textKodeDPJPTujuanActionPerformed"/>
               </Events>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
@@ -941,7 +941,7 @@
                 </Constraint>
               </Constraints>
             </Component>
-            <Component class="widget.TextBox" name="textDPJPRujukanNama">
+            <Component class="widget.TextBox" name="textNamaDPJPTujuan">
               <Properties>
                 <Property name="editable" type="boolean" value="false"/>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
@@ -1008,7 +1008,7 @@
                 </Constraint>
               </Constraints>
             </Component>
-            <Component class="widget.ComboBox" name="Suplesi">
+            <Component class="widget.ComboBox" name="dropdownSuplesi">
               <Properties>
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="3e" green="83" red="0" type="rgb"/>
@@ -1027,7 +1027,7 @@
                 </Property>
               </Properties>
               <Events>
-                <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="SuplesiKeyPressed"/>
+                <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="dropdownSuplesiKeyPressed"/>
               </Events>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
@@ -1035,14 +1035,14 @@
                 </Constraint>
               </Constraints>
             </Component>
-            <Component class="widget.TextBox" name="NoSEPSuplesi">
+            <Component class="widget.TextBox" name="textNoSEPSuplesi">
               <Properties>
                 <Property name="highlighter" type="javax.swing.text.Highlighter" editor="org.netbeans.modules.form.ComponentChooserEditor">
                   <ComponentRef name="null"/>
                 </Property>
               </Properties>
               <Events>
-                <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="NoSEPSuplesiKeyPressed"/>
+                <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="textNoSEPSuplesiKeyPressed"/>
               </Events>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
@@ -1085,7 +1085,7 @@
                 </Constraint>
               </Constraints>
             </Component>
-            <Component class="widget.TextBox" name="KdPropinsi">
+            <Component class="widget.TextBox" name="textKodeProvinsiKLL">
               <Properties>
                 <Property name="editable" type="boolean" value="false"/>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
@@ -1101,7 +1101,7 @@
                 </Constraint>
               </Constraints>
             </Component>
-            <Component class="widget.TextBox" name="NmPropinsi">
+            <Component class="widget.TextBox" name="textNamaProvinsiKLL">
               <Properties>
                 <Property name="editable" type="boolean" value="false"/>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
@@ -1133,7 +1133,7 @@
                 </Constraint>
               </Constraints>
             </Component>
-            <Component class="widget.TextBox" name="KdKabupaten">
+            <Component class="widget.TextBox" name="textKodeKabupatenKLL">
               <Properties>
                 <Property name="editable" type="boolean" value="false"/>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
@@ -1149,7 +1149,7 @@
                 </Constraint>
               </Constraints>
             </Component>
-            <Component class="widget.TextBox" name="NmKabupaten">
+            <Component class="widget.TextBox" name="textNamaKabupatenKLL">
               <Properties>
                 <Property name="editable" type="boolean" value="false"/>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
@@ -1181,7 +1181,7 @@
                 </Constraint>
               </Constraints>
             </Component>
-            <Component class="widget.TextBox" name="KdKecamatan">
+            <Component class="widget.TextBox" name="textKodeKecamatanKLL">
               <Properties>
                 <Property name="editable" type="boolean" value="false"/>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
@@ -1197,7 +1197,7 @@
                 </Constraint>
               </Constraints>
             </Component>
-            <Component class="widget.TextBox" name="NmKecamatan">
+            <Component class="widget.TextBox" name="textNamaKecamatanKLL">
               <Properties>
                 <Property name="editable" type="boolean" value="false"/>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
@@ -1430,7 +1430,7 @@
                 </Constraint>
               </Constraints>
             </Component>
-            <Component class="widget.TextBox" name="textDPJPLayananKode">
+            <Component class="widget.TextBox" name="textKodeDPJPLayanan">
               <Properties>
                 <Property name="editable" type="boolean" value="false"/>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
@@ -1446,7 +1446,7 @@
                 </Constraint>
               </Constraints>
             </Component>
-            <Component class="widget.TextBox" name="textDPJPLayananNama">
+            <Component class="widget.TextBox" name="textNamaDPJPLayanan">
               <Properties>
                 <Property name="editable" type="boolean" value="false"/>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
@@ -1686,7 +1686,7 @@
                 </Constraint>
               </Constraints>
             </Component>
-            <Component class="widget.Button" name="btnDiagnosaAwal2">
+            <Component class="widget.Button" name="btnRiwayatLayananBPJS">
               <Properties>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                   <Image iconType="3" name="/48x48/pilih.png"/>
@@ -1699,8 +1699,8 @@
                 </Property>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnDiagnosaAwal2ActionPerformed"/>
-                <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="btnDiagnosaAwal2KeyPressed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnRiwayatLayananBPJSActionPerformed"/>
+                <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="btnRiwayatLayananBPJSKeyPressed"/>
               </Events>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
