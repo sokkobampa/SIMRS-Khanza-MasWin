@@ -181,14 +181,11 @@ public final class sekuel {
     public void menyimpanSmc(String table, String kolom, String[] values) {
         try {
             simpanSMC(table, kolom, values);
-            
-            return;
         } catch (Exception e) {
+            System.out.println("Terjadi kesalahan pada saat menyimpan data!");
             System.out.println("Notifikasi : " + e);
             
             JOptionPane.showMessageDialog(null, "Terjadi kesalahan pada saat menyimpan data!");
-            
-            return;
         }
     }
     
@@ -997,6 +994,31 @@ public final class sekuel {
         } catch (Exception e) {
         }
     }
+    
+    public String cariIsiSmc(String sql, String... values) {
+        String output = null;
+        
+        try {
+            ps = connect.prepareStatement(sql);
+            
+            for (int i = 0; i < values.length; i++) {
+                ps.setString(i + 1, values[i]);
+            }
+            
+            rs = ps.executeQuery();
+            
+            if (rs.next()) {
+                output = rs.getString(1);
+            }
+            
+            rs.close();
+            ps.close();
+        } catch (Exception e) {
+            System.out.println("Notifikasi : " + e);
+        }
+        
+        return output;
+    }
 
     public void cariIsi(String sql, JComboBox cmb) {
         try {
@@ -1188,30 +1210,6 @@ public final class sekuel {
         }
     }
     
-    public String cariIsiSmc(String sql, String... data) {
-        String output = null;
-        
-        try {
-            ps = connect.prepareStatement(sql);
-            for (int i = 0; i < data.length; i++) {
-                ps.setString(i + 1, data[i]);
-            }
-            
-            rs = ps.executeQuery();
-            
-            if (rs.next()) {
-                dicari = rs.getString(1);
-            }
-            
-            rs.close();
-            ps.close();
-        } catch (Exception e) {
-            System.out.println("Notifikasi : " + e);
-        }
-        
-        return output;
-    }
-
     public String cariIsi(String sql) {
         dicari = "";
         try {

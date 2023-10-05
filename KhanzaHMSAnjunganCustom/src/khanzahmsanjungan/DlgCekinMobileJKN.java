@@ -325,15 +325,8 @@ public class DlgCekinMobileJKN extends javax.swing.JDialog {
     }//GEN-LAST:event_btnTutupActionPerformed
 
     private void btnCekRujukanMobileJKNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCekRujukanMobileJKNActionPerformed
-        if (Sequel.cariExistsSmc("select"))
-        
         this.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
-        DlgRegistrasiSEPMobileJKN form = new DlgRegistrasiSEPMobileJKN(null, true);
-        form.tampilRujukanMobileJKN(textInput.getText());
-        form.setSize(this.getWidth(), this.getHeight());
-        form.setLocationRelativeTo(jPanel1);
-        this.dispose();
-        form.setVisible(true);
+        
         this.setCursor(Cursor.getDefaultCursor());
     }//GEN-LAST:event_btnCekRujukanMobileJKNActionPerformed
 
@@ -368,13 +361,14 @@ public class DlgCekinMobileJKN extends javax.swing.JDialog {
     private component.TextBox textInput;
     // End of variables declaration//GEN-END:variables
 
-    public void setPasien(String norm, String kodepoli, String kddokter) {
-    }
-
-    private void UpdateUmur() {
-
-    }
-
-    private void isNumber() {
+    private void cekRujukanPasienMobileJKN() {
+        if (Sequel.cariExistsSmc("select exists * from referensi_mobilejkn_bpjs where referensi_mobilejkn_bpjs.nomorreferensi = ?", textInput.getText().trim())) {
+            DlgRegistrasiSEPMobileJKN form = new DlgRegistrasiSEPMobileJKN(null, true);
+            form.tampilRujukanMobileJKN(Sequel.cariIsiSmc("select referensi_mobilejkn_bpjs.no_rkm_medis from referensi_mobilejkn_bpjs where referensi_mobilejkn_bpjs.nomorreferensi = ?", textInput.getText().trim()));
+            form.setSize(this.getWidth(), this.getHeight());
+            form.setLocationRelativeTo(jPanel1);
+            this.dispose();
+            form.setVisible(true);
+        }
     }
 }

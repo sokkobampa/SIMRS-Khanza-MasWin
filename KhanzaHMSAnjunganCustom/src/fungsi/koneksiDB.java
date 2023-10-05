@@ -109,7 +109,7 @@ public class koneksiDB {
         }
     }
 
-    public static String PASSWORDFINGERPRINTBPJS() {
+    public static String PASSFINGERPRINTBPJS() {
         try {
             prop.loadFromXML(new FileInputStream("setting/apm.xml"));
             return EnkripsiAES.decrypt(prop.getProperty("PASSWORDFINGERPRINTBPJS"));

@@ -269,7 +269,7 @@ public class DlgRegistrasiSEPPertama extends javax.swing.JDialog {
         try {
             URL_API_BPJS = koneksiDB.URLAPIBPJS();
             USER_FINGERPRINT_BPJS = koneksiDB.USERFINGERPRINTBPJS();
-            PASS_FINGERPRINT_BPJS = koneksiDB.PASSWORDFINGERPRINTBPJS();
+            PASS_FINGERPRINT_BPJS = koneksiDB.PASSFINGERPRINTBPJS();
             URL_APLIKASI_FINGERPINT_BPJS = koneksiDB.URLAPLIKASIFINGERPRINTBPJS();
             URUT_NOREG = koneksiDB.URUTNOREG();
             BASE_NOREG = koneksiDB.BASENOREG();
@@ -1919,6 +1919,7 @@ public class DlgRegistrasiSEPPertama extends javax.swing.JDialog {
                 
                 if (! registerPasien()) {
                     JOptionPane.showMessageDialog(null, "Terjadi kesalahan pada saat pendaftaran pasien!");
+                    System.out.println("Terjadi kesalahan pada saat proses pendaftaran pasien!");
                 }
 
                 if (! simpanRujukan()) {
