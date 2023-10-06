@@ -1520,60 +1520,55 @@ public class DlgRegistrasiSEPPertama extends javax.swing.JDialog {
     // End of variables declaration//GEN-END:variables
 
     private void isNumber() {
-
-        if (Sequel.cariInteger("select count(booking_registrasi.no_rkm_medis) from booking_registrasi where booking_registrasi.no_rkm_medis='" + TNoRM.getText() + "' and booking_registrasi.tanggal_periksa='" + Valid.SetTgl(TanggalSEP.getSelectedItem().toString()) + "' and booking_registrasi.kd_dokter='" + kodedokterreg + "' and booking_registrasi.kd_poli='" + kodepolireg + "'") > 0) {
-            NoReg.setText(Sequel.cariIsi("select booking_registrasi.no_reg from booking_registrasi where booking_registrasi.no_rkm_medis='" + TNoRM.getText() + "' and booking_registrasi.tanggal_periksa='" + Valid.SetTgl(TanggalSEP.getSelectedItem().toString()) + "' and booking_registrasi.kd_dokter='" + kodedokterreg + "' and booking_registrasi.kd_poli='" + kodepolireg + "'"));
-        } else {
-            if (BASE_NOREG.equals("booking")) {
-                switch (URUT_NOREG) {
-                    case "poli":
-                        if (Sequel.cariInteger("select ifnull(MAX(CONVERT(no_reg,signed)),0) from booking_registrasi where kd_poli='" + kodepolireg + "' and tanggal_periksa='" + Valid.SetTgl(TanggalSEP.getSelectedItem().toString()) + "'")
-                                >= Sequel.cariInteger("select ifnull(MAX(CONVERT(no_reg,signed)),0) from reg_periksa where kd_poli='" + kodepolireg + "' and tgl_registrasi='" + Valid.SetTgl(TanggalSEP.getSelectedItem().toString()) + "'")) {
-                            Valid.autoNomer3("select ifnull(MAX(CONVERT(no_reg,signed)),0) from booking_registrasi where kd_poli='" + kodepolireg + "' and tanggal_periksa='" + Valid.SetTgl(TanggalSEP.getSelectedItem().toString()) + "'", "", 3, NoReg);
-                        } else {
-                            Valid.autoNomer3("select ifnull(MAX(CONVERT(no_reg,signed)),0) from reg_periksa where kd_poli='" + kodepolireg + "' and tgl_registrasi='" + Valid.SetTgl(TanggalSEP.getSelectedItem().toString()) + "'", "", 3, NoReg);
-                        }
-                        break;
-                    case "dokter":
-                        if (Sequel.cariInteger("select ifnull(MAX(CONVERT(no_reg,signed)),0) from booking_registrasi where kd_dokter='" + kodedokterreg + "' and tanggal_periksa='" + Valid.SetTgl(TanggalSEP.getSelectedItem().toString()) + "'")
-                                >= Sequel.cariInteger("select ifnull(MAX(CONVERT(no_reg,signed)),0) from reg_periksa where kd_dokter='" + kodedokterreg + "' and tgl_registrasi='" + Valid.SetTgl(TanggalSEP.getSelectedItem().toString()) + "'")) {
-                            Valid.autoNomer3("select ifnull(MAX(CONVERT(no_reg,signed)),0) from booking_registrasi where kd_dokter='" + kodedokterreg + "' and tanggal_periksa='" + Valid.SetTgl(TanggalSEP.getSelectedItem().toString()) + "'", "", 3, NoReg);
-                        } else {
-                            Valid.autoNomer3("select ifnull(MAX(CONVERT(no_reg,signed)),0) from reg_periksa where kd_dokter='" + kodedokterreg + "' and tgl_registrasi='" + Valid.SetTgl(TanggalSEP.getSelectedItem().toString()) + "'", "", 3, NoReg);
-                        }
-                        break;
-                    case "dokter + poli":
-                        if (Sequel.cariInteger("select ifnull(MAX(CONVERT(no_reg,signed)),0) from booking_registrasi where kd_dokter='" + kodedokterreg + "' and kd_poli='" + kodepolireg + "' and tanggal_periksa='" + Valid.SetTgl(TanggalSEP.getSelectedItem().toString()) + "'")
-                                >= Sequel.cariInteger("select ifnull(MAX(CONVERT(no_reg,signed)),0) from reg_periksa where kd_dokter='" + kodedokterreg + "' and kd_poli='" + kodepolireg + "' and tgl_registrasi='" + Valid.SetTgl(TanggalSEP.getSelectedItem().toString()) + "'")) {
-                            Valid.autoNomer3("select ifnull(MAX(CONVERT(no_reg,signed)),0) from booking_registrasi where kd_dokter='" + kodedokterreg + "' and kd_poli='" + kodepolireg + "' and tanggal_periksa='" + Valid.SetTgl(TanggalSEP.getSelectedItem().toString()) + "'", "", 3, NoReg);
-                        } else {
-                            Valid.autoNomer3("select ifnull(MAX(CONVERT(no_reg,signed)),0) from reg_periksa where kd_dokter='" + kodedokterreg + "' and kd_poli='" + kodepolireg + "' and tgl_registrasi='" + Valid.SetTgl(TanggalSEP.getSelectedItem().toString()) + "'", "", 3, NoReg);
-                        }
-                        break;
-                    default:
-                        if (Sequel.cariInteger("select ifnull(MAX(CONVERT(no_reg,signed)),0) from booking_registrasi where kd_poli='" + kodepolireg + "' and tanggal_periksa='" + Valid.SetTgl(TanggalSEP.getSelectedItem().toString()) + "'")
-                                >= Sequel.cariInteger("select ifnull(MAX(CONVERT(no_reg,signed)),0) from reg_periksa where kd_poli='" + kodepolireg + "' and tgl_registrasi='" + Valid.SetTgl(TanggalSEP.getSelectedItem().toString()) + "'")) {
-                            Valid.autoNomer3("select ifnull(MAX(CONVERT(no_reg,signed)),0) from booking_registrasi where kd_poli='" + kodepolireg + "' and tanggal_periksa='" + Valid.SetTgl(TanggalSEP.getSelectedItem().toString()) + "'", "", 3, NoReg);
-                        } else {
-                            Valid.autoNomer3("select ifnull(MAX(CONVERT(no_reg,signed)),0) from reg_periksa where kd_poli='" + kodepolireg + "' and tgl_registrasi='" + Valid.SetTgl(TanggalSEP.getSelectedItem().toString()) + "'", "", 3, NoReg);
-                        }
-                        break;
-                }
-            } else {
-                switch (URUT_NOREG) {
-                    case "poli":
+        if (BASE_NOREG.equals("booking")) {
+            switch (URUT_NOREG) {
+                case "poli":
+                    if (Sequel.cariInteger("select ifnull(MAX(CONVERT(no_reg,signed)),0) from booking_registrasi where kd_poli='" + kodepolireg + "' and tanggal_periksa='" + Valid.SetTgl(TanggalSEP.getSelectedItem().toString()) + "'")
+                            >= Sequel.cariInteger("select ifnull(MAX(CONVERT(no_reg,signed)),0) from reg_periksa where kd_poli='" + kodepolireg + "' and tgl_registrasi='" + Valid.SetTgl(TanggalSEP.getSelectedItem().toString()) + "'")) {
+                        Valid.autoNomer3("select ifnull(MAX(CONVERT(no_reg,signed)),0) from booking_registrasi where kd_poli='" + kodepolireg + "' and tanggal_periksa='" + Valid.SetTgl(TanggalSEP.getSelectedItem().toString()) + "'", "", 3, NoReg);
+                    } else {
                         Valid.autoNomer3("select ifnull(MAX(CONVERT(no_reg,signed)),0) from reg_periksa where kd_poli='" + kodepolireg + "' and tgl_registrasi='" + Valid.SetTgl(TanggalSEP.getSelectedItem().toString()) + "'", "", 3, NoReg);
-                        break;
-                    case "dokter":
+                    }
+                    break;
+                case "dokter":
+                    if (Sequel.cariInteger("select ifnull(MAX(CONVERT(no_reg,signed)),0) from booking_registrasi where kd_dokter='" + kodedokterreg + "' and tanggal_periksa='" + Valid.SetTgl(TanggalSEP.getSelectedItem().toString()) + "'")
+                            >= Sequel.cariInteger("select ifnull(MAX(CONVERT(no_reg,signed)),0) from reg_periksa where kd_dokter='" + kodedokterreg + "' and tgl_registrasi='" + Valid.SetTgl(TanggalSEP.getSelectedItem().toString()) + "'")) {
+                        Valid.autoNomer3("select ifnull(MAX(CONVERT(no_reg,signed)),0) from booking_registrasi where kd_dokter='" + kodedokterreg + "' and tanggal_periksa='" + Valid.SetTgl(TanggalSEP.getSelectedItem().toString()) + "'", "", 3, NoReg);
+                    } else {
                         Valid.autoNomer3("select ifnull(MAX(CONVERT(no_reg,signed)),0) from reg_periksa where kd_dokter='" + kodedokterreg + "' and tgl_registrasi='" + Valid.SetTgl(TanggalSEP.getSelectedItem().toString()) + "'", "", 3, NoReg);
-                        break;
-                    case "dokter + poli":
-                        Valid.autoNomer3("select ifnull(MAX(CONVERT(no_reg,signed)),0) from reg_periksa where kd_dokter='" + kodedokterreg + "' and kd_poli='" + kode_poli + "' and tgl_registrasi='" + Valid.SetTgl(TanggalSEP.getSelectedItem().toString()) + "'", "", 3, NoReg);
-                        break;
-                    default:
-                        Valid.autoNomer3("select ifnull(MAX(CONVERT(no_reg,signed)),0) from reg_periksa where kd_dokter='" + kodedokterreg + "' and tgl_registrasi='" + Valid.SetTgl(TanggalSEP.getSelectedItem().toString()) + "'", "", 3, NoReg);
-                        break;
-                }
+                    }
+                    break;
+                case "dokter + poli":
+                    if (Sequel.cariInteger("select ifnull(MAX(CONVERT(no_reg,signed)),0) from booking_registrasi where kd_dokter='" + kodedokterreg + "' and kd_poli='" + kodepolireg + "' and tanggal_periksa='" + Valid.SetTgl(TanggalSEP.getSelectedItem().toString()) + "'")
+                            >= Sequel.cariInteger("select ifnull(MAX(CONVERT(no_reg,signed)),0) from reg_periksa where kd_dokter='" + kodedokterreg + "' and kd_poli='" + kodepolireg + "' and tgl_registrasi='" + Valid.SetTgl(TanggalSEP.getSelectedItem().toString()) + "'")) {
+                        Valid.autoNomer3("select ifnull(MAX(CONVERT(no_reg,signed)),0) from booking_registrasi where kd_dokter='" + kodedokterreg + "' and kd_poli='" + kodepolireg + "' and tanggal_periksa='" + Valid.SetTgl(TanggalSEP.getSelectedItem().toString()) + "'", "", 3, NoReg);
+                    } else {
+                        Valid.autoNomer3("select ifnull(MAX(CONVERT(no_reg,signed)),0) from reg_periksa where kd_dokter='" + kodedokterreg + "' and kd_poli='" + kodepolireg + "' and tgl_registrasi='" + Valid.SetTgl(TanggalSEP.getSelectedItem().toString()) + "'", "", 3, NoReg);
+                    }
+                    break;
+                default:
+                    if (Sequel.cariInteger("select ifnull(MAX(CONVERT(no_reg,signed)),0) from booking_registrasi where kd_poli='" + kodepolireg + "' and tanggal_periksa='" + Valid.SetTgl(TanggalSEP.getSelectedItem().toString()) + "'")
+                            >= Sequel.cariInteger("select ifnull(MAX(CONVERT(no_reg,signed)),0) from reg_periksa where kd_poli='" + kodepolireg + "' and tgl_registrasi='" + Valid.SetTgl(TanggalSEP.getSelectedItem().toString()) + "'")) {
+                        Valid.autoNomer3("select ifnull(MAX(CONVERT(no_reg,signed)),0) from booking_registrasi where kd_poli='" + kodepolireg + "' and tanggal_periksa='" + Valid.SetTgl(TanggalSEP.getSelectedItem().toString()) + "'", "", 3, NoReg);
+                    } else {
+                        Valid.autoNomer3("select ifnull(MAX(CONVERT(no_reg,signed)),0) from reg_periksa where kd_poli='" + kodepolireg + "' and tgl_registrasi='" + Valid.SetTgl(TanggalSEP.getSelectedItem().toString()) + "'", "", 3, NoReg);
+                    }
+                    break;
+            }
+        } else {
+            switch (URUT_NOREG) {
+                case "poli":
+                    Valid.autoNomer3("select ifnull(MAX(CONVERT(no_reg,signed)),0) from reg_periksa where kd_poli='" + kodepolireg + "' and tgl_registrasi='" + Valid.SetTgl(TanggalSEP.getSelectedItem().toString()) + "'", "", 3, NoReg);
+                    break;
+                case "dokter":
+                    Valid.autoNomer3("select ifnull(MAX(CONVERT(no_reg,signed)),0) from reg_periksa where kd_dokter='" + kodedokterreg + "' and tgl_registrasi='" + Valid.SetTgl(TanggalSEP.getSelectedItem().toString()) + "'", "", 3, NoReg);
+                    break;
+                case "dokter + poli":
+                    Valid.autoNomer3("select ifnull(MAX(CONVERT(no_reg,signed)),0) from reg_periksa where kd_dokter='" + kodedokterreg + "' and kd_poli='" + kode_poli + "' and tgl_registrasi='" + Valid.SetTgl(TanggalSEP.getSelectedItem().toString()) + "'", "", 3, NoReg);
+                    break;
+                default:
+                    Valid.autoNomer3("select ifnull(MAX(CONVERT(no_reg,signed)),0) from reg_periksa where kd_dokter='" + kodedokterreg + "' and tgl_registrasi='" + Valid.SetTgl(TanggalSEP.getSelectedItem().toString()) + "'", "", 3, NoReg);
+                    break;
             }
         }
 
@@ -1822,6 +1817,10 @@ public class DlgRegistrasiSEPPertama extends javax.swing.JDialog {
     private void insertSEP() {
         this.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
         
+        if (! registerPasien()) {
+            JOptionPane.showMessageDialog(rootPane, "Terjadi kesalahan pada saat pendaftaran pasien!");
+        }
+        
         try {
             tglkkl = "0000-00-00";
             
@@ -1916,11 +1915,6 @@ public class DlgRegistrasiSEPPertama extends javax.swing.JDialog {
 
             if (nameNode.path("code").asText().equals("200")) {
                 response = mapper.readTree(api.Decrypt(root.path("response").asText(), utc)).path("sep").path("noSep");
-                
-                if (! registerPasien()) {
-                    JOptionPane.showMessageDialog(null, "Terjadi kesalahan pada saat pendaftaran pasien!");
-                    System.out.println("Terjadi kesalahan pada saat proses pendaftaran pasien!");
-                }
 
                 if (! simpanRujukan()) {
                     System.out.println("Terjadi kesalahan pada saat proses rujukan masuk pasien!");
@@ -2000,7 +1994,7 @@ public class DlgRegistrasiSEPPertama extends javax.swing.JDialog {
             }
         } catch (UnknownHostException e) {
             JOptionPane.showMessageDialog(rootPane, "Koneksi ke server BPJS terputus...!");
-            System.out.println("Notifikasi Bridgin : " + e);
+            System.out.println("Notifikasi Bridging : " + e);
         } catch (Exception ex) {
             JOptionPane.showMessageDialog(rootPane, "Terjadi kesalahan pada saat proses penerbitan SEP!");
             System.out.println("Notifikasi Bridging : " + ex);

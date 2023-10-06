@@ -345,7 +345,7 @@ public class DlgRegistrasiSEPMobileJKN extends javax.swing.JDialog {
         LabelPoli6 = new widget.Label();
         textKodeDPJPLayanan = new widget.TextBox();
         textNamaDPJPLayanan = new widget.TextBox();
-        btnDPJPLayanan = new widget.Button();
+        btnPilihDPJP = new widget.Button();
         jLabel55 = new widget.Label();
         jLabel56 = new widget.Label();
         jLabel12 = new widget.Label();
@@ -354,7 +354,7 @@ public class DlgRegistrasiSEPMobileJKN extends javax.swing.JDialog {
         jLabel26 = new widget.Label();
         textNIK = new widget.TextBox();
         jLabel7 = new widget.Label();
-        btnDPJPLayanan1 = new widget.Button();
+        btnPilihPoliTujuan = new widget.Button();
         btnDiagnosaAwal = new widget.Button();
         btnPilihRujukan = new widget.Button();
         btnRiwayatLayananBPJS = new widget.Button();
@@ -367,11 +367,6 @@ public class DlgRegistrasiSEPMobileJKN extends javax.swing.JDialog {
         setModal(true);
         setUndecorated(true);
         setResizable(false);
-        addWindowListener(new java.awt.event.WindowAdapter() {
-            public void windowOpened(java.awt.event.WindowEvent evt) {
-                formWindowOpened(evt);
-            }
-        });
         getContentPane().setLayout(new java.awt.BorderLayout(1, 1));
 
         jPanel1.setBackground(new java.awt.Color(238, 238, 255));
@@ -390,11 +385,6 @@ public class DlgRegistrasiSEPMobileJKN extends javax.swing.JDialog {
         textNamaPasien.setBounds(340, 10, 230, 30);
 
         textNoRM.setHighlighter(null);
-        textNoRM.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                textNoRMActionPerformed(evt);
-            }
-        });
         jPanel2.add(textNoRM);
         textNoRM.setBounds(230, 10, 110, 30);
 
@@ -417,11 +407,6 @@ public class DlgRegistrasiSEPMobileJKN extends javax.swing.JDialog {
         dateTglSEP.setFont(new java.awt.Font("Poppins", 0, 12)); // NOI18N
         dateTglSEP.setOpaque(false);
         dateTglSEP.setPreferredSize(new java.awt.Dimension(95, 25));
-        dateTglSEP.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                dateTglSEPKeyPressed(evt);
-            }
-        });
         jPanel2.add(dateTglSEP);
         dateTglSEP.setBounds(730, 130, 170, 30);
 
@@ -438,11 +423,6 @@ public class DlgRegistrasiSEPMobileJKN extends javax.swing.JDialog {
         dateTglRujuk.setFont(new java.awt.Font("Poppins", 0, 12)); // NOI18N
         dateTglRujuk.setOpaque(false);
         dateTglRujuk.setPreferredSize(new java.awt.Dimension(95, 23));
-        dateTglRujuk.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                dateTglRujukKeyPressed(evt);
-            }
-        });
         jPanel2.add(dateTglRujuk);
         dateTglRujuk.setBounds(730, 160, 170, 30);
 
@@ -456,11 +436,6 @@ public class DlgRegistrasiSEPMobileJKN extends javax.swing.JDialog {
         textNoRujukan.setEditable(false);
         textNoRujukan.setBackground(new java.awt.Color(255, 255, 153));
         textNoRujukan.setHighlighter(null);
-        textNoRujukan.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                textNoRujukanKeyPressed(evt);
-            }
-        });
         jPanel2.add(textNoRujukan);
         textNoRujukan.setBounds(230, 100, 340, 30);
 
@@ -555,11 +530,6 @@ public class DlgRegistrasiSEPMobileJKN extends javax.swing.JDialog {
 
         textCatatan.setEditable(false);
         textCatatan.setHighlighter(null);
-        textCatatan.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                textCatatanKeyPressed(evt);
-            }
-        });
         jPanel2.add(textCatatan);
         textCatatan.setBounds(730, 460, 300, 30);
 
@@ -571,11 +541,6 @@ public class DlgRegistrasiSEPMobileJKN extends javax.swing.JDialog {
         dropdownJenisPelayanan.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
                 dropdownJenisPelayananItemStateChanged(evt);
-            }
-        });
-        dropdownJenisPelayanan.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                dropdownJenisPelayananKeyPressed(evt);
             }
         });
         jPanel2.add(dropdownJenisPelayanan);
@@ -591,11 +556,6 @@ public class DlgRegistrasiSEPMobileJKN extends javax.swing.JDialog {
         dropdownKelas.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "1. Kelas 1", "2. Kelas 2", "3. Kelas 3" }));
         dropdownKelas.setSelectedIndex(2);
         dropdownKelas.setFont(new java.awt.Font("Poppins", 0, 12)); // NOI18N
-        dropdownKelas.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                dropdownKelasKeyPressed(evt);
-            }
-        });
         jPanel2.add(dropdownKelas);
         dropdownKelas.setBounds(400, 280, 100, 30);
 
@@ -606,11 +566,6 @@ public class DlgRegistrasiSEPMobileJKN extends javax.swing.JDialog {
         dropdownLakaLantas.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
                 dropdownLakaLantasItemStateChanged(evt);
-            }
-        });
-        dropdownLakaLantas.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                dropdownLakaLantasKeyPressed(evt);
             }
         });
         jPanel2.add(dropdownLakaLantas);
@@ -676,20 +631,10 @@ public class DlgRegistrasiSEPMobileJKN extends javax.swing.JDialog {
         dropdownAsalRujukan.setForeground(new java.awt.Color(0, 131, 62));
         dropdownAsalRujukan.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "1. Faskes 1", "2. Faskes 2(RS)" }));
         dropdownAsalRujukan.setFont(new java.awt.Font("Poppins", 0, 12)); // NOI18N
-        dropdownAsalRujukan.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                dropdownAsalRujukanKeyPressed(evt);
-            }
-        });
         jPanel2.add(dropdownAsalRujukan);
         dropdownAsalRujukan.setBounds(730, 100, 170, 30);
 
         textNoTelp.setHighlighter(null);
-        textNoTelp.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                textNoTelpKeyPressed(evt);
-            }
-        });
         jPanel2.add(textNoTelp);
         textNoTelp.setBounds(730, 190, 160, 30);
 
@@ -697,11 +642,6 @@ public class DlgRegistrasiSEPMobileJKN extends javax.swing.JDialog {
         dropdownKatarak.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "0. Tidak", "1.Ya" }));
         dropdownKatarak.setFont(new java.awt.Font("Poppins", 0, 12)); // NOI18N
         dropdownKatarak.setPreferredSize(new java.awt.Dimension(64, 25));
-        dropdownKatarak.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                dropdownKatarakKeyPressed(evt);
-            }
-        });
         jPanel2.add(dropdownKatarak);
         dropdownKatarak.setBounds(730, 220, 160, 30);
 
@@ -725,11 +665,6 @@ public class DlgRegistrasiSEPMobileJKN extends javax.swing.JDialog {
         dateTglKLL.setFont(new java.awt.Font("Poppins", 0, 12)); // NOI18N
         dateTglKLL.setOpaque(false);
         dateTglKLL.setPreferredSize(new java.awt.Dimension(64, 25));
-        dateTglKLL.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                dateTglKLLKeyPressed(evt);
-            }
-        });
         jPanel2.add(dateTglKLL);
         dateTglKLL.setBounds(730, 280, 140, 30);
 
@@ -743,11 +678,6 @@ public class DlgRegistrasiSEPMobileJKN extends javax.swing.JDialog {
         textKodeDPJPTujuan.setEditable(false);
         textKodeDPJPTujuan.setBackground(new java.awt.Color(255, 255, 153));
         textKodeDPJPTujuan.setHighlighter(null);
-        textKodeDPJPTujuan.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                textKodeDPJPTujuanActionPerformed(evt);
-            }
-        });
         jPanel2.add(textKodeDPJPTujuan);
         textKodeDPJPTujuan.setBounds(230, 220, 75, 30);
 
@@ -766,13 +696,8 @@ public class DlgRegistrasiSEPMobileJKN extends javax.swing.JDialog {
 
         textKeterangan.setEditable(false);
         textKeterangan.setHighlighter(null);
-        textKeterangan.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                textKeteranganKeyPressed(evt);
-            }
-        });
         jPanel2.add(textKeterangan);
-        textKeterangan.setBounds(730, 310, 257, 30);
+        textKeterangan.setBounds(730, 310, 300, 30);
 
         jLabel40.setForeground(new java.awt.Color(0, 131, 62));
         jLabel40.setText("Suplesi :");
@@ -784,20 +709,10 @@ public class DlgRegistrasiSEPMobileJKN extends javax.swing.JDialog {
         dropdownSuplesi.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "0. Tidak", "1.Ya" }));
         dropdownSuplesi.setFont(new java.awt.Font("Poppins", 0, 12)); // NOI18N
         dropdownSuplesi.setPreferredSize(new java.awt.Dimension(64, 25));
-        dropdownSuplesi.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                dropdownSuplesiKeyPressed(evt);
-            }
-        });
         jPanel2.add(dropdownSuplesi);
         dropdownSuplesi.setBounds(730, 340, 90, 30);
 
         textNoSEPSuplesi.setHighlighter(null);
-        textNoSEPSuplesi.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                textNoSEPSuplesiKeyPressed(evt);
-            }
-        });
         jPanel2.add(textNoSEPSuplesi);
         textNoSEPSuplesi.setBounds(890, 340, 140, 30);
 
@@ -890,11 +805,6 @@ public class DlgRegistrasiSEPMobileJKN extends javax.swing.JDialog {
         dropdownFlagProsedur.setModel(new javax.swing.DefaultComboBoxModel(new String[] { " ", "0. Prosedur Tidak Berkelanjutan", "1. Prosedur dan Terapi Berkelanjutan" }));
         dropdownFlagProsedur.setEnabled(false);
         dropdownFlagProsedur.setFont(new java.awt.Font("Poppins", 0, 12)); // NOI18N
-        dropdownFlagProsedur.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                dropdownFlagProsedurKeyPressed(evt);
-            }
-        });
         jPanel2.add(dropdownFlagProsedur);
         dropdownFlagProsedur.setBounds(230, 340, 340, 30);
 
@@ -916,11 +826,6 @@ public class DlgRegistrasiSEPMobileJKN extends javax.swing.JDialog {
         dropdownPenunjang.setModel(new javax.swing.DefaultComboBoxModel(new String[] { " ", "1. Radioterapi", "2. Kemoterapi", "3. Rehabilitasi Medik", "4. Rehabilitasi Psikososial", "5. Transfusi Darah", "6. Pelayanan Gigi", "7. Laboratorium", "8. USG", "9. Farmasi", "10. Lain-Lain", "11. MRI", "12. HEMODIALISA" }));
         dropdownPenunjang.setEnabled(false);
         dropdownPenunjang.setFont(new java.awt.Font("Poppins", 0, 12)); // NOI18N
-        dropdownPenunjang.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                dropdownPenunjangKeyPressed(evt);
-            }
-        });
         jPanel2.add(dropdownPenunjang);
         dropdownPenunjang.setBounds(230, 370, 340, 30);
 
@@ -935,11 +840,6 @@ public class DlgRegistrasiSEPMobileJKN extends javax.swing.JDialog {
         dropdownAsesmenPelayanan.setForeground(new java.awt.Color(0, 131, 62));
         dropdownAsesmenPelayanan.setModel(new javax.swing.DefaultComboBoxModel(new String[] { " ", "1. Poli spesialis tidak tersedia pada hari sebelumnya", "2. Jam Poli telah berakhir pada hari sebelumnya", "3. Spesialis yang dimaksud tidak praktek pada hari sebelumnya", "4. Atas Instruksi RS", "5. Tujuan Kontrol" }));
         dropdownAsesmenPelayanan.setFont(new java.awt.Font("Poppins", 0, 12)); // NOI18N
-        dropdownAsesmenPelayanan.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                dropdownAsesmenPelayananKeyPressed(evt);
-            }
-        });
         jPanel2.add(dropdownAsesmenPelayanan);
         dropdownAsesmenPelayanan.setBounds(230, 400, 340, 30);
 
@@ -962,22 +862,17 @@ public class DlgRegistrasiSEPMobileJKN extends javax.swing.JDialog {
         jPanel2.add(textNamaDPJPLayanan);
         textNamaDPJPLayanan.setBounds(310, 430, 260, 30);
 
-        btnDPJPLayanan.setIcon(new javax.swing.ImageIcon(getClass().getResource("/48x48/pilih.png"))); // NOI18N
-        btnDPJPLayanan.setMnemonic('X');
-        btnDPJPLayanan.setToolTipText("Alt+X");
-        btnDPJPLayanan.setFont(new java.awt.Font("Poppins", 0, 12)); // NOI18N
-        btnDPJPLayanan.addActionListener(new java.awt.event.ActionListener() {
+        btnPilihDPJP.setIcon(new javax.swing.ImageIcon(getClass().getResource("/48x48/pilih.png"))); // NOI18N
+        btnPilihDPJP.setMnemonic('X');
+        btnPilihDPJP.setToolTipText("Alt+X");
+        btnPilihDPJP.setFont(new java.awt.Font("Poppins", 0, 12)); // NOI18N
+        btnPilihDPJP.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnDPJPLayananActionPerformed(evt);
+                btnPilihDPJPActionPerformed(evt);
             }
         });
-        btnDPJPLayanan.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                btnDPJPLayananKeyPressed(evt);
-            }
-        });
-        jPanel2.add(btnDPJPLayanan);
-        btnDPJPLayanan.setBounds(570, 220, 40, 30);
+        jPanel2.add(btnPilihDPJP);
+        btnPilihDPJP.setBounds(570, 220, 40, 30);
 
         jLabel55.setForeground(new java.awt.Color(0, 131, 62));
         jLabel55.setText("Laka Lantas :");
@@ -1008,11 +903,6 @@ public class DlgRegistrasiSEPMobileJKN extends javax.swing.JDialog {
         textNoSKDP.setEditable(false);
         textNoSKDP.setBackground(new java.awt.Color(255, 255, 153));
         textNoSKDP.setHighlighter(null);
-        textNoSKDP.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                textNoSKDPKeyPressed(evt);
-            }
-        });
         jPanel2.add(textNoSKDP);
         textNoSKDP.setBounds(230, 70, 340, 30);
 
@@ -1035,22 +925,17 @@ public class DlgRegistrasiSEPMobileJKN extends javax.swing.JDialog {
         jPanel2.add(jLabel7);
         jLabel7.setBounds(650, 70, 80, 30);
 
-        btnDPJPLayanan1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/48x48/pilih.png"))); // NOI18N
-        btnDPJPLayanan1.setMnemonic('X');
-        btnDPJPLayanan1.setToolTipText("Alt+X");
-        btnDPJPLayanan1.setFont(new java.awt.Font("Poppins", 0, 12)); // NOI18N
-        btnDPJPLayanan1.addActionListener(new java.awt.event.ActionListener() {
+        btnPilihPoliTujuan.setIcon(new javax.swing.ImageIcon(getClass().getResource("/48x48/pilih.png"))); // NOI18N
+        btnPilihPoliTujuan.setMnemonic('X');
+        btnPilihPoliTujuan.setToolTipText("Alt+X");
+        btnPilihPoliTujuan.setFont(new java.awt.Font("Poppins", 0, 12)); // NOI18N
+        btnPilihPoliTujuan.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnDPJPLayanan1ActionPerformed(evt);
+                btnPilihPoliTujuanActionPerformed(evt);
             }
         });
-        btnDPJPLayanan1.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                btnDPJPLayanan1KeyPressed(evt);
-            }
-        });
-        jPanel2.add(btnDPJPLayanan1);
-        btnDPJPLayanan1.setBounds(570, 190, 40, 30);
+        jPanel2.add(btnPilihPoliTujuan);
+        btnPilihPoliTujuan.setBounds(570, 190, 40, 30);
 
         btnDiagnosaAwal.setIcon(new javax.swing.ImageIcon(getClass().getResource("/48x48/pilih.png"))); // NOI18N
         btnDiagnosaAwal.setMnemonic('X');
@@ -1059,11 +944,6 @@ public class DlgRegistrasiSEPMobileJKN extends javax.swing.JDialog {
         btnDiagnosaAwal.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnDiagnosaAwalActionPerformed(evt);
-            }
-        });
-        btnDiagnosaAwal.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                btnDiagnosaAwalKeyPressed(evt);
             }
         });
         jPanel2.add(btnDiagnosaAwal);
@@ -1078,11 +958,6 @@ public class DlgRegistrasiSEPMobileJKN extends javax.swing.JDialog {
                 btnPilihRujukanActionPerformed(evt);
             }
         });
-        btnPilihRujukan.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                btnPilihRujukanKeyPressed(evt);
-            }
-        });
         jPanel2.add(btnPilihRujukan);
         btnPilihRujukan.setBounds(570, 100, 40, 30);
 
@@ -1094,11 +969,6 @@ public class DlgRegistrasiSEPMobileJKN extends javax.swing.JDialog {
         btnRiwayatLayananBPJS.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnRiwayatLayananBPJSActionPerformed(evt);
-            }
-        });
-        btnRiwayatLayananBPJS.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                btnRiwayatLayananBPJSKeyPressed(evt);
             }
         });
         jPanel2.add(btnRiwayatLayananBPJS);
@@ -1142,11 +1012,6 @@ public class DlgRegistrasiSEPMobileJKN extends javax.swing.JDialog {
                 btnFingerPrintActionPerformed(evt);
             }
         });
-        btnFingerPrint.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                btnFingerPrintKeyPressed(evt);
-            }
-        });
         jPanel3.add(btnFingerPrint);
 
         btnKeluar.setForeground(new java.awt.Color(0, 131, 62));
@@ -1175,10 +1040,6 @@ public class DlgRegistrasiSEPMobileJKN extends javax.swing.JDialog {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
-
-    }//GEN-LAST:event_formWindowOpened
 
     private void btnKeluarKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_btnKeluarKeyPressed
         if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
@@ -1271,28 +1132,12 @@ public class DlgRegistrasiSEPMobileJKN extends javax.swing.JDialog {
         }
     }//GEN-LAST:event_btnSimpanActionPerformed
 
-    private void btnDPJPLayananKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_btnDPJPLayananKeyPressed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnDPJPLayananKeyPressed
-
-    private void btnDPJPLayananActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDPJPLayananActionPerformed
+    private void btnPilihDPJPActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPilihDPJPActionPerformed
         dokter.setSize(jPanel1.getWidth() - 75, jPanel1.getHeight() - 75);
         dokter.setLocationRelativeTo(jPanel1);
         dokter.carinamadokter(textKodePoliTujuan.getText(), textNamaPoliTujuan.getText());
         dokter.setVisible(true);
-    }//GEN-LAST:event_btnDPJPLayananActionPerformed
-
-    private void dropdownAsesmenPelayananKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_dropdownAsesmenPelayananKeyPressed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_dropdownAsesmenPelayananKeyPressed
-
-    private void dropdownPenunjangKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_dropdownPenunjangKeyPressed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_dropdownPenunjangKeyPressed
-
-    private void dropdownFlagProsedurKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_dropdownFlagProsedurKeyPressed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_dropdownFlagProsedurKeyPressed
+    }//GEN-LAST:event_btnPilihDPJPActionPerformed
 
     private void dropdownTujuanKunjunganKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_dropdownTujuanKunjunganKeyPressed
         // TODO add your handling code here:
@@ -1323,38 +1168,6 @@ public class DlgRegistrasiSEPMobileJKN extends javax.swing.JDialog {
         }
     }//GEN-LAST:event_dropdownTujuanKunjunganItemStateChanged
 
-    private void textNoSEPSuplesiKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_textNoSEPSuplesiKeyPressed
-
-    }//GEN-LAST:event_textNoSEPSuplesiKeyPressed
-
-    private void dropdownSuplesiKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_dropdownSuplesiKeyPressed
-        Valid.pindah(evt, textKeterangan, textNoSEPSuplesi);
-    }//GEN-LAST:event_dropdownSuplesiKeyPressed
-
-    private void textKeteranganKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_textKeteranganKeyPressed
-        Valid.pindah(evt, dateTglKLL, dropdownSuplesi);
-    }//GEN-LAST:event_textKeteranganKeyPressed
-
-    private void dateTglKLLKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_dateTglKLLKeyPressed
-        Valid.pindah(evt, dropdownLakaLantas, textKeterangan);
-    }//GEN-LAST:event_dateTglKLLKeyPressed
-
-    private void dropdownKatarakKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_dropdownKatarakKeyPressed
-        Valid.pindah(evt, textCatatan, textNoTelp);
-    }//GEN-LAST:event_dropdownKatarakKeyPressed
-
-    private void textNoTelpKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_textNoTelpKeyPressed
-        Valid.pindah(evt, dropdownKatarak, dropdownLakaLantas);
-    }//GEN-LAST:event_textNoTelpKeyPressed
-
-    private void dropdownAsalRujukanKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_dropdownAsalRujukanKeyPressed
-
-    }//GEN-LAST:event_dropdownAsalRujukanKeyPressed
-
-    private void dropdownLakaLantasKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_dropdownLakaLantasKeyPressed
-        Valid.pindah(evt, textNoTelp, dateTglKLL);
-    }//GEN-LAST:event_dropdownLakaLantasKeyPressed
-
     private void dropdownLakaLantasItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_dropdownLakaLantasItemStateChanged
         if (dropdownLakaLantas.getSelectedIndex() == 0) {
             dateTglKLL.setEnabled(false);
@@ -1366,14 +1179,6 @@ public class DlgRegistrasiSEPMobileJKN extends javax.swing.JDialog {
         }
     }//GEN-LAST:event_dropdownLakaLantasItemStateChanged
 
-    private void dropdownKelasKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_dropdownKelasKeyPressed
-
-    }//GEN-LAST:event_dropdownKelasKeyPressed
-
-    private void dropdownJenisPelayananKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_dropdownJenisPelayananKeyPressed
-
-    }//GEN-LAST:event_dropdownJenisPelayananKeyPressed
-
     private void dropdownJenisPelayananItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_dropdownJenisPelayananItemStateChanged
         if (dropdownJenisPelayanan.getSelectedIndex() == 0) {
             textKodePoliTujuan.setText("");
@@ -1384,39 +1189,15 @@ public class DlgRegistrasiSEPMobileJKN extends javax.swing.JDialog {
 
             textKodeDPJPLayanan.setText("");
             textNamaDPJPLayanan.setText("");
-            btnDPJPLayanan.setEnabled(false);
+            btnPilihDPJP.setEnabled(false);
         } else if (dropdownJenisPelayanan.getSelectedIndex() == 1) {
             LabelPoli.setVisible(true);
             textKodePoliTujuan.setVisible(true);
             textNamaPoliTujuan.setVisible(true);
 
-            btnDPJPLayanan.setEnabled(true);
+            btnPilihDPJP.setEnabled(true);
         }
     }//GEN-LAST:event_dropdownJenisPelayananItemStateChanged
-
-    private void textCatatanKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_textCatatanKeyPressed
-
-    }//GEN-LAST:event_textCatatanKeyPressed
-
-    private void textNoRujukanKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_textNoRujukanKeyPressed
-
-    }//GEN-LAST:event_textNoRujukanKeyPressed
-
-    private void dateTglRujukKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_dateTglRujukKeyPressed
-        Valid.pindah(evt, textNoRujukan, dateTglSEP);
-    }//GEN-LAST:event_dateTglRujukKeyPressed
-
-    private void dateTglSEPKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_dateTglSEPKeyPressed
-        Valid.pindah(evt, dateTglRujuk, dropdownAsalRujukan);
-    }//GEN-LAST:event_dateTglSEPKeyPressed
-
-    private void textNoRMActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textNoRMActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_textNoRMActionPerformed
-
-    private void textNoSKDPKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_textNoSKDPKeyPressed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_textNoSKDPKeyPressed
 
     private void btnFingerPrintActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFingerPrintActionPerformed
         if (!textNoPeserta.toString().equals("")) {
@@ -1424,30 +1205,18 @@ public class DlgRegistrasiSEPMobileJKN extends javax.swing.JDialog {
         }
     }//GEN-LAST:event_btnFingerPrintActionPerformed
 
-    private void btnFingerPrintKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_btnFingerPrintKeyPressed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnFingerPrintKeyPressed
-
-    private void btnDPJPLayanan1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDPJPLayanan1ActionPerformed
+    private void btnPilihPoliTujuanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPilihPoliTujuanActionPerformed
         poli.setSize(jPanel1.getWidth() - 75, jPanel1.getHeight() - 75);
         poli.tampil();
         poli.setLocationRelativeTo(jPanel1);
         poli.setVisible(true);
-    }//GEN-LAST:event_btnDPJPLayanan1ActionPerformed
-
-    private void btnDPJPLayanan1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_btnDPJPLayanan1KeyPressed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnDPJPLayanan1KeyPressed
+    }//GEN-LAST:event_btnPilihPoliTujuanActionPerformed
 
     private void btnDiagnosaAwalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDiagnosaAwalActionPerformed
         penyakit.setSize(jPanel1.getWidth() - 70, jPanel1.getHeight() - 70);
         penyakit.setLocationRelativeTo(jPanel1);
         penyakit.setVisible(true);
     }//GEN-LAST:event_btnDiagnosaAwalActionPerformed
-
-    private void btnDiagnosaAwalKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_btnDiagnosaAwalKeyPressed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnDiagnosaAwalKeyPressed
 
     private void btnPilihRujukanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPilihRujukanActionPerformed
         if (textNoPeserta.getText().trim().equals("")) {
@@ -1462,10 +1231,6 @@ public class DlgRegistrasiSEPMobileJKN extends javax.swing.JDialog {
         }
     }//GEN-LAST:event_btnPilihRujukanActionPerformed
 
-    private void btnPilihRujukanKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_btnPilihRujukanKeyPressed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnPilihRujukanKeyPressed
-
     private void btnRiwayatLayananBPJSActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRiwayatLayananBPJSActionPerformed
         this.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
 
@@ -1475,14 +1240,6 @@ public class DlgRegistrasiSEPMobileJKN extends javax.swing.JDialog {
         historiPelayanan.setVisible(true);
         this.setCursor(Cursor.getDefaultCursor());
     }//GEN-LAST:event_btnRiwayatLayananBPJSActionPerformed
-
-    private void btnRiwayatLayananBPJSKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_btnRiwayatLayananBPJSKeyPressed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnRiwayatLayananBPJSKeyPressed
-
-    private void textKodeDPJPTujuanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textKodeDPJPTujuanActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_textKodeDPJPTujuanActionPerformed
 
     /**
      * @param args the command line arguments
@@ -1508,11 +1265,11 @@ public class DlgRegistrasiSEPMobileJKN extends javax.swing.JDialog {
     private widget.Label LabelPoli4;
     private widget.Label LabelPoli5;
     private widget.Label LabelPoli6;
-    private widget.Button btnDPJPLayanan;
-    private widget.Button btnDPJPLayanan1;
     private widget.Button btnDiagnosaAwal;
     private component.Button btnFingerPrint;
     private component.Button btnKeluar;
+    private widget.Button btnPilihDPJP;
+    private widget.Button btnPilihPoliTujuan;
     private widget.Button btnPilihRujukan;
     private widget.Button btnRiwayatLayananBPJS;
     private component.Button btnSimpan;
@@ -1918,7 +1675,7 @@ public class DlgRegistrasiSEPMobileJKN extends javax.swing.JDialog {
                 
                 if (! registerPasien()) {
                     JOptionPane.showMessageDialog(null, "Terjadi kesalahan pada saat pendaftaran pasien!");
-                    System.out.println("[ERROR] Terjadi kesalahan pada saat pendaftaran pasien!");
+                    throw new Exception("[ERROR] Terjadi kesalahan pada saat pendaftaran pasien!");
                 }
                 
                 if (! simpanRujukan()) {
@@ -1974,7 +1731,7 @@ public class DlgRegistrasiSEPMobileJKN extends javax.swing.JDialog {
                     textNamaDPJPTujuan.getText(),
                     dropdownTujuanKunjungan.getSelectedItem().toString().substring(0, 1),
                     (dropdownFlagProsedur.getSelectedIndex() > 0 ? dropdownFlagProsedur.getSelectedItem().toString().substring(0, 1) : ""),
-                    (dropdownPenunjang.getSelectedIndex() > 0 ? dropdownPenunjang.getSelectedIndex() + "" : ""),
+                    (dropdownPenunjang.getSelectedIndex() > 0 ? String.valueOf(dropdownPenunjang.getSelectedIndex()) : ""),
                     (dropdownAsesmenPelayanan.getSelectedIndex() > 0 ? dropdownAsesmenPelayanan.getSelectedItem().toString().substring(0, 1) : ""),
                     textKodeDPJPLayanan.getText(),
                     textNamaDPJPLayanan.getText()
@@ -2076,7 +1833,7 @@ public class DlgRegistrasiSEPMobileJKN extends javax.swing.JDialog {
                 root = mapper.readTree(api.getRest().exchange(URL, HttpMethod.GET, requestEntity, String.class).getBody());
                 nameNode = root.path("metaData");
                 System.out.println("kodecekstatus : " + nameNode.path("code").asText());
-                //System.out.println("message : "+nameNode.path("message").asText());
+                // System.out.println("message : "+nameNode.path("message").asText());
                 
                 if (nameNode.path("code").asText().equals("200")) {
                     response = mapper.readTree(api.Decrypt(root.path("response").asText(), utc));
@@ -2267,110 +2024,55 @@ public class DlgRegistrasiSEPMobileJKN extends javax.swing.JDialog {
         }
         
         try {
+            utc = String.valueOf(api.GetUTCdatetimeAsString());
+            
             headers = new HttpHeaders();
             headers.setContentType(MediaType.APPLICATION_JSON);
             headers.add("x-cons-id", koneksiDB.CONSIDAPIMOBILEJKN());
-            utc = String.valueOf(api.GetUTCdatetimeAsString());
             headers.add("x-timestamp", utc);
             headers.add("x-signature", api.getHmac(utc));
             headers.add("user_key", koneksiDB.USERKEYAPIMOBILEJKN());
+            
+            requestJson = "{"
+                + "\"kodebooking\": \"" + kodeBooking + "\","
+                + "\"jenispasien\": \"JKN\","
+                + "\"nomorkartu\": \"" + textNoPeserta.getText() + "\","
+                + "\"nik\": \"" + textNIK.getText() + "\","
+                + "\"nohp\": \"" + textNoTelp.getText() + "\","
+                + "\"kodepoli\": \"" + textKodePoliTujuan.getText() + "\","
+                + "\"namapoli\": \"" + textNamaPoliTujuan.getText() + "\","
+                + "\"pasienbaru\": 0,"
+                + "\"norm\": \"" + textNoRM.getText() + "\","
+                + "\"tanggalperiksa\": \"" + Valid.SetTgl(dateTglSEP.getSelectedItem().toString()) + "\","
+                + "\"kodedokter\": " + textKodeDPJPTujuan.getText() + ","
+                + "\"namadokter\": \"" + textNamaDPJPTujuan.getText() + "\","
+                + "\"jampraktek\": \"" + jamMulai.substring(0, 5) + "-" + jamSelesai.substring(0, 5) + "\","
+                + "\"jeniskunjungan\": " + jenisKunjungan + ","
+                + "\"nomorreferensi\": \"" + noReferensi + "\","
+                + "\"nomorantrean\": \"" + noReg + "\","
+                + "\"angkaantrean\": " + Integer.parseInt(noReg) + ","
+                + "\"estimasidilayani\": " + parsedDate.getTime() + ","
+                + "\"sisakuotajkn\": " + (kuota - Integer.parseInt(noReg)) + ","
+                + "\"kuotajkn\": " + kuota + ","
+                + "\"sisakuotanonjkn\": " + (kuota - Integer.parseInt(noReg)) + ","
+                + "\"kuotanonjkn\": " + kuota + ","
+                + "\"keterangan\": \"Peserta harap 30 menit lebih awal guna pencatatan administrasi. Estimasi pelayanan 10 menit per pasien\""
+            + "}";
+            
+            requestEntity = new HttpEntity(requestJson, headers);
+
+            URL = koneksiDB.URLAPIMOBILEJKN() + "/antrean/add";
+
+            System.out.println("URL : " + URL);
+            System.out.println(requestEntity);
+
+            root = mapper.readTree(api.getRest().exchange(URL, HttpMethod.POST, requestEntity, String.class).getBody());
+
+            nameNode = root.path("metadata");
+
+            System.out.println("respon WS BPJS : " + nameNode.path("code").asText() + " " + nameNode.path("message").asText() + "\n");
         } catch (Exception e) {
             System.out.println("Notifikasi Simpan Antrian : " + e);
-        }
-
-        if (! textNoSKDP.getText().isEmpty()) {
-            try {
-                
-
-                requestJson = "{"
-                    + "\"kodebooking\": \"" + noRawat + "\","
-                    + "\"jenispasien\": \"JKN\","
-                    + "\"nomorkartu\": \"" + textNoPeserta.getText() + "\","
-                    + "\"nik\": \"" + textNIK.getText() + "\","
-                    + "\"nohp\": \"" + textNoTelp.getText() + "\","
-                    + "\"kodepoli\": \"" + textKodePoliTujuan.getText() + "\","
-                    + "\"namapoli\": \"" + textNamaPoliTujuan.getText() + "\","
-                    + "\"pasienbaru\": 0,"
-                    + "\"norm\": \"" + textNoRM.getText() + "\","
-                    + "\"tanggalperiksa\": \"" + Valid.SetTgl(dateTglSEP.getSelectedItem().toString()) + "\","
-                    + "\"kodedokter\": " + textKodeDPJPTujuan.getText() + ","
-                    + "\"namadokter\": \"" + textNamaDPJPTujuan.getText() + "\","
-                    + "\"jampraktek\": \"" + jamMulai.substring(0, 5) + "-" + jamSelesai.substring(0, 5) + "\","
-                    + "\"jeniskunjungan\": " + jenisKunjungan + ","
-                    + "\"nomorreferensi\": \"" + textNoSKDP.getText() + "\","
-                    + "\"nomorantrean\": \"" + noReg + "\","
-                    + "\"angkaantrean\": " + Integer.valueOf(noReg) + ","
-                    + "\"estimasidilayani\": " + parsedDate.getTime() + ","
-                    + "\"sisakuotajkn\": " + (kuota - Integer.parseInt(noReg)) + ","
-                    + "\"kuotajkn\": " + kuota + ","
-                    + "\"sisakuotanonjkn\": " + (kuota - Integer.parseInt(noReg)) + ","
-                    + "\"kuotanonjkn\": " + kuota + ","
-                    + "\"keterangan\": \"Peserta harap 30 menit lebih awal guna pencatatan administrasi. Estimasi pelayanan 10 menit per pasien\""
-                + "}";
-
-                requestEntity = new HttpEntity(requestJson, headers);
-
-                URL = koneksiDB.URLAPIMOBILEJKN() + "/antrean/add";
-
-                System.out.println("URL : " + URL);
-                System.out.println(requestEntity);
-
-                root = mapper.readTree(api.getRest().exchange(URL, HttpMethod.POST, requestEntity, String.class).getBody());
-
-                nameNode = root.path("metadata");
-
-                System.out.println("respon WS BPJS Kirim Pakai SKDP : " + nameNode.path("code").asText() + " " + nameNode.path("message").asText() + "\n");
-            } catch (Exception e) {
-                System.out.println("Notif SKDP : " + e);
-            }
-        }
-
-        if (!textNoRujukan.getText().isEmpty()) {
-            try {
-                headers = new HttpHeaders();
-                headers.setContentType(MediaType.APPLICATION_JSON);
-                headers.add("x-cons-id", koneksiDB.CONSIDAPIMOBILEJKN());
-                utc = String.valueOf(api.GetUTCdatetimeAsString());
-                headers.add("x-timestamp", utc);
-                headers.add("x-signature", api.getHmac(utc));
-                headers.add("user_key", koneksiDB.USERKEYAPIMOBILEJKN());
-
-                requestJson = "{"
-                    + "\"kodebooking\": \"" + noRawat + "\","
-                    + "\"jenispasien\": \"JKN\","
-                    + "\"nomorkartu\": \"" + textNoPeserta.getText() + "\","
-                    + "\"nik\": \"" + textNIK.getText() + "\","
-                    + "\"nohp\": \"" + textNoTelp.getText() + "\","
-                    + "\"kodepoli\": \"" + textKodePoliTujuan.getText() + "\","
-                    + "\"namapoli\": \"" + textNamaPoliTujuan.getText() + "\","
-                    + "\"pasienbaru\": 0,"
-                    + "\"norm\": \"" + textNoRM.getText() + "\","
-                    + "\"tanggalperiksa\": \"" + Valid.SetTgl(dateTglSEP.getSelectedItem().toString()) + "\","
-                    + "\"kodedokter\": " + textKodeDPJPTujuan.getText() + ","
-                    + "\"namadokter\": \"" + textNamaDPJPTujuan.getText() + "\","
-                    + "\"jampraktek\": \"" + jamMulai.substring(0, 5) + "-" + jamSelesai.substring(0, 5) + "\","
-                    + "\"jeniskunjungan\": " + jenisKunjungan + ","
-                    + "\"nomorreferensi\": \"" + textNoRujukan.getText() + "\","
-                    + "\"nomorantrean\": \"" + noReg + "\","
-                    + "\"angkaantrean\": " + Integer.valueOf(noReg) + ","
-                    + "\"estimasidilayani\": " + parsedDate.getTime() + ","
-                    + "\"sisakuotajkn\": " + (kuota - Integer.parseInt(noReg)) + ","
-                    + "\"kuotajkn\": " + kuota + ","
-                    + "\"sisakuotanonjkn\": " + (kuota - Integer.parseInt(noReg)) + ","
-                    + "\"kuotanonjkn\": " + kuota + ","
-                    + "\"keterangan\": \"Peserta harap 30 menit lebih awal guna pencatatan administrasi.\""
-                + "}";
-                System.out.println("JSON : " + requestJson + "\n");
-                requestEntity = new HttpEntity(requestJson, headers);
-                URL = koneksiDB.URLAPIMOBILEJKN() + "/antrean/add";
-                System.out.println("URL Kirim Pakai No.Rujuk : " + URL);
-                root = mapper.readTree(api.getRest().exchange(URL, HttpMethod.POST, requestEntity, String.class).getBody());
-                nameNode = root.path("metadata");
-                
-                System.out.println("respon WS BPJS : " + nameNode.path("code").asText() + " " + nameNode.path("message").asText() + "\n");
-            } catch (Exception e) {
-                System.out.println("Notif No.Rujuk : " + e);
-            }
         }
     }
 
@@ -2419,10 +2121,10 @@ public class DlgRegistrasiSEPMobileJKN extends javax.swing.JDialog {
         dropdownAsesmenPelayanan.setEnabled(true);
         textKodeDPJPLayanan.setText("");
         textNamaDPJPLayanan.setText("");
-        btnDPJPLayanan.setEnabled(true);
+        btnPilihDPJP.setEnabled(true);
         textNoRujukan.requestFocus();
-        kodePoliRS = "";
-        kodeDokterRS = "";
+        kodePoliRS = null;
+        kodeDokterRS = null;
     }
 
     private void setBiayaRegistrasiPoli() {

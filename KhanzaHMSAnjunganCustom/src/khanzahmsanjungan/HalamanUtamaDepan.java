@@ -191,6 +191,7 @@ public class HalamanUtamaDepan extends javax.swing.JFrame {
         pilih.setSize(this.getWidth(), this.getHeight());
         pilih.setLocationRelativeTo(this);
         pilih.setVisible(true);
+//        JOptionPane.showMessageDialog(rootPane, "Maaf, fitur ini masih dalam tahap pengembangan!");
     }//GEN-LAST:event_btnAdmin8ActionPerformed
 
     private void btnAdmin9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAdmin9ActionPerformed
