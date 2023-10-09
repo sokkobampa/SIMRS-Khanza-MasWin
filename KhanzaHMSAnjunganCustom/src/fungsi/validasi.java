@@ -763,7 +763,6 @@ public final class validasi {
         if (dir.isDirectory()) {
             for (String file: dir.list()) {
                 report = new File(currentDir + File.separatorChar + file + File.separatorChar + namaReport);
-                System.out.println(report.toString());
                 
                 if (report.isFile()) {
                     System.out.println("Found report file at: " + report.toString());
