@@ -18,6 +18,14 @@
                 $nonota  = validTeks4(str_replace("_"," ",$_GET['nonota']),20); 
                 $nonota2= str_replace(": ","",getOne("select temp2 from temporary_bayar_ranap where temp1='No.Nota'"));
                 $norawat=getOne("select no_rawat from nota_inap where no_nota='$nonota2'");
+                $tglAwal = getOne("select date_format(kamar_inap.tgl_masuk, '%d %M %Y') from kamar_inap where kamar_inap.no_rawat = '$norawat' order by tgl_masuk asc, jam_masuk asc");
+                $jamAwal = getOne("select kamar_inap.jam_masuk from kamar_inap where kamar_inap.no_rawat = '$norawat' order by tgl_masuk asc, jam_masuk asc");
+                $tglAkhir = getOne("select date_format(kamar_inap.tgl_keluar, '%d %M %Y') from kamar_inap where kamar_inap.no_rawat = '$norawat' order by tgl_keluar desc, jam_keluar desc");
+                $jamAkhir = getOne("select kamar_inap.jam_keluar from kamar_inap where kamar_inap.no_rawat = '$norawat' order by tgl_keluar desc, jam_keluar desc");
+                $hari = getOne("select temp2 from temporary_bayar_ranap where temp1 = 'Tgl.Perawatan'");
+                $hariA = mb_strpos($hari, '( ');
+                $hariB = mb_strpos($hari, ' )');
+                $hari = mb_substr($hari, $hariA, $hariB - $hariA + mb_strlen($hari));
                 $_sql = "select temp1, temp2, temp3, temp4, temp5, temp6, temp7, temp8, temp9, temp10, temp11, temp12, temp13, temp14 from temporary_bayar_ranap order by no asc";   
                 $hasil=bukaquery($_sql);
                 $PNG_TEMP_DIR   = dirname(__FILE__).DIRECTORY_SEPARATOR.'temp'.DIRECTORY_SEPARATOR;
@@ -78,7 +86,7 @@
                                                <td><font color='333333' size='3'  face='Tahoma'>:</font></td>
                                                <td><font color='333333' size='3'  face='Tahoma'>Pelayanan Kesehatan Rawat Inap di ".$setting["nama_instansi"]." a/n ".str_replace(":","",getOne("select temp2 from temporary_bayar_ranap where temp1='Nama Pasien'")).", 
                                                    RM ".str_replace(":","",getOne("select temp2 from temporary_bayar_ranap where temp1='No.R.M.'")).", 
-                                                   ".ltrim(getOne("select temp2 from temporary_bayar_ranap where temp1='Tgl.Perawatan'"),":")."</font></td>
+                                                   {$tglAwal} {$jamAwal} s.d. {$tglAkhir} {$jamAkhir} {$hari}</font></td>
                                             </tr>                           
                                             <tr>
                                                <td>&nbsp;</td>
