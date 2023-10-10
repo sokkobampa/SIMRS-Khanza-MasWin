@@ -1567,7 +1567,7 @@ public final class RMRiwayatPerawatan extends javax.swing.JDialog {
 
         ScrollMenu.setViewportView(FormMenu);
 
-        PanelAccor.add(ScrollMenu, java.awt.BorderLayout.CENTER);
+        PanelAccor.add(ScrollMenu, java.awt.BorderLayout.WEST);
 
         internalFrame2.add(PanelAccor, java.awt.BorderLayout.WEST);
 

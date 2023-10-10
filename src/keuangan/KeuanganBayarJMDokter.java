@@ -99,26 +99,27 @@ public final class KeuanganBayarJMDokter extends javax.swing.JDialog {
         this.setLocation(8,1);
         setSize(885,674);
 
-        tabMode=new DefaultTableModel(null,new Object[]{
-                "P", "Tanggal", "Jam", "No.Rawat", "No. SEP BPJS", "No.RM", "Nama Pasien", "Kode/ID", "Tindakan Medis", "Status", "Jasa Medis", "Id Detail"
-            }){
-             @Override public boolean isCellEditable(int rowIndex, int colIndex){
-                boolean a = false;
-                if (colIndex==0) {
-                    a=true;
-                }
-                return a;
-             }
-             Class[] types = new Class[] {
+        tabMode = new DefaultTableModel(null, new Object[] {
+            "P", "Tanggal", "Jam", "No.Rawat", "No. SEP BPJS", "No.RM", "Nama Pasien",
+            "Kode/ID", "Tindakan Medis", "Status", "Jasa Medis", "Id Detail"
+        }) {
+            @Override
+            public boolean isCellEditable(int rowIndex, int colIndex) {
+                return colIndex == 0;
+            }
+            
+            Class[] types = new Class[] {
                 java.lang.Boolean.class,java.lang.Object.class,java.lang.Object.class,java.lang.Object.class,
                 java.lang.Object.class,java.lang.Object.class,java.lang.Object.class,java.lang.Object.class,
                 java.lang.Object.class,java.lang.Object.class,java.lang.Double.class,java.lang.Object.class
-             };
-             @Override
-             public Class getColumnClass(int columnIndex) {
+            };
+            
+            @Override
+            public Class getColumnClass(int columnIndex) {
                 return types [columnIndex];
-             }
+            }
         };
+        
         tbBangsal.setModel(tabMode);
         //tbBangsal.setDefaultRenderer(Object.class, new WarnaTable(jPanel2.getBackground(),tbBangsal.getBackground()));
         tbBangsal.setPreferredScrollableViewportSize(new Dimension(500,500));
@@ -145,8 +146,6 @@ public final class KeuanganBayarJMDokter extends javax.swing.JDialog {
             }else if(i==8){
                 column.setPreferredWidth(240);
             }else if(i==9){
-                column.setMinWidth(0);
-                column.setMaxWidth(0);
                 column.setPreferredWidth(80);
             }else if(i==10){
                 column.setPreferredWidth(80);

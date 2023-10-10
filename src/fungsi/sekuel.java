@@ -67,6 +67,41 @@ public final class sekuel {
         super();
     }
     
+    public void temporary(int count, String... values) {
+        String query = "insert into temporary values (";
+        
+        int length = values.length;
+        
+        for (int i = 0; i < count + 2; i++) {
+            query = query.concat("?, ");
+        }
+        
+        query = query
+            .concat(")")
+            .replaceFirst("\\?, \\)", "?)");
+        
+        try {
+            ps = connect.prepareStatement(query);
+            
+            for (int i = 0; i < count; i++) {
+                ps.setString(i + 1, (i < length) ? values[i] : "");
+            }
+            
+            ps.setString(count + 1, akses.getkode());
+            ps.setString(count + 2, akses.getalamatip());
+            
+            ps.executeUpdate();
+            
+            if (ps != null) {
+                ps.close();
+            }
+        } catch (Exception e) {
+            System.out.println("Notifikasi : " + e);
+            
+            JOptionPane.showMessageDialog(null, "Gagal memproses hasil cetak...!!!");
+        }
+    }
+    
     public void temporaryLab(String[] values, int count) {
         String query = "insert into temporary_lab values(";
         String track;
@@ -1295,6 +1330,45 @@ public final class sekuel {
             System.out.println("Notifikasi : "+e);
         }            
     }
+    
+    public void queryUpdate(String query, String... values) {
+        String track = query;
+        
+        try {
+            ps = connect.prepareStatement(query);
+            
+            for (int i = 0; i < values.length; i++) {
+                ps.setString(i + 1, values[i]);
+                track = track.replaceFirst("\\?", "'"+values[i]+"'");
+            }
+            
+            ps.executeUpdate();
+            
+            ps.close();
+            
+            SimpanTrack(track);
+        } catch (Exception e) {
+            System.out.println("Notifikasi : " + e);
+            
+            JOptionPane.showMessageDialog(null, "Terjadi kesalahan pada saat memproses data...!!!");
+        }
+    }
+    
+    public void queryUpdate(String query) {
+        try {
+            ps = connect.prepareStatement(query);
+            
+            ps.executeUpdate();
+            
+            ps.close();
+            
+            SimpanTrack(query);
+        } catch (Exception e) {
+            System.out.println("Notifikasi : " + e);
+            
+            JOptionPane.showMessageDialog(null, "Terjadi kesalahan pada saat memproses data...!!!");
+        }
+    }
 
     public void queryu(String qry){
         try {
@@ -1542,6 +1616,52 @@ public final class sekuel {
             System.out.println("Notif : "+e);
             JOptionPane.showMessageDialog(null,"Gagal melakukan rollback..!");
         }
+    }
+    
+    public String cariIsiSmc(String sql, String... values) {
+        String output = null;
+        
+        try {
+            ps = connect.prepareStatement(sql);
+            
+            for (int i = 0; i < values.length; i++) {
+                ps.setString(i + 1, values[i]); 
+            }
+            
+            rs = ps.executeQuery();
+            
+            if (rs.next()) {
+                output = rs.getString(1);
+            }
+            
+            rs.close();
+            ps.close();
+        } catch (Exception e) {
+            System.out.println("Notifikasi : " + e);
+        }
+        
+        return output;
+    }
+    
+    public String cariIsiSmc(String sql) {
+        String output = null;
+        
+        try {
+            ps = connect.prepareStatement(sql);
+            
+            rs = ps.executeQuery();
+            
+            if (rs.next()) {
+                output = rs.getString(1);
+            }
+            
+            rs.close();
+            ps.close();
+        } catch (Exception e) {
+            System.out.println("Notifikasi : " + e);
+        }
+        
+        return output;
     }
     
     public void cariIsi(String sql,JComboBox cmb){

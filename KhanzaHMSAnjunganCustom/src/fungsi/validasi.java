@@ -756,8 +756,6 @@ public final class validasi {
         String currentDir = System.getProperties().getProperty("user.dir");
 
         File dir = new File(currentDir);
-        System.out.println("Current directory: " + dir);
-
         File report = null;
         
         if (dir.isDirectory()) {
@@ -778,8 +776,6 @@ public final class validasi {
         
         try {
             JasperReport jr = (JasperReport) JRLoader.loadObject(report);
-            System.out.println(jr.getQuery());
-            
             JasperPrint jp = JasperFillManager.fillReport(jr, params, connect);
             
             PrintService ps = null;

@@ -19,6 +19,14 @@
             reportsqlinjection(); 
             $nonota         = str_replace(": ","",getOne("select temp2 from temporary_bayar_ranap where temp1='No.Nota'"));
             $norawat        = getOne("select no_rawat from nota_inap where no_nota='$nonota'");
+            $tglAwal = getOne("select date_format(kamar_inap.tgl_masuk, '%d %M %Y') from kamar_inap where kamar_inap.no_rawat = '$norawat' order by tgl_masuk asc, jam_masuk asc");
+            $jamAwal = getOne("select kamar_inap.jam_masuk from kamar_inap where kamar_inap.no_rawat = '$norawat' order by tgl_masuk asc, jam_masuk asc");
+            $tglAkhir = getOne("select date_format(kamar_inap.tgl_keluar, '%d %M %Y') from kamar_inap where kamar_inap.no_rawat = '$norawat' order by tgl_keluar desc, jam_keluar desc");
+            $jamAkhir = getOne("select kamar_inap.jam_keluar from kamar_inap where kamar_inap.no_rawat = '$norawat' order by tgl_keluar desc, jam_keluar desc");
+            $hari = getOne("select temp2 from temporary_bayar_ranap where temp1 = 'Tgl.Perawatan'");
+            $hariA = mb_strpos($hari, '( ');
+            $hariB = mb_strpos($hari, ' )');
+            $hari = mb_substr($hari, $hariA, $hariB - $hariA + mb_strlen($hari));
             $kodecarabayar  = getOne("select kd_pj from reg_periksa where no_rawat='$norawat'");
             $carabayar      = getOne("select png_jawab from penjab where kd_pj='$kodecarabayar'");
             $PNG_TEMP_DIR   = dirname(__FILE__).DIRECTORY_SEPARATOR.'temp'.DIRECTORY_SEPARATOR;
@@ -60,11 +68,20 @@
                 </tr>
                 ";  $z=1;
                     while($inapdrpasien = mysqli_fetch_array($hasil)) {
-                       if($z<=6){
-                          echo "<tr class='isi12' padding='0'>
-                                    <td padding='0' width='18%'><font color='111111' size='1'  face='Tahoma'>".str_replace("  ","&nbsp;&nbsp;",$inapdrpasien[0])."</td> 
-                                    <td padding='0' width='40%' colspan='3'><font color='111111' size='1'  face='Tahoma'>$inapdrpasien[1]</td>              
-                                 </tr>";  
+                        if($z<=6){
+                            if ($z === 3) {
+                                echo <<<HTML
+                                    <tr class='isi12' padding='0'>
+                                        <td padding='0' width='18%'><font color='111111' size='1'  face='Tahoma'>Tgl.Perawatan</td> 
+                                        <td padding='0' width='40%' colspan='6'><font color='111111' size='1'  face='Tahoma'>: $tglAwal $jamAwal s.d. $tglAkhir $jamAkhir $hari</td>              
+                                    </tr>
+                                HTML;
+                            } else {
+                                echo "<tr class='isi12' padding='0'>
+                                          <td padding='0' width='18%'><font color='111111' size='1'  face='Tahoma'>".str_replace("  ","&nbsp;&nbsp;",$inapdrpasien[0])."</td> 
+                                          <td padding='0' width='40%' colspan='6'><font color='111111' size='1'  face='Tahoma'>$inapdrpasien[1]</td>              
+                                       </tr>";  
+                            }
                        }else if($z>6){
                                              if(empty($inapdrpasien[6])&&empty($inapdrpasien[0])){
                                                      echo "<tr class='isi12' padding='0'>
