@@ -1138,10 +1138,10 @@ private void BtnSimpanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIR
         }else if(ttl<=0){
             JOptionPane.showMessageDialog(null,"Maaf, silahkan masukkan terlebih dahulu obat yang mau diberikan...!!!");
             TCari.requestFocus();
-        }else if (
-            !textTemplateResep.getText().isBlank() &&
-            Sequel.cariIsi("select resep_obat.nama_template from resep_obat where resep_obat.nama_template = ?", textTemplateResep.getText()).equals(textTemplateResep.getText()) &&
-            checkboxSimpanTemplateResep.isSelected()
+        } else if (
+            checkboxSimpanTemplateResep.isSelected() &&
+            ! textTemplateResep.getText().isBlank() &&
+            Sequel.cariIsi("select resep_obat.nama_template from resep_obat where resep_obat.nama_template = ?", textTemplateResep.getText()).equals(textTemplateResep.getText())
         ) {
             JOptionPane.showMessageDialog(null, "Maaf, silahkan ganti nama template resep obat..!!!");
             textTemplateResep.requestFocus();
@@ -1153,7 +1153,7 @@ private void BtnSimpanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIR
                 sukses=true;
                 int coba = 0, maxCoba = 10;
                 if(ubah==false){
-                    if (checkboxSimpanTemplateResep.isSelected()) {
+                    if (checkboxSimpanTemplateResep.isSelected() && ! textTemplateResep.getText().isBlank()) {
                         while (Sequel.menyimpantfSmc(
                             "resep_obat",
                             "no_resep, tgl_perawatan, jam, no_rawat, kd_dokter, tgl_peresepan, jam_peresepan, status, tgl_penyerahan, jam_penyerahan, nama_template",
@@ -1168,7 +1168,7 @@ private void BtnSimpanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIR
                                 status,
                                 "0000-00-00",
                                 "00:00:00",
-                                textTemplateResep.getText().isBlank() ? "" : textTemplateResep.getText()
+                                textTemplateResep.getText()
                             }) == false && coba < maxCoba) {
                             emptTeksobat();
                             coba++;
@@ -1934,8 +1934,16 @@ private void ppBersihkanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-F
 
     public void emptTeksobat() {
         if(ChkRM.isSelected()==true){
-            Valid.autoNomer3("select ifnull(MAX(CONVERT(RIGHT(resep_obat.no_resep,4),signed)),0) from resep_obat where resep_obat.tgl_peresepan='"+Valid.SetTgl(DTPBeri.getSelectedItem()+"")+"' or resep_obat.tgl_perawatan='"+Valid.SetTgl(DTPBeri.getSelectedItem()+"")+"' ",
-                DTPBeri.getSelectedItem().toString().substring(6,10)+DTPBeri.getSelectedItem().toString().substring(3,5)+DTPBeri.getSelectedItem().toString().substring(0,2),4,NoResep);        
+            NoResep.setText(
+                Sequel.cariIsiSmc(
+                    "select concat(date_format(?, '%Y%m%d'), lpad(ifnull(max(convert(right(resep_obat.no_resep, 4), signed)), 0) + 1, 4, '0')) from resep_obat where resep_obat.no_resep like concat(date_format(?, '%Y%m%d'), '%')",
+                    Valid.SetTgl(DTPBeri.getSelectedItem().toString()),
+                    Valid.SetTgl(DTPBeri.getSelectedItem().toString())
+                )
+            );
+            
+//            Valid.autoNomer3("select ifnull(MAX(CONVERT(RIGHT(resep_obat.no_resep,4),signed)),0) from resep_obat where resep_obat.tgl_peresepan='"+Valid.SetTgl(DTPBeri.getSelectedItem()+"")+"' or resep_obat.tgl_perawatan='"+Valid.SetTgl(DTPBeri.getSelectedItem()+"")+"' ",
+//                DTPBeri.getSelectedItem().toString().substring(6,10)+DTPBeri.getSelectedItem().toString().substring(3,5)+DTPBeri.getSelectedItem().toString().substring(0,2),4,NoResep);        
         } 
     }
 
