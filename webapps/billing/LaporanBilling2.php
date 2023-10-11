@@ -27,6 +27,7 @@
             $hariA = mb_strpos($hari, '( ');
             $hariB = mb_strpos($hari, ' )');
             $hari = mb_substr($hari, $hariA, $hariB - $hariA + mb_strlen($hari));
+            $exists = !empty($tglAwal) && !empty($jamAwal) && !empty($tglAkhir) && !empty($jamAkhir);
             $kodecarabayar  = getOne("select kd_pj from reg_periksa where no_rawat='$norawat'");
             $carabayar      = getOne("select png_jawab from penjab where kd_pj='$kodecarabayar'");
             $PNG_TEMP_DIR   = dirname(__FILE__).DIRECTORY_SEPARATOR.'temp'.DIRECTORY_SEPARATOR;
@@ -69,7 +70,7 @@
                 ";  $z=1;
                     while($inapdrpasien = mysqli_fetch_array($hasil)) {
                        if($z<=6){
-                        if ($z === 3) {
+                        if ($z === 3 && $exists) {
                             echo <<<HTML
                                 <tr class='isi12' padding='0'>
                                     <td padding='0' width='18%'><font color='111111' size='1'  face='Tahoma'>Tgl.Perawatan</td> 
