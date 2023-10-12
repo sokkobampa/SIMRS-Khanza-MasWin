@@ -2,12 +2,14 @@ package inventory;
 
 import fungsi.WarnaTable;
 import fungsi.koneksiDB;
+import fungsi.sekuel;
 import fungsi.validasi;
 import java.awt.Dimension;
 import java.awt.event.KeyEvent;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableColumn;
@@ -17,6 +19,7 @@ public class DlgCariTemplateResep extends javax.swing.JDialog {
     private final DefaultTableModel tabMode;
     private validasi Valid = new validasi();
     private Connection koneksi = koneksiDB.condb();
+    private sekuel query = new sekuel();
     private PreparedStatement ps, ps2, ps3;
     private ResultSet rs, rs2, rs3;
 
@@ -96,6 +99,7 @@ public class DlgCariTemplateResep extends javax.swing.JDialog {
         BtnCari = new widget.Button();
         BtnTambah = new widget.Button();
         jLabel7 = new widget.Label();
+        BtnHapus = new widget.Button();
         BtnKeluar = new widget.Button();
         scrollPane1 = new widget.ScrollPane();
         tbPemisahan = new widget.Table();
@@ -164,6 +168,24 @@ public class DlgCariTemplateResep extends javax.swing.JDialog {
         jLabel7.setName("jLabel7"); // NOI18N
         jLabel7.setPreferredSize(new java.awt.Dimension(20, 23));
         panelisi1.add(jLabel7);
+
+        BtnHapus.setIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/stop_f2.png"))); // NOI18N
+        BtnHapus.setMnemonic('H');
+        BtnHapus.setText("Hapus");
+        BtnHapus.setToolTipText("Alt+H");
+        BtnHapus.setName("BtnHapus"); // NOI18N
+        BtnHapus.setPreferredSize(new java.awt.Dimension(100, 30));
+        BtnHapus.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnHapusActionPerformed(evt);
+            }
+        });
+        BtnHapus.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                BtnHapusKeyPressed(evt);
+            }
+        });
+        panelisi1.add(BtnHapus);
 
         BtnKeluar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/exit.png"))); // NOI18N
         BtnKeluar.setMnemonic('K');
@@ -292,6 +314,27 @@ private void KdKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TKdKey
 //        this.setCursor(Cursor.getDefaultCursor());
     }//GEN-LAST:event_BtnTambahActionPerformed
 
+    private void BtnHapusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnHapusActionPerformed
+        if(tabMode.getRowCount()==0){
+            JOptionPane.showMessageDialog(null,"Maaf, data sudah habis...!!!!");
+        }else if(tbPemisahan.getSelectedRow()<= -1){
+            JOptionPane.showMessageDialog(null,"Maaf, Silahkan pilih data pada baris yang ada nama template resep..!!");
+        }else{
+            if(tbPemisahan.getValueAt(tbPemisahan.getSelectedRow(),0).toString().equals("")){
+                JOptionPane.showMessageDialog(rootPane,"Maaf, Silahkan pilih data pada baris yang ada nama template resep..!!");
+            }else {
+                query.updateSMC("resep_obat", "nama_template = null", "nama_template = ?", tbPemisahan.getValueAt(tbPemisahan.getSelectedRow(),0).toString());
+                tampil();
+            }
+        }
+    }//GEN-LAST:event_BtnHapusActionPerformed
+
+    private void BtnHapusKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_BtnHapusKeyPressed
+        if (evt.getKeyCode() == KeyEvent.VK_SPACE) {
+            BtnHapusActionPerformed(null);
+        }
+    }//GEN-LAST:event_BtnHapusKeyPressed
+
     /**
      * @param args the command line arguments
      */
@@ -310,6 +353,7 @@ private void KdKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TKdKey
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private widget.Button BtnCari;
+    private widget.Button BtnHapus;
     private widget.Button BtnKeluar;
     private widget.Button BtnTambah;
     private widget.TextBox TCari;

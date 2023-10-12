@@ -317,6 +317,30 @@ public final class sekuel {
             JOptionPane.showMessageDialog(null, "Gagal memproses data!");
         }
     }
+    
+    public void updateSMC(String table, String columns, String conditions, String... values) {
+        String query = "update " + table + " set " + columns + " where " + conditions;
+        String track = query;
+        
+        try {
+            ps = connect.prepareStatement("update " + table + " set " + columns + " where " + conditions);
+            
+            for (int i = 0; i < values.length; i++) {
+                ps.setString(i + 1, values[i]);
+                track = track.replaceFirst("\\?", "'"+values[i]+"'");
+            }
+            
+            ps.executeUpdate();
+            
+            ps.close();
+            
+            SimpanTrack(track);
+        } catch (Exception e) {
+            System.out.println("Notifikasi : " + e);
+            
+            JOptionPane.showMessageDialog(null, "Gagal mengupdate data!");
+        }
+    }
 
     public double cariIsiDouble(String sql, String bindings)
     {
