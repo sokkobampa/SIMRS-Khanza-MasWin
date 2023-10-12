@@ -539,7 +539,7 @@ public class MasterTemplatePemeriksaanDokter extends javax.swing.JDialog {
         tbDetailObatRacikan.setDefaultRenderer(Object.class,warna3);
         
         TabModeTindakan=new DefaultTableModel(null,new Object[]{
-            "P","Kode","Nama Perawatan","Kategori Perawatan","Tarif/Biaya","Bagian RS","BHP","JM Dokter","JM Perawat","KSO","Menejemen"}){
+            "P","Kode","Nama Perawatan","Kategori Perawatan"}){
              @Override public boolean isCellEditable(int rowIndex, int colIndex){
                 boolean a = false;
                 if (colIndex==0) {
@@ -548,14 +548,8 @@ public class MasterTemplatePemeriksaanDokter extends javax.swing.JDialog {
                 return a;
              }
              Class[] types = new Class[] {
-                java.lang.Boolean.class, java.lang.Object.class, java.lang.Object.class,  
-                java.lang.Object.class,java.lang.Double.class,java.lang.Double.class,
-                java.lang.Double.class,java.lang.Double.class,java.lang.Double.class,
-                java.lang.Double.class,java.lang.Double.class
+                java.lang.Boolean.class, java.lang.Object.class, java.lang.Object.class,java.lang.Object.class
              };
-             /*Class[] types = new Class[] {
-                java.lang.Boolean.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class
-             };*/
              @Override
              public Class getColumnClass(int columnIndex) {
                 return types [columnIndex];
@@ -564,43 +558,39 @@ public class MasterTemplatePemeriksaanDokter extends javax.swing.JDialog {
         tbTindakan.setModel(TabModeTindakan);
         tbTindakan.setPreferredScrollableViewportSize(new Dimension(500,500));
         tbTindakan.setAutoResizeMode(JTable.AUTO_RESIZE_OFF);
-        for (i = 0; i < 11; i++) {
+        for (i = 0; i < 4; i++) {
             TableColumn column = tbTindakan.getColumnModel().getColumn(i);
             if(i==0){
                 column.setPreferredWidth(20);
             }else if(i==1){
                 column.setPreferredWidth(90);
             }else if(i==2){
-                column.setPreferredWidth(420);
+                column.setPreferredWidth(380);
             }else if(i==3){
                 column.setPreferredWidth(150);
-            }else if(i==5){
-                column.setMinWidth(0);
-                column.setMaxWidth(0);
-            }else if(i==6){
-                column.setMinWidth(0);
-                column.setMaxWidth(0);
-            }else if(i==7){
-                column.setMinWidth(0);
-                column.setMaxWidth(0);
-            }else if(i==8){
-                column.setMinWidth(0);
-                column.setMaxWidth(0);
-            }else if(i==9){
-                column.setMinWidth(0);
-                column.setMaxWidth(0);
-            }else if(i==10){
-                column.setMinWidth(0);
-                column.setMaxWidth(0);
-            }else{
-                column.setPreferredWidth(90);
             }
         }
         tbTindakan.setDefaultRenderer(Object.class, new WarnaTable());
 
-        Kd.setDocument(new batasInput((byte)5).getKata(Kd));
-        //Nm.setDocument(new batasInput((byte)50).getKata(Nm));      
-        Subjek.setDocument(new batasInput((int)5000).getKata(Subjek));  
+        Kd.setDocument(new batasInput((byte)20).getKata(Kd));    
+        Subjek.setDocument(new batasInput((int)2000).getKata(Subjek));  
+        Objek.setDocument(new batasInput((int)2000).getKata(Objek));  
+        Asesmen.setDocument(new batasInput((int)2000).getKata(Asesmen));  
+        Plan.setDocument(new batasInput((int)2000).getKata(Plan));  
+        Instruksi.setDocument(new batasInput((int)2000).getKata(Instruksi));  
+        Evaluasi.setDocument(new batasInput((int)2000).getKata(Evaluasi));  
+        Diagnosa.setDocument(new batasInput((byte)100).getKata(Diagnosa));  
+        Prosedur.setDocument(new batasInput((byte)100).getKata(Prosedur));  
+        CariRadiologi.setDocument(new batasInput((byte)100).getKata(CariRadiologi));  
+        CariPK.setDocument(new batasInput((byte)100).getKata(CariPK));  
+        CariDetailPK.setDocument(new batasInput((byte)100).getKata(CariDetailPK));  
+        CariPA.setDocument(new batasInput((byte)100).getKata(CariPA));  
+        CariMB.setDocument(new batasInput((byte)100).getKata(CariMB));  
+        CariDetailMB.setDocument(new batasInput((byte)100).getKata(CariDetailMB));  
+        CariObatNonRacikan.setDocument(new batasInput((byte)100).getKata(CariObatNonRacikan)); 
+        CariObatRacikan.setDocument(new batasInput((byte)100).getKata(CariObatRacikan)); 
+        CariTindakan.setDocument(new batasInput((byte)100).getKata(CariTindakan)); 
+        
         TCari.setDocument(new batasInput((byte)100).getKata(TCari));    
         if(koneksiDB.CARICEPAT().equals("aktif")){
             TCari.getDocument().addDocumentListener(new javax.swing.event.DocumentListener(){
@@ -717,16 +707,16 @@ public class MasterTemplatePemeriksaanDokter extends javax.swing.JDialog {
         Objek = new widget.TextArea();
         jLabel42 = new widget.Label();
         scrollPane4 = new widget.ScrollPane();
-        Template2 = new widget.TextArea();
+        Asesmen = new widget.TextArea();
         jLabel43 = new widget.Label();
         scrollPane5 = new widget.ScrollPane();
-        Template3 = new widget.TextArea();
+        Plan = new widget.TextArea();
         jLabel44 = new widget.Label();
         scrollPane6 = new widget.ScrollPane();
-        Template4 = new widget.TextArea();
+        Instruksi = new widget.TextArea();
         jLabel45 = new widget.Label();
         scrollPane7 = new widget.ScrollPane();
-        Template5 = new widget.TextArea();
+        Evaluasi = new widget.TextArea();
         Scroll1 = new widget.ScrollPane();
         tbDiagnosa = new widget.Table();
         BtnCariPenyakit = new widget.Button();
@@ -955,16 +945,16 @@ public class MasterTemplatePemeriksaanDokter extends javax.swing.JDialog {
         scrollPane4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         scrollPane4.setName("scrollPane4"); // NOI18N
 
-        Template2.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
-        Template2.setColumns(20);
-        Template2.setRows(7);
-        Template2.setName("Template2"); // NOI18N
-        Template2.addKeyListener(new java.awt.event.KeyAdapter() {
+        Asesmen.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        Asesmen.setColumns(20);
+        Asesmen.setRows(7);
+        Asesmen.setName("Asesmen"); // NOI18N
+        Asesmen.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
-                Template2KeyPressed(evt);
+                AsesmenKeyPressed(evt);
             }
         });
-        scrollPane4.setViewportView(Template2);
+        scrollPane4.setViewportView(Asesmen);
 
         FormInput.add(scrollPane4);
         scrollPane4.setBounds(16, 260, 670, 73);
@@ -978,16 +968,16 @@ public class MasterTemplatePemeriksaanDokter extends javax.swing.JDialog {
         scrollPane5.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         scrollPane5.setName("scrollPane5"); // NOI18N
 
-        Template3.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
-        Template3.setColumns(20);
-        Template3.setRows(7);
-        Template3.setName("Template3"); // NOI18N
-        Template3.addKeyListener(new java.awt.event.KeyAdapter() {
+        Plan.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        Plan.setColumns(20);
+        Plan.setRows(7);
+        Plan.setName("Plan"); // NOI18N
+        Plan.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
-                Template3KeyPressed(evt);
+                PlanKeyPressed(evt);
             }
         });
-        scrollPane5.setViewportView(Template3);
+        scrollPane5.setViewportView(Plan);
 
         FormInput.add(scrollPane5);
         scrollPane5.setBounds(16, 360, 670, 73);
@@ -1001,16 +991,16 @@ public class MasterTemplatePemeriksaanDokter extends javax.swing.JDialog {
         scrollPane6.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         scrollPane6.setName("scrollPane6"); // NOI18N
 
-        Template4.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
-        Template4.setColumns(20);
-        Template4.setRows(7);
-        Template4.setName("Template4"); // NOI18N
-        Template4.addKeyListener(new java.awt.event.KeyAdapter() {
+        Instruksi.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        Instruksi.setColumns(20);
+        Instruksi.setRows(7);
+        Instruksi.setName("Instruksi"); // NOI18N
+        Instruksi.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
-                Template4KeyPressed(evt);
+                InstruksiKeyPressed(evt);
             }
         });
-        scrollPane6.setViewportView(Template4);
+        scrollPane6.setViewportView(Instruksi);
 
         FormInput.add(scrollPane6);
         scrollPane6.setBounds(16, 460, 670, 73);
@@ -1024,16 +1014,16 @@ public class MasterTemplatePemeriksaanDokter extends javax.swing.JDialog {
         scrollPane7.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         scrollPane7.setName("scrollPane7"); // NOI18N
 
-        Template5.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
-        Template5.setColumns(20);
-        Template5.setRows(7);
-        Template5.setName("Template5"); // NOI18N
-        Template5.addKeyListener(new java.awt.event.KeyAdapter() {
+        Evaluasi.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        Evaluasi.setColumns(20);
+        Evaluasi.setRows(7);
+        Evaluasi.setName("Evaluasi"); // NOI18N
+        Evaluasi.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
-                Template5KeyPressed(evt);
+                EvaluasiKeyPressed(evt);
             }
         });
-        scrollPane7.setViewportView(Template5);
+        scrollPane7.setViewportView(Evaluasi);
 
         FormInput.add(scrollPane7);
         scrollPane7.setBounds(16, 560, 670, 73);
@@ -1991,20 +1981,46 @@ public class MasterTemplatePemeriksaanDokter extends javax.swing.JDialog {
 }//GEN-LAST:event_BtnKeluarKeyPressed
 
     private void BtnSimpanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnSimpanActionPerformed
-        /*if(Kd.getText().trim().equals("")){
+        if(Kd.getText().trim().equals("")){
             Valid.textKosong(Kd,"No.Template");
-        }else if(Nm.getText().trim().equals("")){
-            Valid.textKosong(Nm,"Nama Pemeriksaan");
-        }else if(Template.getText().trim().equals("")){
-            Valid.textKosong(Template,"Template Hasil Radiologi");
+        }else if(KdDokter.getText().trim().equals("")||NmDokter.getText().trim().equals("")){
+            Valid.textKosong(BtnDokter,"Dokter");
+        }else if(Subjek.getText().trim().equals("")){
+            Valid.textKosong(Subjek,"Subjek");
         }else{
-            if(Sequel.menyimpantf("template_hasil_radiologi","?,?,?","No.Template",3,new String[]{
-                Kd.getText(),Nm.getText(),Template.getText() 
+            if(Sequel.menyimpantf("template_pemeriksaan_dokter","?,?,?,?,?,?,?,?","No.Template",8,new String[]{
+                Kd.getText(),KdDokter.getText(),Subjek.getText(),Objek.getText(),Asesmen.getText(),Plan.getText(),Instruksi.getText(),Evaluasi.getText()
             })==true){
-                tampil();
-                emptTeks();
+                for(i=0;i<tbDiagnosa.getRowCount();i++){ 
+                    if(tbDiagnosa.getValueAt(i,0).toString().equals("true")){
+                        Sequel.menyimpan("template_pemeriksaan_dokter_penyakit","?,?","ICD X",2,new String[]{
+                            Kd.getText(),tbDiagnosa.getValueAt(i,1).toString()
+                        });
+                    }
+                }
+                for(i=0;i<tbProsedur.getRowCount();i++){ 
+                    if(tbProsedur.getValueAt(i,0).toString().equals("true")){
+                        Sequel.menyimpan("template_pemeriksaan_dokter_prosedur","?,?","ICD 9",2,new String[]{
+                            Kd.getText(),tbProsedur.getValueAt(i,1).toString()
+                        });
+                    }
+                }
+                for(i=0;i<tbPermintaanRadiologi.getRowCount();i++){ 
+                    if(tbPermintaanRadiologi.getValueAt(i,0).toString().equals("true")){
+                        Sequel.menyimpan("template_pemeriksaan_dokter_permintaan_radiologi","?,?","Pemeriksaan Radiologi",2,new String[]{
+                            Kd.getText(),tbPermintaanRadiologi.getValueAt(i,1).toString()
+                        });
+                    }
+                }
+                for(i=0;i<tbPermintaanPK.getRowCount();i++){ 
+                    if(tbPermintaanPK.getValueAt(i,0).toString().equals("true")){
+                        Sequel.menyimpan("template_pemeriksaan_dokter_permintaan_lab","?,?","Pemeriksaan Laboratorium PK",2,new String[]{
+                            Kd.getText(),tbPermintaanPK.getValueAt(i,1).toString()
+                        });
+                    }
+                }
             }                
-        }*/
+        }
 }//GEN-LAST:event_BtnSimpanActionPerformed
 
     private void BtnSimpanKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_BtnSimpanKeyPressed
@@ -2035,7 +2051,7 @@ private void KdKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TKdKey
     }//GEN-LAST:event_KdKeyPressed
 
     private void SubjekKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_SubjekKeyPressed
-        //Valid.pindah2(evt,Nm,BtnSimpan);
+        Valid.pindah2(evt,CariTindakan,Objek);
     }//GEN-LAST:event_SubjekKeyPressed
 
     private void TabRawatMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TabRawatMouseClicked
@@ -2061,24 +2077,24 @@ private void KdKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TKdKey
     }//GEN-LAST:event_BtnDokterKeyPressed
 
     private void ObjekKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_ObjekKeyPressed
-        // TODO add your handling code here:
+        Valid.pindah2(evt,Subjek,Asesmen);
     }//GEN-LAST:event_ObjekKeyPressed
 
-    private void Template2KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_Template2KeyPressed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_Template2KeyPressed
+    private void AsesmenKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_AsesmenKeyPressed
+        Valid.pindah2(evt,Objek,Plan);
+    }//GEN-LAST:event_AsesmenKeyPressed
 
-    private void Template3KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_Template3KeyPressed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_Template3KeyPressed
+    private void PlanKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_PlanKeyPressed
+        Valid.pindah2(evt,Asesmen,Instruksi);
+    }//GEN-LAST:event_PlanKeyPressed
 
-    private void Template4KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_Template4KeyPressed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_Template4KeyPressed
+    private void InstruksiKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_InstruksiKeyPressed
+        Valid.pindah2(evt,Plan,Evaluasi);
+    }//GEN-LAST:event_InstruksiKeyPressed
 
-    private void Template5KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_Template5KeyPressed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_Template5KeyPressed
+    private void EvaluasiKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_EvaluasiKeyPressed
+        Valid.pindah2(evt,Instruksi,Diagnosa);
+    }//GEN-LAST:event_EvaluasiKeyPressed
 
     private void BtnCariPenyakitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnCariPenyakitActionPerformed
         tampildiagnosa();
@@ -2087,12 +2103,20 @@ private void KdKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TKdKey
     private void DiagnosaKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_DiagnosaKeyPressed
         if(evt.getKeyCode()==KeyEvent.VK_ENTER){
             tampildiagnosa();
+        }else if(evt.getKeyCode()==KeyEvent.VK_PAGE_DOWN){
+            Evaluasi.requestFocus();
+        }else if(evt.getKeyCode()==KeyEvent.VK_PAGE_UP){
+            Prosedur.requestFocus();
         }
     }//GEN-LAST:event_DiagnosaKeyPressed
 
     private void ProsedurKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_ProsedurKeyPressed
         if(evt.getKeyCode()==KeyEvent.VK_ENTER){
             tampilprosedure();
+        }else if(evt.getKeyCode()==KeyEvent.VK_PAGE_DOWN){
+            CariRadiologi.requestFocus();
+        }else if(evt.getKeyCode()==KeyEvent.VK_PAGE_UP){
+            Diagnosa.requestFocus();
         }
     }//GEN-LAST:event_ProsedurKeyPressed
 
@@ -2107,12 +2131,20 @@ private void KdKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TKdKey
     private void CariRadiologiKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_CariRadiologiKeyPressed
         if(evt.getKeyCode()==KeyEvent.VK_ENTER){
             tampilRadiologi2();
+        }else if(evt.getKeyCode()==KeyEvent.VK_PAGE_DOWN){
+            CariPK.requestFocus();
+        }else if(evt.getKeyCode()==KeyEvent.VK_PAGE_UP){
+            Prosedur.requestFocus();
         }
     }//GEN-LAST:event_CariRadiologiKeyPressed
 
     private void CariPKKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_CariPKKeyPressed
         if(evt.getKeyCode()==KeyEvent.VK_ENTER){
             tampilPK2();
+        }else if(evt.getKeyCode()==KeyEvent.VK_PAGE_DOWN){
+            CariDetailPK.requestFocus();
+        }else if(evt.getKeyCode()==KeyEvent.VK_PAGE_UP){
+            CariRadiologi.requestFocus();
         }
     }//GEN-LAST:event_CariPKKeyPressed
 
@@ -2123,6 +2155,10 @@ private void KdKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TKdKey
     private void CariDetailPKKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_CariDetailPKKeyPressed
         if(evt.getKeyCode()==KeyEvent.VK_ENTER){
             tampilDetailPK();
+        }else if(evt.getKeyCode()==KeyEvent.VK_PAGE_DOWN){
+            CariPA.requestFocus();
+        }else if(evt.getKeyCode()==KeyEvent.VK_PAGE_UP){
+            CariPK.requestFocus();
         }
     }//GEN-LAST:event_CariDetailPKKeyPressed
 
@@ -2133,6 +2169,10 @@ private void KdKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TKdKey
     private void CariPAKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_CariPAKeyPressed
         if(evt.getKeyCode()==KeyEvent.VK_ENTER){
             tampilPA2();
+        }else if(evt.getKeyCode()==KeyEvent.VK_PAGE_DOWN){
+            CariMB.requestFocus();
+        }else if(evt.getKeyCode()==KeyEvent.VK_PAGE_UP){
+            CariDetailPK.requestFocus();
         }
     }//GEN-LAST:event_CariPAKeyPressed
 
@@ -2143,6 +2183,10 @@ private void KdKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TKdKey
     private void CariMBKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_CariMBKeyPressed
         if(evt.getKeyCode()==KeyEvent.VK_ENTER){
             tampilMB2();
+        }else if(evt.getKeyCode()==KeyEvent.VK_PAGE_DOWN){
+            CariDetailMB.requestFocus();
+        }else if(evt.getKeyCode()==KeyEvent.VK_PAGE_UP){
+            CariPA.requestFocus();
         }
     }//GEN-LAST:event_CariMBKeyPressed
 
@@ -2153,6 +2197,10 @@ private void KdKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TKdKey
     private void CariDetailMBKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_CariDetailMBKeyPressed
         if(evt.getKeyCode()==KeyEvent.VK_ENTER){
             tampilDetailMB();
+        }else if(evt.getKeyCode()==KeyEvent.VK_PAGE_DOWN){
+            CariObatNonRacikan.requestFocus();
+        }else if(evt.getKeyCode()==KeyEvent.VK_PAGE_UP){
+            CariMB.requestFocus();
         }
     }//GEN-LAST:event_CariDetailMBKeyPressed
 
@@ -2167,11 +2215,21 @@ private void KdKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TKdKey
     private void CariObatNonRacikanKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_CariObatNonRacikanKeyPressed
         if(evt.getKeyCode()==KeyEvent.VK_ENTER){
             tampilObatNonRacikan2();
+        }else if(evt.getKeyCode()==KeyEvent.VK_PAGE_DOWN){
+            CariObatRacikan.requestFocus();
+        }else if(evt.getKeyCode()==KeyEvent.VK_PAGE_UP){
+            CariDetailMB.requestFocus();
         }
     }//GEN-LAST:event_CariObatNonRacikanKeyPressed
 
     private void CariObatRacikanKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_CariObatRacikanKeyPressed
-        // TODO add your handling code here:
+        if(evt.getKeyCode()==KeyEvent.VK_ENTER){
+            BtnCariObatRacikanActionPerformed(null);
+        }else if(evt.getKeyCode()==KeyEvent.VK_PAGE_DOWN){
+            CariTindakan.requestFocus();
+        }else if(evt.getKeyCode()==KeyEvent.VK_PAGE_UP){
+            CariObatNonRacikan.requestFocus();
+        }
     }//GEN-LAST:event_CariObatRacikanKeyPressed
 
     private void BtnCariObatRacikanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnCariObatRacikanActionPerformed
@@ -2197,11 +2255,17 @@ private void KdKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TKdKey
     }//GEN-LAST:event_BtnCariObatRacikanActionPerformed
 
     private void CariTindakanKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_CariTindakanKeyPressed
-        // TODO add your handling code here:
+        if(evt.getKeyCode()==KeyEvent.VK_ENTER){
+            tampilTindakan2();
+        }else if(evt.getKeyCode()==KeyEvent.VK_PAGE_DOWN){
+            BtnSimpan.requestFocus();
+        }else if(evt.getKeyCode()==KeyEvent.VK_PAGE_UP){
+            CariObatRacikan.requestFocus();
+        }
     }//GEN-LAST:event_CariTindakanKeyPressed
 
     private void BtnCariTindakanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnCariTindakanActionPerformed
-        // TODO add your handling code here:
+        tampilTindakan2();
     }//GEN-LAST:event_BtnCariTindakanActionPerformed
 
     private void BtnAllPenyakitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnAllPenyakitActionPerformed
@@ -2261,7 +2325,9 @@ private void KdKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TKdKey
     }//GEN-LAST:event_BtnAllObatRacikanActionPerformed
 
     private void BtnAllTindakanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnAllTindakanActionPerformed
-        // TODO add your handling code here:
+        CariTindakan.setText("");
+        tampilTindakan();
+        tampilTindakan2();
     }//GEN-LAST:event_BtnAllTindakanActionPerformed
 
     private void tbPermintaanPKMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbPermintaanPKMouseClicked
@@ -2429,6 +2495,7 @@ private void KdKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TKdKey
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private widget.TextArea Asesmen;
     private widget.Button BtnAll;
     private widget.Button BtnAllDetailLaboratPK;
     private widget.Button BtnAllDetailMB;
@@ -2471,12 +2538,15 @@ private void KdKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TKdKey
     public widget.TextBox CariRadiologi;
     public widget.TextBox CariTindakan;
     public widget.TextBox Diagnosa;
+    private widget.TextArea Evaluasi;
     private widget.PanelBiasa FormInput;
+    private widget.TextArea Instruksi;
     private widget.TextBox Kd;
     private widget.TextBox KdDokter;
     private widget.Label LCount;
     private widget.TextBox NmDokter;
     private widget.TextArea Objek;
+    private widget.TextArea Plan;
     public widget.TextBox Prosedur;
     private widget.ScrollPane Scroll;
     private widget.ScrollPane Scroll1;
@@ -2494,10 +2564,6 @@ private void KdKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TKdKey
     private widget.TextArea Subjek;
     private widget.TextBox TCari;
     private javax.swing.JTabbedPane TabRawat;
-    private widget.TextArea Template2;
-    private widget.TextArea Template3;
-    private widget.TextArea Template4;
-    private widget.TextArea Template5;
     private widget.InternalFrame internalFrame1;
     private widget.InternalFrame internalFrame2;
     private widget.InternalFrame internalFrame3;
@@ -2579,12 +2645,39 @@ private void KdKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TKdKey
     }
 
     public void emptTeks() {
-        /*Kd.setText("");
-        Nm.setText("");
-        Template.setText("");
-        Valid.autoNomer("template_hasil_radiologi","R",4,Kd);
+        Kd.setText("");
+        Subjek.setText("");
+        Objek.setText("");
+        Asesmen.setText("");
+        Plan.setText("");
+        Instruksi.setText("");
+        Evaluasi.setText("");
+        Diagnosa.setText("");
+        Prosedur.setText(""); 
+        CariRadiologi.setText("");
+        CariPK.setText("");
+        CariDetailPK.setText(""); 
+        CariPA.setText("");
+        CariMB.setText("");
+        CariDetailMB.setText("");
+        CariObatNonRacikan.setText("");
+        CariObatRacikan.setText("");
+        CariTindakan.setText("");
+        Valid.tabelKosong(tabModeDiagnosa);
+        Valid.tabelKosong(tabModeProsedur);
+        Valid.tabelKosong(tabModeRadiologi);
+        Valid.tabelKosong(tabModePK);
+        Valid.tabelKosong(tabModeDetailPK);
+        Valid.tabelKosong(tabModePA);
+        Valid.tabelKosong(tabModeMB);
+        Valid.tabelKosong(tabModeDetailMB);
+        Valid.tabelKosong(tabModeObatUmum);
+        Valid.tabelKosong(tabModeObatRacikan);
+        Valid.tabelKosong(tabModeDetailObatRacikan);
+        Valid.tabelKosong(TabModeTindakan);
+        Valid.autoNomer("template_pemeriksaan_dokter","TPD",16,Kd);
         TabRawat.setSelectedIndex(0);
-        Kd.requestFocus();*/
+        Subjek.requestFocus();
     }
 
     private void getData() {
@@ -2762,11 +2855,11 @@ private void KdKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TKdKey
             iyem=""; 
         
             ps=koneksi.prepareStatement(
-                    "select jns_perawatan_radiologi.kd_jenis_prw,jns_perawatan_radiologi.nm_perawatan,jns_perawatan_radiologi.kd_pj,jns_perawatan_radiologi.kelas from jns_perawatan_radiologi where jns_perawatan_radiologi.status='1' order by jns_perawatan_radiologi.kd_jenis_prw");
+                    "select jns_perawatan_radiologi.kd_jenis_prw,jns_perawatan_radiologi.nm_perawatan from jns_perawatan_radiologi where jns_perawatan_radiologi.status='1' and (jns_perawatan_radiologi.kelas='-' or jns_perawatan_radiologi.kelas='Rawat Jalan') order by jns_perawatan_radiologi.kd_jenis_prw");
             try {
                 rs=ps.executeQuery();
                 while(rs.next()){
-                    iyem=iyem+"{\"KodePeriksa\":\""+rs.getString(1)+"\",\"NamaPemeriksaan\":\""+rs.getString(2).replaceAll("\"","")+"\",\"KodePJ\":\""+rs.getString(3)+"\",\"Kelas\":\""+rs.getString(4)+"\"},";
+                    iyem=iyem+"{\"KodePeriksa\":\""+rs.getString(1)+"\",\"NamaPemeriksaan\":\""+rs.getString(2).replaceAll("\"","")+"\"},";
                 }
             } catch (Exception e) {
                 System.out.println("Notifikasi 1 : "+e);
@@ -2844,11 +2937,11 @@ private void KdKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TKdKey
             iyem=""; 
         
             ps=koneksi.prepareStatement(
-                    "select jns_perawatan_lab.kd_jenis_prw,jns_perawatan_lab.nm_perawatan,jns_perawatan_lab.kd_pj,jns_perawatan_lab.kelas from jns_perawatan_lab where jns_perawatan_lab.status='1' and jns_perawatan_lab.kategori='PK' order by jns_perawatan_lab.kd_jenis_prw");
+                    "select jns_perawatan_lab.kd_jenis_prw,jns_perawatan_lab.nm_perawatan from jns_perawatan_lab where jns_perawatan_lab.status='1' and jns_perawatan_lab.kategori='PK' and (jns_perawatan_lab.kelas='-' or jns_perawatan_lab.kelas='Rawat Jalan') order by jns_perawatan_lab.kd_jenis_prw");
             try {
                 rs=ps.executeQuery();
                 while(rs.next()){
-                    iyem=iyem+"{\"KodePeriksa\":\""+rs.getString(1)+"\",\"NamaPemeriksaan\":\""+rs.getString(2).replaceAll("\"","")+"\",\"KodePJ\":\""+rs.getString(3)+"\",\"Kelas\":\""+rs.getString(4)+"\"},";
+                    iyem=iyem+"{\"KodePeriksa\":\""+rs.getString(1)+"\",\"NamaPemeriksaan\":\""+rs.getString(2).replaceAll("\"","")+"\"},";
                 }
             } catch (Exception e) {
                 System.out.println("Notifikasi 1 : "+e);
@@ -3010,11 +3103,11 @@ private void KdKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TKdKey
             iyem=""; 
         
             ps=koneksi.prepareStatement(
-                    "select jns_perawatan_lab.kd_jenis_prw,jns_perawatan_lab.nm_perawatan,jns_perawatan_lab.kd_pj,jns_perawatan_lab.kelas from jns_perawatan_lab where jns_perawatan_lab.status='1' and jns_perawatan_lab.kategori='PA' order by jns_perawatan_lab.kd_jenis_prw");
+                    "select jns_perawatan_lab.kd_jenis_prw,jns_perawatan_lab.nm_perawatan from jns_perawatan_lab where jns_perawatan_lab.status='1' and jns_perawatan_lab.kategori='PA' and (jns_perawatan_lab.kelas='-' or jns_perawatan_lab.kelas='Rawat Jalan') order by jns_perawatan_lab.kd_jenis_prw");
             try {
                 rs=ps.executeQuery();
                 while(rs.next()){
-                    iyem=iyem+"{\"KodePeriksa\":\""+rs.getString(1)+"\",\"NamaPemeriksaan\":\""+rs.getString(2).replaceAll("\"","")+"\",\"KodePJ\":\""+rs.getString(3)+"\",\"Kelas\":\""+rs.getString(4)+"\"},";
+                    iyem=iyem+"{\"KodePeriksa\":\""+rs.getString(1)+"\",\"NamaPemeriksaan\":\""+rs.getString(2).replaceAll("\"","")+"\"},";
                 }
             } catch (Exception e) {
                 System.out.println("Notifikasi 1 : "+e);
@@ -3092,11 +3185,11 @@ private void KdKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TKdKey
             iyem=""; 
         
             ps=koneksi.prepareStatement(
-                    "select jns_perawatan_lab.kd_jenis_prw,jns_perawatan_lab.nm_perawatan,jns_perawatan_lab.kd_pj,jns_perawatan_lab.kelas from jns_perawatan_lab where jns_perawatan_lab.status='1' and jns_perawatan_lab.kategori='MB' order by jns_perawatan_lab.kd_jenis_prw");
+                    "select jns_perawatan_lab.kd_jenis_prw,jns_perawatan_lab.nm_perawatan from jns_perawatan_lab where jns_perawatan_lab.status='1' and jns_perawatan_lab.kategori='MB' and (jns_perawatan_lab.kelas='-' or jns_perawatan_lab.kelas='Rawat Jalan') order by jns_perawatan_lab.kd_jenis_prw");
             try {
                 rs=ps.executeQuery();
                 while(rs.next()){
-                    iyem=iyem+"{\"KodePeriksa\":\""+rs.getString(1)+"\",\"NamaPemeriksaan\":\""+rs.getString(2).replaceAll("\"","")+"\",\"KodePJ\":\""+rs.getString(3)+"\",\"Kelas\":\""+rs.getString(4)+"\"},";
+                    iyem=iyem+"{\"KodePeriksa\":\""+rs.getString(1)+"\",\"NamaPemeriksaan\":\""+rs.getString(2).replaceAll("\"","")+"\"},";
                 }
             } catch (Exception e) {
                 System.out.println("Notifikasi 1 : "+e);
@@ -3438,12 +3531,99 @@ private void KdKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TKdKey
             response = root.path("permintaanobatnonracikan");
             if(response.isArray()){
                 for(JsonNode list:response){
-                    //"No","Kode Barang","Nama Barang","Satuan","Jenis Obat","Kps","P1","/","P2","Kandungan","Jml","I.F.","Komposisi"
                     if((list.path("KodeBarang").asText().toLowerCase().contains(CariObatRacikan.getText().toLowerCase())||list.path("NamaBarang").asText().toLowerCase().contains(CariObatRacikan.getText().toLowerCase())
                             ||list.path("Komposisi").asText().toLowerCase().contains(CariObatRacikan.getText().toLowerCase())||list.path("JenisObat").asText().toLowerCase().contains(CariObatRacikan.getText().toLowerCase()))){
                         tabModeDetailObatRacikan.addRow(new Object[]{
                             tbObatRacikan.getValueAt(tbObatRacikan.getSelectedRow(),0).toString(),list.path("KodeBarang").asText(),list.path("NamaBarang").asText(),list.path("Satuan").asText(),
                             list.path("JenisObat").asText(),list.path("Kapasitas").asDouble(),1,"/",1,"",0,list.path("Industri").asText(),list.path("Komposisi").asText()
+                        });
+                    }
+                }
+            }  
+            myObj.close(); 
+        }catch(Exception e){
+            System.out.println("Notifikasi : "+e);
+        }
+    }
+    
+    private void tampilTindakan() {         
+        try{
+            file=new File("./cache/permintaantindakan.iyem");
+            file.createNewFile();
+            fileWriter = new FileWriter(file);
+            iyem=""; 
+        
+            ps=koneksi.prepareStatement(
+                    "select jns_perawatan.kd_jenis_prw,jns_perawatan.nm_perawatan,kategori_perawatan.nm_kategori from jns_perawatan inner join kategori_perawatan "+
+                    "on jns_perawatan.kd_kategori=kategori_perawatan.kd_kategori where jns_perawatan.status='1' order by jns_perawatan.kd_jenis_prw");
+            try {
+                rs=ps.executeQuery();
+                while(rs.next()){
+                    iyem=iyem+"{\"KodePeriksa\":\""+rs.getString(1)+"\",\"NamaPemeriksaan\":\""+rs.getString(2).replaceAll("\"","")+"\",\"Kategori\":\""+rs.getString(3).replaceAll("\"","")+"\"},";
+                }
+            } catch (Exception e) {
+                System.out.println("Notifikasi 1 : "+e);
+            } finally{
+                if(rs!=null){
+                    rs.close();
+                }
+                if(ps!=null){
+                    ps.close();
+                }
+            }
+            fileWriter.write("{\"permintaantindakan\":["+iyem.substring(0,iyem.length()-1)+"]}");
+            fileWriter.flush();
+            fileWriter.close();
+            iyem=null;
+        }catch(Exception e){
+            System.out.println("Notifikasi 2 : "+e);
+        }
+    }
+    
+    private void tampilTindakan2() {         
+        try{
+            jml=0;
+            for(i=0;i<tbTindakan.getRowCount();i++){
+                if(tbTindakan.getValueAt(i,0).toString().equals("true")){
+                    jml++;
+                }
+            }
+
+            pilih=null;
+            pilih=new boolean[jml];
+            kode=null;
+            kode=new String[jml];
+            nama=null;
+            nama=new String[jml];
+            kategori=null;
+            kategori=new String[jml];
+            
+            index=0; 
+            for(i=0;i<tbTindakan.getRowCount();i++){
+                if(tbTindakan.getValueAt(i,0).toString().equals("true")){
+                    pilih[index]=true;
+                    kode[index]=tbTindakan.getValueAt(i,1).toString();
+                    nama[index]=tbTindakan.getValueAt(i,2).toString();
+                    kategori[index]=tbTindakan.getValueAt(i,3).toString();
+                    index++;
+                }
+            }
+
+            Valid.tabelKosong(TabModeTindakan);
+            for(i=0;i<jml;i++){                
+                TabModeTindakan.addRow(new Object[] {pilih[i],kode[i],nama[i],kategori[i]});
+            }    
+        
+            myObj = new FileReader("./cache/permintaantindakan.iyem");
+            root = mapper.readTree(myObj);
+            response = root.path("permintaantindakan");
+            if(response.isArray()){
+                for(JsonNode list:response){
+                    if((list.path("KodePeriksa").asText().toLowerCase().contains(CariTindakan.getText().toLowerCase())||
+                        list.path("NamaPemeriksaan").asText().toLowerCase().contains(CariTindakan.getText().toLowerCase())||
+                        list.path("Kategori").asText().toLowerCase().contains(CariTindakan.getText().toLowerCase()))){
+                        TabModeTindakan.addRow(new Object[]{
+                            false,list.path("KodePeriksa").asText(),list.path("NamaPemeriksaan").asText(),list.path("Kategori").asText()
                         });
                     }
                 }
