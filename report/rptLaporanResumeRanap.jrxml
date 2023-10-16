@@ -1407,7 +1407,7 @@ where resume_pasien_ranap.no_rawat= $P{norawat}]]>
 					<font fontName="Tahoma" size="8" isItalic="false" isUnderline="false"/>
 					<paragraph lineSpacing="Single"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{obat_pulang}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{obat_pulang}.replace("\n", " ").replace("\r", " ").replace(System.getProperty("line.separator"), " ")]]></textFieldExpression>
 			</textField>
 			<staticText>
 				<reportElement x="6" y="680" width="239" height="10" uuid="cf9d4e4a-55b8-47d8-b9ea-a03e097acb46">
