@@ -444,7 +444,7 @@ public class DlgRegistrasiSEPPertama extends javax.swing.JDialog {
         NoRujukMasuk.setText("0");
 
         Tanggal.setForeground(new java.awt.Color(50, 70, 50));
-        Tanggal.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "14-09-2023" }));
+        Tanggal.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "13-10-2023" }));
         Tanggal.setDisplayFormat("dd-MM-yyyy");
         Tanggal.setFont(new java.awt.Font("Poppins", 0, 12)); // NOI18N
         Tanggal.setOpaque(false);
@@ -489,7 +489,7 @@ public class DlgRegistrasiSEPPertama extends javax.swing.JDialog {
         jLabel20.setBounds(660, 130, 70, 30);
 
         TanggalSEP.setForeground(new java.awt.Color(50, 70, 50));
-        TanggalSEP.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "14-09-2023" }));
+        TanggalSEP.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "13-10-2023" }));
         TanggalSEP.setDisplayFormat("dd-MM-yyyy");
         TanggalSEP.setFont(new java.awt.Font("Poppins", 0, 12)); // NOI18N
         TanggalSEP.setOpaque(false);
@@ -510,7 +510,7 @@ public class DlgRegistrasiSEPPertama extends javax.swing.JDialog {
         jLabel22.setBounds(650, 160, 80, 30);
 
         TanggalRujuk.setForeground(new java.awt.Color(50, 70, 50));
-        TanggalRujuk.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "14-09-2023" }));
+        TanggalRujuk.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "13-10-2023" }));
         TanggalRujuk.setDisplayFormat("dd-MM-yyyy");
         TanggalRujuk.setFont(new java.awt.Font("Poppins", 0, 12)); // NOI18N
         TanggalRujuk.setOpaque(false);
@@ -771,7 +771,7 @@ public class DlgRegistrasiSEPPertama extends javax.swing.JDialog {
         jLabel38.setBounds(650, 280, 80, 30);
 
         TanggalKKL.setForeground(new java.awt.Color(50, 70, 50));
-        TanggalKKL.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "14-09-2023" }));
+        TanggalKKL.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "13-10-2023" }));
         TanggalKKL.setDisplayFormat("dd-MM-yyyy");
         TanggalKKL.setEnabled(false);
         TanggalKKL.setFont(new java.awt.Font("Poppins", 0, 12)); // NOI18N
