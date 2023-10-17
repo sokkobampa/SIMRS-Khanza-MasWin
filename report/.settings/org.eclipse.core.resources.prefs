@@ -14,3 +14,5 @@ encoding/rptLembarObat.jrxml=UTF-8
 encoding/rptLembarObat1Header.jrxml=UTF-8
 encoding/rptLembarObat1Kwitansi.jrxml=UTF-8
 encoding/rptLembarObat1Resep.jrxml=UTF-8
+encoding/rptSuratPemesanan.jrxml=UTF-8
+encoding/rptSuratPemesananNonMedis.jrxml=UTF-8

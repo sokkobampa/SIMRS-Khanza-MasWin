@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Created with Jaspersoft Studio version 6.16.0.final using JasperReports Library version 6.5.1  -->
+<!-- Created with Jaspersoft Studio version 6.8.0.final using JasperReports Library version 6.8.0-2ed8dfabb690ff337a5797129f2cd92902b0c87b  -->
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="d47fd79d-b435-4c05-b54f-bb1ac2e61535">
 	<property name="ireport.zoom" value="2.0"/>
 	<property name="ireport.x" value="42"/>
@@ -341,38 +341,6 @@
 	</columnFooter>
 	<summary>
 		<band height="247">
-			<textField>
-				<reportElement stretchType="RelativeToBandHeight" mode="Transparent" x="410" y="236" width="145" height="10" forecolor="#000000" backcolor="#F0F0DC" uuid="881280e7-01d7-40ff-9ad8-327ea3a81490"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle" markup="none">
-					<font fontName="Tahoma" size="8"/>
-					<paragraph lineSpacing="Single"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$P{kabidkeu}]]></textFieldExpression>
-			</textField>
-			<staticText>
-				<reportElement stretchType="RelativeToBandHeight" mode="Transparent" x="410" y="236" width="145" height="10" forecolor="#000000" backcolor="#F0F0DC" uuid="c07eed3a-21f3-40af-a30d-627af92525dc"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle" markup="none">
-					<font fontName="Tahoma" size="8"/>
-					<paragraph lineSpacing="Single"/>
-				</textElement>
-				<text><![CDATA[(                                                      )]]></text>
-			</staticText>
-			<textField>
-				<reportElement stretchType="RelativeToBandHeight" mode="Transparent" x="264" y="236" width="145" height="10" forecolor="#000000" backcolor="#F0F0DC" uuid="ccc911dc-25ae-4a6a-a1fa-a275c4831662"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle" markup="none">
-					<font fontName="Tahoma" size="8"/>
-					<paragraph lineSpacing="Single"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$P{petugas}]]></textFieldExpression>
-			</textField>
-			<staticText>
-				<reportElement stretchType="RelativeToBandHeight" mode="Transparent" x="264" y="236" width="145" height="10" forecolor="#000000" backcolor="#F0F0DC" uuid="ec3c8a60-8578-4652-98c3-2405d3b43687"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle" markup="none">
-					<font fontName="Tahoma" size="8"/>
-					<paragraph lineSpacing="Single"/>
-				</textElement>
-				<text><![CDATA[(                                                      )]]></text>
-			</staticText>
 			<staticText>
 				<reportElement stretchType="RelativeToBandHeight" mode="Transparent" x="2" y="4" width="62" height="13" forecolor="#000000" backcolor="#F0F0DC" uuid="0c6c08cb-ef9e-4bfb-a7fd-ddd757139a29"/>
 				<textElement verticalAlignment="Middle">
@@ -620,52 +588,65 @@
 				<textFieldExpression><![CDATA[$P{tanggal}]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement stretchType="RelativeToBandHeight" mode="Transparent" x="2" y="200" width="145" height="10" forecolor="#000000" backcolor="#F0F0DC" uuid="fb757d31-13d6-464b-b194-3eaafd7b6340"/>
+				<reportElement stretchType="RelativeToBandHeight" mode="Transparent" x="416" y="236" width="139" height="10" forecolor="#000000" backcolor="#F0F0DC" uuid="4dfb76ee-8654-4bee-a0f1-c2fc54ffd066"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font fontName="Tahoma" size="8"/>
 					<paragraph lineSpacing="Single"/>
 				</textElement>
-				<text><![CDATA[Mengetahui]]></text>
+				<text><![CDATA[DR. TEGUH NURWANTO, MARS]]></text>
 			</staticText>
-			<textField>
-				<reportElement stretchType="RelativeToBandHeight" mode="Transparent" x="2" y="236" width="145" height="10" forecolor="#000000" backcolor="#F0F0DC" uuid="d044e84e-f168-40e3-b01c-3ce4a9a8d066"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle" markup="none">
+			<staticText>
+				<reportElement stretchType="RelativeToBandHeight" mode="Transparent" x="139" y="200" width="138" height="10" forecolor="#000000" backcolor="#F0F0DC" uuid="0584a59c-c379-4882-bbbb-6cd6f01f2e06"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font fontName="Tahoma" size="8"/>
 					<paragraph lineSpacing="Single"/>
+				</textElement>
+				<text><![CDATA[Kains Farmasi]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="139" y="236" width="138" height="10" uuid="0ea9e806-151c-4e02-9218-442b00de0c80"/>
+				<textElement textAlignment="Center">
+					<font fontName="Tahoma" size="8"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$P{apoteker}]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement stretchType="RelativeToBandHeight" mode="Transparent" x="147" y="200" width="117" height="10" forecolor="#000000" backcolor="#F0F0DC" uuid="47c939b4-17b4-4b0d-94d2-dc21f8d49d6a"/>
+				<reportElement stretchType="RelativeToBandHeight" mode="Transparent" x="277" y="200" width="139" height="10" forecolor="#000000" backcolor="#F0F0DC" uuid="fc7549fa-da65-4df9-b174-7edb1eb46115"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font fontName="Tahoma" size="8"/>
 					<paragraph lineSpacing="Single"/>
 				</textElement>
-				<text><![CDATA[Supplier]]></text>
+				<text><![CDATA[Manajer Keuangan]]></text>
 			</staticText>
-			<staticText>
-				<reportElement stretchType="RelativeToBandHeight" mode="Transparent" x="147" y="236" width="117" height="10" forecolor="#000000" backcolor="#F0F0DC" uuid="c7fc9aa7-0724-410c-b650-19850c4bd369"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle" markup="none">
+			<textField>
+				<reportElement x="277" y="236" width="139" height="10" uuid="0e53a293-b6f3-4e32-b0ab-c6596285e0ad"/>
+				<textElement textAlignment="Center">
 					<font fontName="Tahoma" size="8"/>
-					<paragraph lineSpacing="Single"/>
 				</textElement>
-				<text><![CDATA[(..........................................)]]></text>
-			</staticText>
+				<textFieldExpression><![CDATA[$P{kabidkeu}]]></textFieldExpression>
+			</textField>
 			<staticText>
-				<reportElement stretchType="RelativeToBandHeight" mode="Transparent" x="264" y="200" width="145" height="10" forecolor="#000000" backcolor="#F0F0DC" uuid="ec443bbe-dac9-4b44-8d2a-54fd0946179c"/>
+				<reportElement stretchType="RelativeToBandHeight" mode="Transparent" x="416" y="200" width="139" height="10" forecolor="#000000" backcolor="#F0F0DC" uuid="f0c5fcfd-a261-4600-b98a-739f0778f3b2"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font fontName="Tahoma" size="8"/>
 					<paragraph lineSpacing="Single"/>
 				</textElement>
-				<text><![CDATA[Tim Pembelian]]></text>
+				<text><![CDATA[Direktur]]></text>
 			</staticText>
+			<textField>
+				<reportElement x="1" y="236" width="138" height="10" uuid="5db4880f-6ab9-4b89-84fc-fcb87265dabd"/>
+				<textElement textAlignment="Center">
+					<font fontName="Tahoma" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{petugas}]]></textFieldExpression>
+			</textField>
 			<staticText>
-				<reportElement stretchType="RelativeToBandHeight" mode="Transparent" x="410" y="200" width="145" height="10" forecolor="#000000" backcolor="#F0F0DC" uuid="b5fef2d7-b5cd-4640-b11a-ed3548e975a9"/>
+				<reportElement stretchType="RelativeToBandHeight" mode="Transparent" x="1" y="200" width="138" height="10" forecolor="#000000" backcolor="#F0F0DC" uuid="835d0f21-6868-4a88-8d2a-24806244b0e9"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font fontName="Tahoma" size="8"/>
 					<paragraph lineSpacing="Single"/>
 				</textElement>
-				<text><![CDATA[Kepala Bagian Keuangan]]></text>
+				<text><![CDATA[Pengadaan]]></text>
 			</staticText>
 		</band>
 	</summary>
