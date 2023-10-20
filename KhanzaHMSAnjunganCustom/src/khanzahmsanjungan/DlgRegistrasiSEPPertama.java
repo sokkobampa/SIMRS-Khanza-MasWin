@@ -1211,44 +1211,29 @@ public class DlgRegistrasiSEPPertama extends javax.swing.JDialog {
         } else {
             kodepolireg = Sequel.cariIsi("select kd_poli_rs from maping_poli_bpjs where kd_poli_bpjs=?", KdPoli.getText());
             kodedokterreg = Sequel.cariIsi("select kd_dokter from maping_dokter_dpjpvclaim where kd_dokter_bpjs=?", KdDPJP.getText());
-            if (!kodepolireg.equals("")) {
-                isPoli();
-            } else {
-                isPoli();
-            }
+            isPoli();
             isCekPasien();
             isNumber();
             if (JenisPelayanan.getSelectedIndex() == 0) {
-                this.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
                 insertSEP();
-                this.setCursor(Cursor.getDefaultCursor());
             } else if (JenisPelayanan.getSelectedIndex() == 1) {
                 if (NmPoli.getText().toLowerCase().contains("darurat")) {
                     if (Sequel.cariInteger("select count(bridging_sep.no_kartu) from bridging_sep where bridging_sep.no_kartu='" + no_peserta + "' and bridging_sep.jnspelayanan='" + JenisPelayanan.getSelectedItem().toString().substring(0, 1) + "' and bridging_sep.tglsep like '%" + Valid.SetTgl(TanggalSEP.getSelectedItem() + "") + "%' and bridging_sep.nmpolitujuan like '%darurat%'") >= 3) {
                         JOptionPane.showMessageDialog(rootPane, "Maaf, sebelumnya sudah dilakukan 3x pembuatan SEP di jenis pelayanan yang sama..!!");
-
                     } else {
                         if ((!kodedokterreg.equals("")) && (!kodepolireg.equals(""))) {
-                            this.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
                             SimpanAntrianOnSite();
-                            this.setCursor(Cursor.getDefaultCursor());
                         }
-                        this.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
                         insertSEP();
-                        this.setCursor(Cursor.getDefaultCursor());
                     }
                 } else if (!NmPoli.getText().toLowerCase().contains("darurat")) {
                     if (Sequel.cariInteger("select count(bridging_sep.no_kartu) from bridging_sep where bridging_sep.no_kartu='" + no_peserta + "' and bridging_sep.jnspelayanan='" + JenisPelayanan.getSelectedItem().toString().substring(0, 1) + "' and bridging_sep.tglsep like '%" + Valid.SetTgl(TanggalSEP.getSelectedItem() + "") + "%' and bridging_sep.nmpolitujuan not like '%darurat%'") >= 1) {
                         JOptionPane.showMessageDialog(rootPane, "Maaf, sebelumnya sudah dilakukan pembuatan SEP di jenis pelayanan yang sama..!!");
                     } else {
                         if ((!kodedokterreg.equals("")) && (!kodepolireg.equals(""))) {
-                            this.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
                             SimpanAntrianOnSite();
-                            this.setCursor(Cursor.getDefaultCursor());
                         }
-                        this.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
                         insertSEP();
-                        this.setCursor(Cursor.getDefaultCursor());
                     }
                 }
             }
@@ -1763,11 +1748,11 @@ public class DlgRegistrasiSEPPertama extends javax.swing.JDialog {
     private boolean simpanRujukan() {
         int coba = 0, maxCoba = 5;
         
-        Valid.autoNomer3(
-            "select ifnull(max(convert(right(rujuk_masuk.no_rawat, 4),signed)), 0) from reg_periksa inner join rujuk_masuk on reg_periksa.no_rawat = rujuk_masuk.no_rawat where reg_periksa.tgl_registrasi = '" + Valid.SetTgl(TanggalSEP.getSelectedItem().toString()) + "'",
-            "BR/" + dateformat.format(TanggalSEP.getDate()) + "/",
-            4,
-            NoRujukMasuk
+        NoRujukMasuk.setText(
+            Sequel.cariIsiSmc(
+                "select concat('BR/', date_format(?, '%Y/%m/%d/'), lpad(ifnull(max(convert(right(rujuk_masuk.no_balasan, 4), signed)), 0) + 1, 4, '0')) from rujuk_masuk where rujuk_masuk.no_balasan like concat('BR/', date_format(?, '%Y/%m/%d/'), '%')",
+                Valid.SetTgl(TanggalSEP.getSelectedItem().toString()), Valid.SetTgl(TanggalSEP.getSelectedItem().toString())
+            )
         );
         
         String[] values = new String[] {
@@ -1784,11 +1769,11 @@ public class DlgRegistrasiSEPPertama extends javax.swing.JDialog {
         };
         
         while (! Sequel.menyimpantfSmc("rujuk_masuk", null, values) && coba < maxCoba) {
-            Valid.autoNomer3(
-                "select ifnull(max(convert(right(rujuk_masuk.no_rawat, 4),signed)), 0) from reg_periksa inner join rujuk_masuk on reg_periksa.no_rawat = rujuk_masuk.no_rawat where reg_periksa.tgl_registrasi = '" + Valid.SetTgl(TanggalSEP.getSelectedItem().toString()) + "'",
-                "BR/" + dateformat.format(TanggalSEP.getDate()) + "/",
-                4,
-                NoRujukMasuk
+            NoRujukMasuk.setText(
+                Sequel.cariIsiSmc(
+                    "select concat('BR/', date_format(?, '%Y/%m/%d/'), lpad(ifnull(max(convert(right(rujuk_masuk.no_balasan, 4), signed)), 0) + 1, 4, '0')) from rujuk_masuk where rujuk_masuk.no_balasan like concat('BR/', date_format(?, '%Y/%m/%d/'), '%')",
+                    Valid.SetTgl(TanggalSEP.getSelectedItem().toString()), Valid.SetTgl(TanggalSEP.getSelectedItem().toString())
+                )
             );
             
             values = new String[] {
@@ -1815,10 +1800,11 @@ public class DlgRegistrasiSEPPertama extends javax.swing.JDialog {
     }
 
     private void insertSEP() {
-        this.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
-        
         if (! registerPasien()) {
             JOptionPane.showMessageDialog(rootPane, "Terjadi kesalahan pada saat pendaftaran pasien!");
+            System.out.println("Terjadi kesalahan pada saat pendaftaran pasien!");
+            
+            return;
         }
         
         try {
@@ -2002,8 +1988,6 @@ public class DlgRegistrasiSEPPertama extends javax.swing.JDialog {
         
         emptTeks();
         dispose();
-        
-        this.setCursor(Cursor.getDefaultCursor());
     }
     
     private void UpdateUmur() {
@@ -2011,7 +1995,6 @@ public class DlgRegistrasiSEPPertama extends javax.swing.JDialog {
     }
 
     private void cekFinger(String noka) {
-        this.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
         statusfinger = false;
 
         if (!NoKartu.getText().equals("")) {
@@ -2052,8 +2035,6 @@ public class DlgRegistrasiSEPPertama extends javax.swing.JDialog {
         } else {
             JOptionPane.showMessageDialog(rootPane, "Maaf, silahkan pilih data peserta!");
         }
-
-        this.setCursor(Cursor.getDefaultCursor());
     }
 
     public void tampilRujukanPertama(String nomorrujukan) {

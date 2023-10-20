@@ -1096,40 +1096,36 @@ public class DlgRegistrasiSEPMobileJKN extends javax.swing.JDialog {
             setAutoNomor();
             
             if (dropdownJenisPelayanan.getSelectedIndex() == 0) {
-                this.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
                 insertSEP();
-                this.setCursor(Cursor.getDefaultCursor());
             } else if (dropdownJenisPelayanan.getSelectedIndex() == 1) {
                 if (textNamaPoliTujuan.getText().toLowerCase().contains("darurat")) {
-                    if (Sequel.cariIntegerSmc("select count(bridging_sep.no_kartu) from bridging_sep where bridging_sep.no_kartu = ?'" + noPesertaPasien + "' and bridging_sep.jnspelayanan = ?'" + dropdownJenisPelayanan.getSelectedItem().toString().substring(0, 1) + "' and bridging_sep.tglsep like ?" + Valid.SetTgl(dateTglSEP.getSelectedItem() + "") + "%' and bridging_sep.nmpolitujuan like '%darurat%'") >= 3) {
+                    if (Sequel.cariIntegerSmc(
+                        "select count(*) from bridging_sep where bridging_sep.no_kartu = ? and bridging_sep.jnspelayanan = ? and bridging_sep.tglsep = ? and bridging_sep.nmpolitujuan like '%darurat%'",
+                        noPesertaPasien, dropdownJenisPelayanan.getSelectedItem().toString().substring(0, 1), Valid.SetTgl(dateTglSEP.getSelectedItem().toString())
+                    ) >= 3) {
                         JOptionPane.showMessageDialog(rootPane, "Maaf, sebelumnya sudah dilakukan 3x pembuatan SEP di jenis pelayanan yang sama..!!");
                     } else {
                         if ((!kodeDokterRS.equals("")) && (!kodePoliRS.equals(""))) {
-                            this.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
                             simpanAntrianOnsite();
-                            this.setCursor(Cursor.getDefaultCursor());
                         }
-                        this.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
                         insertSEP();
-                        this.setCursor(Cursor.getDefaultCursor());
                     }
-                } else if (!textNamaPoliTujuan.getText().toLowerCase().contains("darurat")) {
-                    if (Sequel.cariInteger("select count(bridging_sep.no_kartu) from bridging_sep where bridging_sep.no_kartu='" + noPesertaPasien + "' and bridging_sep.jnspelayanan='" + dropdownJenisPelayanan.getSelectedItem().toString().substring(0, 1) + "' and bridging_sep.tglsep like '%" + Valid.SetTgl(dateTglSEP.getSelectedItem() + "") + "%' and bridging_sep.nmpolitujuan not like '%darurat%'") >= 1) {
+                } else if (! textNamaPoliTujuan.getText().toLowerCase().contains("darurat")) {
+                    if (Sequel.cariIntegerSmc(
+                        "select count(*) from bridging_sep where bridging_sep.no_kartu = ? and bridging_sep.jnspelayanan = ? and bridging_sep.tglsep = ? and bridging_sep.nmpolitujuan not like '%darurat%'",
+                        noPesertaPasien, dropdownJenisPelayanan.getSelectedItem().toString().substring(0, 1), Valid.SetTgl(dateTglSEP.getSelectedItem().toString())
+                    ) >= 1) {
                         JOptionPane.showMessageDialog(rootPane, "Maaf, sebelumnya sudah dilakukan pembuatan SEP di jenis pelayanan yang sama..!!");
                     } else {
                         if ((!kodeDokterRS.equals("")) && (!kodePoliRS.equals(""))) {
-                            this.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
                             simpanAntrianOnsite();
-                            this.setCursor(Cursor.getDefaultCursor());
                         }
-                        this.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
                         insertSEP();
-                        this.setCursor(Cursor.getDefaultCursor());
                     }
                 }
             }
-            this.setCursor(Cursor.getDefaultCursor());
         }
+        this.setCursor(Cursor.getDefaultCursor());
     }//GEN-LAST:event_btnSimpanActionPerformed
 
     private void btnPilihDPJPActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPilihDPJPActionPerformed
