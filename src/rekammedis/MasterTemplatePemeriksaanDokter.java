@@ -38,8 +38,8 @@ public class MasterTemplatePemeriksaanDokter extends javax.swing.JDialog {
     private sekuel Sequel=new sekuel();
     private validasi Valid=new validasi();
     private Connection koneksi=koneksiDB.condb();
-    private PreparedStatement ps,psprosedur,pspenyakit;
-    private ResultSet rs;
+    private PreparedStatement ps,ps2;
+    private ResultSet rs,rs2;
     private int i,index=0,jml=0,r=0;
     private String[] kode,nama,ciripny,keterangan,kategori,cirium,kode2,panjang,pendek,satuan,nilairujukan,no;
     private boolean[] pilih;
@@ -556,7 +556,7 @@ public class MasterTemplatePemeriksaanDokter extends javax.swing.JDialog {
         tbDetailObatRacikan.setDefaultRenderer(Object.class,warna3);
         
         TabModeTindakan=new DefaultTableModel(null,new Object[]{
-                "P","Kode","Nama Perawatan","Kategori Perawatan"
+                "P","Kode","Nama Perawatan/Tindakan","Kategori"
             }){
              @Override public boolean isCellEditable(int rowIndex, int colIndex){
                 boolean a = false;
@@ -2017,6 +2017,15 @@ public class MasterTemplatePemeriksaanDokter extends javax.swing.JDialog {
             }else if(evt.getKeyCode()==KeyEvent.VK_SPACE){
                 try {
                     getData();
+                    if(ChkAccor.isSelected()==false){  
+                        if(tbDokter.getSelectedRow()!= -1){
+                            ChkAccor.setSelected(true);
+                            isDetail();
+                            panggilDetail();
+                            ChkAccor.setSelected(false);
+                            isDetail();
+                        }
+                    }
                     TabRawat.setSelectedIndex(0);
                 } catch (java.lang.NullPointerException e) {
                 }
@@ -2025,14 +2034,19 @@ public class MasterTemplatePemeriksaanDokter extends javax.swing.JDialog {
 }//GEN-LAST:event_tbDokterKeyPressed
 
     private void BtnHapusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnHapusActionPerformed
-        /*if(Nm.getText().trim().equals("")){
-            JOptionPane.showMessageDialog(null,"Maaf, Pilih dulu data yang akan Anda hapus dengan menklik data pada tabel...!!!");
-            tbDokter.requestFocus();
+        if(tbDokter.getSelectedRow()>-1){
+            if(akses.getkode().equals("Admin Utama")){
+                hapus();
+            }else{
+                if(KdDokter.getText().equals(tbDokter.getValueAt(tbDokter.getSelectedRow(),1).toString())){
+                    hapus();
+                }else{
+                    JOptionPane.showMessageDialog(null,"Hanya bisa dihapus oleh dokter yang bersangkutan..!!");
+                }
+            }
         }else{
-            Valid.hapusTable(tabMode,Kd,"template_hasil_radiologi","no_template");
-            tampil();
-            emptTeks();
-        }*/
+            JOptionPane.showMessageDialog(rootPane,"Silahkan anda pilih data terlebih dahulu..!!");
+        } 
 }//GEN-LAST:event_BtnHapusActionPerformed
 
     private void BtnHapusKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_BtnHapusKeyPressed
@@ -2044,19 +2058,27 @@ public class MasterTemplatePemeriksaanDokter extends javax.swing.JDialog {
 }//GEN-LAST:event_BtnHapusKeyPressed
 
     private void BtnEditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnEditActionPerformed
-        /*if(Kd.getText().trim().equals("")){
+        if(Kd.getText().trim().equals("")){
             Valid.textKosong(Kd,"No.Template");
-        }else if(Nm.getText().trim().equals("")){
-            Valid.textKosong(Nm,"Nama Pemeriksaan");
-        }else if(Template.getText().trim().equals("")){
-            Valid.textKosong(Template,"Template Hasil Radiologi");
+        }else if(KdDokter.getText().trim().equals("")||NmDokter.getText().trim().equals("")){
+            Valid.textKosong(BtnDokter,"Dokter");
+        }else if(Asesmen.getText().trim().equals("")){
+            Valid.textKosong(Asesmen,"Asesmen");
         }else{
-            Valid.editTable(tabMode,"template_hasil_radiologi","no_template","?","no_template=?,nama_pemeriksaan=?,template_hasil_radiologi=?",4,new String[]{
-                Kd.getText(),Nm.getText(),Template.getText(),tbDokter.getValueAt(tbDokter.getSelectedRow(),0).toString()
-            });
-            if(tabMode.getRowCount()!=0){tampil();emptTeks();TabRawat.setSelectedIndex(1);}
-            
-        }*/
+            if(tbDokter.getSelectedRow()>-1){
+                if(akses.getkode().equals("Admin Utama")){
+                    ganti();
+                }else{
+                    if(KdDokter.getText().equals(tbDokter.getValueAt(tbDokter.getSelectedRow(),1).toString())){
+                        ganti();
+                    }else{
+                        JOptionPane.showMessageDialog(null,"Hanya bisa diganti oleh dokter yang bersangkutan..!!");
+                    }
+                }
+            }else{
+                JOptionPane.showMessageDialog(rootPane,"Silahkan anda pilih data terlebih dahulu..!!");
+            }
+        }
 }//GEN-LAST:event_BtnEditActionPerformed
 
     private void BtnEditKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_BtnEditKeyPressed
@@ -2922,8 +2944,12 @@ private void KdKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TKdKey
     private void getData() {
         if(tbDokter.getSelectedRow()!= -1){
             Kd.setText(tabMode.getValueAt(tbDokter.getSelectedRow(),0).toString());
-            //Nm.setText(tabMode.getValueAt(tbDokter.getSelectedRow(),1).toString());
-            Subjek.setText(tabMode.getValueAt(tbDokter.getSelectedRow(),2).toString());
+            Subjek.setText(tabMode.getValueAt(tbDokter.getSelectedRow(),3).toString());
+            Objek.setText(tabMode.getValueAt(tbDokter.getSelectedRow(),4).toString());
+            Asesmen.setText(tabMode.getValueAt(tbDokter.getSelectedRow(),5).toString());
+            Plan.setText(tabMode.getValueAt(tbDokter.getSelectedRow(),6).toString());
+            Instruksi.setText(tabMode.getValueAt(tbDokter.getSelectedRow(),7).toString());
+            Evaluasi.setText(tabMode.getValueAt(tbDokter.getSelectedRow(),8).toString());
         }
     }
 
@@ -2994,32 +3020,23 @@ private void KdKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TKdKey
                 tabModeDiagnosa.addRow(new Object[] {pilih[i],kode[i],nama[i],ciripny[i],keterangan[i],kategori[i],cirium[i]});
             }       
 
-            pspenyakit=koneksi.prepareStatement("select penyakit.kd_penyakit,penyakit.nm_penyakit,penyakit.ciri_ciri,penyakit.keterangan, "+
-                    "kategori_penyakit.nm_kategori,kategori_penyakit.ciri_umum "+
-                    "from kategori_penyakit inner join penyakit "+
-                    "on penyakit.kd_ktg=kategori_penyakit.kd_ktg where  "+
-                    " penyakit.kd_penyakit like ? or "+
-                    " penyakit.nm_penyakit like ? or "+
-                    " penyakit.ciri_ciri like ? or "+
-                    " penyakit.keterangan like ? or "+
-                    " kategori_penyakit.nm_kategori like ? or "+
-                    " kategori_penyakit.ciri_umum like ? "+
-                    "order by penyakit.kd_penyakit  LIMIT 1000");
+            ps=koneksi.prepareStatement("select penyakit.kd_penyakit,penyakit.nm_penyakit,penyakit.ciri_ciri,penyakit.keterangan, "+
+                    "kategori_penyakit.nm_kategori,kategori_penyakit.ciri_umum from kategori_penyakit inner join penyakit "+
+                    "on penyakit.kd_ktg=kategori_penyakit.kd_ktg where penyakit.kd_penyakit like ? or penyakit.nm_penyakit like ? or "+
+                    "penyakit.ciri_ciri like ? or penyakit.keterangan like ? or kategori_penyakit.nm_kategori like ? or "+
+                    "kategori_penyakit.ciri_umum like ? order by penyakit.kd_penyakit  LIMIT 1000");
             try {
-                pspenyakit.setString(1,"%"+Diagnosa.getText().trim()+"%");
-                pspenyakit.setString(2,"%"+Diagnosa.getText().trim()+"%");
-                pspenyakit.setString(3,"%"+Diagnosa.getText().trim()+"%");
-                pspenyakit.setString(4,"%"+Diagnosa.getText().trim()+"%");
-                pspenyakit.setString(5,"%"+Diagnosa.getText().trim()+"%");
-                pspenyakit.setString(6,"%"+Diagnosa.getText().trim()+"%");  
-                rs=pspenyakit.executeQuery();
+                ps.setString(1,"%"+Diagnosa.getText().trim()+"%");
+                ps.setString(2,"%"+Diagnosa.getText().trim()+"%");
+                ps.setString(3,"%"+Diagnosa.getText().trim()+"%");
+                ps.setString(4,"%"+Diagnosa.getText().trim()+"%");
+                ps.setString(5,"%"+Diagnosa.getText().trim()+"%");
+                ps.setString(6,"%"+Diagnosa.getText().trim()+"%");  
+                rs=ps.executeQuery();
                 while(rs.next()){
-                    tabModeDiagnosa.addRow(new Object[]{false,rs.getString(1),
-                                   rs.getString(2),
-                                   rs.getString(3),
-                                   rs.getString(4),
-                                   rs.getString(5),
-                                   rs.getString(6)});
+                    tabModeDiagnosa.addRow(new Object[]{
+                        false,rs.getString(1),rs.getString(2),rs.getString(3),rs.getString(4),rs.getString(5),rs.getString(6)
+                    });
                 } 
             } catch (Exception e) {
                 System.out.println("Notifikasi : "+e);
@@ -3027,8 +3044,8 @@ private void KdKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TKdKey
                 if(rs!=null){
                     rs.close();
                 }
-                if(pspenyakit!=null){
-                    pspenyakit.close();
+                if(ps!=null){
+                    ps.close();
                 }
             }           
         }catch(Exception e){
@@ -3070,16 +3087,16 @@ private void KdKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TKdKey
                 tabModeProsedur.addRow(new Object[] {pilih[i],kode2[i],panjang[i],pendek[i]});
             }
             
-            psprosedur=koneksi.prepareStatement("select * from icd9 where kode like ? or "+
-                    " deskripsi_panjang like ? or  deskripsi_pendek like ? order by kode");
+            ps=koneksi.prepareStatement("select * from icd9 where icd9.kode like ? or icd9.deskripsi_panjang like ? or icd9.deskripsi_pendek like ? order by icd9.kode");
             try{
-                psprosedur.setString(1,"%"+Prosedur.getText().trim()+"%");
-                psprosedur.setString(2,"%"+Prosedur.getText().trim()+"%");
-                psprosedur.setString(3,"%"+Prosedur.getText().trim()+"%");
-                rs=psprosedur.executeQuery();
+                ps.setString(1,"%"+Prosedur.getText().trim()+"%");
+                ps.setString(2,"%"+Prosedur.getText().trim()+"%");
+                ps.setString(3,"%"+Prosedur.getText().trim()+"%");
+                rs=ps.executeQuery();
                 while(rs.next()){
                     tabModeProsedur.addRow(new Object[]{
-                        false,rs.getString(1),rs.getString(2),rs.getString(3)});
+                        false,rs.getString(1),rs.getString(2),rs.getString(3)
+                    });
                 }
             }catch(Exception ex){
                 System.out.println(ex);
@@ -3087,8 +3104,8 @@ private void KdKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TKdKey
                 if(rs != null){
                     rs.close();
                 }
-                if(psprosedur != null){
-                    psprosedur.close();
+                if(ps != null){
+                    ps.close();
                 }
             }
         }catch(Exception e){
@@ -3604,9 +3621,9 @@ private void KdKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TKdKey
             fileWriter = new FileWriter(file);
             iyem=""; 
             ps=koneksi.prepareStatement(
-                    "select databarang.kode_brng,databarang.nama_brng,databarang.kode_sat,databarang.letak_barang,jenis.nama,industrifarmasi.nama_industri,databarang.kapasitas "+
-                    "from databarang inner join jenis on databarang.kdjns=jenis.kdjns inner join industrifarmasi on industrifarmasi.kode_industri=databarang.kode_industri "+
-                    "where databarang.status='1' order by databarang.nama_brng");
+                    "select databarang.kode_brng,databarang.nama_brng,kodesatuan.satuan,databarang.letak_barang,jenis.nama,industrifarmasi.nama_industri,databarang.kapasitas "+
+                    "from databarang inner join kodesatuan on kodesatuan.kode_sat=databarang.kode_sat inner join jenis on databarang.kdjns=jenis.kdjns "+
+                    "inner join industrifarmasi on industrifarmasi.kode_industri=databarang.kode_industri where databarang.status='1' order by databarang.nama_brng");
             try {
                 rs=ps.executeQuery();
                 while(rs.next()){
@@ -3914,62 +3931,45 @@ private void KdKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TKdKey
             if(tbDokter.getSelectedRow()!= -1){
                 try {
                     htmlContent = new StringBuilder();
-                    ps=koneksi.prepareStatement(
-                            "select template_pemeriksaan_dokter.keluhan,template_pemeriksaan_dokter.pemeriksaan,template_pemeriksaan_dokter.penilaian,template_pemeriksaan_dokter.rencana,"+
-                            "template_pemeriksaan_dokter.instruksi,template_pemeriksaan_dokter.evaluasi from template_pemeriksaan_dokter where template_pemeriksaan_dokter.no_template=?");
-                    try {
-                        ps.setString(1,tabMode.getValueAt(tbDokter.getSelectedRow(),0).toString());
-                        rs=ps.executeQuery();
-                        if(rs.next()){
-                            htmlContent.append(                             
-                                "<tr class='isi'>"+
-                                    "<td valign='top' align='left' width='100%'>"+
-                                        "Subjek : "+rs.getString("keluhan")+
-                                    "</td>"+
-                                "</tr>"+
-                                "<tr class='isi'>"+
-                                    "<td valign='top' align='left' width='100%'>"+
-                                        "Objek : "+rs.getString("pemeriksaan")+
-                                    "</td>"+
-                                "</tr>"+
-                                "<tr class='isi'>"+
-                                    "<td valign='top' align='left' width='100%'>"+
-                                        "Asesmen : "+rs.getString("penilaian")+
-                                    "</td>"+
-                                "</tr>"+
-                                "<tr class='isi'>"+
-                                    "<td valign='top' align='left' width='100%'>"+
-                                        "Plan : "+rs.getString("rencana")+
-                                    "</td>"+
-                                "</tr>"+
-                                "<tr class='isi'>"+
-                                    "<td valign='top' align='left' width='100%'>"+
-                                        "Instruksi : "+rs.getString("instruksi")+
-                                    "</td>"+
-                                "</tr>"+
-                                "<tr class='isi'>"+
-                                    "<td valign='top' align='left' width='100%'>"+
-                                        "Evaluasi : "+rs.getString("evaluasi")+
-                                    "</td>"+
-                                "</tr>"
-                            ); 
-
-                        }
-                    } catch (Exception e) {
-                        System.out.println("Notif : "+e);
-                    } finally{
-                        if(rs!=null){
-                            rs.close();
-                        }
-                        if(ps!=null){
-                            ps.close();
-                        }
-                    }
+                    htmlContent.append(                             
+                        "<tr class='isi'>"+
+                            "<td valign='top' align='left' width='100%'>"+
+                                "Subjek : "+tabMode.getValueAt(tbDokter.getSelectedRow(),3).toString()+
+                            "</td>"+
+                        "</tr>"+
+                        "<tr class='isi'>"+
+                            "<td valign='top' align='left' width='100%'>"+
+                                "Objek : "+tabMode.getValueAt(tbDokter.getSelectedRow(),4).toString()+
+                            "</td>"+
+                        "</tr>"+
+                        "<tr class='isi'>"+
+                            "<td valign='top' align='left' width='100%'>"+
+                                "Asesmen : "+tabMode.getValueAt(tbDokter.getSelectedRow(),5).toString()+
+                            "</td>"+
+                        "</tr>"+
+                        "<tr class='isi'>"+
+                            "<td valign='top' align='left' width='100%'>"+
+                                "Plan : "+tabMode.getValueAt(tbDokter.getSelectedRow(),6).toString()+
+                            "</td>"+
+                        "</tr>"+
+                        "<tr class='isi'>"+
+                            "<td valign='top' align='left' width='100%'>"+
+                                "Instruksi : "+tabMode.getValueAt(tbDokter.getSelectedRow(),7).toString()+
+                            "</td>"+
+                        "</tr>"+
+                        "<tr class='isi'>"+
+                            "<td valign='top' align='left' width='100%'>"+
+                                "Evaluasi : "+tabMode.getValueAt(tbDokter.getSelectedRow(),8).toString()+
+                            "</td>"+
+                        "</tr>"
+                    ); 
                     
                     ps=koneksi.prepareStatement(
-                            "select template_pemeriksaan_dokter_penyakit.kd_penyakit,penyakit.nm_penyakit from template_pemeriksaan_dokter_penyakit "+
+                            "select template_pemeriksaan_dokter_penyakit.kd_penyakit,penyakit.nm_penyakit,penyakit.ciri_ciri,penyakit.keterangan, "+
+                            "kategori_penyakit.nm_kategori,kategori_penyakit.ciri_umum from template_pemeriksaan_dokter_penyakit "+
                             "inner join penyakit on penyakit.kd_penyakit=template_pemeriksaan_dokter_penyakit.kd_penyakit "+
-                            "where template_pemeriksaan_dokter_penyakit.no_template=? order by template_pemeriksaan_dokter_penyakit.urut");
+                            "inner join kategori_penyakit on penyakit.kd_ktg=kategori_penyakit.kd_ktg where "+
+                            "template_pemeriksaan_dokter_penyakit.no_template=? order by template_pemeriksaan_dokter_penyakit.urut");
                     try {
                         ps.setString(1,tabMode.getValueAt(tbDokter.getSelectedRow(),0).toString());
                         rs=ps.executeQuery();
@@ -3980,18 +3980,22 @@ private void KdKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TKdKey
                                         "Diagnosa : "+
                                         "<table width='100%' border='0' align='center' cellpadding='3px' cellspacing='0' class='tbl_form'>"+
                                             "<tr class='isi'>"+
-                                                "<td valign='middle' bgcolor='#FFFAF8' align='center' width='30%'>Kode Penyakit</td>"+
-                                                "<td valign='middle' bgcolor='#FFFAF8' align='center' width='70%'>Nama Penyakit</td>"+
+                                                "<td valign='middle' bgcolor='#FFFAF8' align='center' width='25%'>Kode Penyakit</td>"+
+                                                "<td valign='middle' bgcolor='#FFFAF8' align='center' width='75%'>Nama Penyakit</td>"+
                                             "</tr>"
                             );
+                            Valid.tabelKosong(tabModeDiagnosa);
                             rs.beforeFirst();
                             while(rs.next()){
                                 htmlContent.append(
                                             "<tr class='isi'>"+
-                                                "<td align='center' width='25%'>"+rs.getString("kd_penyakit")+"</td>"+
-                                                "<td width='75%'>"+rs.getString("nm_penyakit")+"</td>"+
+                                                "<td align='center'>"+rs.getString("kd_penyakit")+"</td>"+
+                                                "<td>"+rs.getString("nm_penyakit")+"</td>"+
                                             "</tr>"
                                 );
+                                tabModeDiagnosa.addRow(new Object[]{
+                                    true,rs.getString(1),rs.getString(2),rs.getString(3),rs.getString(4),rs.getString(5),rs.getString(6)
+                                });
                             }
                             htmlContent.append( 
                                         "</table>"+
@@ -4012,9 +4016,9 @@ private void KdKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TKdKey
                     }
                     
                     ps=koneksi.prepareStatement(
-                            "select template_pemeriksaan_dokter_prosedur.kode,icd9.deskripsi_panjang from template_pemeriksaan_dokter_prosedur "+
-                            "inner join icd9 on template_pemeriksaan_dokter_prosedur.kode=icd9.kode "+
-                            "where template_pemeriksaan_dokter_prosedur.no_template=? order by template_pemeriksaan_dokter_prosedur.urut");
+                            "select template_pemeriksaan_dokter_prosedur.kode,icd9.deskripsi_panjang,icd9.deskripsi_pendek from template_pemeriksaan_dokter_prosedur "+
+                            "inner join icd9 on template_pemeriksaan_dokter_prosedur.kode=icd9.kode where template_pemeriksaan_dokter_prosedur.no_template=? "+
+                            "order by template_pemeriksaan_dokter_prosedur.urut");
                     try {
                         ps.setString(1,tabMode.getValueAt(tbDokter.getSelectedRow(),0).toString());
                         rs=ps.executeQuery();
@@ -4025,63 +4029,22 @@ private void KdKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TKdKey
                                         "Prosedur : "+
                                         "<table width='100%' border='0' align='center' cellpadding='3px' cellspacing='0' class='tbl_form'>"+
                                             "<tr class='isi'>"+
-                                                "<td valign='middle' bgcolor='#FFFAF8' align='center' width='30%'>Kode Prosedur</td>"+
-                                                "<td valign='middle' bgcolor='#FFFAF8' align='center' width='70%'>Nama Prosedur</td>"+
+                                                "<td valign='middle' bgcolor='#FFFAF8' align='center' width='25%'>Kode Prosedur</td>"+
+                                                "<td valign='middle' bgcolor='#FFFAF8' align='center' width='75%'>Nama Prosedur</td>"+
                                             "</tr>"
                             );
+                            Valid.tabelKosong(tabModeProsedur);
                             rs.beforeFirst();
                             while(rs.next()){
                                 htmlContent.append(
                                             "<tr class='isi'>"+
-                                                "<td align='center' width='25%'>"+rs.getString("kode")+"</td>"+
-                                                "<td width='75%'>"+rs.getString("deskripsi_panjang")+"</td>"+
+                                                "<td align='center'>"+rs.getString("kode")+"</td>"+
+                                                "<td>"+rs.getString("deskripsi_panjang")+"</td>"+
                                             "</tr>"
                                 );
-                            }
-                            htmlContent.append( 
-                                        "</table>"+
-                                    "</td>"+
-                                "</tr>"
-                            ); 
-
-                        }
-                    } catch (Exception e) {
-                        System.out.println("Notif : "+e);
-                    } finally{
-                        if(rs!=null){
-                            rs.close();
-                        }
-                        if(ps!=null){
-                            ps.close();
-                        }
-                    }
-                    
-                    ps=koneksi.prepareStatement(
-                            "select template_pemeriksaan_dokter_prosedur.kode,icd9.deskripsi_panjang from template_pemeriksaan_dokter_prosedur "+
-                            "inner join icd9 on template_pemeriksaan_dokter_prosedur.kode=icd9.kode "+
-                            "where template_pemeriksaan_dokter_prosedur.no_template=? order by template_pemeriksaan_dokter_prosedur.urut");
-                    try {
-                        ps.setString(1,tabMode.getValueAt(tbDokter.getSelectedRow(),0).toString());
-                        rs=ps.executeQuery();
-                        if(rs.next()){
-                            htmlContent.append(                             
-                                "<tr class='isi'>"+
-                                    "<td valign='top' align='left' width='100%'>"+
-                                        "Prosedur : "+
-                                        "<table width='100%' border='0' align='center' cellpadding='3px' cellspacing='0' class='tbl_form'>"+
-                                            "<tr class='isi'>"+
-                                                "<td valign='middle' bgcolor='#FFFAF8' align='center' width='30%'>Kode Prosedur</td>"+
-                                                "<td valign='middle' bgcolor='#FFFAF8' align='center' width='70%'>Nama Prosedur</td>"+
-                                            "</tr>"
-                            );
-                            rs.beforeFirst();
-                            while(rs.next()){
-                                htmlContent.append(
-                                            "<tr class='isi'>"+
-                                                "<td align='center' width='25%'>"+rs.getString("kode")+"</td>"+
-                                                "<td width='75%'>"+rs.getString("deskripsi_panjang")+"</td>"+
-                                            "</tr>"
-                                );
+                                tabModeProsedur.addRow(new Object[]{
+                                    true,rs.getString(1),rs.getString(2),rs.getString(3)
+                                });
                             }
                             htmlContent.append( 
                                         "</table>"+
@@ -4115,16 +4078,497 @@ private void KdKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TKdKey
                                         "Permintaan Radiologi : "+
                                         "<table width='100%' border='0' align='center' cellpadding='3px' cellspacing='0' class='tbl_form'>"+
                                             "<tr class='isi'>"+
-                                                "<td valign='middle' bgcolor='#FFFAF8' align='center' width='30%'>Kode Periksa</td>"+
-                                                "<td valign='middle' bgcolor='#FFFAF8' align='center' width='70%'>Nama Pemeriksaan</td>"+
+                                                "<td valign='middle' bgcolor='#FFFAF8' align='center' width='25%'>Kode Periksa</td>"+
+                                                "<td valign='middle' bgcolor='#FFFAF8' align='center' width='75%'>Nama Pemeriksaan</td>"+
+                                            "</tr>"
+                            );
+                            Valid.tabelKosong(tabModeRadiologi);
+                            rs.beforeFirst();
+                            while(rs.next()){
+                                htmlContent.append(
+                                            "<tr class='isi'>"+
+                                                "<td align='center'>"+rs.getString("kd_jenis_prw")+"</td>"+
+                                                "<td>"+rs.getString("nm_perawatan")+"</td>"+
+                                            "</tr>"
+                                );
+                                tabModeRadiologi.addRow(new Object[]{
+                                    true,rs.getString("kd_jenis_prw"),rs.getString("nm_perawatan")
+                                });
+                            }
+                            htmlContent.append( 
+                                        "</table>"+
+                                    "</td>"+
+                                "</tr>"
+                            ); 
+
+                        }
+                    } catch (Exception e) {
+                        System.out.println("Notif : "+e);
+                    } finally{
+                        if(rs!=null){
+                            rs.close();
+                        }
+                        if(ps!=null){
+                            ps.close();
+                        }
+                    }
+                    
+                    ps=koneksi.prepareStatement(
+                            "select template_pemeriksaan_dokter_permintaan_lab.kd_jenis_prw,jns_perawatan_lab.nm_perawatan from template_pemeriksaan_dokter_permintaan_lab "+
+                            "inner join jns_perawatan_lab on template_pemeriksaan_dokter_permintaan_lab.kd_jenis_prw=jns_perawatan_lab.kd_jenis_prw "+
+                            "where template_pemeriksaan_dokter_permintaan_lab.no_template=? and jns_perawatan_lab.kategori='PK'");
+                    try {
+                        ps.setString(1,tabMode.getValueAt(tbDokter.getSelectedRow(),0).toString());
+                        rs=ps.executeQuery();
+                        if(rs.next()){
+                            htmlContent.append(                             
+                                "<tr class='isi'>"+
+                                    "<td valign='top' align='left' width='100%'>"+
+                                        "Permintaan Laborat Patologi Klinis : "+
+                                        "<table width='100%' border='0' align='center' cellpadding='3px' cellspacing='0' class='tbl_form'>"+
+                                            "<tr class='isi'>"+
+                                                "<td valign='middle' bgcolor='#FFFAF8' align='center' width='15%'>Kode Periksa</td>"+
+                                                "<td valign='middle' bgcolor='#FFFAF8' align='center' width='85%'>Nama Pemeriksaan</td>"+
+                                            "</tr>"
+                            );
+                            Valid.tabelKosong(tabModePK);
+                            rs.beforeFirst();
+                            while(rs.next()){
+                                htmlContent.append(
+                                            "<tr class='isi'>"+
+                                                "<td align='center'>"+rs.getString("kd_jenis_prw")+"</td>"+
+                                                "<td>"+rs.getString("nm_perawatan")+"</td>"+
+                                            "</tr>"
+                                );
+                                tabModePK.addRow(new Object[]{
+                                    true,rs.getString("kd_jenis_prw"),rs.getString("nm_perawatan")
+                                });
+                                try {
+                                    ps2=koneksi.prepareStatement(
+                                            "select template_pemeriksaan_dokter_detail_permintaan_lab.id_template,template_laboratorium.Pemeriksaan,template_laboratorium.satuan,template_laboratorium.nilai_rujukan_ld,template_laboratorium.nilai_rujukan_la,template_laboratorium.nilai_rujukan_pd,template_laboratorium.nilai_rujukan_pa "+
+                                            "from template_pemeriksaan_dokter_detail_permintaan_lab inner join template_laboratorium on template_pemeriksaan_dokter_detail_permintaan_lab.id_template=template_laboratorium.id_template where template_pemeriksaan_dokter_detail_permintaan_lab.no_template=? and "+
+                                            "template_pemeriksaan_dokter_detail_permintaan_lab.kd_jenis_prw=? order by template_laboratorium.urut");
+                                    ps2.setString(1,tabMode.getValueAt(tbDokter.getSelectedRow(),0).toString());
+                                    ps2.setString(2,rs.getString("kd_jenis_prw"));
+                                    rs2=ps2.executeQuery();
+                                    if(rs2.next()){
+                                        Valid.tabelKosong(tabModeDetailPK);
+                                        htmlContent.append(
+                                            "<tr class='isi'>"+
+                                                "<td align='center' width='15%'></td>"+
+                                                "<td width='85%'>"+
+                                                    "<table width='100%' border='0' align='center' cellpadding='3px' cellspacing='0' class='tbl_form'>"+
+                                                        "<tr class='isi'>"+
+                                                            "<td valign='middle' bgcolor='#FFFAF8' align='center' width='40%'>Pemeriksaan</td>"+
+                                                            "<td valign='middle' bgcolor='#FFFAF8' align='center' width='20%'>Satuan</td>"+
+                                                            "<td valign='middle' bgcolor='#FFFAF8' align='center' width='40%'>Nilai Rujukan</td>"+
+                                                        "</tr>"
+                                        );
+                                        rs2.beforeFirst();
+                                        while(rs2.next()){
+                                            la="";ld="";pa="";pd="";
+                                            if(!rs2.getString("nilai_rujukan_ld").equals("")){
+                                                ld="LD : "+rs2.getString("nilai_rujukan_ld");
+                                            }
+                                            if(!rs2.getString("nilai_rujukan_la").equals("")){
+                                                la=", LA : "+rs2.getString("nilai_rujukan_la");
+                                            }
+                                            if(!rs2.getString("nilai_rujukan_pa").equals("")){
+                                                pd=", PD : "+rs2.getString("nilai_rujukan_pd");
+                                            }
+                                            if(!rs2.getString("nilai_rujukan_pd").equals("")){
+                                                pa=" PA : "+rs2.getString("nilai_rujukan_pa");
+                                            }
+                                            htmlContent.append(
+                                                        "<tr class='isi'>"+
+                                                            "<td>"+rs2.getString("Pemeriksaan")+"</td>"+
+                                                            "<td align='center'>"+rs2.getString("satuan")+"</td>"+
+                                                            "<td>"+ld+la+pd+pa+"</td>"+
+                                                        "</tr>"
+                                            );
+                                            tabModeDetailPK.addRow(new Object[]{
+                                                true,"   "+rs2.getString("Pemeriksaan"),rs2.getString("satuan"),ld+la+pd+pa,rs2.getString("id_template"),rs.getString("kd_jenis_prw")
+                                            });
+                                        }
+                                        htmlContent.append(
+                                                    "</table>"+
+                                                "</td>"+
+                                            "</tr>"
+                                        );
+                                    }
+                                } catch (Exception e) {
+                                    System.out.println("Notif : "+e);
+                                } finally{
+                                    if(rs2!=null){
+                                        rs2.close();
+                                    }
+                                    if(ps2!=null){
+                                        ps2.close();
+                                    }
+                                }
+                            }
+                            htmlContent.append( 
+                                        "</table>"+
+                                    "</td>"+
+                                "</tr>"
+                            ); 
+                        }
+                    } catch (Exception e) {
+                        System.out.println("Notif : "+e);
+                    } finally{
+                        if(rs!=null){
+                            rs.close();
+                        }
+                        if(ps!=null){
+                            ps.close();
+                        }
+                    }
+                    
+                    ps=koneksi.prepareStatement(
+                            "select template_pemeriksaan_dokter_permintaan_lab.kd_jenis_prw,jns_perawatan_lab.nm_perawatan from template_pemeriksaan_dokter_permintaan_lab "+
+                            "inner join jns_perawatan_lab on template_pemeriksaan_dokter_permintaan_lab.kd_jenis_prw=jns_perawatan_lab.kd_jenis_prw "+
+                            "where template_pemeriksaan_dokter_permintaan_lab.no_template=? and jns_perawatan_lab.kategori='PA'");
+                    try {
+                        ps.setString(1,tabMode.getValueAt(tbDokter.getSelectedRow(),0).toString());
+                        rs=ps.executeQuery();
+                        if(rs.next()){
+                            htmlContent.append(                             
+                                "<tr class='isi'>"+
+                                    "<td valign='top' align='left' width='100%'>"+
+                                        "Permintaan Laborat Patologi Anatomi :"+
+                                        "<table width='100%' border='0' align='center' cellpadding='3px' cellspacing='0' class='tbl_form'>"+
+                                            "<tr class='isi'>"+
+                                                "<td valign='middle' bgcolor='#FFFAF8' align='center' width='15%'>Kode Periksa</td>"+
+                                                "<td valign='middle' bgcolor='#FFFAF8' align='center' width='85%'>Nama Pemeriksaan</td>"+
+                                            "</tr>"
+                            );
+                            Valid.tabelKosong(tabModePA);
+                            rs.beforeFirst();
+                            while(rs.next()){
+                                htmlContent.append(
+                                            "<tr class='isi'>"+
+                                                "<td align='center'>"+rs.getString("kd_jenis_prw")+"</td>"+
+                                                "<td>"+rs.getString("nm_perawatan")+"</td>"+
+                                            "</tr>"
+                                );
+                                tabModePA.addRow(new Object[]{
+                                    true,rs.getString("kd_jenis_prw"),rs.getString("nm_perawatan")
+                                });
+                            }
+                            htmlContent.append( 
+                                        "</table>"+
+                                    "</td>"+
+                                "</tr>"
+                            ); 
+                        }
+                    } catch (Exception e) {
+                        System.out.println("Notif : "+e);
+                    } finally{
+                        if(rs!=null){
+                            rs.close();
+                        }
+                        if(ps!=null){
+                            ps.close();
+                        }
+                    }
+                    
+                    ps=koneksi.prepareStatement(
+                            "select template_pemeriksaan_dokter_permintaan_lab.kd_jenis_prw,jns_perawatan_lab.nm_perawatan from template_pemeriksaan_dokter_permintaan_lab "+
+                            "inner join jns_perawatan_lab on template_pemeriksaan_dokter_permintaan_lab.kd_jenis_prw=jns_perawatan_lab.kd_jenis_prw "+
+                            "where template_pemeriksaan_dokter_permintaan_lab.no_template=? and jns_perawatan_lab.kategori='MB'");
+                    try {
+                        ps.setString(1,tabMode.getValueAt(tbDokter.getSelectedRow(),0).toString());
+                        rs=ps.executeQuery();
+                        if(rs.next()){
+                            htmlContent.append(                             
+                                "<tr class='isi'>"+
+                                    "<td valign='top' align='left' width='100%'>"+
+                                        "Permintaan Laborat Mikrobiologi & Bio Molekuler : "+
+                                        "<table width='100%' border='0' align='center' cellpadding='3px' cellspacing='0' class='tbl_form'>"+
+                                            "<tr class='isi'>"+
+                                                "<td valign='middle' bgcolor='#FFFAF8' align='center' width='15%'>Kode Periksa</td>"+
+                                                "<td valign='middle' bgcolor='#FFFAF8' align='center' width='85%'>Nama Pemeriksaan</td>"+
+                                            "</tr>"
+                            );
+                            Valid.tabelKosong(tabModeMB);
+                            rs.beforeFirst();
+                            while(rs.next()){
+                                htmlContent.append(
+                                            "<tr class='isi'>"+
+                                                "<td align='center'>"+rs.getString("kd_jenis_prw")+"</td>"+
+                                                "<td>"+rs.getString("nm_perawatan")+"</td>"+
+                                            "</tr>"
+                                );
+                                tabModeMB.addRow(new Object[]{
+                                    true,rs.getString("kd_jenis_prw"),rs.getString("nm_perawatan")
+                                });
+                                try {
+                                    ps2=koneksi.prepareStatement(
+                                            "select template_pemeriksaan_dokter_detail_permintaan_lab.id_template,template_laboratorium.Pemeriksaan,template_laboratorium.satuan,template_laboratorium.nilai_rujukan_ld,template_laboratorium.nilai_rujukan_la,template_laboratorium.nilai_rujukan_pd,template_laboratorium.nilai_rujukan_pa "+
+                                            "from template_pemeriksaan_dokter_detail_permintaan_lab inner join template_laboratorium on template_pemeriksaan_dokter_detail_permintaan_lab.id_template=template_laboratorium.id_template where template_pemeriksaan_dokter_detail_permintaan_lab.no_template=? and "+
+                                            "template_pemeriksaan_dokter_detail_permintaan_lab.kd_jenis_prw=? order by template_laboratorium.urut");
+                                    ps2.setString(1,tabMode.getValueAt(tbDokter.getSelectedRow(),0).toString());
+                                    ps2.setString(2,rs.getString("kd_jenis_prw"));
+                                    rs2=ps2.executeQuery();
+                                    if(rs2.next()){
+                                        htmlContent.append(
+                                            "<tr class='isi'>"+
+                                                "<td align='center' width='15%'></td>"+
+                                                "<td width='85%'>"+
+                                                    "<table width='100%' border='0' align='center' cellpadding='3px' cellspacing='0' class='tbl_form'>"+
+                                                        "<tr class='isi'>"+
+                                                            "<td valign='middle' bgcolor='#FFFAF8' align='center' width='40%'>Pemeriksaan</td>"+
+                                                            "<td valign='middle' bgcolor='#FFFAF8' align='center' width='20%'>Satuan</td>"+
+                                                            "<td valign='middle' bgcolor='#FFFAF8' align='center' width='40%'>Nilai Rujukan</td>"+
+                                                        "</tr>"
+                                        );
+                                        Valid.tabelKosong(tabModeDetailMB);
+                                        rs2.beforeFirst();
+                                        while(rs2.next()){
+                                            la="";ld="";pa="";pd="";
+                                            if(!rs2.getString("nilai_rujukan_ld").equals("")){
+                                                ld="LD : "+rs2.getString("nilai_rujukan_ld");
+                                            }
+                                            if(!rs2.getString("nilai_rujukan_la").equals("")){
+                                                la=", LA : "+rs2.getString("nilai_rujukan_la");
+                                            }
+                                            if(!rs2.getString("nilai_rujukan_pa").equals("")){
+                                                pd=", PD : "+rs2.getString("nilai_rujukan_pd");
+                                            }
+                                            if(!rs2.getString("nilai_rujukan_pd").equals("")){
+                                                pa=" PA : "+rs2.getString("nilai_rujukan_pa");
+                                            }
+                                            htmlContent.append(
+                                                        "<tr class='isi'>"+
+                                                            "<td>"+rs2.getString("Pemeriksaan")+"</td>"+
+                                                            "<td align='center'>"+rs2.getString("satuan")+"</td>"+
+                                                            "<td>"+ld+la+pd+pa+"</td>"+
+                                                        "</tr>"
+                                            );
+                                            tabModeDetailMB.addRow(new Object[]{
+                                                true,"   "+rs2.getString("Pemeriksaan"),rs2.getString("satuan"),ld+la+pd+pa,rs2.getString("id_template"),rs.getString("kd_jenis_prw")
+                                            });
+                                        }
+                                        htmlContent.append(
+                                                    "</table>"+
+                                                "</td>"+
+                                            "</tr>"
+                                        );
+                                    }
+                                } catch (Exception e) {
+                                    System.out.println("Notif : "+e);
+                                } finally{
+                                    if(rs2!=null){
+                                        rs2.close();
+                                    }
+                                    if(ps2!=null){
+                                        ps2.close();
+                                    }
+                                }
+                            }
+                            htmlContent.append( 
+                                        "</table>"+
+                                    "</td>"+
+                                "</tr>"
+                            ); 
+                        }
+                    } catch (Exception e) {
+                        System.out.println("Notif : "+e);
+                    } finally{
+                        if(rs!=null){
+                            rs.close();
+                        }
+                        if(ps!=null){
+                            ps.close();
+                        }
+                    }
+                    
+                    ps=koneksi.prepareStatement(
+                            "select template_pemeriksaan_dokter_resep.kode_brng,databarang.nama_brng,kodesatuan.satuan,template_pemeriksaan_dokter_resep.jml,template_pemeriksaan_dokter_resep.aturan_pakai,jenis.nama,industrifarmasi.nama_industri, "+
+                            "databarang.kapasitas,databarang.letak_barang from template_pemeriksaan_dokter_resep inner join databarang on template_pemeriksaan_dokter_resep.kode_brng=databarang.kode_brng inner join kodesatuan on kodesatuan.kode_sat=databarang.kode_sat "+
+                            "inner join jenis on databarang.kdjns=jenis.kdjns inner join industrifarmasi on industrifarmasi.kode_industri=databarang.kode_industri where template_pemeriksaan_dokter_resep.no_template=? order by databarang.nama_brng");
+                    try {
+                        ps.setString(1,tabMode.getValueAt(tbDokter.getSelectedRow(),0).toString());
+                        rs=ps.executeQuery();
+                        if(rs.next()){
+                            htmlContent.append(                             
+                                "<tr class='isi'>"+
+                                    "<td valign='top' align='left' width='100%'>"+
+                                        "Obat Non Racikan : "+
+                                        "<table width='100%' border='0' align='center' cellpadding='3px' cellspacing='0' class='tbl_form'>"+
+                                            "<tr class='isi'>"+
+                                                "<td valign='middle' bgcolor='#FFFAF8' align='center' width='5%'>Jumlah</td>"+
+                                                "<td valign='middle' bgcolor='#FFFAF8' align='center' width='10%'>Kode Barang</td>"+
+                                                "<td valign='middle' bgcolor='#FFFAF8' align='center' width='45%'>Nama Barang</td>"+
+                                                "<td valign='middle' bgcolor='#FFFAF8' align='center' width='10%'>Satuan</td>"+
+                                                "<td valign='middle' bgcolor='#FFFAF8' align='center' width='30%'>Aturan Pakai</td>"+
+                                            "</tr>"
+                            );
+                            Valid.tabelKosong(tabModeObatUmum);
+                            rs.beforeFirst();
+                            while(rs.next()){
+                                htmlContent.append(
+                                            "<tr class='isi'>"+
+                                                "<td align='center'>"+rs.getString("jml")+"</td>"+
+                                                "<td align='center'>"+rs.getString("kode_brng")+"</td>"+
+                                                "<td>"+rs.getString("nama_brng")+"</td>"+
+                                                "<td align='center'>"+rs.getString("satuan")+"</td>"+
+                                                "<td>"+rs.getString("aturan_pakai")+"</td>"+
+                                            "</tr>"
+                                );
+                                tabModeObatUmum.addRow(new Object[]{
+                                    false,rs.getString("jml"),rs.getString("kode_brng"),rs.getString("nama_brng"),rs.getString("satuan"),rs.getString("letak_barang"),rs.getString("nama"),rs.getString("aturan_pakai"),rs.getString("nama_industri"),rs.getDouble("kapasitas")
+                                });
+                            }
+                            htmlContent.append( 
+                                        "</table>"+
+                                    "</td>"+
+                                "</tr>"
+                            ); 
+
+                        }
+                    } catch (Exception e) {
+                        System.out.println("Notif : "+e);
+                    } finally{
+                        if(rs!=null){
+                            rs.close();
+                        }
+                        if(ps!=null){
+                            ps.close();
+                        }
+                    }
+                    
+                    ps=koneksi.prepareStatement(
+                            "select template_pemeriksaan_dokter_resep_racikan.no_racik,template_pemeriksaan_dokter_resep_racikan.kd_racik,template_pemeriksaan_dokter_resep_racikan.nama_racik,metode_racik.nm_racik,template_pemeriksaan_dokter_resep_racikan.jml_dr,template_pemeriksaan_dokter_resep_racikan.aturan_pakai,"+
+                            "template_pemeriksaan_dokter_resep_racikan.keterangan from template_pemeriksaan_dokter_resep_racikan inner join metode_racik on metode_racik.kd_racik=template_pemeriksaan_dokter_resep_racikan.kd_racik where template_pemeriksaan_dokter_resep_racikan.no_template=? "+
+                            "order by template_pemeriksaan_dokter_resep_racikan.no_racik");
+                    try {
+                        ps.setString(1,tabMode.getValueAt(tbDokter.getSelectedRow(),0).toString());
+                        rs=ps.executeQuery();
+                        if(rs.next()){
+                            htmlContent.append(                             
+                                "<tr class='isi'>"+
+                                    "<td valign='top' align='left' width='100%'>"+
+                                        "Obat Racikan : "+
+                                        "<table width='100%' border='0' align='center' cellpadding='3px' cellspacing='0' class='tbl_form'>"+
+                                            "<tr class='isi'>"+
+                                                "<td valign='middle' bgcolor='#FFFAF8' align='center' width='3%'>No.</td>"+
+                                                "<td valign='middle' bgcolor='#FFFAF8' align='center' width='33%'>Nama Racikan</td>"+
+                                                "<td valign='middle' bgcolor='#FFFAF8' align='center' width='11%'>Metode Racik</td>"+
+                                                "<td valign='middle' bgcolor='#FFFAF8' align='center' width='6%'>Jml.Racik</td>"+
+                                                "<td valign='middle' bgcolor='#FFFAF8' align='center' width='25%'>Aturan Pakai</td>"+
+                                                "<td valign='middle' bgcolor='#FFFAF8' align='center' width='22%'>Keterangan</td>"+
+                                            "</tr>"
+                            );
+                            Valid.tabelKosong(tabModeObatRacikan);
+                            rs.beforeFirst();
+                            while(rs.next()){
+                                htmlContent.append(
+                                            "<tr class='isi'>"+
+                                                "<td align='center'>"+rs.getString("no_racik")+"</td>"+
+                                                "<td>"+rs.getString("nama_racik")+"</td>"+
+                                                "<td align='center'>"+rs.getString("nm_racik")+"</td>"+
+                                                "<td align='center'>"+rs.getString("jml_dr")+"</td>"+
+                                                "<td>"+rs.getString("aturan_pakai")+"</td>"+
+                                                "<td>"+rs.getString("keterangan")+"</td>"+
+                                            "</tr>"
+                                );
+                                tabModeObatRacikan.addRow(new Object[]{
+                                    rs.getString("no_racik"),rs.getString("nama_racik"),rs.getString("kd_racik"),rs.getString("nm_racik"),rs.getString("jml_dr"),rs.getString("aturan_pakai"),rs.getString("keterangan")
+                                });
+                                try {
+                                    ps2=koneksi.prepareStatement(
+                                            "select template_pemeriksaan_dokter_resep_racikan_detail.kode_brng,databarang.nama_brng,kodesatuan.satuan,template_pemeriksaan_dokter_resep_racikan_detail.jml "+
+                                            "from template_pemeriksaan_dokter_resep_racikan_detail inner join databarang on template_pemeriksaan_dokter_resep_racikan_detail.kode_brng=databarang.kode_brng "+
+                                            "inner join kodesatuan on kodesatuan.kode_sat=databarang.kode_sat where template_pemeriksaan_dokter_resep_racikan_detail.no_template=? and "+
+                                            "template_pemeriksaan_dokter_resep_racikan_detail.no_racik=? order by template_pemeriksaan_dokter_resep_racikan_detail.kode_brng");
+                                    ps2.setString(1,tabMode.getValueAt(tbDokter.getSelectedRow(),0).toString());
+                                    ps2.setString(2,rs.getString("no_racik"));
+                                    rs2=ps2.executeQuery();
+                                    if(rs2.next()){
+                                        htmlContent.append(
+                                            "<tr class='isi'>"+
+                                                "<td align='center' width='15%'></td>"+
+                                                "<td width='85%' colspan='5'>"+
+                                                    "<table width='100%' border='0' align='center' cellpadding='3px' cellspacing='0' class='tbl_form'>"+
+                                                        "<tr class='isi'>"+
+                                                            "<td valign='middle' bgcolor='#FFFAF8' align='center' width='10%'>Jumlah</td>"+
+                                                            "<td valign='middle' bgcolor='#FFFAF8' align='center' width='20%'>Satuan</td>"+
+                                                            "<td valign='middle' bgcolor='#FFFAF8' align='center' width='20%'>Kode Obat</td>"+
+                                                            "<td valign='middle' bgcolor='#FFFAF8' align='center' width='50%'>Nama Obat</td>"+
+                                                        "</tr>"
+                                        );
+                                        rs2.beforeFirst();
+                                        while(rs2.next()){
+                                            htmlContent.append(
+                                                        "<tr class='isi'>"+
+                                                            "<td align='center'>"+rs2.getString("jml")+"</td>"+
+                                                            "<td align='center'>"+rs2.getString("satuan")+"</td>"+
+                                                            "<td align='center'>"+rs2.getString("kode_brng")+"</td>"+
+                                                            "<td align='left'>"+rs2.getString("nama_brng")+"</td>"+
+                                                        "</tr>"
+                                            );
+                                        }
+                                        htmlContent.append(
+                                                    "</table>"+
+                                                "</td>"+
+                                            "</tr>"
+                                        );
+                                    }
+                                } catch (Exception e) {
+                                    System.out.println("Notif : "+e);
+                                } finally{
+                                    if(rs2!=null){
+                                        rs2.close();
+                                    }
+                                    if(ps2!=null){
+                                        ps2.close();
+                                    }
+                                }
+                            }
+                            htmlContent.append( 
+                                        "</table>"+
+                                    "</td>"+
+                                "</tr>"
+                            ); 
+                        }
+                    } catch (Exception e) {
+                        System.out.println("Notif : "+e);
+                    } finally{
+                        if(rs!=null){
+                            rs.close();
+                        }
+                        if(ps!=null){
+                            ps.close();
+                        }
+                    }
+
+                    ps=koneksi.prepareStatement(
+                            "select template_pemeriksaan_dokter_tindakan.kd_jenis_prw,jns_perawatan.nm_perawatan,kategori_perawatan.nm_kategori from template_pemeriksaan_dokter_tindakan inner join jns_perawatan "+
+                            "on template_pemeriksaan_dokter_tindakan.kd_jenis_prw=jns_perawatan.kd_jenis_prw inner join kategori_perawatan on kategori_perawatan.kd_kategori=jns_perawatan.kd_kategori "+
+                            "where template_pemeriksaan_dokter_tindakan.no_template=?");
+                    try {
+                        ps.setString(1,tabMode.getValueAt(tbDokter.getSelectedRow(),0).toString());
+                        rs=ps.executeQuery();
+                        if(rs.next()){
+                            htmlContent.append(                             
+                                "<tr class='isi'>"+
+                                    "<td valign='top' align='left' width='100%'>"+
+                                        "Tindakan : "+
+                                        "<table width='100%' border='0' align='center' cellpadding='3px' cellspacing='0' class='tbl_form'>"+
+                                            "<tr class='isi'>"+
+                                                "<td valign='middle' bgcolor='#FFFAF8' align='center' width='20%'>Kode</td>"+
+                                                "<td valign='middle' bgcolor='#FFFAF8' align='center' width='50%'>Nama Perawatan/Tindakan</td>"+
+                                                "<td valign='middle' bgcolor='#FFFAF8' align='center' width='30%'>Kategori</td>"+
                                             "</tr>"
                             );
                             rs.beforeFirst();
                             while(rs.next()){
                                 htmlContent.append(
                                             "<tr class='isi'>"+
-                                                "<td align='center' width='25%'>"+rs.getString("kd_jenis_prw")+"</td>"+
-                                                "<td width='75%'>"+rs.getString("nm_perawatan")+"</td>"+
+                                                "<td align='center'>"+rs.getString("kd_jenis_prw")+"</td>"+
+                                                "<td>"+rs.getString("nm_perawatan")+"</td>"+
+                                                "<td align='center'>"+rs.getString("nm_kategori")+"</td>"+
                                             "</tr>"
                                 );
                             }
@@ -4145,7 +4589,7 @@ private void KdKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TKdKey
                             ps.close();
                         }
                     }
-
+                    
                     LoadHTML.setText(
                         "<html>"+
                           "<table width='100%' border='0' align='center' cellpadding='3px' cellspacing='0' class='tbl_form'>"+
@@ -4156,6 +4600,142 @@ private void KdKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TKdKey
                     System.out.println("Notif : "+e);
                 }
             }
+        }
+    }
+    
+    private void ganti(){
+        if(Sequel.queryu2tf("delete from template_pemeriksaan_dokter where no_template=?",1,new String[]{
+            tbDokter.getValueAt(tbDokter.getSelectedRow(),0).toString()
+        })==true){
+            if(Sequel.menyimpantf("template_pemeriksaan_dokter","?,?,?,?,?,?,?,?","No.Template",8,new String[]{
+                tbDokter.getValueAt(tbDokter.getSelectedRow(),0).toString(),KdDokter.getText(),Subjek.getText(),Objek.getText(),Asesmen.getText(),Plan.getText(),Instruksi.getText(),Evaluasi.getText()
+            })==true){
+                index=1;
+                for(i=0;i<tbDiagnosa.getRowCount();i++){ 
+                    if(tbDiagnosa.getValueAt(i,0).toString().equals("true")){
+                        Sequel.menyimpan("template_pemeriksaan_dokter_penyakit","?,?,?","ICD X",3,new String[]{
+                            tbDokter.getValueAt(tbDokter.getSelectedRow(),0).toString(),tbDiagnosa.getValueAt(i,1).toString(),index+""
+                        });
+                        index++;
+                    }
+                }
+                index=1;
+                for(i=0;i<tbProsedur.getRowCount();i++){ 
+                    if(tbProsedur.getValueAt(i,0).toString().equals("true")){
+                        Sequel.menyimpan("template_pemeriksaan_dokter_prosedur","?,?,?","ICD 9",3,new String[]{
+                            tbDokter.getValueAt(tbDokter.getSelectedRow(),0).toString(),tbProsedur.getValueAt(i,1).toString(),index+""
+                        });
+                        index++;
+                    }
+                }
+                for(i=0;i<tbPermintaanRadiologi.getRowCount();i++){ 
+                    if(tbPermintaanRadiologi.getValueAt(i,0).toString().equals("true")){
+                        Sequel.menyimpan("template_pemeriksaan_dokter_permintaan_radiologi","?,?","Pemeriksaan Radiologi",2,new String[]{
+                            tbDokter.getValueAt(tbDokter.getSelectedRow(),0).toString(),tbPermintaanRadiologi.getValueAt(i,1).toString()
+                        });
+                    }
+                }
+                for(i=0;i<tbPermintaanPK.getRowCount();i++){ 
+                    if(tbPermintaanPK.getValueAt(i,0).toString().equals("true")){
+                        Sequel.menyimpan("template_pemeriksaan_dokter_permintaan_lab","?,?","Pemeriksaan Laboratorium PK",2,new String[]{
+                            tbDokter.getValueAt(tbDokter.getSelectedRow(),0).toString(),tbPermintaanPK.getValueAt(i,1).toString()
+                        });
+                    }
+                }
+                for(i=0;i<tbDetailPK.getRowCount();i++){ 
+                    if((!tbDetailPK.getValueAt(i,4).toString().equals(""))&&tbDetailPK.getValueAt(i,0).toString().equals("true")){  
+                        Sequel.menyimpan("template_pemeriksaan_dokter_detail_permintaan_lab","?,?,?","Detail Pemeriksaan Laboratorium PK",3,new String[]{
+                            tbDokter.getValueAt(tbDokter.getSelectedRow(),0).toString(),tbDetailPK.getValueAt(i,5).toString(),tbDetailPK.getValueAt(i,4).toString()
+                        });
+                    }
+                }
+                for(i=0;i<tbPermintaanPA.getRowCount();i++){ 
+                    if(tbPermintaanPA.getValueAt(i,0).toString().equals("true")){
+                        Sequel.menyimpan("template_pemeriksaan_dokter_permintaan_lab","?,?","Pemeriksaan Laboratorium PA",2,new String[]{
+                            tbDokter.getValueAt(tbDokter.getSelectedRow(),0).toString(),tbPermintaanPA.getValueAt(i,1).toString()
+                        });
+                    }
+                }
+                for(i=0;i<tbPermintaanMB.getRowCount();i++){ 
+                    if(tbPermintaanMB.getValueAt(i,0).toString().equals("true")){
+                        Sequel.menyimpan("template_pemeriksaan_dokter_permintaan_lab","?,?","Pemeriksaan Laboratorium PK",2,new String[]{
+                            tbDokter.getValueAt(tbDokter.getSelectedRow(),0).toString(),tbPermintaanMB.getValueAt(i,1).toString()
+                        });
+                    }
+                }
+                for(i=0;i<tbDetailMB.getRowCount();i++){ 
+                    if((!tbDetailMB.getValueAt(i,4).toString().equals(""))&&tbDetailMB.getValueAt(i,0).toString().equals("true")){  
+                        Sequel.menyimpan("template_pemeriksaan_dokter_detail_permintaan_lab","?,?,?","Detail Pemeriksaan Laboratorium PK",3,new String[]{
+                            tbDokter.getValueAt(tbDokter.getSelectedRow(),0).toString(),tbDetailMB.getValueAt(i,5).toString(),tbDetailMB.getValueAt(i,4).toString()
+                        });
+                    }
+                }
+                for(i=0;i<tbObatNonRacikan.getRowCount();i++){ 
+                    if(Valid.SetAngka(tbObatNonRacikan.getValueAt(i,1).toString())>0){  
+                        if(tbObatNonRacikan.getValueAt(i,0).toString().equals("true")){
+                            if(Valid.SetAngka(tbObatNonRacikan.getValueAt(i,9).toString())>0){
+                                Sequel.menyimpan("template_pemeriksaan_dokter_resep","?,?,?,?","Obat Non Racikan",4,new String[]{
+                                    tbDokter.getValueAt(tbDokter.getSelectedRow(),0).toString(),tbObatNonRacikan.getValueAt(i,2).toString(),""+(Double.parseDouble(tbObatNonRacikan.getValueAt(i,1).toString())/Valid.SetAngka(tbObatNonRacikan.getValueAt(i,9).toString())),tbObatNonRacikan.getValueAt(i,7).toString()
+                                });
+                            }else{
+                                Sequel.menyimpan("template_pemeriksaan_dokter_resep","?,?,?,?","Obat Non Racikan",4,new String[]{
+                                    tbDokter.getValueAt(tbDokter.getSelectedRow(),0).toString(),tbObatNonRacikan.getValueAt(i,2).toString(),""+Double.parseDouble(tbObatNonRacikan.getValueAt(i,1).toString()),tbObatNonRacikan.getValueAt(i,7).toString()
+                                });
+                            }
+                        }else{
+                            Sequel.menyimpan("template_pemeriksaan_dokter_resep","?,?,?,?","Obat Non Racikan",4,new String[]{
+                                tbDokter.getValueAt(tbDokter.getSelectedRow(),0).toString(),tbObatNonRacikan.getValueAt(i,2).toString(),""+Double.parseDouble(tbObatNonRacikan.getValueAt(i,1).toString()),tbObatNonRacikan.getValueAt(i,7).toString()
+                            });
+                        }
+                    }
+                }
+                for(i=0;i<tbObatRacikan.getRowCount();i++){ 
+                    if(Valid.SetAngka(tbObatRacikan.getValueAt(i,4).toString())>0){ 
+                        Sequel.menyimpan("template_pemeriksaan_dokter_resep_racikan","?,?,?,?,?,?,?","Obat Racikan",7,new String[]{
+                           tbDokter.getValueAt(tbDokter.getSelectedRow(),0).toString(),tbObatRacikan.getValueAt(i,0).toString(),tbObatRacikan.getValueAt(i,1).toString(),
+                           tbObatRacikan.getValueAt(i,2).toString(),tbObatRacikan.getValueAt(i,4).toString(),
+                           tbObatRacikan.getValueAt(i,5).toString(),tbObatRacikan.getValueAt(i,6).toString()
+                        });
+                    }
+                }
+                for(i=0;i<tbDetailObatRacikan.getRowCount();i++){ 
+                    if(Valid.SetAngka(tbDetailObatRacikan.getValueAt(i,10).toString())>0){
+                        Sequel.menyimpan("template_pemeriksaan_dokter_resep_racikan_detail","?,?,?,?,?,?,?","Detail Obat Racikan",7,new String[]{
+                           tbDokter.getValueAt(tbDokter.getSelectedRow(),0).toString(),tbDetailObatRacikan.getValueAt(i,0).toString(),tbDetailObatRacikan.getValueAt(i,1).toString(),
+                           tbDetailObatRacikan.getValueAt(i,6).toString(),tbDetailObatRacikan.getValueAt(i,8).toString(),
+                           tbDetailObatRacikan.getValueAt(i,9).toString(),tbDetailObatRacikan.getValueAt(i,10).toString()
+                        });
+                    }
+                }
+                for(i=0;i<tbTindakan.getRowCount();i++){ 
+                    if(tbTindakan.getValueAt(i,0).toString().equals("true")){
+                        Sequel.menyimpan("template_pemeriksaan_dokter_tindakan","?,?","Tindakan Dokter",2,new String[]{
+                            tbDokter.getValueAt(tbDokter.getSelectedRow(),0).toString(),tbTindakan.getValueAt(i,1).toString()
+                        });
+                    }
+                }
+                tabMode.addRow(new String[]{
+                    tbDokter.getValueAt(tbDokter.getSelectedRow(),0).toString(),KdDokter.getText(),NmDokter.getText(),Subjek.getText(),Objek.getText(),Plan.getText(),Instruksi.getText(),Evaluasi.getText()
+                });
+                ChkAccor.setSelected(false);
+                isDetail();
+                TabRawat.setSelectedIndex(1);
+            } 
+        }else{
+            JOptionPane.showMessageDialog(null,"Gagal mengganti..!!");
+        }
+    }
+    
+    private void hapus(){
+        if(Sequel.queryu2tf("delete from template_pemeriksaan_dokter where no_template=?",1,new String[]{
+            tbDokter.getValueAt(tbDokter.getSelectedRow(),0).toString()
+        })==true){
+            tabMode.removeRow(tbDokter.getSelectedRow());
+            LCount.setText(""+tabMode.getRowCount());
+            LoadHTML.setText("");
+            TabRawat.setSelectedIndex(1);
+        }else{
+            JOptionPane.showMessageDialog(null,"Gagal menghapus..!!");
         }
     }
 }
