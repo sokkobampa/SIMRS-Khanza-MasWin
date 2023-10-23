@@ -495,7 +495,7 @@ where resume_pasien.no_rawat= $P{norawat}]]>
 					<font fontName="Tahoma" size="8" isItalic="false" isUnderline="false"/>
 					<paragraph lineSpacing="Single"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{keluhan_utama}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{keluhan_utama}.replace("\n", " ").replace("\r", " ").replace(System.getProperty("line.separator"), " ")]]></textFieldExpression>
 			</textField>
 			<staticText>
 				<reportElement x="6" y="245" width="239" height="10" uuid="7a406491-2081-46ef-9ccd-b78e59344835">
@@ -596,7 +596,7 @@ where resume_pasien.no_rawat= $P{norawat}]]>
 					<font fontName="Tahoma" size="8" isItalic="false" isUnderline="false"/>
 					<paragraph lineSpacing="Single"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{jalannya_penyakit}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{jalannya_penyakit}.replace("\n", " ").replace("\r", " ").replace(System.getProperty("line.separator"), " ")]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement mode="Transparent" x="16" y="335" width="510" height="63" backcolor="#CCCCCC" uuid="960c30f5-afa4-46eb-a156-261ddb442c78"/>
@@ -604,7 +604,7 @@ where resume_pasien.no_rawat= $P{norawat}]]>
 					<font fontName="Tahoma" size="8" isItalic="false" isUnderline="false"/>
 					<paragraph lineSpacing="Single"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{pemeriksaan_penunjang}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{pemeriksaan_penunjang}.replace("\n", " ").replace("\r", " ").replace(System.getProperty("line.separator"), " ")]]></textFieldExpression>
 			</textField>
 			<staticText>
 				<reportElement x="6" y="323" width="239" height="10" uuid="18aa9357-97f6-47ad-956a-b99e97d209b7">
@@ -622,7 +622,7 @@ where resume_pasien.no_rawat= $P{norawat}]]>
 					<font fontName="Tahoma" size="8" isItalic="false" isUnderline="false"/>
 					<paragraph lineSpacing="Single"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{hasil_laborat}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{hasil_laborat}.replace("\n", " ").replace("\r", " ").replace(System.getProperty("line.separator"), " ")]]></textFieldExpression>
 			</textField>
 			<staticText>
 				<reportElement x="6" y="401" width="239" height="10" uuid="2cfb31db-d13f-414d-b98c-869aa0726316">
@@ -1230,7 +1230,7 @@ where resume_pasien.no_rawat= $P{norawat}]]>
 					<font fontName="Tahoma" size="8" isItalic="false" isUnderline="false"/>
 					<paragraph lineSpacing="Single"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{obat_pulang}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{obat_pulang}.replace("\n", " ").replace("\r", " ").replace(System.getProperty("line.separator"), " ")]]></textFieldExpression>
 			</textField>
 			<staticText>
 				<reportElement x="6" y="621" width="239" height="10" uuid="cf9d4e4a-55b8-47d8-b9ea-a03e097acb46">
