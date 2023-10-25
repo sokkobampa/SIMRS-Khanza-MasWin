@@ -858,6 +858,7 @@ import rekammedis.RMPenilaianAwalMedisRalanNeurologi;
 import rekammedis.RMPenilaianAwalMedisRalanOrthopedi;
 import rekammedis.RMPenilaianAwalMedisRalanPenyakitDalam;
 import rekammedis.RMPenilaianAwalMedisRalanPsikiatrik;
+import rekammedis.RMPenilaianAwalMedisRalanRehabMedik;
 import rekammedis.RMPenilaianAwalMedisRalanTHT;
 import rekammedis.RMPenilaianAwalMedisRanapDewasa;
 import rekammedis.RMPenilaianAwalMedisRanapKandungan;
@@ -868,6 +869,7 @@ import rekammedis.RMPenilaianLanjutanRisikoJatuhDewasa;
 import rekammedis.RMPenilaianLanjutanRisikoJatuhGeriatri;
 import rekammedis.RMPenilaianLanjutanRisikoJatuhLansia;
 import rekammedis.RMPenilaianLanjutanRisikoJatuhPsikiatri;
+import rekammedis.RMPenilaianLanjutanSkriningFungsional;
 import rekammedis.RMPenilaianLevelKecemasanRanapAnak;
 import rekammedis.RMPenilaianPasienKeracunan;
 import rekammedis.RMPenilaianPasienPenyakitMenular;
@@ -20670,6 +20672,32 @@ private void MnGantiPasswordBtnLogActionPerformed(java.awt.event.ActionEvent evt
         this.setCursor(Cursor.getDefaultCursor());
     }
     
+    private void btnPenilaianLanjutanSkriningFungsionalActionPerformed(java.awt.event.ActionEvent evt) {
+        isTutup();
+        DlgHome.dispose();
+        this.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
+        RMPenilaianLanjutanSkriningFungsional aplikasi=new RMPenilaianLanjutanSkriningFungsional(this,false);
+        aplikasi.isCek();
+        aplikasi.emptTeks();
+        aplikasi.setSize(PanelUtama.getWidth(), PanelUtama.getHeight());
+        aplikasi.setLocationRelativeTo(PanelUtama);
+        aplikasi.setVisible(true);
+        this.setCursor(Cursor.getDefaultCursor());
+    }
+    
+    private void btnPenilaianAwalMedisRalanRehabMedikActionPerformed(java.awt.event.ActionEvent evt) {
+        isTutup();
+        DlgHome.dispose();
+        this.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
+        RMPenilaianAwalMedisRalanRehabMedik aplikasi=new RMPenilaianAwalMedisRalanRehabMedik(this,false);
+        aplikasi.isCek();
+        aplikasi.emptTeks();
+        aplikasi.setSize(PanelUtama.getWidth(), PanelUtama.getHeight());
+        aplikasi.setLocationRelativeTo(PanelUtama);
+        aplikasi.setVisible(true);
+        this.setCursor(Cursor.getDefaultCursor());
+    }
+    
     /**
     * @param args the command line arguments
     */
@@ -24784,6 +24812,11 @@ private void MnGantiPasswordBtnLogActionPerformed(java.awt.event.ActionEvent evt
             
             if(akses.getpenilaian_awal_medis_ralan_kebidanan()==true){
                 Panelmenu.add(btnPenilaianAwalMedisRalanKandungan);
+                jmlmenu++;
+            }
+            
+            if(akses.getpenilaian_medis_ralan_rehab_medik()==true){
+                Panelmenu.add(btnPenilaianAwalMedisRalanRehabMedik);
                 jmlmenu++;
             }
             
@@ -35840,6 +35873,13 @@ private void MnGantiPasswordBtnLogActionPerformed(java.awt.event.ActionEvent evt
             }                
         }
         
+        if(akses.getpenilaian_medis_ralan_rehab_medik()==true){
+            if(btnPenilaianAwalMedisRalanRehabMedik.getText().toLowerCase().trim().contains(TCari.getText().toLowerCase().trim())){
+                Panelmenu.add(btnPenilaianAwalMedisRalanRehabMedik);
+                jmlmenu++;
+            }                
+        }
+        
         if(akses.getpenilaian_awal_medis_ranap_kebidanan()==true){
             if(btnPenilaianAwalMedisRanapKandungan.getText().toLowerCase().trim().contains(TCari.getText().toLowerCase().trim())){
                 Panelmenu.add(btnPenilaianAwalMedisRanapKandungan);
@@ -42079,21 +42119,21 @@ private void MnGantiPasswordBtnLogActionPerformed(java.awt.event.ActionEvent evt
         btnPenilaianRisikoJatuhPsikiatri.setPreferredSize(new java.awt.Dimension(200, 90));
         btnPenilaianRisikoJatuhPsikiatri.addActionListener(this::btnPenilaianRisikoJatuhPsikiatriActionPerformed);
         
-//        btnPenilaianLanjutanSkriningFungsional = new widget.ButtonBig();
-//        btnPenilaianLanjutanSkriningFungsional.setIcon(new javax.swing.ImageIcon(getClass().getResource("/48x48/6000610_covid19_people_scan_tempurature_virus_icon.png"))); 
-//        btnPenilaianLanjutanSkriningFungsional.setText("Penilaian Lanjutan Skrining Fungsional");
-//        btnPenilaianLanjutanSkriningFungsional.setIconTextGap(0);
-//        btnPenilaianLanjutanSkriningFungsional.setName("btnPenilaianLanjutanSkriningFungsional"); 
-//        btnPenilaianLanjutanSkriningFungsional.setPreferredSize(new java.awt.Dimension(200, 90));
-//        btnPenilaianLanjutanSkriningFungsional.addActionListener(this::btnPenilaianLanjutanSkriningFungsionalActionPerformed);
+        btnPenilaianLanjutanSkriningFungsional = new widget.ButtonBig();
+        btnPenilaianLanjutanSkriningFungsional.setIcon(new javax.swing.ImageIcon(getClass().getResource("/48x48/6000610_covid19_people_scan_tempurature_virus_icon.png"))); 
+        btnPenilaianLanjutanSkriningFungsional.setText("Penilaian Lanjutan Skrining Fungsional");
+        btnPenilaianLanjutanSkriningFungsional.setIconTextGap(0);
+        btnPenilaianLanjutanSkriningFungsional.setName("btnPenilaianLanjutanSkriningFungsional"); 
+        btnPenilaianLanjutanSkriningFungsional.setPreferredSize(new java.awt.Dimension(200, 90));
+        btnPenilaianLanjutanSkriningFungsional.addActionListener(this::btnPenilaianLanjutanSkriningFungsionalActionPerformed);
         
-//        btnPenilaianAwalMedisRalanRehabMedik = new widget.ButtonBig();
-//        btnPenilaianAwalMedisRalanRehabMedik.setIcon(new javax.swing.ImageIcon(getClass().getResource("/48x48/6141446_convalescence_covid19_recovered_recuperate_rehabilitation_icon.png"))); 
-//        btnPenilaianAwalMedisRalanRehabMedik.setText("Penilaian Awal Medis Ralan Fisik & Rehabilitasi");
-//        btnPenilaianAwalMedisRalanRehabMedik.setIconTextGap(0);
-//        btnPenilaianAwalMedisRalanRehabMedik.setName("btnPenilaianAwalMedisRalanRehabMedik"); 
-//        btnPenilaianAwalMedisRalanRehabMedik.setPreferredSize(new java.awt.Dimension(200, 90));
-//        btnPenilaianAwalMedisRalanRehabMedik.addActionListener(this::btnPenilaianAwalMedisRalanRehabMedikActionPerformed);
+        btnPenilaianAwalMedisRalanRehabMedik = new widget.ButtonBig();
+        btnPenilaianAwalMedisRalanRehabMedik.setIcon(new javax.swing.ImageIcon(getClass().getResource("/48x48/6141446_convalescence_covid19_recovered_recuperate_rehabilitation_icon.png"))); 
+        btnPenilaianAwalMedisRalanRehabMedik.setText("Penilaian Awal Medis Ralan Fisik & Rehabilitasi");
+        btnPenilaianAwalMedisRalanRehabMedik.setIconTextGap(0);
+        btnPenilaianAwalMedisRalanRehabMedik.setName("btnPenilaianAwalMedisRalanRehabMedik"); 
+        btnPenilaianAwalMedisRalanRehabMedik.setPreferredSize(new java.awt.Dimension(200, 90));
+        btnPenilaianAwalMedisRalanRehabMedik.addActionListener(this::btnPenilaianAwalMedisRalanRehabMedikActionPerformed);
         
         btnTemplatePersetujuanPenolakanTindakan = new widget.ButtonBig();
         btnTemplatePersetujuanPenolakanTindakan.setIcon(new javax.swing.ImageIcon(getClass().getResource("/48x48/5859116_hospital_hygiene_masks_medical_surgery_icon.png"))); 
