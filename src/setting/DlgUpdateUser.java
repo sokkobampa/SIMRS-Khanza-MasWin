@@ -4114,10 +4114,6 @@ public class DlgUpdateUser extends javax.swing.JDialog {
             tabMode.addRow(new Object[]{false,"[M]Penilaian Awal Medis Ralan Fisik & Rehabilitasi",penilaian_medis_ralan_rehab_medik});
         }
         
-        if("[M]Penilaian Awal Medis Ralan Fisik & Rehabilitasi".toLowerCase().contains(TCari.getText().toLowerCase())){
-            tabMode.addRow(new Object[]{false,"[M]Penilaian Awal Medis Ralan Fisik & Rehabilitasi",penilaian_medis_ralan_rehab_medik});
-        }
-        
         if("[M]Laporan Anestesi".toLowerCase().contains(TCari.getText().toLowerCase())){
             tabMode.addRow(new Object[]{false,"[M]Laporan Anestesi",laporan_anestesi});
         }
