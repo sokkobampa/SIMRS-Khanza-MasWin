@@ -243,6 +243,7 @@ public final class RMRiwayatPerawatan extends javax.swing.JDialog {
         Pekerjaan = new widget.TextBox();
         internalFrame1 = new widget.InternalFrame();
         panelGlass5 = new widget.panelisi();
+        R5 = new widget.RadioButton();
         R1 = new widget.RadioButton();
         R2 = new widget.RadioButton();
         R3 = new widget.RadioButton();
@@ -434,9 +435,22 @@ public final class RMRiwayatPerawatan extends javax.swing.JDialog {
         panelGlass5.setPreferredSize(new java.awt.Dimension(44, 44));
         panelGlass5.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.LEFT, 5, 9));
 
+        R5.setBorder(javax.swing.BorderFactory.createLineBorder(java.awt.Color.pink));
+        buttonGroup1.add(R5);
+        R5.setText("2 Riwayat Terakhir");
+        R5.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        R5.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
+        R5.setName("R5"); // NOI18N
+        R5.setPreferredSize(new java.awt.Dimension(120, 23));
+        R5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                R5ActionPerformed(evt);
+            }
+        });
+        panelGlass5.add(R5);
+
         R1.setBorder(javax.swing.BorderFactory.createLineBorder(java.awt.Color.pink));
         buttonGroup1.add(R1);
-        R1.setSelected(true);
         R1.setText("5 Riwayat Terakhir");
         R1.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         R1.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
@@ -490,11 +504,17 @@ public final class RMRiwayatPerawatan extends javax.swing.JDialog {
 
         R4.setBorder(javax.swing.BorderFactory.createLineBorder(java.awt.Color.pink));
         buttonGroup1.add(R4);
+        R4.setSelected(true);
         R4.setText("Nomor :");
         R4.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         R4.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
         R4.setName("R4"); // NOI18N
         R4.setPreferredSize(new java.awt.Dimension(67, 23));
+        R4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                R4ActionPerformed(evt);
+            }
+        });
         panelGlass5.add(R4);
 
         NoRawat.setName("NoRawat"); // NOI18N
@@ -2197,6 +2217,14 @@ private void BtnPasienKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event
         }
     }//GEN-LAST:event_NoRawatKeyPressed
 
+    private void R4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_R4ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_R4ActionPerformed
+
+    private void R5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_R5ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_R5ActionPerformed
+
     /**
     * @param args the command line arguments
     */
@@ -2245,6 +2273,7 @@ private void BtnPasienKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event
     private widget.RadioButton R2;
     private widget.RadioButton R3;
     private widget.RadioButton R4;
+    private widget.RadioButton R5;
     private widget.ScrollPane Scroll;
     private widget.ScrollPane Scroll1;
     private widget.ScrollPane Scroll2;
@@ -2394,9 +2423,17 @@ private void BtnPasienKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event
     private widget.Table tbRegistrasi;
     // End of variables declaration//GEN-END:variables
 
-    public void setNoRm(String norm,String nama) {
+    public void setNoRm(String norm, String nama) {
         NoRM.setText(norm);
         NmPasien.setText(nama);
+        isPasien();
+        BtnCari1ActionPerformed(null);
+    }
+    
+    public void setNoRm(String norawat, String noRM, String nama) {
+        NoRM.setText(noRM);
+        NmPasien.setText(nama);
+        NoRawat.setText(norawat);
         isPasien();
         BtnCari1ActionPerformed(null);
     }
@@ -2479,6 +2516,18 @@ private void BtnPasienKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event
                     "poliklinik.kd_poli,poliklinik.nm_poli,penjab.png_jawab from reg_periksa inner join dokter on reg_periksa.kd_dokter=dokter.kd_dokter "+
                     "inner join poliklinik on reg_periksa.kd_poli=poliklinik.kd_poli inner join penjab on reg_periksa.kd_pj=penjab.kd_pj  "+
                     "where reg_periksa.stts<>'Batal' and reg_periksa.no_rkm_medis=? and reg_periksa.no_rawat=?");
+            } else if (R5.isSelected()) {
+                ps = koneksi.prepareStatement(
+                    "select "
+                    + "reg_periksa.no_rawat, reg_periksa.tgl_registrasi, reg_periksa.jam_reg, reg_periksa.status_lanjut, reg_periksa.kd_dokter, dokter.nm_dokter, reg_periksa.umurdaftar, reg_periksa.sttsumur, poliklinik.kd_poli, poliklinik.nm_poli, penjab.png_jawab "
+                    + "from reg_periksa "
+                    + "inner join dokter on reg_periksa.kd_dokter = dokter.kd_dokter "
+                    + "inner join poliklinik on reg_periksa.kd_poli = poliklinik.kd_poli "
+                    + "inner join penjab on reg_periksa.kd_pj = penjab.kd_pj "
+                    + "where reg_periksa.stts != 'Batal' "
+                    + "and reg_periksa.no_rkm_medis = ? "
+                    + "order by reg_periksa.tgl_registrasi desc, reg_periksa.jam_reg desc limit 2"
+                );
             }
             
             try {
@@ -2494,7 +2543,9 @@ private void BtnPasienKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event
                 }else if(R4.isSelected()==true){
                     ps.setString(1,NoRM.getText().trim());
                     ps.setString(2,NoRawat.getText().trim());
-                }                     
+                } else if (R5.isSelected()) {
+                    ps.setString(1, NoRM.getText());
+                }
                 rs=ps.executeQuery();
                 while(rs.next()){
                     i++;
@@ -2636,6 +2687,23 @@ private void BtnPasienKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event
                     "inner join poliklinik on reg_periksa.kd_poli=poliklinik.kd_poli "+
                     "inner join penjab on reg_periksa.kd_pj=penjab.kd_pj "+
                     "where reg_periksa.stts<>'Batal' and reg_periksa.no_rkm_medis=? and reg_periksa.no_rawat=?");
+            } else if (R5.isSelected()) {
+                ps = koneksi.prepareStatement(
+                    "select\n" +
+                        "reg_periksa.no_reg, reg_periksa.no_rawat, reg_periksa.tgl_registrasi, reg_periksa.jam_reg,\n" +
+                        "reg_periksa.kd_dokter, dokter.nm_dokter, poliklinik.nm_poli, reg_periksa.p_jawab,\n" +
+                        "reg_periksa.almt_pj, reg_periksa.hubunganpj, reg_periksa.biaya_reg,\n" +
+                        "reg_periksa.status_lanjut, penjab.png_jawab, reg_periksa.umurdaftar,\n" +
+                        "reg_periksa.sttsumur\n" +
+                    "from reg_periksa\n" +
+                    "join dokter on reg_periksa.kd_dokter = dokter.kd_dokter\n" +
+                    "join poliklinik on reg_periksa.kd_poli = poliklinik.kd_poli\n" +
+                    "join penjab on reg_periksa.kd_pj = penjab.kd_pj\n" +
+                    "where reg_periksa.stts != 'Batal'\n" +
+                    "and reg_periksa.no_rkm_medis = ?\n" +
+                    "order by reg_periksa.tgl_registrasi desc, reg_periksa.jam_reg desc\n" +
+                    "limit 2"
+                );
             }
             
             try {
@@ -2651,7 +2719,10 @@ private void BtnPasienKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event
                 }else if(R4.isSelected()==true){
                     ps.setString(1,NoRM.getText().trim());
                     ps.setString(2,NoRawat.getText().trim());
-                }            
+                } else if (R5.isSelected()) {
+                    ps.setString(1, NoRM.getText().trim());
+                }
+                
                 urut=1;
                 rs=ps.executeQuery();
                 while(rs.next()){
@@ -4529,6 +4600,13 @@ private void BtnPasienKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event
                 ps=koneksi.prepareStatement(
                     "select reg_periksa.no_reg,reg_periksa.no_rawat,reg_periksa.tgl_registrasi,reg_periksa.status_lanjut "+
                     "from reg_periksa where reg_periksa.stts<>'Batal' and reg_periksa.no_rkm_medis=? and reg_periksa.no_rawat=?");
+            } else if (R5.isSelected()) {
+                ps = koneksi.prepareStatement(
+                    "select reg_periksa.no_reg, reg_periksa.no_rawat, reg_periksa.tgl_registrasi, reg_periksa.status_lanjut\n" +
+                    "from reg_periksa\n" +
+                    "where reg_periksa.stts != 'Batal' and reg_periksa.no_rkm_medis = ?\n" +
+                    "order by reg_periksa.tgl_registrasi desc, reg_periksa.jam_reg desc limit 2"
+                );
             }
             try {
                 if(R1.isSelected()==true){
@@ -4542,7 +4620,10 @@ private void BtnPasienKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event
                 }else if(R4.isSelected()==true){
                     ps.setString(1,NoRM.getText().trim());
                     ps.setString(2,NoRawat.getText().trim());
-                }  
+                } else if (R5.isSelected()) {
+                    ps.setString(1, NoRM.getText().trim());
+                }
+                
                 rs=ps.executeQuery();
                 while(rs.next()){
                     htmlContent.append(
@@ -4741,6 +4822,16 @@ private void BtnPasienKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event
                     " from penjualan inner join petugas on penjualan.nip=petugas.nip "+
                     " inner join bangsal on penjualan.kd_bangsal=bangsal.kd_bangsal "+
                     " where penjualan.status='Sudah Dibayar' and penjualan.no_rkm_medis=? and penjualan.nota_jual=?");
+            } else if (R5.isSelected()) {
+                ps = koneksi.prepareStatement(
+                    "select penjualan.nota_jual, penjualan.tgl_jual, "+
+                    "penjualan.nip,petugas.nama, "+
+                    "penjualan.no_rkm_medis,penjualan.nm_pasien,penjualan.nama_bayar, "+
+                    "penjualan.keterangan, penjualan.jns_jual, penjualan.ongkir,bangsal.nm_bangsal,penjualan.status "+
+                    " from penjualan inner join petugas on penjualan.nip=petugas.nip "+
+                    " inner join bangsal on penjualan.kd_bangsal=bangsal.kd_bangsal "+
+                    " where penjualan.status='Sudah Dibayar' and penjualan.no_rkm_medis=? order by penjualan.tgl_jual desc limit 2"
+                );
             }
             
             try {
@@ -4755,7 +4846,10 @@ private void BtnPasienKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event
                 }else if(R4.isSelected()==true){
                     ps.setString(1,NoRM.getText().trim());
                     ps.setString(2,NoRawat.getText().trim());
-                }  
+                } else if (R5.isSelected()) {
+                    ps.setString(1, NoRM.getText().trim());
+                }
+                
                 rs=ps.executeQuery();
                 while(rs.next()){ 
                     htmlContent.append(
@@ -4969,6 +5063,13 @@ private void BtnPasienKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event
                     "bangsal.nm_bangsal,piutang.catatan from piutang inner join petugas on piutang.nip=petugas.nip "+
                     " inner join bangsal on piutang.kd_bangsal=bangsal.kd_bangsal where piutang.no_rkm_medis=? "+
                     " and piutang.nota_piutang=? ");
+            } else if (R5.isSelected()) {
+                ps = koneksi.prepareStatement(
+                    "select piutang.nota_piutang, piutang.tgl_piutang, piutang.nip, petugas.nama, piutang.no_rkm_medis, piutang.nm_pasien, piutang.jns_jual, bangsal.nm_bangsal, piutang.catatan\n" +
+                    "from piutang join petugas on piutang.nip = petugas.nip join bangsal on piutang.kd_bangsal = bangsal.kd_bangsal\n" +
+                    "where piutang.no_rkm_medis = ?\n" +
+                    "order by piutang.tgl_piutang desc limit 2"
+                );
             }
             
             try {
@@ -4983,7 +5084,10 @@ private void BtnPasienKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event
                 }else if(R4.isSelected()==true){
                     ps.setString(1,NoRM.getText().trim());
                     ps.setString(2,NoRawat.getText().trim());
-                } 
+                } else if (R5.isSelected()) {
+                    ps.setString(1, NoRM.getText().trim());
+                }
+                
                 rs=ps.executeQuery();
                 while(rs.next()){ 
                     htmlContent.append(
