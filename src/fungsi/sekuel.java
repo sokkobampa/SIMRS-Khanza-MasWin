@@ -153,8 +153,8 @@ public final class sekuel {
         
         track = track.replaceFirst("\\?", "'"+kdRek+"'");
         track = track.replaceFirst("\\?", "'"+nmRek+"'");
-        track = track.replaceFirst("\\?", (new BigDecimal(d)).setScale(2, RoundingMode.HALF_EVEN).toString());
-        track = track.replaceFirst("\\?", (new BigDecimal(k)).setScale(2, RoundingMode.HALF_EVEN).toString());
+        track = track.replaceFirst("\\?", new BigDecimal(d).setScale(2, RoundingMode.HALF_EVEN).toString());
+        track = track.replaceFirst("\\?", new BigDecimal(k).setScale(2, RoundingMode.HALF_EVEN).toString());
         track = track.replaceFirst("\\?", "'"+akses.getkode()+"'");
         track = track.replaceFirst("\\?", "'"+akses.getalamatip()+"'");
         
@@ -226,8 +226,8 @@ public final class sekuel {
             track = insertQuery;
             track = track.replaceFirst("\\?", "'"+kdRek+"'");
             track = track.replaceFirst("\\?", "'"+nmRek+"'");
-            track = track.replaceFirst("\\?", (new BigDecimal(d)).setScale(2, RoundingMode.HALF_EVEN).toString());
-            track = track.replaceFirst("\\?", (new BigDecimal(k)).setScale(2, RoundingMode.HALF_EVEN).toString());
+            track = track.replaceFirst("\\?", new BigDecimal(d).setScale(2, RoundingMode.HALF_EVEN).toString());
+            track = track.replaceFirst("\\?", new BigDecimal(k).setScale(2, RoundingMode.HALF_EVEN).toString());
             track = track.replaceFirst("\\?", "'"+akses.getkode()+"'");
             track = track.replaceFirst("\\?", "'"+akses.getalamatip()+"'");
             
@@ -249,14 +249,14 @@ public final class sekuel {
                     ps.setString(3, akses.getkode());
                     ps.setString(4, akses.getalamatip());
                     
-                    track = track.replaceFirst("\\?", "'"+(new BigDecimal(d)).setScale(2, RoundingMode.HALF_EVEN).toString()+"'");
+                    track = track.replaceFirst("\\?", new BigDecimal(d).setScale(2, RoundingMode.HALF_EVEN).toString());
                 } else if (d == 0 && k > 0) {
                     ps.setDouble(1, k);
                     ps.setString(2, kdRek);
                     ps.setString(3, akses.getkode());
                     ps.setString(4, akses.getalamatip());
                     
-                    track = track.replaceFirst("\\?", "'"+(new BigDecimal(k)).setScale(2, RoundingMode.HALF_EVEN).toString()+"'");
+                    track = track.replaceFirst("\\?", new BigDecimal(k).setScale(2, RoundingMode.HALF_EVEN).toString());
                 } else if (d > 0 && k > 0) {
                     ps.setDouble(1, d);
                     ps.setDouble(2, k);
@@ -264,8 +264,8 @@ public final class sekuel {
                     ps.setString(4, akses.getkode());
                     ps.setString(5, akses.getalamatip());
                     
-                    track = track.replaceFirst("\\?", "'"+(new BigDecimal(d)).setScale(2, RoundingMode.HALF_EVEN).toString()+"'");
-                    track = track.replaceFirst("\\?", "'"+(new BigDecimal(k)).setScale(2, RoundingMode.HALF_EVEN).toString()+"'");
+                    track = track.replaceFirst("\\?", new BigDecimal(d).setScale(2, RoundingMode.HALF_EVEN).toString());
+                    track = track.replaceFirst("\\?", new BigDecimal(k).setScale(2, RoundingMode.HALF_EVEN).toString());
                 }
                 
                 ps.executeUpdate();
@@ -288,7 +288,7 @@ public final class sekuel {
     }
     
     public void insertOrUpdateTampJurnal(String kdRek, String nmRek, String d, String k) {
-        this.insertOrUpdateTampJurnal(kdRek, nmRek, Double.parseDouble(d), Double.parseDouble(k));
+        this.insertOrUpdateTampJurnal(kdRek, nmRek, parseDouble(d), parseDouble(k));
     }
     
     public void deleteTampJurnal()
