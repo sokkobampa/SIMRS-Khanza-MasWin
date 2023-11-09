@@ -166,7 +166,7 @@ public final class sekuel {
         return bool;
     }
     
-    public boolean menyimpantfSmc(String table, String kolom, String[] values) {
+    public boolean menyimpantfSmc(String table, String kolom, String... values) {
         try {
             simpanSMC(table, kolom, values);
             
@@ -178,7 +178,7 @@ public final class sekuel {
         }
     }
     
-    public void menyimpanSmc(String table, String kolom, String[] values) {
+    public void menyimpanSmc(String table, String kolom, String... values) {
         try {
             simpanSMC(table, kolom, values);
         } catch (Exception e) {
@@ -845,7 +845,7 @@ public final class sekuel {
         }
     }
     
-    public void updateSMC(String table, String kolom, String kondisi, String[] values) throws SQLException {
+    protected void updateSMC(String table, String kolom, String kondisi, String[] values) throws SQLException {
         String sql = "update " + table + " set " + kolom + " where " + kondisi;
         
         if (kondisi == null) {

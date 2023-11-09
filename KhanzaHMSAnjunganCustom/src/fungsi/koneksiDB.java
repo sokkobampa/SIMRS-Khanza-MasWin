@@ -64,6 +64,15 @@ public class koneksiDB {
         return connection;
     }
     
+    public static boolean ADDANTRIANAPIMOBILEJKN() {
+        try {
+            prop.loadFromXML(new FileInputStream("setting/database.xml"));
+            return prop.getProperty("ADDANTRIANAPIMOBILEJKN").equals("yes");
+        } catch (Exception e) {
+            return false;
+        }
+    }
+    
     public static String PRINTER_REGISTRASI() {
         try {
             prop.loadFromXML(new FileInputStream("setting/apm.xml"));
