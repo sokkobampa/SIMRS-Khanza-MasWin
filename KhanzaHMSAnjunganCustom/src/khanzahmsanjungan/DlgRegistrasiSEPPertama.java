@@ -136,7 +136,6 @@ public class DlgRegistrasiSEPPertama extends javax.swing.JDialog {
                    status = "Baru",
                    utc = "",
                    jeniskunjungan = "",
-                   nomorreg = "",
                    URLAPLIKASIFINGERBPJS,
                    USER_FINGERPRINT_BPJS,
                    PASS_FINGERPRINT_BPJS,
@@ -1217,6 +1216,11 @@ public class DlgRegistrasiSEPPertama extends javax.swing.JDialog {
             isPoli();
             isCekPasien();
             isNumber();
+            if (! registerPasien()) {
+                JOptionPane.showMessageDialog(rootPane, "Terjadi kesalahan pada saat pendaftaran pasien!");
+
+                return;
+            }
             if (JenisPelayanan.getSelectedIndex() == 0) {
                 insertSEP();
             } else if (JenisPelayanan.getSelectedIndex() == 1) {
@@ -1643,8 +1647,6 @@ public class DlgRegistrasiSEPPertama extends javax.swing.JDialog {
     private boolean registerPasien() {
         int coba = 0, maxCoba = 5;
         
-        isNumber();
-        
         System.out.println("Mencoba mendaftarkan pasien dengan no. rawat: " + TNoRw.getText());
              
         while (coba < maxCoba && (
@@ -1660,22 +1662,19 @@ public class DlgRegistrasiSEPPertama extends javax.swing.JDialog {
             coba++;
         }
         
-        if (coba == maxCoba && (
-            ! Sequel.cariIsiSmc(
-                "select reg_periksa.no_rawat from reg_periksa where tgl_registrasi = ? and no_rkm_medis = ? and kd_poli = ? and kd_dokter = ?",
-                Valid.SetTgl(TanggalSEP.getSelectedItem().toString()), TNoRM.getText(), kodepolireg, kodedokterreg
-            ).equals(TNoRw.getText())
-        )) {
+        String isNoRawat = Sequel.cariIsiSmc("select no_rawat from reg_periksa where tgl_registrasi = ? and no_rkm_medis = ? and kd_poli = ? and kd_dokter = ?", Valid.SetTgl(TanggalSEP.getSelectedItem().toString()), TNoRM.getText(), kodepolireg, kodedokterreg);
+                
+        if (coba == maxCoba && (isNoRawat == null || ! isNoRawat.equals(TNoRw.getText()))) {
             System.out.println("======================================================");
             System.out.println("Tidak dapat mendaftarkan pasien dengan detail berikut:");
             System.out.println("No. Rawat: " + TNoRw.getText());
-            System.out.println("No. Antrian: " + NoReg.getText());
-            System.out.println("No. RM: " + TNoRM.getText());
-            System.out.println("Kode Dokter: " + kodedokterreg);
-            System.out.println("Kode Poli: " + kodepolireg);
             System.out.println("Tgl. Registrasi: " + Valid.SetTgl(TanggalSEP.getSelectedItem().toString()));
+            System.out.println("No. Antrian: " + NoReg.getText() + " (Ditemukan: " + Sequel.cariIsiSmc("select no_reg from reg_periksa where no_rawat = ?", TNoRw.getText()) + ")");
+            System.out.println("No. RM: " + TNoRM.getText() + " (Ditemukan: " + Sequel.cariIsiSmc("select no_rkm_medis from reg_periksa where no_rawat = ?", TNoRw.getText()) + ")");
+            System.out.println("Kode Dokter: " + kodedokterreg + " (Ditemukan: " + Sequel.cariIsiSmc("select kd_dokter from reg_periksa where no_rawat = ?", TNoRw.getText()) + ")");
+            System.out.println("Kode Poli: " + kodepolireg  + " (Ditemukan: " + Sequel.cariIsiSmc("select kd_poli from reg_periksa where no_rawat = ?", TNoRw.getText()) + ")");
             System.out.println("======================================================");
-            
+
             return false;
         }
         
@@ -1689,12 +1688,12 @@ public class DlgRegistrasiSEPPertama extends javax.swing.JDialog {
         
         NoRujukMasuk.setText(
             Sequel.cariIsiSmc(
-                "select concat('BR/', date_format(?, '%Y/%m/%d/'), lpad(ifnull(max(convert(right(rujuk_masuk.no_balasan, 4), signed)), 0) + 1, 4, '0')) from rujuk_masuk where rujuk_masuk.no_balasan like concat('BR/', date_format(?, '%Y/%m/%d/'), '%')",
+                "select concat('BR/', date_format(?, '%Y/%m/%d'), '/', lpad(ifnull(max(convert(right(rujuk_masuk.no_balasan, 4), signed)), 0) + 1, 4, '0')) from rujuk_masuk where rujuk_masuk.no_balasan like concat('BR/', date_format(?, '%Y/%m/%d/'), '%')",
                 Valid.SetTgl(TanggalSEP.getSelectedItem().toString()), Valid.SetTgl(TanggalSEP.getSelectedItem().toString())
             )
         );
         
-        System.out.println("Mencoba memproses rujukan masuk pasien dengan no. surat balasan: " + NoRujukMasuk.getText());
+        System.out.println("Mencoba memproses rujukan masuk pasien dengan no. surat: " + NoRujukMasuk.getText());
         
         while (coba < maxCoba && (
             !Sequel.menyimpantfSmc("rujuk_masuk", null,
@@ -1714,10 +1713,12 @@ public class DlgRegistrasiSEPPertama extends javax.swing.JDialog {
             coba++;
         }
         
-        if (coba == maxCoba && ! Sequel.cariIsi("select rujuk_masuk.no_balasan from rujuk_masuk where rujuk_masuk.no_rawat = ?", TNoRw.getText()).equals(NoRujukMasuk.getText())) {
+        String isNoRujukMasuk = Sequel.cariIsiSmc("select rujuk_masuk.no_balasan from rujuk_masuk where rujuk_masuk.no_rawat = ?", TNoRw.getText());
+        
+        if (coba == maxCoba && (isNoRujukMasuk == null || (! isNoRujukMasuk.equals(NoRujukMasuk.getText())))) {
             System.out.println("======================================================");
             System.out.println("Tidak dapat memproses rujukan masuk dengan detail berikut:");
-            System.out.println("No. Surat Balasan: " + NoRujukMasuk.getText());
+            System.out.println("No. Surat: " + NoRujukMasuk.getText());
             System.out.println("No. Rawat: " + TNoRw.getText());
             System.out.println("======================================================");
             
@@ -1728,12 +1729,6 @@ public class DlgRegistrasiSEPPertama extends javax.swing.JDialog {
     }
 
     private void insertSEP() {
-        if (! registerPasien()) {
-            JOptionPane.showMessageDialog(rootPane, "Terjadi kesalahan pada saat pendaftaran pasien!");
-            
-            return;
-        }
-        
         try {
             tglkkl = "0000-00-00";
             
@@ -1821,23 +1816,25 @@ public class DlgRegistrasiSEPPertama extends javax.swing.JDialog {
             root = mapper.readTree(api.getRest().exchange(URL, HttpMethod.POST, requestEntity, String.class).getBody());
             nameNode = root.path("metaData");
             System.out.println("Kode Respon SEP: " + nameNode.path("code").asText());
-
+            
             if (nameNode.path("code").asText().equals("200")) {
                 response = mapper.readTree(api.Decrypt(root.path("response").asText(), utc)).path("sep").path("noSep");
                 System.out.println("SEP berhasil terbit!");
                 System.out.println("No. SEP: " + response.asText());
-                System.out.println("No. Rawat: " + TNoRw.getText());
                 
-                if (! Sequel.cariIsiSmc("select no_rawat from reg_periksa where tgl_registrasi = ? and no_rkm_medis = ? and kd_poli = ? and kd_dokter = ?", Valid.SetTgl(TanggalSEP.getSelectedItem().toString()), TNoRM.getText(), kodepolireg, kodedokterreg).equals(TNoRw.getText())) {
+                String isNoRawat = Sequel.cariIsiSmc("select no_rawat from reg_periksa where tgl_registrasi = ? and no_rkm_medis = ? and kd_poli = ? and kd_dokter = ?", Valid.SetTgl(TanggalSEP.getSelectedItem().toString()), TNoRM.getText(), kodepolireg, kodedokterreg);
+                
+                if (isNoRawat == null || (! isNoRawat.equals(TNoRw.getText()))) {
                     System.out.println("======================================================");
-                    System.out.println("No. Rawat yang digunakan tidak sesuai dengan data pasien yang akan didaftarkan!");
+                    System.out.println("Tidak dapat mendaftarkan pasien dengan detail berikut:");
                     System.out.println("No. Rawat: " + TNoRw.getText());
                     System.out.println("Tgl. Registrasi: " + Valid.SetTgl(TanggalSEP.getSelectedItem().toString()));
+                    System.out.println("No. Antrian: " + NoReg.getText() + " (Ditemukan: " + Sequel.cariIsiSmc("select no_reg from reg_periksa where no_rawat = ?", TNoRw.getText()) + ")");
                     System.out.println("No. RM: " + TNoRM.getText() + " (Ditemukan: " + Sequel.cariIsiSmc("select no_rkm_medis from reg_periksa where no_rawat = ?", TNoRw.getText()) + ")");
                     System.out.println("Kode Dokter: " + kodedokterreg + " (Ditemukan: " + Sequel.cariIsiSmc("select kd_dokter from reg_periksa where no_rawat = ?", TNoRw.getText()) + ")");
                     System.out.println("Kode Poli: " + kodepolireg  + " (Ditemukan: " + Sequel.cariIsiSmc("select kd_poli from reg_periksa where no_rawat = ?", TNoRw.getText()) + ")");
                     System.out.println("======================================================");
-                    
+
                     return;
                 }
 
@@ -1900,7 +1897,7 @@ public class DlgRegistrasiSEPPertama extends javax.swing.JDialog {
                     System.out.println("Terjadi kesalahan pada saat proses rujukan masuk pasien!");
                 }
 
-                if (!prb.equals("")) {
+                if (! prb.isBlank()) {
                     if (Sequel.menyimpantfSmc("bpjs_prb", null, response.asText(), prb) == true) {
                         prb = "";
                     }
@@ -1914,6 +1911,8 @@ public class DlgRegistrasiSEPPertama extends javax.swing.JDialog {
                 }
                 
                 printSEPdanBuktiRegistrasi(TNoRw.getText(), response.asText());
+            } else {
+                JOptionPane.showMessageDialog(rootPane, nameNode.path("message").asText());
             }
         } catch (UnknownHostException e) {
             JOptionPane.showMessageDialog(rootPane, "Koneksi ke server BPJS terputus...!");
@@ -2350,7 +2349,7 @@ public class DlgRegistrasiSEPPertama extends javax.swing.JDialog {
                         jammulai=rs.getString("jam_mulai");
                         jamselesai=rs.getString("jam_selesai");
                         kuota=rs.getInt("kuota");
-                        datajam=Sequel.cariIsi("select DATE_ADD(concat('"+Valid.SetTgl(TanggalSEP.getSelectedItem()+"")+"',' ','"+jammulai+"'),INTERVAL "+(Integer.parseInt(nomorreg)*10)+" MINUTE) ");
+                        datajam=Sequel.cariIsi("select DATE_ADD(concat('"+Valid.SetTgl(TanggalSEP.getSelectedItem()+"")+"',' ','"+jammulai+"'),INTERVAL "+(Integer.parseInt(NoReg.getText())*10)+" MINUTE) ");
                         parsedDate = dateFormat.parse(datajam);
                     }else{
                         statusantrean=false;
@@ -2395,12 +2394,12 @@ public class DlgRegistrasiSEPPertama extends javax.swing.JDialog {
                                         "\"jampraktek\": \""+jammulai.substring(0,5)+"-"+jamselesai.substring(0,5)+"\"," +
                                         "\"jeniskunjungan\": "+jeniskunjungan+"," +
                                         "\"nomorreferensi\": \""+NoRujukan.getText()+"\"," +
-                                        "\"nomorantrean\": \""+nomorreg+"\"," +
-                                        "\"angkaantrean\": "+Integer.parseInt(nomorreg)+"," +
+                                        "\"nomorantrean\": \""+NoReg.getText()+"\"," +
+                                        "\"angkaantrean\": "+Integer.parseInt(NoReg.getText())+"," +
                                         "\"estimasidilayani\": "+parsedDate.getTime()+"," +
-                                        "\"sisakuotajkn\": "+(kuota-Integer.parseInt(nomorreg))+"," +
+                                        "\"sisakuotajkn\": "+(kuota-Integer.parseInt(NoReg.getText()))+"," +
                                         "\"kuotajkn\": "+kuota+"," +
-                                        "\"sisakuotanonjkn\": "+(kuota-Integer.parseInt(nomorreg))+"," +
+                                        "\"sisakuotanonjkn\": "+(kuota-Integer.parseInt(NoReg.getText()))+"," +
                                         "\"kuotanonjkn\": "+kuota+"," +
                                         "\"keterangan\": \"Peserta harap 30 menit lebih awal guna pencatatan administrasi.\"" +
                                     "}";
@@ -2445,12 +2444,12 @@ public class DlgRegistrasiSEPPertama extends javax.swing.JDialog {
                                             "\"jampraktek\": \""+jammulai.substring(0,5)+"-"+jamselesai.substring(0,5)+"\"," +
                                             "\"jeniskunjungan\": "+jeniskunjungan+"," +
                                             "\"nomorreferensi\": \""+NoSKDP.getText()+"\"," +
-                                            "\"nomorantrean\": \""+nomorreg+"\"," +
-                                            "\"angkaantrean\": "+Integer.parseInt(nomorreg)+"," +
+                                            "\"nomorantrean\": \""+NoReg.getText()+"\"," +
+                                            "\"angkaantrean\": "+Integer.parseInt(NoReg.getText())+"," +
                                             "\"estimasidilayani\": "+parsedDate.getTime()+"," +
-                                            "\"sisakuotajkn\": "+(kuota-Integer.parseInt(nomorreg))+"," +
+                                            "\"sisakuotajkn\": "+(kuota-Integer.parseInt(NoReg.getText()))+"," +
                                             "\"kuotajkn\": "+kuota+"," +
-                                            "\"sisakuotanonjkn\": "+(kuota-Integer.parseInt(nomorreg))+"," +
+                                            "\"sisakuotanonjkn\": "+(kuota-Integer.parseInt(NoReg.getText()))+"," +
                                             "\"kuotanonjkn\": "+kuota+"," +
                                             "\"keterangan\": \"Peserta harap 30 menit lebih awal guna pencatatan administrasi.\"" +
                                         "}";
