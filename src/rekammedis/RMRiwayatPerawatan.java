@@ -2438,13 +2438,16 @@ private void BtnPasienKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event
     public void setNoRm(String norm, String nama) {
         NoRM.setText(norm);
         NmPasien.setText(nama);
+        R5.setSelected(true);
         isPasien();
         BtnCari1ActionPerformed(null);
+        NoRawat.setText("");
     }
     
     public void setNoRm(String norawat, String noRM, String nama) {
         NoRM.setText(noRM);
         NmPasien.setText(nama);
+        R4.setSelected(true);
         NoRawat.setText(norawat);
         isPasien();
         BtnCari1ActionPerformed(null);
