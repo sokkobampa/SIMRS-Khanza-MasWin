@@ -71,6 +71,7 @@ public class DlgRegistrasiSEPPertama extends javax.swing.JDialog {
                    statuspasien = "",
                    tglkkl = "0000-00-00",
                    noPeserta = "",
+                   peserta = "",
                    datajam = "",
                    jamselesai = "",
                    jammulai = "",
@@ -89,7 +90,7 @@ public class DlgRegistrasiSEPPertama extends javax.swing.JDialog {
                    USER_FINGERPRINT_BPJS = koneksiDB.USERFINGERPRINTBPJS(),
                    PASS_FINGERPRINT_BPJS = koneksiDB.PASSFINGERPRINTBPJS();
     
-    private boolean ADDANTRIANAPIMOBILEJKN = koneksiDB.ADDANTRIANAPIMOBILEJKN();
+    private final boolean ADDANTRIANAPIMOBILEJKN = koneksiDB.ADDANTRIANAPIMOBILEJKN();
 
     private int kuota = 0;
     private ObjectMapper mapper = new ObjectMapper();
@@ -1117,7 +1118,7 @@ public class DlgRegistrasiSEPPertama extends javax.swing.JDialog {
             kodepolireg = Sequel.cariIsiSmc("select kd_poli_rs from maping_poli_bpjs where kd_poli_bpjs = ?", KdPoli.getText());
             kodedokterreg = Sequel.cariIsiSmc("select kd_dokter from maping_dokter_dpjpvclaim where kd_dokter_bpjs = ?", KdDPJP.getText());
             
-            if (kodepolireg == null) {
+            if (kodepolireg.isBlank()) {
                 System.out.println("Kode poli [" + KdPoli.getText() + "] belum dimappingkan dengan poli rumah sakit!");
                 JOptionPane.showMessageDialog(rootPane, "Terjadi kesalahan pada saat pencarian poli pasien!");
                 this.setCursor(Cursor.getDefaultCursor());
@@ -1125,8 +1126,8 @@ public class DlgRegistrasiSEPPertama extends javax.swing.JDialog {
                 return;
             }
             
-            if (kodedokterreg == null) {
-                System.out.println("Kode dokter [" + KdPoli.getText() + "] belum dimappingkan dengan dokter rumah sakit!");
+            if (kodedokterreg.isBlank()) {
+                System.out.println("Kode dokter [" + KdDPJP.getText() + "] belum dimappingkan dengan dokter rumah sakit!");
                 JOptionPane.showMessageDialog(rootPane, "Terjadi kesalahan pada saat pencarian dokter poli pasien!");
                 this.setCursor(Cursor.getDefaultCursor());
                 
@@ -1482,20 +1483,26 @@ public class DlgRegistrasiSEPPertama extends javax.swing.JDialog {
     private void isCekPasien() {
         try {
             ps3 = koneksi.prepareStatement(
-                    "select nm_pasien,concat(pasien.alamat,', ',kelurahan.nm_kel,', ',kecamatan.nm_kec,', ',kabupaten.nm_kab) asal,"
-                    + "namakeluarga,keluarga,pasien.kd_pj,penjab.png_jawab,if(tgl_daftar=?,'Baru','Lama') as daftar, "
-                    + "TIMESTAMPDIFF(YEAR, tgl_lahir, CURDATE()) as tahun,pasien.no_peserta, "
+                    "select nm_pasien, concat(pasien.alamat,', ',kelurahan.nm_kel,', ',kecamatan.nm_kec,', ',kabupaten.nm_kab) asal, "
+                    + "namakeluarga, keluarga, pasien.kd_pj, penjab.png_jawab, if(tgl_daftar = ?, 'Baru', 'Lama') as daftar, "
+                    + "TIMESTAMPDIFF(YEAR, tgl_lahir, CURDATE()) as tahun, pasien.no_peserta, "
                     + "(TIMESTAMPDIFF(MONTH, tgl_lahir, CURDATE()) - ((TIMESTAMPDIFF(MONTH, tgl_lahir, CURDATE()) div 12) * 12)) as bulan, "
-                    + "TIMESTAMPDIFF(DAY, DATE_ADD(DATE_ADD(tgl_lahir,INTERVAL TIMESTAMPDIFF(YEAR, tgl_lahir, CURDATE()) YEAR), INTERVAL TIMESTAMPDIFF(MONTH, tgl_lahir, CURDATE()) - ((TIMESTAMPDIFF(MONTH, tgl_lahir, CURDATE()) div 12) * 12) MONTH), CURDATE()) as hari,pasien.no_ktp,pasien.no_tlp "
-                    + "from pasien inner join kelurahan on pasien.kd_kel=kelurahan.kd_kel "
-                    + "inner join kecamatan on pasien.kd_kec=kecamatan.kd_kec "
-                    + "inner join kabupaten on pasien.kd_kab=kabupaten.kd_kab "
-                    + "inner join penjab on pasien.kd_pj=penjab.kd_pj "
-                    + "where pasien.no_rkm_medis=?");
+                    + "TIMESTAMPDIFF(DAY, DATE_ADD(DATE_ADD(tgl_lahir,INTERVAL TIMESTAMPDIFF(YEAR, tgl_lahir, CURDATE()) YEAR), INTERVAL TIMESTAMPDIFF(MONTH, tgl_lahir, CURDATE()) - ((TIMESTAMPDIFF(MONTH, tgl_lahir, CURDATE()) div 12) * 12) MONTH), CURDATE()) as hari, "
+                    + "pasien.no_ktp, pasien.no_tlp "
+                    + "from pasien"
+                    + "inner join kelurahan on pasien.kd_kel = kelurahan.kd_kel "
+                    + "inner join kecamatan on pasien.kd_kec = kecamatan.kd_kec "
+                    + "inner join kabupaten on pasien.kd_kab = kabupaten.kd_kab "
+                    + "inner join penjab on pasien.kd_pj = penjab.kd_pj "
+                    + "where pasien.no_rkm_medis = ?"
+            );
+            
             try {
-                ps3.setString(1, Valid.SetTgl(TanggalSEP.getSelectedItem() + ""));
+                ps3.setString(1, Valid.SetTgl(TanggalSEP.getSelectedItem().toString()));
                 ps3.setString(2, TNoRM.getText());
+                
                 rs = ps3.executeQuery();
+                
                 while (rs.next()) {
                     TAlmt.setText(rs.getString("asal"));
                     TPngJwb.setText(rs.getString("namakeluarga"));
@@ -1504,6 +1511,7 @@ public class DlgRegistrasiSEPPertama extends javax.swing.JDialog {
                     umur = "0";
                     sttsumur = "Th";
                     statuspasien = rs.getString("daftar");
+                    
                     if (rs.getInt("tahun") > 0) {
                         umur = rs.getString("tahun");
                         sttsumur = "Th";
@@ -1533,7 +1541,8 @@ public class DlgRegistrasiSEPPertama extends javax.swing.JDialog {
         }
 
         status = "Baru";
-        if (Sequel.cariInteger("select count(no_rkm_medis) from reg_periksa where no_rkm_medis=? and kd_poli=?", TNoRM.getText(), kodepolireg) > 0) {
+        
+        if (Sequel.cariIntegerSmc("select count(*) from reg_periksa where no_rkm_medis = ? and kd_poli = ?", TNoRM.getText(), kodepolireg) > 0) {
             status = "Lama";
         }
 
@@ -2044,11 +2053,6 @@ public class DlgRegistrasiSEPPertama extends javax.swing.JDialog {
                 JOptionPane.showMessageDialog(rootPane, "Koneksi ke server BPJS terputus...!");
             }
         }
-    }
-    
-    public void tampilKontrolSEP(String noSEP) {
-        String noRawat = Sequel.cariIsi("select bridging_sep.no_rawat from bridging_sep where bridging_sep.no_sep = ?", noSEP);
-        printSEPdanBuktiRegistrasi(noRawat, noSEP);
     }
 
     public void tampilKontrol(String noSKDP) {
