@@ -859,6 +859,7 @@ import rekammedis.RMPenilaianAwalMedisRalanKulitDanKelamin;
 import rekammedis.RMPenilaianAwalMedisRalanMata;
 import rekammedis.RMPenilaianAwalMedisRalanNeurologi;
 import rekammedis.RMPenilaianAwalMedisRalanOrthopedi;
+import rekammedis.RMPenilaianAwalMedisRalanParu;
 import rekammedis.RMPenilaianAwalMedisRalanPenyakitDalam;
 import rekammedis.RMPenilaianAwalMedisRalanPsikiatrik;
 import rekammedis.RMPenilaianAwalMedisRalanRehabMedik;
@@ -20750,6 +20751,20 @@ private void MnGantiPasswordBtnLogActionPerformed(java.awt.event.ActionEvent evt
         form.setVisible(true);
         this.setCursor(Cursor.getDefaultCursor()); 
     } 
+    
+    private void btnPenilaianAwalMedisRalanParuActionPerformed(java.awt.event.ActionEvent evt) {
+        isTutup();
+        DlgHome.dispose();
+        this.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
+        RMPenilaianAwalMedisRalanParu aplikasi=new RMPenilaianAwalMedisRalanParu(this,false);
+        aplikasi.isCek();
+        aplikasi.emptTeks();
+        aplikasi.setTampil();
+        aplikasi.setSize(PanelUtama.getWidth(), PanelUtama.getHeight());
+        aplikasi.setLocationRelativeTo(PanelUtama);
+        aplikasi.setVisible(true);
+        this.setCursor(Cursor.getDefaultCursor());
+    }
     /**
     * @param args the command line arguments
     */
@@ -21432,7 +21447,7 @@ private void MnGantiPasswordBtnLogActionPerformed(java.awt.event.ActionEvent evt
             btnRekapPengajuanBiaya,btnPenilaianAwalMedisRalanKulitKelamin,btnHostToHostBankMandiri,btnPenilaianLevelKecemasanRanapAnak,btnPenilaianAwalMedisHemodialisa,
             btnPenilaianRisikoJatuhPsikiatri,btnPenilaianLanjutanSkriningFungsional,btnPenilaianAwalMedisRalanRehabMedik,btnTemplatePersetujuanPenolakanTindakan,
             btnPenilaianAwalMedisRalanIGDPsikiatri,btnBPJSReferensiSettingPPKApotek,btnBPJSReferensiObatApotek,btnPembayaranBankMandiri,btnBPJSMapingObatApotek,
-            btnPenilaianUlangNyeri,btnPenilaianTerapiWicara,btnPengkajianRestrain,btnBPJSKunjunganSEPApotek,btnBPJSMonitoringKlaimApotek;
+            btnPenilaianUlangNyeri,btnPenilaianTerapiWicara,btnPengkajianRestrain,btnBPJSKunjunganSEPApotek,btnBPJSMonitoringKlaimApotek,btnPenilaianAwalMedisRalanParu;
     
     public void isWall(){
         try{            
@@ -24942,7 +24957,17 @@ private void MnGantiPasswordBtnLogActionPerformed(java.awt.event.ActionEvent evt
                 jmlmenu++;
             }
             
-            if(akses.getpenilaian_medis_hemodialisa()==true){
+            if(akses.getpenilaian_awal_medis_ralan_paru()==true){
+                Panelmenu.add(btnPenilaianAwalMedisRalanParu);
+                jmlmenu++;
+            }
+            
+            if(akses.getpenilaian_medis_ralan_rehab_medik()==true){
+                Panelmenu.add(btnPenilaianAwalMedisRalanRehabMedik);
+                jmlmenu++;
+            }
+            
+            if(akses.getpenilaian_medis_ralan_hemodialisa()==true){
                 Panelmenu.add(btnPenilaianAwalMedisHemodialisa);
                 jmlmenu++;
             }
@@ -29831,7 +29856,17 @@ private void MnGantiPasswordBtnLogActionPerformed(java.awt.event.ActionEvent evt
             jmlmenu++;
         }
         
-        if(akses.getpenilaian_medis_hemodialisa()==true){
+        if(akses.getpenilaian_awal_medis_ralan_paru()==true){
+            Panelmenu.add(btnPenilaianAwalMedisRalanParu);
+            jmlmenu++;
+        }
+        
+        if(akses.getpenilaian_medis_ralan_rehab_medik()==true){
+            Panelmenu.add(btnPenilaianAwalMedisRalanRehabMedik);
+            jmlmenu++;
+        }
+        
+        if(akses.getpenilaian_medis_ralan_hemodialisa()==true){
             Panelmenu.add(btnPenilaianAwalMedisHemodialisa);
             jmlmenu++;
         }
@@ -36070,7 +36105,21 @@ private void MnGantiPasswordBtnLogActionPerformed(java.awt.event.ActionEvent evt
             }                
         }
         
-        if(akses.getpenilaian_medis_hemodialisa()==true){
+        if(akses.getpenilaian_awal_medis_ralan_paru()==true){
+            if(btnPenilaianAwalMedisRalanParu.getText().toLowerCase().trim().contains(TCari.getText().toLowerCase().trim())){
+                Panelmenu.add(btnPenilaianAwalMedisRalanParu);
+                jmlmenu++;
+            }                
+        }
+        
+        if(akses.getpenilaian_medis_ralan_rehab_medik()==true){
+            if(btnPenilaianAwalMedisRalanRehabMedik.getText().toLowerCase().trim().contains(TCari.getText().toLowerCase().trim())){
+                Panelmenu.add(btnPenilaianAwalMedisRalanRehabMedik);
+                jmlmenu++;
+            }                
+        }
+        
+        if(akses.getpenilaian_medis_ralan_hemodialisa()==true){
             if(btnPenilaianAwalMedisHemodialisa.getText().toLowerCase().trim().contains(TCari.getText().toLowerCase().trim())){
                 Panelmenu.add(btnPenilaianAwalMedisHemodialisa);
                 jmlmenu++;
@@ -42342,5 +42391,14 @@ private void MnGantiPasswordBtnLogActionPerformed(java.awt.event.ActionEvent evt
         btnBPJSMonitoringKlaimApotek.setName("btnBPJSMonitoringKlaimApotek"); 
         btnBPJSMonitoringKlaimApotek.setPreferredSize(new java.awt.Dimension(200, 90));
         btnBPJSMonitoringKlaimApotek.addActionListener(this::btnBPJSMonitoringKlaimApotekActionPerformed);
+        
+        
+        btnPenilaianAwalMedisRalanParu = new widget.ButtonBig();
+        btnPenilaianAwalMedisRalanParu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/48x48/6217209_anatomy_human_lung_medical_organ_icon.png"))); 
+        btnPenilaianAwalMedisRalanParu.setText("Penilaian Awal Medis Ralan Paru");
+        btnPenilaianAwalMedisRalanParu.setIconTextGap(0);
+        btnPenilaianAwalMedisRalanParu.setName("btnPenilaianAwalMedisRalanParu"); 
+        btnPenilaianAwalMedisRalanParu.setPreferredSize(new java.awt.Dimension(200, 90));
+        btnPenilaianAwalMedisRalanParu.addActionListener(this::btnPenilaianAwalMedisRalanParuActionPerformed);
     }
 }
