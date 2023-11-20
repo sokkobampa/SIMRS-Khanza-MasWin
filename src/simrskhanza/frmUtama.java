@@ -24967,7 +24967,7 @@ private void MnGantiPasswordBtnLogActionPerformed(java.awt.event.ActionEvent evt
                 jmlmenu++;
             }
             
-            if(akses.getpenilaian_medis_ralan_hemodialisa()==true){
+            if(akses.getpenilaian_medis_hemodialisa()==true){
                 Panelmenu.add(btnPenilaianAwalMedisHemodialisa);
                 jmlmenu++;
             }
@@ -29866,7 +29866,7 @@ private void MnGantiPasswordBtnLogActionPerformed(java.awt.event.ActionEvent evt
             jmlmenu++;
         }
         
-        if(akses.getpenilaian_medis_ralan_hemodialisa()==true){
+        if(akses.getpenilaian_medis_hemodialisa()==true){
             Panelmenu.add(btnPenilaianAwalMedisHemodialisa);
             jmlmenu++;
         }
@@ -36119,7 +36119,7 @@ private void MnGantiPasswordBtnLogActionPerformed(java.awt.event.ActionEvent evt
             }                
         }
         
-        if(akses.getpenilaian_medis_ralan_hemodialisa()==true){
+        if(akses.getpenilaian_medis_hemodialisa()==true){
             if(btnPenilaianAwalMedisHemodialisa.getText().toLowerCase().trim().contains(TCari.getText().toLowerCase().trim())){
                 Panelmenu.add(btnPenilaianAwalMedisHemodialisa);
                 jmlmenu++;
