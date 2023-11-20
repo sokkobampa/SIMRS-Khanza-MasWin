@@ -5956,9 +5956,6 @@ public final class PCareDataPendaftaran extends javax.swing.JDialog {
         NmDiagnosa1.setText("");
         NmDiagnosa2.setText("");
         NmDiagnosa3.setText("");
-        StatusDiagnosa1.setText("");
-        StatusDiagnosa2.setText("");
-        StatusDiagnosa3.setText("");
         KdPPKRujukan.setText("");
         NmPPKRujukan.setText("");
         KdSubSpesialis.setText("");
