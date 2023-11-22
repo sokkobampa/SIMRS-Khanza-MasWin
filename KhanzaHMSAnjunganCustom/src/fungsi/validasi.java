@@ -778,17 +778,17 @@ public final class validasi {
             JasperReport jr = (JasperReport) JRLoader.loadObject(report);
             JasperPrint jp = JasperFillManager.fillReport(jr, params, connect);
             
-            PrintService ps = null;
+            PrintService printService = null;
             
             for (PrintService a: PrintServiceLookup.lookupPrintServices(null, null)) {
                 if (a.getName().equals(namaPrinter)) {
                     System.out.println("Printer ditemukan: " + a.getName());
-                    ps = a;
+                    printService = a;
                     break;
                 }
             }
             
-            if (ps == null) {
+            if (printService == null) {
                 JOptionPane.showMessageDialog(null, "Printer tidak ditemukan!");
                 return;
             }
@@ -798,9 +798,9 @@ public final class validasi {
             
             SimplePrintServiceExporterConfiguration config = new SimplePrintServiceExporterConfiguration();
             
-            config.setPrintService(ps);
+            config.setPrintService(printService);
             config.setPrintRequestAttributeSet(pra);
-            config.setPrintServiceAttributeSet(ps.getAttributes());
+            config.setPrintServiceAttributeSet(printService.getAttributes());
             config.setDisplayPageDialog(false);
             config.setDisplayPrintDialog(false);
             
