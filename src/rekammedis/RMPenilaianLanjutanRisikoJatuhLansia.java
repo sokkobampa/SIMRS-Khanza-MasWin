@@ -742,6 +742,11 @@ public final class RMPenilaianLanjutanRisikoJatuhLansia extends javax.swing.JDia
                 SkalaResiko1ItemStateChanged(evt);
             }
         });
+        SkalaResiko1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                SkalaResiko1ActionPerformed(evt);
+            }
+        });
         SkalaResiko1.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 SkalaResiko1KeyPressed(evt);
@@ -1478,6 +1483,10 @@ public final class RMPenilaianLanjutanRisikoJatuhLansia extends javax.swing.JDia
         Valid.pindah2(evt,HasilSkrining,BtnSimpan);
     }//GEN-LAST:event_SaranKeyPressed
 
+    private void SkalaResiko1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SkalaResiko1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_SkalaResiko1ActionPerformed
+
     /**
     * @param args the command line arguments
     */
@@ -1905,7 +1914,7 @@ public final class RMPenilaianLanjutanRisikoJatuhLansia extends javax.swing.JDia
 
             NilaiResikoTotal.setText((Integer.parseInt(NilaiResiko1.getText())+Integer.parseInt(NilaiResiko2.getText())+Integer.parseInt(NilaiResiko3.getText())+Integer.parseInt(NilaiResiko4.getText())+rlansia)+"");
             if(Integer.parseInt(NilaiResikoTotal.getText())<6){
-                TingkatResiko.setText("Tingkat Resiko : Risiko Rendah (0-5), Tindakan : Intervensi pencegahan risiko jatuh standar");
+                TingkatResiko.setText("Tingkat Resiko : Risiko Rendah (0 - 5), Tindakan : Intervensi pencegahan risiko jatuh standar");
                 KeteranganResiko.setText(
                     "<html>" +
                     "1) Orientasikan ruangan pada pasien dan keluarga<br/>" +
@@ -1916,7 +1925,7 @@ public final class RMPenilaianLanjutanRisikoJatuhLansia extends javax.swing.JDia
                     "</html>"
                 );
             }else if(Integer.parseInt(NilaiResikoTotal.getText())<17){
-                TingkatResiko.setText("Tingkat Resiko : Risiko Sedang (6-16), Tindakan : Intervensi pencegahan risiko jatuh standar");
+                TingkatResiko.setText("Tingkat Resiko : Risiko Sedang (6 - 16), Tindakan : Intervensi pencegahan risiko jatuh standar");
                 KeteranganResiko.setText(
                     "<html>" +
                     "1) Orientasikan ruangan pada pasien dan keluarga<br/>" +
@@ -1931,7 +1940,7 @@ public final class RMPenilaianLanjutanRisikoJatuhLansia extends javax.swing.JDia
                     "</html>"
                 );
             }else if(Integer.parseInt(NilaiResikoTotal.getText())>=17){
-                TingkatResiko.setText("Tingkat Resiko : Risiko Tinggi (> 17), Tindakan : Intervensi pencegahan risiko jatuh standar dan Intervensi risiko jatuh tinggi");
+                TingkatResiko.setText("Tingkat Resiko : Risiko Tinggi (> 16), Tindakan : Intervensi pencegahan risiko jatuh standar dan Intervensi risiko jatuh tinggi");
                 KeteranganResiko.setText(
                     "<html>" +
                     "1) Orientasikan ruangan pada pasien dan keluarga<br/>" +
@@ -1954,7 +1963,7 @@ public final class RMPenilaianLanjutanRisikoJatuhLansia extends javax.swing.JDia
             }
         } catch (Exception e) {
             NilaiResikoTotal.setText("0");
-            TingkatResiko.setText("Tingkat Resiko : Risiko Rendah (0-5), Tindakan : Intervensi pencegahan risiko jatuh standar");
+            TingkatResiko.setText("Tingkat Resiko : Risiko Rendah (0 - 5), Tindakan : Intervensi pencegahan risiko jatuh standar");
             KeteranganResiko.setText(
                 "<html>" +
                 "1) Orientasikan ruangan pada pasien dan keluarga<br/>" +
