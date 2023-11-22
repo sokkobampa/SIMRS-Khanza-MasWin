@@ -274,6 +274,8 @@ public final class RMPenilaianLanjutanRisikoJatuhAnak extends javax.swing.JDialo
         jLabel233 = new widget.Label();
         SkalaResiko7 = new widget.ComboBox();
         NilaiResiko7 = new widget.TextBox();
+        KeteranganResiko = new widget.Label();
+        jLabel218 = new widget.Label();
 
         jPopupMenu1.setName("jPopupMenu1"); // NOI18N
 
@@ -464,7 +466,7 @@ public final class RMPenilaianLanjutanRisikoJatuhAnak extends javax.swing.JDialo
         panelGlass9.add(jLabel19);
 
         DTPCari1.setForeground(new java.awt.Color(50, 70, 50));
-        DTPCari1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "13-03-2023" }));
+        DTPCari1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "17-11-2023" }));
         DTPCari1.setDisplayFormat("dd-MM-yyyy");
         DTPCari1.setName("DTPCari1"); // NOI18N
         DTPCari1.setOpaque(false);
@@ -478,7 +480,7 @@ public final class RMPenilaianLanjutanRisikoJatuhAnak extends javax.swing.JDialo
         panelGlass9.add(jLabel21);
 
         DTPCari2.setForeground(new java.awt.Color(50, 70, 50));
-        DTPCari2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "13-03-2023" }));
+        DTPCari2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "17-11-2023" }));
         DTPCari2.setDisplayFormat("dd-MM-yyyy");
         DTPCari2.setName("DTPCari2"); // NOI18N
         DTPCari2.setOpaque(false);
@@ -599,7 +601,7 @@ public final class RMPenilaianLanjutanRisikoJatuhAnak extends javax.swing.JDialo
         TPasien.setBounds(336, 10, 285, 23);
 
         Tanggal.setForeground(new java.awt.Color(50, 70, 50));
-        Tanggal.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "13-03-2023" }));
+        Tanggal.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "17-11-2023" }));
         Tanggal.setDisplayFormat("dd-MM-yyyy");
         Tanggal.setName("Tanggal"); // NOI18N
         Tanggal.setOpaque(false);
@@ -879,7 +881,7 @@ public final class RMPenilaianLanjutanRisikoJatuhAnak extends javax.swing.JDialo
         NilaiResiko6.setBounds(749, 240, 40, 23);
 
         TingkatResiko.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        TingkatResiko.setText("Tingkat Resiko : Risiko Tinggi (>=12), Tindakan : Intervensi risiko jatuh tinggi(pasang gelang warna kuning)");
+        TingkatResiko.setText("Tingkat Resiko : Risiko Tinggi (>=12), Tindakan : Intervensi risiko jatuh tinggi (pasang gelang warna kuning)");
         TingkatResiko.setToolTipText("");
         TingkatResiko.setName("TingkatResiko"); // NOI18N
         FormInput.add(TingkatResiko);
@@ -989,6 +991,20 @@ public final class RMPenilaianLanjutanRisikoJatuhAnak extends javax.swing.JDialo
         NilaiResiko7.setName("NilaiResiko7"); // NOI18N
         FormInput.add(NilaiResiko7);
         NilaiResiko7.setBounds(749, 270, 40, 23);
+
+        KeteranganResiko.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        KeteranganResiko.setText("<html>\n1) Orientasikan ruangan pada pasien dan keluarga<br/>\n2) Pastikan bel mudah dijangkau<br/>\n3) Roda tempat tidur terkunci<br/>\n4) Posisikan tempat tidur terendah<br/>\n5) pengaman/handrail tempat tidur dinaikkan<br/>\n6) Anjurkan orang tua selalu mendampingi anak dan tidak meninggalkan anak sendirian di tempat tidur<br/>\n7) Edukasi pasien tentang efek samping obat<br/>\n</html>");
+        KeteranganResiko.setToolTipText("");
+        KeteranganResiko.setVerticalAlignment(javax.swing.SwingConstants.TOP);
+        KeteranganResiko.setName("KeteranganResiko"); // NOI18N
+        FormInput.add(KeteranganResiko);
+        KeteranganResiko.setBounds(840, 120, 460, 310);
+
+        jLabel218.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        jLabel218.setText("Saran intervensi:");
+        jLabel218.setName("jLabel218"); // NOI18N
+        FormInput.add(jLabel218);
+        jLabel218.setBounds(840, 90, 460, 23);
 
         scrollInput.setViewportView(FormInput);
 
@@ -1468,6 +1484,7 @@ public final class RMPenilaianLanjutanRisikoJatuhAnak extends javax.swing.JDialo
     private widget.TextArea HasilSkrining;
     private widget.TextBox JK;
     private widget.ComboBox Jam;
+    private widget.Label KeteranganResiko;
     private widget.Label LCount;
     private widget.ComboBox Menit;
     private javax.swing.JMenuItem MnPenilaianLanjutanRisikoJatuh;
@@ -1505,6 +1522,7 @@ public final class RMPenilaianLanjutanRisikoJatuhAnak extends javax.swing.JDialo
     private widget.Label jLabel19;
     private widget.Label jLabel21;
     private widget.Label jLabel217;
+    private widget.Label jLabel218;
     private widget.Label jLabel220;
     private widget.Label jLabel223;
     private widget.Label jLabel226;
@@ -1852,14 +1870,53 @@ public final class RMPenilaianLanjutanRisikoJatuhAnak extends javax.swing.JDialo
     private void isTotalResikoJatuh(){
         try {
             NilaiResikoTotal.setText((Integer.parseInt(NilaiResiko1.getText())+Integer.parseInt(NilaiResiko2.getText())+Integer.parseInt(NilaiResiko3.getText())+Integer.parseInt(NilaiResiko4.getText())+Integer.parseInt(NilaiResiko5.getText())+Integer.parseInt(NilaiResiko6.getText())+Integer.parseInt(NilaiResiko7.getText()))+"");
-            if(Integer.parseInt(NilaiResikoTotal.getText())<12){
-                TingkatResiko.setText("Tingkat Resiko : Risiko Rendah (7-11), Tindakan : Intervensi pencegahan risiko jatuh standar");
-            }else if(Integer.parseInt(NilaiResikoTotal.getText())<7){
-                TingkatResiko.setText("Tingkat Resiko : Risiko Rendah (0-7), Tindakan : Intervensi pencegahan risiko jatuh standar");
+            if (Integer.parseInt(NilaiResikoTotal.getText()) >= 12) {
+                TingkatResiko.setText("Tingkat Resiko : Risiko Tinggi (>= 12), Tindakan : Intervensi pencegahan risiko jatuh tinggi");
+                KeteranganResiko.setText(
+                    "<html>" +
+                    "1) Orientasikan ruangan pada pasien dan keluarga<br/>" +
+                    "2) Pastikan bel mudah dijangkau<br/>" +
+                    "3) Roda tempat tidur terkunci<br/>" +
+                    "4) Posisikan tempat tidur terendah<br/>" +
+                    "5) pengaman/handrail tempat tidur dinaikkan<br/>" +
+                    "6) Anjurkan orang tua selalu mendampingi anak dan tidak meninggalkan anak sendirian di tempat tidur<br/>" +
+                    "7) Edukasi pasien tentang efek samping obat<br/>" +
+                    "8) Pasang gelang risiko jatuh (gelang kuning)<br/>" +
+                    "9) Gantungkan stiker risiko jatuh di sekitar area tempat tidur<br/>" +
+                    "10) Anjurkan memanggil perawat jika membutuhkan bantuan<br/>" +
+                    "11) Jauhkan peralatan yang berisiko membahayakan dari jangkauan anak<br/>" +
+                    "12) Kunjungi dan monitor pasien setiap 2 jam<br/>" +
+                    "13) Tempatkan pasien dikamar yang paling dekat dengan nurse station (bila memungkinkan)<br/>" +
+                    "</html>"
+                );
+            } else {
+                TingkatResiko.setText("Tingkat Resiko : Risiko Standar (7-11), Tindakan : Intervensi pencegahan risiko jatuh standar");
+                KeteranganResiko.setText(
+                    "<html>" +
+                    "1) Orientasikan ruangan pada pasien dan keluarga<br/>" +
+                    "2) Pastikan bel mudah dijangkau<br/>" +
+                    "3) Roda tempat tidur terkunci<br/>" +
+                    "4) Posisikan tempat tidur terendah<br/>" +
+                    "5) pengaman/handrail tempat tidur dinaikkan<br/>" +
+                    "6) Anjurkan orang tua selalu mendampingi anak dan tidak meninggalkan anak sendirian di tempat tidur<br/>" +
+                    "7) Edukasi pasien tentang efek samping obat<br/>" +
+                    "</html>"
+                );
             }
         } catch (Exception e) {
             NilaiResikoTotal.setText("0");
-            TingkatResiko.setText("Tingkat Resiko : Risiko Rendah (0-7), Tindakan : Intervensi pencegahan risiko jatuh standar");
+            TingkatResiko.setText("Tingkat Resiko : Risiko Standar (7-11), Tindakan : Intervensi pencegahan risiko jatuh standar");
+            KeteranganResiko.setText(
+                "<html>" +
+                "1) Orientasikan ruangan pada pasien dan keluarga<br/>" +
+                "2) Pastikan bel mudah dijangkau<br/>" +
+                "3) Roda tempat tidur terkunci<br/>" +
+                "4) Posisikan tempat tidur terendah<br/>" +
+                "5) pengaman/handrail tempat tidur dinaikkan<br/>" +
+                "6) Anjurkan orang tua selalu mendampingi anak dan tidak meninggalkan anak sendirian di tempat tidur<br/>" +
+                "7) Edukasi pasien tentang efek samping obat<br/>" +
+                "</html>"
+            );
         }
     }
 }
