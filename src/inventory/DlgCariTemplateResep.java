@@ -52,7 +52,7 @@ public class DlgCariTemplateResep extends javax.swing.JDialog {
             TableColumn column = tbPemisahan.getColumnModel().getColumn(i);
             switch (i) {
                 case 0:
-                    column.setPreferredWidth(170);
+                    column.setPreferredWidth(200);
                 break;
                 case 1:
                     column.setPreferredWidth(65);
@@ -61,13 +61,13 @@ public class DlgCariTemplateResep extends javax.swing.JDialog {
                     column.setPreferredWidth(60);
                 break;
                 case 3:
-                    column.setPreferredWidth(100);
+                    column.setPreferredWidth(300);
                 break;
                 case 4:
                     column.setPreferredWidth(100);
                 break;
                 case 5:
-                    column.setPreferredWidth(300);
+                    column.setPreferredWidth(250);
                 break;
                 case 6:
                     column.setMinWidth(0);
