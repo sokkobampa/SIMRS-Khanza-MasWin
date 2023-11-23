@@ -2532,7 +2532,15 @@ private void ppBersihkanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-F
                     psresepasuransi.setDouble(1, kenaikan);
                     psresepasuransi.setString(2, bangsal);
                     psresepasuransi.setString(3, noResep);
+                    
                     rsobat = psresepasuransi.executeQuery();
+                    
+                    if (! rsobat.first()) {
+                        JOptionPane.showMessageDialog(rootPane, "Maaf, semua stok obat pada template yang dipilih tidak mencukupi..!!");
+                    } else {
+                        rsobat.beforeFirst();
+                    }
+                    
                     if (STOKKOSONGRESEP.equals("no")) {
                         while (rsobat.next()) {
                             if (rsobat.getDouble("jml") > rsobat.getDouble("stok")) {
@@ -2613,7 +2621,15 @@ private void ppBersihkanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-F
                 try {
                     psresep.setString(1, bangsal);
                     psresep.setString(2, noResep);
+                    
                     rsobat = psresep.executeQuery();
+                    
+                    if (! rsobat.first()) {
+                        JOptionPane.showMessageDialog(rootPane, "Maaf, semua stok obat pada template yang dipilih tidak mencukupi..!!");
+                    } else {
+                        rsobat.beforeFirst();
+                    }
+                    
                     if (STOKKOSONGRESEP.equals("no")) {
                         while (rsobat.next()) {
                             if (rsobat.getDouble("jml") > rsobat.getDouble("stok")) {
@@ -2694,9 +2710,10 @@ private void ppBersihkanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-F
             
             try {
                 psresep.setString(1, noResep);
+                
                 rsobat = psresep.executeQuery();
+                
                 while (rsobat.next()) {
-                    
                     tabModeResepRacikan.addRow(new String[]{
                         rsobat.getString("no_racik"), rsobat.getString("nama_racik"), rsobat.getString("kd_racik"),
                         rsobat.getString("metode"), rsobat.getString("jml_dr"), rsobat.getString("aturan_pakai"),
@@ -2736,7 +2753,15 @@ private void ppBersihkanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-F
                             ps2.setString(2, bangsal);
                             ps2.setString(3, noResep);
                             ps2.setString(4, rsobat.getString("no_racik"));
+                            
                             rs2 = ps2.executeQuery();
+                            
+                            if (! rs2.first()) {
+                                JOptionPane.showMessageDialog(rootPane, "Maaf, semua stok obat pada template yang dipilih tidak mencukupi..!!");
+                            } else {
+                                rs2.beforeFirst();
+                            }
+                            
                             if (STOKKOSONGRESEP.equals("no")) {
                                 while (rs2.next()) {
                                     if (rs2.getDouble("jml") > rs2.getDouble("stok")) {
@@ -2818,7 +2843,15 @@ private void ppBersihkanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-F
                             ps2.setString(1, bangsal);
                             ps2.setString(2, noResep);
                             ps2.setString(3, rsobat.getString("no_racik"));
+                            
                             rs2 = ps2.executeQuery();
+                            
+                            if (! rs2.first()) {
+                                JOptionPane.showMessageDialog(rootPane, "Maaf, semua stok obat pada template yang dipilih tidak mencukupi..!!");
+                            } else {
+                                rs2.beforeFirst();
+                            }
+                            
                             if (STOKKOSONGRESEP.equals("no")) {
                                 while (rs2.next()) {
                                     if (rs2.getDouble("jml") > rs2.getDouble("stok")) {
