@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Created with Jaspersoft Studio version 6.8.0.final using JasperReports Library version 6.8.0-2ed8dfabb690ff337a5797129f2cd92902b0c87b  -->
-<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" pageWidth="198" pageHeight="141" columnWidth="188" leftMargin="5" rightMargin="5" topMargin="5" bottomMargin="5" uuid="77b01bec-1798-4bf8-a1db-702e49a3574b">
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" pageWidth="198" pageHeight="162" columnWidth="188" leftMargin="5" rightMargin="5" topMargin="5" bottomMargin="5" uuid="77b01bec-1798-4bf8-a1db-702e49a3574b">
 	<property name="ireport.zoom" value="4.0"/>
 	<property name="ireport.x" value="0"/>
 	<property name="ireport.y" value="0"/>
@@ -8,6 +8,15 @@
 	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
 	<property name="com.jaspersoft.studio.data.sql.SQLQueryDesigner.sash.w1" value="186"/>
 	<property name="com.jaspersoft.studio.data.sql.SQLQueryDesigner.sash.w2" value="807"/>
+	<property name="com.jaspersoft.studio.unit." value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.pageHeight" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.pageWidth" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.topMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.bottomMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.leftMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.rightMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.columnWidth" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.columnSpacing" value="pixel"/>
 	<parameter name="namars" class="java.lang.String"/>
 	<parameter name="alamatrs" class="java.lang.String"/>
 	<parameter name="kotars" class="java.lang.String"/>
@@ -80,7 +89,7 @@ and detail_beri_diet.waktu=jam_diet_pasien.waktu]]>
 		<band splitType="Stretch"/>
 	</background>
 	<detail>
-		<band height="131" splitType="Stretch">
+		<band height="152" splitType="Stretch">
 			<textField>
 				<reportElement x="41" y="60" width="146" height="10" uuid="089f99f6-1aaa-4273-8d47-bf28a12e6531">
 					<property name="com.jaspersoft.studio.unit.height" value="cm"/>
@@ -108,7 +117,7 @@ and detail_beri_diet.waktu=jam_diet_pasien.waktu]]>
 				</graphicElement>
 			</line>
 			<line direction="BottomUp">
-				<reportElement x="0" y="0" width="1" height="131" forecolor="#006666" uuid="a89f18dd-75ce-48f9-8b03-74a415fda9df"/>
+				<reportElement x="1" y="0" width="1" height="151" forecolor="#006666" uuid="a89f18dd-75ce-48f9-8b03-74a415fda9df"/>
 				<graphicElement>
 					<pen lineStyle="Solid"/>
 				</graphicElement>
@@ -124,13 +133,13 @@ and detail_beri_diet.waktu=jam_diet_pasien.waktu]]>
 				<text><![CDATA[Tgl.Lahir]]></text>
 			</staticText>
 			<line>
-				<reportElement x="1" y="130" width="187" height="1" forecolor="#006666" uuid="10477fa7-bc4a-40d8-aadc-6c15f0326578"/>
+				<reportElement x="1" y="151" width="187" height="1" forecolor="#006666" uuid="10477fa7-bc4a-40d8-aadc-6c15f0326578"/>
 				<graphicElement>
 					<pen lineStyle="Solid"/>
 				</graphicElement>
 			</line>
 			<line direction="BottomUp">
-				<reportElement x="187" y="0" width="1" height="130" forecolor="#006666" uuid="f7094a93-1b1b-478e-8b17-34b98fe7b8c5"/>
+				<reportElement x="187" y="0" width="1" height="150" forecolor="#006666" uuid="f7094a93-1b1b-478e-8b17-34b98fe7b8c5"/>
 				<graphicElement>
 					<pen lineStyle="Solid"/>
 				</graphicElement>
@@ -176,7 +185,7 @@ and detail_beri_diet.waktu=jam_diet_pasien.waktu]]>
 				<text><![CDATA[Diet]]></text>
 			</staticText>
 			<textField isStretchWithOverflow="true">
-				<reportElement x="41" y="78" width="146" height="31" uuid="dcced494-7d32-4df5-9824-c955a3f7293e">
+				<reportElement x="41" y="78" width="146" height="39" uuid="dcced494-7d32-4df5-9824-c955a3f7293e">
 					<property name="com.jaspersoft.studio.unit.height" value="cm"/>
 				</reportElement>
 				<textElement>
@@ -252,7 +261,7 @@ and detail_beri_diet.waktu=jam_diet_pasien.waktu]]>
 				</graphicElement>
 			</line>
 			<staticText>
-				<reportElement x="2" y="109" width="185" height="10" uuid="aa2715ce-6c13-4d9a-8213-8e6b7dd794cb">
+				<reportElement x="2" y="117" width="185" height="10" uuid="aa2715ce-6c13-4d9a-8213-8e6b7dd794cb">
 					<property name="com.jaspersoft.studio.unit.height" value="cm"/>
 				</reportElement>
 				<textElement textAlignment="Center">
@@ -262,14 +271,24 @@ and detail_beri_diet.waktu=jam_diet_pasien.waktu]]>
 				<text><![CDATA[Baik Dikonsumsi SEBELUM pukul 08.00/13.00/19.00]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="2" y="119" width="185" height="10" uuid="9575bc7e-9c18-4b6f-86cf-6175e5085b7a">
+				<reportElement x="2" y="140" width="185" height="10" uuid="9575bc7e-9c18-4b6f-86cf-6175e5085b7a">
 					<property name="com.jaspersoft.studio.unit.height" value="cm"/>
 				</reportElement>
 				<textElement textAlignment="Center">
 					<font fontName="Tahoma" size="8"/>
 					<paragraph lineSpacing="Single"/>
 				</textElement>
-				<text><![CDATA[Semoga Lekas Sembuh]]></text>
+				<text><![CDATA["Semoga Lekas Sembuh"]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="2" y="128" width="185" height="10" uuid="d031ef69-e848-4bb8-b0e2-0fa5e297c70a">
+					<property name="com.jaspersoft.studio.unit.height" value="cm"/>
+				</reportElement>
+				<textElement textAlignment="Center">
+					<font fontName="Tahoma" size="8"/>
+					<paragraph lineSpacing="Single"/>
+				</textElement>
+				<text><![CDATA[Alat makan akan diambil satu jam setelah penyajian]]></text>
 			</staticText>
 		</band>
 	</detail>
