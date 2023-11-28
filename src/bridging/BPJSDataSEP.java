@@ -74,6 +74,7 @@ public final class BPJSDataSEP extends javax.swing.JDialog {
     private int i=0,pilihan=1,reply=0,tab=0,kuota=0;
     private SimpleDateFormat dateformat = new SimpleDateFormat("yyyy/MM/dd");
     private ApiBPJS api=new ApiBPJS();
+    private ApiMobileJKN apiMobileJKN=new ApiMobileJKN();
     private BPJSCekReferensiFaskes faskes=new BPJSCekReferensiFaskes(null,false);
     private BPJSCekReferensiPenyakit penyakit=new BPJSCekReferensiPenyakit(null,false);
     private BPJSCekReferensiPoli poli=new BPJSCekReferensiPoli(null,false);
@@ -6655,93 +6656,43 @@ public final class BPJSDataSEP extends javax.swing.JDialog {
                         break;
                 }
 
-                ps=koneksi.prepareStatement("select jadwal.jam_mulai,jadwal.jam_selesai,jadwal.kuota from jadwal where jadwal.hari_kerja=? and jadwal.kd_poli=? and jadwal.kd_dokter=?");
-                try {
-                    ps.setString(1,hari);
-                    ps.setString(2,kodepolireg);
-                    ps.setString(3,kodedokterreg);
-                    rs=ps.executeQuery();
-                    if(rs.next()){
-                        jammulai=rs.getString("jam_mulai");
-                        jamselesai=rs.getString("jam_selesai");
-                        kuota=rs.getInt("kuota");
-                        datajam=Sequel.cariIsi("select DATE_ADD(concat('"+Valid.SetTgl(TanggalSEP.getSelectedItem()+"")+"',' ','"+jammulai+"'),INTERVAL "+(Integer.parseInt(nomorreg)*10)+" MINUTE) ");
-                        parsedDate = dateFormat.parse(datajam);
-                    }else{
-                        statusantrean=false;
-                        System.out.println("Jadwal tidak ditemukan...!");
-                    }
-                } catch (Exception e) {
-                    statusantrean=false;
-                    System.out.println("Notif : "+e);
-                } finally{
-                    if(rs!=null){
-                        rs.close();
-                    }
-                    if(ps!=null){
-                        ps.close();
-                    }
-                }   
-                
-                respon="200";
-                if(!NoRujukan.getText().equals("")){
+                    ps=koneksi.prepareStatement("select jadwal.jam_mulai,jadwal.jam_selesai,jadwal.kuota from jadwal where jadwal.hari_kerja=? and jadwal.kd_poli=? and jadwal.kd_dokter=?");
                     try {
-                        headers = new HttpHeaders();
-                        headers.setContentType(MediaType.APPLICATION_JSON);
-                        headers.add("x-cons-id",koneksiDB.CONSIDAPIMOBILEJKN());
-                        utc=String.valueOf(api.GetUTCdatetimeAsString());
-                        headers.add("x-timestamp",utc);
-                        headers.add("x-signature",api.getHmac(utc));
-                        headers.add("user_key",koneksiDB.USERKEYAPIMOBILEJKN());
-
-                        requestJson ="{" +
-                                        "\"kodebooking\": \""+TNoRw.getText()+"\"," +
-                                        "\"jenispasien\": \"JKN\"," +
-                                        "\"nomorkartu\": \""+NoKartu.getText()+"\"," +
-                                        "\"nik\": \""+NIK.getText()+"\"," +
-                                        "\"nohp\": \""+NoTelp.getText()+"\"," +
-                                        "\"kodepoli\": \""+KdPoli.getText()+"\"," +
-                                        "\"namapoli\": \""+NmPoli.getText()+"\"," +
-                                        "\"pasienbaru\": 0," +
-                                        "\"norm\": \""+TNoRM.getText()+"\"," +
-                                        "\"tanggalperiksa\": \""+Valid.SetTgl(TanggalSEP.getSelectedItem()+"")+"\"," +
-                                        "\"kodedokter\": "+KdDPJP.getText()+"," +
-                                        "\"namadokter\": \""+NmDPJP.getText()+"\"," +
-                                        "\"jampraktek\": \""+jammulai.substring(0,5)+"-"+jamselesai.substring(0,5)+"\"," +
-                                        "\"jeniskunjungan\": "+jeniskunjungan+"," +
-                                        "\"nomorreferensi\": \""+NoRujukan.getText()+"\"," +
-                                        "\"nomorantrean\": \""+nomorreg+"\"," +
-                                        "\"angkaantrean\": "+Integer.parseInt(nomorreg)+"," +
-                                        "\"estimasidilayani\": "+parsedDate.getTime()+"," +
-                                        "\"sisakuotajkn\": "+(kuota-Integer.parseInt(nomorreg))+"," +
-                                        "\"kuotajkn\": "+kuota+"," +
-                                        "\"sisakuotanonjkn\": "+(kuota-Integer.parseInt(nomorreg))+"," +
-                                        "\"kuotanonjkn\": "+kuota+"," +
-                                        "\"keterangan\": \"Peserta harap 30 menit lebih awal guna pencatatan administrasi.\"" +
-                                    "}";
-                        System.out.println("JSON : "+requestJson+"\n");
-                        requestEntity = new HttpEntity(requestJson,headers);
-                        URL = koneksiDB.URLAPIMOBILEJKN()+"/antrean/add";	
-                        System.out.println("URL : "+URL);
-                        root = mapper.readTree(api.getRest().exchange(URL, HttpMethod.POST, requestEntity, String.class).getBody());
-                        nameNode = root.path("metadata");  
-                        respon=nameNode.path("code").asText();
-                        System.out.println("respon WS BPJS Kirim Pakai NoRujukan : "+nameNode.path("code").asText()+" "+nameNode.path("message").asText()+"\n");
+                        ps.setString(1,hari);
+                        ps.setString(2,kodepolireg);
+                        ps.setString(3,kodedokterreg);
+                        rs=ps.executeQuery();
+                        if(rs.next()){
+                            jammulai=rs.getString("jam_mulai");
+                            jamselesai=rs.getString("jam_selesai");
+                            kuota=rs.getInt("kuota");
+                            datajam=Sequel.cariIsi("select DATE_ADD(concat('"+Valid.SetTgl(TanggalSEP.getSelectedItem()+"")+"',' ','"+jammulai+"'),INTERVAL "+(Integer.parseInt(nomorreg)*10)+" MINUTE) ");
+                            parsedDate = dateFormat.parse(datajam);
+                        }else{
+                            statusantrean=false;
+                            System.out.println("Jadwal tidak ditemukan...!");
+                        }
                     } catch (Exception e) {
                         statusantrean=false;
-                        System.out.println("Notif No.Rujuk : "+e);
-                    }
-                }
-                
-                if(respon.equals("201")){
-                    if(!NoSKDP.getText().equals("")){
+                        System.out.println("Notif : "+e);
+                    } finally{
+                        if(rs!=null){
+                            rs.close();
+                        }
+                        if(ps!=null){
+                            ps.close();
+                        }
+                    }   
+
+                    respon="200";
+                    if(!NoRujukan.getText().equals("")){
                         try {
                             headers = new HttpHeaders();
                             headers.setContentType(MediaType.APPLICATION_JSON);
                             headers.add("x-cons-id",koneksiDB.CONSIDAPIMOBILEJKN());
-                            utc=String.valueOf(api.GetUTCdatetimeAsString());
+                            utc=String.valueOf(apiMobileJKN.GetUTCdatetimeAsString());
                             headers.add("x-timestamp",utc);
-                            headers.add("x-signature",api.getHmac(utc));
+                            headers.add("x-signature",apiMobileJKN.getHmac(utc));
                             headers.add("user_key",koneksiDB.USERKEYAPIMOBILEJKN());
 
                             requestJson ="{" +
@@ -6759,7 +6710,7 @@ public final class BPJSDataSEP extends javax.swing.JDialog {
                                             "\"namadokter\": \""+NmDPJP.getText()+"\"," +
                                             "\"jampraktek\": \""+jammulai.substring(0,5)+"-"+jamselesai.substring(0,5)+"\"," +
                                             "\"jeniskunjungan\": "+jeniskunjungan+"," +
-                                            "\"nomorreferensi\": \""+NoSKDP.getText()+"\"," +
+                                            "\"nomorreferensi\": \""+NoRujukan.getText()+"\"," +
                                             "\"nomorantrean\": \""+nomorreg+"\"," +
                                             "\"angkaantrean\": "+Integer.parseInt(nomorreg)+"," +
                                             "\"estimasidilayani\": "+parsedDate.getTime()+"," +
@@ -6773,21 +6724,72 @@ public final class BPJSDataSEP extends javax.swing.JDialog {
                             requestEntity = new HttpEntity(requestJson,headers);
                             URL = koneksiDB.URLAPIMOBILEJKN()+"/antrean/add";	
                             System.out.println("URL : "+URL);
-                            root = mapper.readTree(api.getRest().exchange(URL, HttpMethod.POST, requestEntity, String.class).getBody());
+                            root = mapper.readTree(apiMobileJKN.getRest().exchange(URL, HttpMethod.POST, requestEntity, String.class).getBody());
                             nameNode = root.path("metadata");  
-                            System.out.println("respon WS BPJS Kirim Pakai SKDP : "+nameNode.path("code").asText()+" "+nameNode.path("message").asText()+"\n");
-                            if(nameNode.path("code").asText().equals("201")){
-                                statusantrean=false;
-                            }
+                            respon=nameNode.path("code").asText();
+                            System.out.println("respon WS BPJS Kirim Pakai NoRujukan : "+nameNode.path("code").asText()+" "+nameNode.path("message").asText()+"\n");
                         } catch (Exception e) {
                             statusantrean=false;
-                            System.out.println("Notif SKDP : "+e);
+                            System.out.println("Notif No.Rujuk : "+e);
                         }
                     }
+
+                    if(respon.equals("201")){
+                        if(!NoSKDP.getText().equals("")){
+                            try {
+                                headers = new HttpHeaders();
+                                headers.setContentType(MediaType.APPLICATION_JSON);
+                                headers.add("x-cons-id",koneksiDB.CONSIDAPIMOBILEJKN());
+                                utc=String.valueOf(apiMobileJKN.GetUTCdatetimeAsString());
+                                headers.add("x-timestamp",utc);
+                                headers.add("x-signature",apiMobileJKN.getHmac(utc));
+                                headers.add("user_key",koneksiDB.USERKEYAPIMOBILEJKN());
+
+                                requestJson ="{" +
+                                                "\"kodebooking\": \""+TNoRw.getText()+"\"," +
+                                                "\"jenispasien\": \"JKN\"," +
+                                                "\"nomorkartu\": \""+NoKartu.getText()+"\"," +
+                                                "\"nik\": \""+NIK.getText()+"\"," +
+                                                "\"nohp\": \""+NoTelp.getText()+"\"," +
+                                                "\"kodepoli\": \""+KdPoli.getText()+"\"," +
+                                                "\"namapoli\": \""+NmPoli.getText()+"\"," +
+                                                "\"pasienbaru\": 0," +
+                                                "\"norm\": \""+TNoRM.getText()+"\"," +
+                                                "\"tanggalperiksa\": \""+Valid.SetTgl(TanggalSEP.getSelectedItem()+"")+"\"," +
+                                                "\"kodedokter\": "+KdDPJP.getText()+"," +
+                                                "\"namadokter\": \""+NmDPJP.getText()+"\"," +
+                                                "\"jampraktek\": \""+jammulai.substring(0,5)+"-"+jamselesai.substring(0,5)+"\"," +
+                                                "\"jeniskunjungan\": "+jeniskunjungan+"," +
+                                                "\"nomorreferensi\": \""+NoSKDP.getText()+"\"," +
+                                                "\"nomorantrean\": \""+nomorreg+"\"," +
+                                                "\"angkaantrean\": "+Integer.parseInt(nomorreg)+"," +
+                                                "\"estimasidilayani\": "+parsedDate.getTime()+"," +
+                                                "\"sisakuotajkn\": "+(kuota-Integer.parseInt(nomorreg))+"," +
+                                                "\"kuotajkn\": "+kuota+"," +
+                                                "\"sisakuotanonjkn\": "+(kuota-Integer.parseInt(nomorreg))+"," +
+                                                "\"kuotanonjkn\": "+kuota+"," +
+                                                "\"keterangan\": \"Peserta harap 30 menit lebih awal guna pencatatan administrasi.\"" +
+                                            "}";
+                                System.out.println("JSON : "+requestJson+"\n");
+                                requestEntity = new HttpEntity(requestJson,headers);
+                                URL = koneksiDB.URLAPIMOBILEJKN()+"/antrean/add";	
+                                System.out.println("URL : "+URL);
+                                root = mapper.readTree(apiMobileJKN.getRest().exchange(URL, HttpMethod.POST, requestEntity, String.class).getBody());
+                                nameNode = root.path("metadata");  
+                                System.out.println("respon WS BPJS Kirim Pakai SKDP : "+nameNode.path("code").asText()+" "+nameNode.path("message").asText()+"\n");
+                                if(nameNode.path("code").asText().equals("201")){
+                                    statusantrean=false;
+                                }
+                            } catch (Exception e) {
+                                statusantrean=false;
+                                System.out.println("Notif SKDP : "+e);
+                            }
+                        }
+                    }
+                } catch (Exception e) {
+                    statusantrean=false;
+                    System.out.println("Notif : "+e);
                 }
-            } catch (Exception e) {
-                statusantrean=false;
-                System.out.println("Notif : "+e);
             }
         }
         return statusantrean;
