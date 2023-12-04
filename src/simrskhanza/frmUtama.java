@@ -835,6 +835,9 @@ import rekammedis.RMHasilPemeriksaanUSG;
 import rekammedis.RMHasilTindakanESWL;
 import rekammedis.RMKonselingFarmasi;
 import rekammedis.RMMCU;
+import rekammedis.RMMonitoringAldrettePascaAnestesi;
+import rekammedis.RMMonitoringBromagePascaAnestesi;
+import rekammedis.RMMonitoringStewardPascaAnestesi;
 import rekammedis.RMPemantauanMEOWS;
 import rekammedis.RMPemantauanPEWS;
 import rekammedis.RMPemantauanEWSD;
@@ -20805,6 +20808,45 @@ private void MnGantiPasswordBtnLogActionPerformed(java.awt.event.ActionEvent evt
         aplikasi.setVisible(true);
         this.setCursor(Cursor.getDefaultCursor());
     }
+    
+    private void btnSkorAldrettePascaAnestesiActionPerformed(java.awt.event.ActionEvent evt) {
+        isTutup();
+        DlgHome.dispose();
+        this.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
+        RMMonitoringAldrettePascaAnestesi aplikasi=new RMMonitoringAldrettePascaAnestesi(this,false);
+        aplikasi.isCek();
+        aplikasi.emptTeks();
+        aplikasi.setSize(PanelUtama.getWidth(), PanelUtama.getHeight());
+        aplikasi.setLocationRelativeTo(PanelUtama);
+        aplikasi.setVisible(true);
+        this.setCursor(Cursor.getDefaultCursor());
+    }
+    
+    private void btnSkorStewardPascaAnestesiActionPerformed(java.awt.event.ActionEvent evt) {
+        isTutup();
+        DlgHome.dispose();
+        this.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
+        RMMonitoringStewardPascaAnestesi aplikasi=new RMMonitoringStewardPascaAnestesi(this,false);
+        aplikasi.isCek();
+        aplikasi.emptTeks();
+        aplikasi.setSize(PanelUtama.getWidth(), PanelUtama.getHeight());
+        aplikasi.setLocationRelativeTo(PanelUtama);
+        aplikasi.setVisible(true);
+        this.setCursor(Cursor.getDefaultCursor());
+    }
+    
+    private void btnSkorBromagePascaAnestesiActionPerformed(java.awt.event.ActionEvent evt) {
+        isTutup();
+        DlgHome.dispose();
+        this.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
+        RMMonitoringBromagePascaAnestesi aplikasi=new RMMonitoringBromagePascaAnestesi(this,false);
+        aplikasi.isCek();
+        aplikasi.emptTeks();
+        aplikasi.setSize(PanelUtama.getWidth(), PanelUtama.getHeight());
+        aplikasi.setLocationRelativeTo(PanelUtama);
+        aplikasi.setVisible(true);
+        this.setCursor(Cursor.getDefaultCursor());
+    }
     /**
     * @param args the command line arguments
     */
@@ -21488,7 +21530,8 @@ private void MnGantiPasswordBtnLogActionPerformed(java.awt.event.ActionEvent evt
             btnPenilaianRisikoJatuhPsikiatri,btnPenilaianLanjutanSkriningFungsional,btnPenilaianAwalMedisRalanRehabMedik,btnTemplatePersetujuanPenolakanTindakan,
             btnPenilaianAwalMedisRalanIGDPsikiatri,btnBPJSReferensiSettingPPKApotek,btnBPJSReferensiObatApotek,btnPembayaranBankMandiri,btnBPJSMapingObatApotek,
             btnPenilaianUlangNyeri,btnPenilaianTerapiWicara,btnPengkajianRestrain,btnBPJSKunjunganSEPApotek,btnBPJSMonitoringKlaimApotek,btnPenilaianAwalMedisRalanParu,
-            btnBPJSDaftarPelayananObatApotek,btnCatatanKeperawatanRalan,btnCatatanPersalinan;
+            btnBPJSDaftarPelayananObatApotek,btnCatatanKeperawatanRalan,btnCatatanPersalinan,btnSkorAldrettePascaAnestesi,btnSkorStewardPascaAnestesi,
+            btnSkorBromagePascaAnestesi;
     
     public void isWall(){
         try{            
@@ -25180,6 +25223,21 @@ private void MnGantiPasswordBtnLogActionPerformed(java.awt.event.ActionEvent evt
             
             if(akses.getpenilaian_pre_anestesi()==true){
                 Panelmenu.add(btnPenilaianPreAnastesi);
+                jmlmenu++;
+            }
+            
+            if(akses.getskor_aldrette_pasca_anestesi()==true){
+                Panelmenu.add(btnSkorAldrettePascaAnestesi);
+                jmlmenu++;
+            }
+            
+            if(akses.getskor_steward_pasca_anestesi()==true){
+                Panelmenu.add(btnSkorStewardPascaAnestesi);
+                jmlmenu++;
+            }
+            
+            if(akses.getskor_bromage_pasca_anestesi()==true){
+                Panelmenu.add(btnSkorBromagePascaAnestesi);
                 jmlmenu++;
             }
             
@@ -30094,6 +30152,21 @@ private void MnGantiPasswordBtnLogActionPerformed(java.awt.event.ActionEvent evt
         
         if(akses.getpenilaian_pre_anestesi()==true){
             Panelmenu.add(btnPenilaianPreAnastesi);
+            jmlmenu++;
+        }
+        
+        if(akses.getskor_aldrette_pasca_anestesi()==true){
+            Panelmenu.add(btnSkorAldrettePascaAnestesi);
+            jmlmenu++;
+        }
+        
+        if(akses.getskor_steward_pasca_anestesi()==true){
+            Panelmenu.add(btnSkorStewardPascaAnestesi);
+            jmlmenu++;
+        }
+        
+        if(akses.getskor_bromage_pasca_anestesi()==true){
+            Panelmenu.add(btnSkorBromagePascaAnestesi);
             jmlmenu++;
         }
         
@@ -36435,6 +36508,27 @@ private void MnGantiPasswordBtnLogActionPerformed(java.awt.event.ActionEvent evt
             }                
         }
         
+        if(akses.getskor_aldrette_pasca_anestesi()==true){
+            if(btnSkorAldrettePascaAnestesi.getText().toLowerCase().trim().contains(TCari.getText().toLowerCase().trim())){
+                Panelmenu.add(btnSkorAldrettePascaAnestesi);
+                jmlmenu++;
+            }                
+        }
+        
+        if(akses.getskor_steward_pasca_anestesi()==true){
+            if(btnSkorStewardPascaAnestesi.getText().toLowerCase().trim().contains(TCari.getText().toLowerCase().trim())){
+                Panelmenu.add(btnSkorStewardPascaAnestesi);
+                jmlmenu++;
+            }                
+        }
+        
+        if(akses.getskor_bromage_pasca_anestesi()==true){
+            if(btnSkorBromagePascaAnestesi.getText().toLowerCase().trim().contains(TCari.getText().toLowerCase().trim())){
+                Panelmenu.add(btnSkorBromagePascaAnestesi);
+                jmlmenu++;
+            }                
+        }
+        
         if(akses.getchecklist_kriteria_masuk_hcu()==true){
             if(btnChecklistKriteriaMasukHCU.getText().toLowerCase().trim().contains(TCari.getText().toLowerCase().trim())){
                 Panelmenu.add(btnChecklistKriteriaMasukHCU);
@@ -42515,5 +42609,29 @@ private void MnGantiPasswordBtnLogActionPerformed(java.awt.event.ActionEvent evt
         btnCatatanPersalinan.setName("btnCatatanPersalinan"); 
         btnCatatanPersalinan.setPreferredSize(new java.awt.Dimension(200, 90));
         btnCatatanPersalinan.addActionListener(this::btnCatatanPersalinanActionPerformed);
+        
+        btnSkorAldrettePascaAnestesi = new widget.ButtonBig();
+        btnSkorAldrettePascaAnestesi.setIcon(new javax.swing.ImageIcon(getClass().getResource("/48x48/8168606_stocks_chart_graph_analytics_icon.png")));
+        btnSkorAldrettePascaAnestesi.setText("Skor Aldrette Pasca Anestesi");
+        btnSkorAldrettePascaAnestesi.setIconTextGap(0);
+        btnSkorAldrettePascaAnestesi.setName("btnSkorAldrettePascaAnestesi"); 
+        btnSkorAldrettePascaAnestesi.setPreferredSize(new java.awt.Dimension(200, 90));
+        btnSkorAldrettePascaAnestesi.addActionListener(this::btnSkorAldrettePascaAnestesiActionPerformed);
+        
+        btnSkorStewardPascaAnestesi = new widget.ButtonBig();
+        btnSkorStewardPascaAnestesi.setIcon(new javax.swing.ImageIcon(getClass().getResource("/48x48/1688863_chart_graph_seo_icon.png")));
+        btnSkorStewardPascaAnestesi.setText("Skor Steward Pasca Anestesi");
+        btnSkorStewardPascaAnestesi.setIconTextGap(0);
+        btnSkorStewardPascaAnestesi.setName("btnSkorStewardPascaAnestesi"); 
+        btnSkorStewardPascaAnestesi.setPreferredSize(new java.awt.Dimension(200, 90));
+        btnSkorStewardPascaAnestesi.addActionListener(this::btnSkorStewardPascaAnestesiActionPerformed);
+        
+        btnSkorBromagePascaAnestesi = new widget.ButtonBig();
+        btnSkorBromagePascaAnestesi.setIcon(new javax.swing.ImageIcon(getClass().getResource("/48x48/282476_analytics_chart_icon.png")));
+        btnSkorBromagePascaAnestesi.setText("Skor Bromage Pasca Anestesi");
+        btnSkorBromagePascaAnestesi.setIconTextGap(0);
+        btnSkorBromagePascaAnestesi.setName("btnSkorBromagePascaAnestesi"); 
+        btnSkorBromagePascaAnestesi.setPreferredSize(new java.awt.Dimension(200, 90));
+        btnSkorBromagePascaAnestesi.addActionListener(this::btnSkorBromagePascaAnestesiActionPerformed);
     }
 }
