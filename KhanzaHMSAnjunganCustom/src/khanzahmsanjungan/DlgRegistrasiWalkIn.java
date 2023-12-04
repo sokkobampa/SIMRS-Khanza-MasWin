@@ -12,15 +12,11 @@ package khanzahmsanjungan;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import fungsi.akses;
 import fungsi.koneksiDB;
 import fungsi.sekuel;
 import fungsi.validasi;
 import java.awt.Cursor;
 import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
-import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
 import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;
 import java.io.File;
@@ -32,15 +28,11 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.text.SimpleDateFormat;
-import java.time.LocalDate;
-import java.time.LocalDateTime;
 import java.util.Calendar;
-import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Properties;
 import javax.swing.JOptionPane;
-import org.bouncycastle.crypto.engines.TnepresEngine;
 
 /**
  *
@@ -643,67 +635,17 @@ public class DlgRegistrasiWalkIn extends javax.swing.JDialog {
         ) {
             JOptionPane.showMessageDialog(rootPane, "Pasien sedang dalam masa perawatan di kamar inap..!!");
         } else {
-            int coba = 0, maxCoba = 5;
-            
-            String biayareg = Sequel.cariIsi("SELECT registrasilama FROM poliklinik WHERE kd_poli='" + kode_poli + "'");
-            
             isNumber();
             UpdateUmur();
             isCekPasien();
             
-            String[] values = new String[] {
-                NoReg.getText(),
-                NoRawat.getText(),
-                Valid.SetTgl(TanggalPeriksa.getSelectedItem() + ""),
-                Sequel.cariIsi("select current_time()"),
-                kode_dokter,
-                lblNoRM.getText(),
-                kode_poli,
-                TPngJwb.getText(),
-                TAlmt.getText(),
-                THbngn.getText(),
-                biayareg,
-                "Belum",
-                "Lama",
-                "Ralan",
-                "A09",
-                umur,
-                sttsumur,
-                "Belum Bayar",
-                status
-            };
+            if (registerPasien()) {
+                printBuktiRegistrasi(NoRawat.getText());
             
-            while (! Sequel.menyimpantfSmc("reg_periksa", null, values) && coba < maxCoba) {
-                isNumber();
-                values = new String[] {
-                    NoReg.getText(),
-                    NoRawat.getText(),
-                    Valid.SetTgl(TanggalPeriksa.getSelectedItem() + ""),
-                    Sequel.cariIsi("select current_time()"),
-                    kode_dokter,
-                    lblNoRM.getText(),
-                    kode_poli,
-                    TPngJwb.getText(),
-                    TAlmt.getText(),
-                    THbngn.getText(),
-                    biayareg,
-                    "Belum",
-                    "Lama",
-                    "Ralan",
-                    "A09",
-                    umur,
-                    sttsumur,
-                    "Belum Bayar",
-                    status
-                };
-                coba++;
+                JOptionPane.showMessageDialog(null, "Berhasil");
             }
             
-            printBuktiRegistrasi(NoRawat.getText());
-            
             emptyText();
-            
-            JOptionPane.showMessageDialog(null, "Berhasil");
             
             dispose();
         }
@@ -724,6 +666,47 @@ public class DlgRegistrasiWalkIn extends javax.swing.JDialog {
         NamaPoli.setText("");
         NamaDokter.setText("");
         kode_dokter = "";
+    }
+    
+    private boolean registerPasien() {
+        int coba = 0, maxCoba = 5;
+        
+        String biayareg = Sequel.cariIsi("SELECT registrasilama FROM poliklinik WHERE kd_poli='" + kode_poli + "'");
+        
+        System.out.println("Mencoba mendaftarkan pasien dengan no. rawat: " + TNoRw.getText());
+             
+        while (coba < maxCoba && (
+            !Sequel.menyimpantfSmc("reg_periksa", null,
+                NoReg.getText(), TNoRw.getText(), Valid.SetTgl(TanggalPeriksa.getSelectedItem().toString()),
+                Sequel.cariIsi("select current_time()"), kode_dokter, lblNoRM.getText(), kode_poli,
+                TPngJwb.getText(), TAlmt.getText(), THbngn.getText(), biayareg, "Belum",
+                "Lama", "Ralan", "A09", umur, sttsumur, "Belum Bayar", status)
+        )) {            
+            isNumber();
+            System.out.println("Mencoba mendaftarkan pasien dengan no. rawat: " + TNoRw.getText());
+            
+            coba++;
+        }
+        
+        String isNoRawat = Sequel.cariIsiSmc("select no_rawat from reg_periksa where tgl_registrasi = ? and no_rkm_medis = ? and kd_poli = ? and kd_dokter = ?", Valid.SetTgl(TanggalPeriksa.getSelectedItem().toString()), lblNoRM.getText(), kode_poli, kode_dokter);
+                
+        if (coba == maxCoba && (isNoRawat == null || ! isNoRawat.equals(TNoRw.getText()))) {
+            System.out.println("======================================================");
+            System.out.println("Tidak dapat mendaftarkan pasien dengan detail berikut:");
+            System.out.println("No. Rawat: " + TNoRw.getText());
+            System.out.println("Tgl. Registrasi: " + Valid.SetTgl(TanggalPeriksa.getSelectedItem().toString()));
+            System.out.println("No. Antrian: " + NoReg.getText() + " (Ditemukan: " + Sequel.cariIsiSmc("select no_reg from reg_periksa where no_rawat = ?", TNoRw.getText()) + ")");
+            System.out.println("No. RM: " + lblNoRM.getText() + " (Ditemukan: " + Sequel.cariIsiSmc("select no_rkm_medis from reg_periksa where no_rawat = ?", TNoRw.getText()) + ")");
+            System.out.println("Kode Dokter: " + kode_dokter + " (Ditemukan: " + Sequel.cariIsiSmc("select kd_dokter from reg_periksa where no_rawat = ?", TNoRw.getText()) + ")");
+            System.out.println("Kode Poli: " + kode_poli  + " (Ditemukan: " + Sequel.cariIsiSmc("select kd_poli from reg_periksa where no_rawat = ?", TNoRw.getText()) + ")");
+            System.out.println("======================================================");
+
+            return false;
+        }
+        
+        UpdateUmur();
+        
+        return true;
     }
     
     private void btnSimpan1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSimpan1ActionPerformed

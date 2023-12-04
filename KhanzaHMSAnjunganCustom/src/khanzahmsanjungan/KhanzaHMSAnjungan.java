@@ -51,6 +51,7 @@ public class KhanzaHMSAnjungan {
                 System.out.println("Setting PRINTER_REGISTRASI menggunakan printer: " + printerRegistrasi);
             }
         });
+        
         try {
             UIManager.setLookAndFeel(new FlatLightLaf());
             UIManager.put("TabbedPane.showTabSeparators", true);

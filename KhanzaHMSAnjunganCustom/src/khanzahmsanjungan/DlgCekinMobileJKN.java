@@ -105,7 +105,7 @@ public class DlgCekinMobileJKN extends javax.swing.JDialog {
 
         jLabel28.setForeground(new java.awt.Color(0, 131, 62));
         jLabel28.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel28.setText("No. Rujukan / No. Peserta / NIK / No. RM");
+        jLabel28.setText("No. Peserta / NIK / No. RM");
         jLabel28.setFont(new java.awt.Font("Poppins", 0, 24)); // NOI18N
         jLabel28.setPreferredSize(new java.awt.Dimension(500, 75));
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -175,7 +175,35 @@ public class DlgCekinMobileJKN extends javax.swing.JDialog {
 
     private void btnCekRujukanMobileJKNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCekRujukanMobileJKNActionPerformed
         this.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
-        cekRujukanPasienMobileJKN();
+        
+        String kodebooking = null;
+        
+        if (Sequel.cariIntegerSmc("select count(*) from referensi_mobilejkn_bpjs where nomorkartu = ? and status = 'Belum' and tanggalperiksa = current_date()", textInput.getText()) > 0) {
+            kodebooking = Sequel.cariIsiSmc("select nomorkartu from referensi_mobilejkn_bpjs where nomorkartu = ? and status = 'Belum' and tanggalperiksa = current_date()", textInput.getText());
+        } else if (Sequel.cariIntegerSmc("select count(*) from referensi_mobilejkn_bpjs where norm = ? and status = 'Belum' and tanggalperiksa = current_date()", textInput.getText()) > 0) {
+            kodebooking = Sequel.cariIsiSmc("select nomorkartu from referensi_mobilejkn_bpjs where norm = ? and status = 'Belum' and tanggalperiksa = current_date()", textInput.getText());
+        } else if (Sequel.cariIntegerSmc("select count(*) from referensi_mobilejkn_bpjs join pasien on referensi_mobilejkn_bpjs.no_rm = pasien.no_rkm_medis where pasien.no_ktp = ? and referensi_mobilejkn_bpjs.status = 'Belum' and referensi_mobilejkn_bpjs.tanggalperiksa = current_date()", textInput.getText()) > 0) {
+            
+        }
+        
+        if (Sequel.cariIntegerSmc("select count(*) from referensi_mobilejkn_bpjs where referensi_mobilejkn_bpjs.nomorkartu = ? and referensi_mobilejkn_bpjs.status = 'Belum' and referensi_mobilejkn_bpjs.tanggalperiksa = CURRENT_DATE()", textInput.getText()) > 0) {
+            DlgRegistrasiSEPMobileJKN form = new DlgRegistrasiSEPMobileJKN(null, true);
+            form.tampil(textInput.getText());
+            form.setSize(this.getWidth(), this.getHeight());
+            form.setLocationRelativeTo(jPanel1);
+            this.dispose();
+            form.setVisible(true);
+        } else if (Sequel.cariIntegerSmc("select count(*) from referensi_mobilejkn_bpjs where referensi_mobilejkn_bpjs.norm = ? and referensi_mobilejkn_bpjs.status = 'Belum' and referensi_mobilejkn_bpjs.tanggalperiksa = CURRENT_DATE()", textInput.getText()) > 0) {
+            DlgRegistrasiSEPMobileJKN form = new DlgRegistrasiSEPMobileJKN(null, true);
+            form.tampil(Sequel.cariIsiSmc("select referensi_mobilejkn_bpjs.nomorkartu from referensi_mobilejkn_bpjs where referensi_mobilejkn_bpjs.norm = ? and referensi_mobilejkn_bpjs.status = 'Belum' and referensi_mobilejkn_bpjs.tanggalperiksa = CURRENT_DATE()", textInput.getText()));
+            form.setSize(this.getWidth(), this.getHeight());
+            form.setLocationRelativeTo(jPanel1);
+            this.dispose();
+            form.setVisible(true);
+        } else {
+            JOptionPane.showMessageDialog(rootPane, "Data Booking MobileJKN tidak ditemukan. ");
+        }
+        
         this.setCursor(Cursor.getDefaultCursor());
     }//GEN-LAST:event_btnCekRujukanMobileJKNActionPerformed
 

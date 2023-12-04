@@ -752,7 +752,6 @@ public final class validasi {
     
     
     public void printReport(String namaReport, String namaPrinter, String judul, int jumlah, Map params) {
-        
         String currentDir = System.getProperties().getProperty("user.dir");
 
         File dir = new File(currentDir);

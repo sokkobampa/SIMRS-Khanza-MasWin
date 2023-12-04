@@ -995,6 +995,40 @@ public final class sekuel {
         }
     }
     
+    public boolean cariBooleanSmc(String sql, String... values) {
+        boolean output = false;
+        
+        try {
+            ps = connect.prepareStatement(sql);
+            
+            try {
+                for (int i = 0; i < values.length; i++) {
+                    ps.setString(i + 1, values[i]);
+                }
+
+                rs = ps.executeQuery();
+
+                if (rs.next()) {
+                    output = rs.getBoolean(1);
+                }                
+            } catch (Exception e) {
+                System.out.println("Notif : " + e);
+            } finally {
+                if (rs != null) {
+                    rs.close();
+                }
+                
+                if (ps != null) {
+                    ps.close();
+                }
+            }
+        } catch (Exception e) {
+            System.out.println("Notif : " + e);
+        }
+        
+        return output;
+    }
+    
     public String cariIsiSmc(String sql, String... values) {
         String output = null;
         
