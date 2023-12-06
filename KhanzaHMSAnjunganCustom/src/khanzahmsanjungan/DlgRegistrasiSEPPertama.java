@@ -2082,7 +2082,7 @@ public class DlgRegistrasiSEPPertama extends javax.swing.JDialog {
         String tanggal = format.format(today);
 
         if (! tglRencanaKontrol.equals(tanggal)) {
-            updateSuratKontrol(noSKDP, noSEP, tanggal);
+            updateSuratKontrol(noSKDP, noSEP, tanggal, noKartuPeserta);
         }
 
         if (Sequel.cariIsi("select trim(bridging_sep.jnspelayanan) from bridging_sep where bridging_sep.no_sep = ?", noSEP).equals("1")) {
@@ -2349,7 +2349,7 @@ public class DlgRegistrasiSEPPertama extends javax.swing.JDialog {
                             + "\"sisakuotanonjkn\": " + (kuota - Integer.parseInt(NoReg.getText().trim())) + ","
                             + "\"kuotanonjkn\": " + kuota + ","
                             + "\"keterangan\": \"Peserta harap 30 menit lebih awal guna pencatatan administrasi.\""
-                            + "}";
+                        + "}";
                         System.out.println("JSON : " + requestJson + "\n");
                         requestEntity = new HttpEntity(requestJson, headers);
                         URL = koneksiDB.URLAPIMOBILEJKN() + "/antrean/add";
@@ -2399,7 +2399,7 @@ public class DlgRegistrasiSEPPertama extends javax.swing.JDialog {
                                 + "\"sisakuotanonjkn\": " + (kuota - Integer.parseInt(NoReg.getText().trim())) + ","
                                 + "\"kuotanonjkn\": " + kuota + ","
                                 + "\"keterangan\": \"Peserta harap 30 menit lebih awal guna pencatatan administrasi.\""
-                                + "}";
+                            + "}";
                             System.out.println("JSON : " + requestJson + "\n");
                             requestEntity = new HttpEntity(requestJson, headers);
                             URL = koneksiDB.URLAPIMOBILEJKN() + "/antrean/add";
@@ -2545,9 +2545,9 @@ public class DlgRegistrasiSEPPertama extends javax.swing.JDialog {
         }
     }
 
-    private void updateSuratKontrol(String noSurat, String noSEPKontrol, String tanggalKontrol) {
+    private void updateSuratKontrol(String noSurat, String noSEPKontrol, String tanggalKontrol, String noKA) {
         if (noSurat.trim().isEmpty()) {
-            JOptionPane.showMessageDialog(rootPane, "Maaf, Silahkan anda pilih terlebih dulu data yang mau anda ganti...\n Klik data pada table untuk memilih data...!!!!");
+            JOptionPane.showMessageDialog(rootPane, "Maaf, data surat kontrol tidak ditemukan...!!\nSilahkan hubungi administrasi...!!");
             
             return;
         }
@@ -2577,7 +2577,7 @@ public class DlgRegistrasiSEPPertama extends javax.swing.JDialog {
                     + "\"kodeDokter\":\"" + kodeDokterKontrol + "\","
                     + "\"poliKontrol\":\"" + kodePoliKontrol + "\","
                     + "\"tglRencanaKontrol\":\"" + tanggalKontrol + "\","
-                    + "\"user\":\"APM\""
+                    + "\"user\":\"" + noKA + "\""
                     + "}"
             + "}";
             
