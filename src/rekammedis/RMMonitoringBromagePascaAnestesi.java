@@ -571,12 +571,11 @@ public final class RMMonitoringBromagePascaAnestesi extends javax.swing.JDialog 
         FormInput.setPreferredSize(new java.awt.Dimension(100, 413));
         FormInput.setLayout(null);
 
-        PanelWall.setBackground(new java.awt.Color(29, 29, 29));
+        PanelWall.setBackground(new java.awt.Color(255, 255, 255));
         PanelWall.setBackgroundImage(new javax.swing.ImageIcon(getClass().getResource("/picture/bromage_score.png"))); // NOI18N
         PanelWall.setBackgroundImageType(usu.widget.constan.BackgroundConstan.BACKGROUND_IMAGE_STRECT);
         PanelWall.setPreferredSize(new java.awt.Dimension(200, 200));
         PanelWall.setRound(false);
-        PanelWall.setWarna(new java.awt.Color(110, 110, 110));
         PanelWall.setLayout(null);
         FormInput.add(PanelWall);
         PanelWall.setBounds(34, 120, 430, 233);
@@ -1390,8 +1389,8 @@ public final class RMMonitoringBromagePascaAnestesi extends javax.swing.JDialog 
     
     public void emptTeks() {
         Tanggal.setDate(new Date());
-        SkalaKriteria.setSelectedIndex(0);
-        NilaiKriteria.setText("0");
+        SkalaKriteria.setSelectedIndex(3);
+        NilaiKriteria.setText("3");
         TingkatKriteria.setText("Pasien Tidak Dapat Dipindahkan Ke Ruangan Perawatan, Karena Kondisi Yang Lemah");
         Keluar.setText("");
         Instruksi.setText("");
@@ -1588,8 +1587,8 @@ public final class RMMonitoringBromagePascaAnestesi extends javax.swing.JDialog 
     
     private void isTotalResiko(){
         try {
-            if(Integer.parseInt(NilaiKriteria.getText())>2){
-                TingkatKriteria.setText("Pasien Bisa Dipindahkan Dari Ruang Pulih Bila Nilai > 2");
+            if(Integer.parseInt(NilaiKriteria.getText())<=2){
+                TingkatKriteria.setText("Pasien Bisa Dipindahkan Dari Ruang Pemulihan Bila Nilai <= 2");
             }else{
                 TingkatKriteria.setText("Pasien Tidak Dapat Dipindahkan Ke Ruangan Perawatan, Karena Kondisi Yang Lemah");
             }
