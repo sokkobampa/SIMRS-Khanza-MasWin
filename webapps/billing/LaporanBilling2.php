@@ -20,9 +20,9 @@
             $nonota         = str_replace(": ","",getOne("select temp2 from temporary_bayar_ranap where temp1='No.Nota'"));
             $norawat        = getOne("select no_rawat from nota_inap where no_nota='$nonota'");
             $tglAwal = getOne("select date_format(reg_periksa.tgl_registrasi, '%d %M %Y') from reg_periksa where reg_periksa.no_rawat = '$norawat'");
-            $jamAwal = getOne("select reg_periksa.jam from reg_periksa where reg_periksa.no_rawat = '$norawat'");
-            $tglAkhir = getOne("select date_format(kamar_inap.tgl_keluar, '%d %M %Y') from kamar_inap where kamar_inap.no_rawat = '$norawat' and kamar_inap.status != 'Pindah Kamar' order by tgl_keluar desc, jam_keluar desc");
-            $jamAkhir = getOne("select kamar_inap.jam_keluar from kamar_inap where kamar_inap.no_rawat = '$norawat' order by tgl_keluar desc, jam_keluar desc");
+            $jamAwal = getOne("select reg_periksa.jam_reg from reg_periksa where reg_periksa.no_rawat = '$norawat'");
+            $tglAkhir = getOne("select date_format(kamar_inap.tgl_keluar, '%d %M %Y') from kamar_inap where kamar_inap.no_rawat = '$norawat' and kamar_inap.stts_pulang != 'Pindah Kamar' order by tgl_keluar desc, jam_keluar desc");
+            $jamAkhir = getOne("select kamar_inap.jam_keluar from kamar_inap where kamar_inap.no_rawat = '$norawat' and kamar_inap.stts_pulang != 'Pindah Kamar' order by tgl_keluar desc, jam_keluar desc");
             $hari = getOne("select temp2 from temporary_bayar_ranap where temp1 = 'Tgl.Perawatan'");
             $hariA = mb_strpos($hari, '( ');
             $hariB = mb_strpos($hari, ' )');
