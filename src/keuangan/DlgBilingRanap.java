@@ -4864,10 +4864,12 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
         Valid.tabelKosong(tabModeRwJlDr);
         try{  
             psreg=koneksi.prepareStatement(
-                    "select reg_periksa.no_rkm_medis,concat(DATE_FORMAT(reg_periksa.tgl_registrasi, '%e %M %Y'),' ',reg_periksa.jam_reg) as registrasi,kamar_inap.kd_kamar,concat(if(kamar_inap.tgl_keluar='0000-00-00',DATE_FORMAT(CURDATE(), '%e %M %Y'),DATE_FORMAT(kamar_inap.tgl_keluar, '%e %M %Y')),' ',kamar_inap.jam_keluar) as keluar,  "+
-                    "(select sum(kamar_inap.lama) from kamar_inap where kamar_inap.no_rawat=reg_periksa.no_rawat ) as lama,reg_periksa.biaya_reg,reg_periksa.umurdaftar,reg_periksa.sttsumur,reg_periksa.tgl_registrasi "+
-                    "from reg_periksa inner join kamar_inap on reg_periksa.no_rawat=kamar_inap.no_rawat where reg_periksa.no_rawat=? "+
-                    "order by kamar_inap.tgl_keluar desc limit 1");
+                "select reg_periksa.no_rkm_medis, concat_ws(' ', date_format(reg_periksa.tgl_registrasi, '%e %M %Y'), reg_periksa.jam_reg) as registrasi, kamar_inap.kd_kamar, " +
+                "concat_ws(' ', date_format(if (kamar_inap.tgl_keluar = '0000-00-00' or kamar_inap.tgl_keluar is null, current_date(), kamar_inap.tgl_keluar), '%e %M %Y'), if (kamar_inap.jam_keluar = '00:00:00' or kamar_inap.jam_keluar is null, current_time(), kamar_inap.jam_keluar)) as keluar, " +
+                "(select sum(kamar_inap.lama) from kamar_inap where kamar_inap.no_rawat = reg_periksa.no_rawat) as lama, reg_periksa.biaya_reg, reg_periksa.umurdaftar, reg_periksa.sttsumur, reg_periksa.tgl_registrasi " +
+                "from reg_periksa inner join kamar_inap on reg_periksa.no_rawat = kamar_inap.no_rawat where reg_periksa.no_rawat = ?" +
+                "order by kamar_inap.tgl_keluar desc, kamar_inap.jam_keluar desc limit 1"
+            );
             try {
                 psreg.setString(1,TNoRw.getText());
                 rsreg=psreg.executeQuery();            
