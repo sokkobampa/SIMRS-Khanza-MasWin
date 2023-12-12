@@ -885,6 +885,7 @@ import rekammedis.RMPenilaianPasienKeracunan;
 import rekammedis.RMPenilaianPasienPenyakitMenular;
 import rekammedis.RMPenilaianPasienTerminal;
 import rekammedis.RMPenilaianPreAnastesi;
+import rekammedis.RMPenilaianPreInduksi;
 import rekammedis.RMPenilaianPreOperasi;
 import rekammedis.RMPenilaianPsikologi;
 import rekammedis.RMPenilaianRisikoDekubitus;
@@ -20847,6 +20848,20 @@ private void MnGantiPasswordBtnLogActionPerformed(java.awt.event.ActionEvent evt
         aplikasi.setVisible(true);
         this.setCursor(Cursor.getDefaultCursor());
     }
+    
+    private void btnPenilaianPreInduksiActionPerformed(java.awt.event.ActionEvent evt) {
+        isTutup();
+        this.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
+        RMPenilaianPreInduksi form=new RMPenilaianPreInduksi(this,false);
+        form.isCek();
+        form.emptTeks();
+        form.setTampil();
+        form.setSize(PanelUtama.getWidth(),PanelUtama.getHeight());
+        form.setLocationRelativeTo(PanelUtama);
+        form.setVisible(true);
+        DlgHome.dispose();
+        this.setCursor(Cursor.getDefaultCursor());
+    }
     /**
     * @param args the command line arguments
     */
@@ -21531,7 +21546,7 @@ private void MnGantiPasswordBtnLogActionPerformed(java.awt.event.ActionEvent evt
             btnPenilaianAwalMedisRalanIGDPsikiatri,btnBPJSReferensiSettingPPKApotek,btnBPJSReferensiObatApotek,btnPembayaranBankMandiri,btnBPJSMapingObatApotek,
             btnPenilaianUlangNyeri,btnPenilaianTerapiWicara,btnPengkajianRestrain,btnBPJSKunjunganSEPApotek,btnBPJSMonitoringKlaimApotek,btnPenilaianAwalMedisRalanParu,
             btnBPJSDaftarPelayananObatApotek,btnCatatanKeperawatanRalan,btnCatatanPersalinan,btnSkorAldrettePascaAnestesi,btnSkorStewardPascaAnestesi,
-            btnSkorBromagePascaAnestesi;
+            btnSkorBromagePascaAnestesi,btnPenilaianPreInduksi;
     
     public void isWall(){
         try{            
@@ -25188,6 +25203,11 @@ private void MnGantiPasswordBtnLogActionPerformed(java.awt.event.ActionEvent evt
             
             if(akses.getpenilaian_psikologi()==true){
                 Panelmenu.add(btnPenilaianPsikologi);
+                jmlmenu++;
+            }
+        
+            if(akses.getpenilaian_pre_induksi()==true){
+                Panelmenu.add(btnPenilaianPreInduksi);
                 jmlmenu++;
             }
             
@@ -30117,6 +30137,11 @@ private void MnGantiPasswordBtnLogActionPerformed(java.awt.event.ActionEvent evt
         
         if(akses.getpenilaian_psikologi()==true){
             Panelmenu.add(btnPenilaianPsikologi);
+            jmlmenu++;
+        }
+        
+        if(akses.getpenilaian_pre_induksi()==true){
+            Panelmenu.add(btnPenilaianPreInduksi);
             jmlmenu++;
         }
         
@@ -36459,6 +36484,13 @@ private void MnGantiPasswordBtnLogActionPerformed(java.awt.event.ActionEvent evt
             }                
         }
         
+        if(akses.getpenilaian_pre_induksi()==true){
+            if(btnPenilaianPreInduksi.getText().toLowerCase().trim().contains(TCari.getText().toLowerCase().trim())){
+                Panelmenu.add(btnPenilaianPreInduksi);
+                jmlmenu++;
+            }                
+        }
+        
         if(akses.getchecklist_pre_operasi()==true){
             if(btnChecklistPreOperasi.getText().toLowerCase().trim().contains(TCari.getText().toLowerCase().trim())){
                 Panelmenu.add(btnChecklistPreOperasi);
@@ -42633,5 +42665,13 @@ private void MnGantiPasswordBtnLogActionPerformed(java.awt.event.ActionEvent evt
         btnSkorBromagePascaAnestesi.setName("btnSkorBromagePascaAnestesi"); 
         btnSkorBromagePascaAnestesi.setPreferredSize(new java.awt.Dimension(200, 90));
         btnSkorBromagePascaAnestesi.addActionListener(this::btnSkorBromagePascaAnestesiActionPerformed);
+        
+        btnPenilaianPreInduksi = new widget.ButtonBig();
+        btnPenilaianPreInduksi.setIcon(new javax.swing.ImageIcon(getClass().getResource("/48x48/6008650_breath_breathing_difficult_healthcare_illness_icon.png")));
+        btnPenilaianPreInduksi.setText("Penilaian Pre Induksi");
+        btnPenilaianPreInduksi.setIconTextGap(0);
+        btnPenilaianPreInduksi.setName("btnPenilaianPreInduksi"); 
+        btnPenilaianPreInduksi.setPreferredSize(new java.awt.Dimension(200, 90));
+        btnPenilaianPreInduksi.addActionListener(this::btnPenilaianPreInduksiActionPerformed);
     }
 }
