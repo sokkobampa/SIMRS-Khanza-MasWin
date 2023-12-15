@@ -735,6 +735,13 @@ private void KdKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TKdKey
                         jml=tbDokter.getRowCount();
                         for(i=0;i<jml;i++){  
                             if(Valid.SetAngka(tbDokter.getValueAt(i,0).toString())>0){
+                                validasiStok(
+                                    tbDokter.getValueAt(i, 1).toString(),
+                                    tbDokter.getValueAt(i, 3).toString(),
+                                    Valid.SetAngka(tbDokter.getValueAt(i, 0).toString()),
+                                    tbDokter.getValueAt(i, 2).toString(),
+                                    tbDokter.getValueAt(i, 9).toString()
+                                );
                                 if(Sequel.menyimpantf2("detail_pengeluaran_obat_bhp","?,?,?,?,?,?,?,?","Transaksi Pengeluaran",8,new String[]{
                                     NoKeluar.getText(),tbDokter.getValueAt(i,1).toString(),tbDokter.getValueAt(i,5).toString(),tbDokter.getValueAt(i,2).toString(),
                                     tbDokter.getValueAt(i,0).toString(),tbDokter.getValueAt(i,6).toString(),tbDokter.getValueAt(i,7).toString(),tbDokter.getValueAt(i,9).toString()
@@ -1440,5 +1447,28 @@ private void BtnGudangActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIR
             System.out.println("Notifikasi : "+e);
         }
         
+    }
+   
+    private void validasiStok(String kodeBarang, String namaBarang, double jumlah, String noBatch, String noFaktur)
+    {
+        if (tabMode.getRowCount() < 0) {
+            JOptionPane.showMessageDialog(rootPane, "Maaf, tidak ada data yang bisa diproses..!!");
+
+            return;
+        }
+
+        String sql = "select ifnull(stok, 0) from gudangbarang where kode_brng = ? and kd_bangsal = ?";
+
+        if (aktifkanbatch.equals("yes")) {
+            sql = sql + " and no_batch = ? and no_faktur = ?";
+        } else {
+            sql = sql + " and no_batch = '' and no_faktur = ''";
+        }
+        
+        if (Sequel.cariIsiDoubleSmc(sql, 2, ! aktifkanbatch.equals("yes"), kodeBarang, kdgudang.getText(), noBatch, noFaktur) < jumlah) {
+            JOptionPane.showMessageDialog(rootPane, "Maaf, jumlah barang " + namaBarang + " yang dikeluarkan\nmelebihi stok di gudang saat ini..!!");
+            
+            sukses = false;
+        }
     }
 }
