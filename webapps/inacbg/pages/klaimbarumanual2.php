@@ -219,7 +219,7 @@
                         Cara Bayar : 
                         <select name="carabayar" class="text4">
                             <?php
-                                $_sql = "SELECT penjab.png_jawab FROM penjab  ORDER BY penjab.png_jawab";
+                                $_sql = "SELECT penjab.png_jawab FROM penjab where status = '1' ORDER BY penjab.png_jawab";
                                 $hasil=bukaquery($_sql);
                                 if(!empty($carabayar)){
                                     echo "<option value='$carabayar'>$carabayar</option>";
@@ -246,4 +246,3 @@
 	</form>
     </div>
 </div>
-
