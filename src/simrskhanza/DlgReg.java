@@ -111,6 +111,7 @@ import rekammedis.RMHemodialisa;
 import rekammedis.RMDeteksiDiniCorona;
 import rekammedis.RMEdukasiPasienKeluargaRawatJalan;
 import rekammedis.RMHasilPemeriksaanUSG;
+import rekammedis.RMHasilPemeriksaanUSGUrologi;
 import rekammedis.RMHasilTindakanESWL;
 import rekammedis.RMKonselingFarmasi;
 import rekammedis.RMMCU;
@@ -1379,8 +1380,7 @@ public final class DlgReg extends javax.swing.JDialog {
                 MnPenilaianAwalKeperawatanRalanActionPerformed(evt);
             }
         });
-        MnAwalKeperawatan.add(MnPenilaianAwalKeperawatanRalan);
-
+        
         MnPenilaianAwalKeperawatanGigi.setBackground(new java.awt.Color(255, 255, 254));
         MnPenilaianAwalKeperawatanGigi.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
         MnPenilaianAwalKeperawatanGigi.setForeground(new java.awt.Color(50, 50, 50));
@@ -1395,7 +1395,6 @@ public final class DlgReg extends javax.swing.JDialog {
                 MnPenilaianAwalKeperawatanGigiActionPerformed(evt);
             }
         });
-        MnAwalKeperawatan.add(MnPenilaianAwalKeperawatanGigi);
 
         MnPenilaianAwalKeperawatanKebidanan.setBackground(new java.awt.Color(255, 255, 254));
         MnPenilaianAwalKeperawatanKebidanan.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
@@ -1411,7 +1410,6 @@ public final class DlgReg extends javax.swing.JDialog {
                 MnPenilaianAwalKeperawatanKebidananActionPerformed(evt);
             }
         });
-        MnAwalKeperawatan.add(MnPenilaianAwalKeperawatanKebidanan);
 
         MnPenilaianAwalKeperawatanBayiAnak.setBackground(new java.awt.Color(255, 255, 254));
         MnPenilaianAwalKeperawatanBayiAnak.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
@@ -1427,7 +1425,6 @@ public final class DlgReg extends javax.swing.JDialog {
                 MnPenilaianAwalKeperawatanBayiAnakActionPerformed(evt);
             }
         });
-        MnAwalKeperawatan.add(MnPenilaianAwalKeperawatanBayiAnak);
 
         MnPenilaianAwalKeperawatanPsikiatri.setBackground(new java.awt.Color(255, 255, 254));
         MnPenilaianAwalKeperawatanPsikiatri.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
@@ -1443,7 +1440,6 @@ public final class DlgReg extends javax.swing.JDialog {
                 MnPenilaianAwalKeperawatanPsikiatriActionPerformed(evt);
             }
         });
-        MnAwalKeperawatan.add(MnPenilaianAwalKeperawatanPsikiatri);
 
         MnPenilaianAwalKeperawatanRalanGeriatri.setBackground(new java.awt.Color(255, 255, 254));
         MnPenilaianAwalKeperawatanRalanGeriatri.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
@@ -1459,10 +1455,7 @@ public final class DlgReg extends javax.swing.JDialog {
                 MnPenilaianAwalKeperawatanRalanGeriatriActionPerformed(evt);
             }
         });
-        MnAwalKeperawatan.add(MnPenilaianAwalKeperawatanRalanGeriatri);
-
-        MnRMRawatJalan.add(MnAwalKeperawatan);
-
+        
         MnAwalMedis.setBackground(new java.awt.Color(255, 255, 254));
         MnAwalMedis.setForeground(new java.awt.Color(50, 50, 50));
         MnAwalMedis.setIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/category.png"))); // NOI18N
@@ -1487,7 +1480,6 @@ public final class DlgReg extends javax.swing.JDialog {
                 MnPenilaianAwalMedisRalanActionPerformed(evt);
             }
         });
-        MnAwalMedis.add(MnPenilaianAwalMedisRalan);
 
         MnPenilaianAwalMedisRalanKebidanan.setBackground(new java.awt.Color(255, 255, 254));
         MnPenilaianAwalMedisRalanKebidanan.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
@@ -1503,7 +1495,6 @@ public final class DlgReg extends javax.swing.JDialog {
                 MnPenilaianAwalMedisRalanKebidananActionPerformed(evt);
             }
         });
-        MnAwalMedis.add(MnPenilaianAwalMedisRalanKebidanan);
 
         MnPenilaianAwalMedisRalanBayi.setBackground(new java.awt.Color(255, 255, 254));
         MnPenilaianAwalMedisRalanBayi.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
@@ -1519,7 +1510,6 @@ public final class DlgReg extends javax.swing.JDialog {
                 MnPenilaianAwalMedisRalanBayiActionPerformed(evt);
             }
         });
-        MnAwalMedis.add(MnPenilaianAwalMedisRalanBayi);
 
         MnPenilaianAwalMedisRalanTHT.setBackground(new java.awt.Color(255, 255, 254));
         MnPenilaianAwalMedisRalanTHT.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
@@ -1535,7 +1525,6 @@ public final class DlgReg extends javax.swing.JDialog {
                 MnPenilaianAwalMedisRalanTHTActionPerformed(evt);
             }
         });
-        MnAwalMedis.add(MnPenilaianAwalMedisRalanTHT);
 
         MnPenilaianAwalMedisRalanPsikiatri.setBackground(new java.awt.Color(255, 255, 254));
         MnPenilaianAwalMedisRalanPsikiatri.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
@@ -1551,7 +1540,6 @@ public final class DlgReg extends javax.swing.JDialog {
                 MnPenilaianAwalMedisRalanPsikiatriActionPerformed(evt);
             }
         });
-        MnAwalMedis.add(MnPenilaianAwalMedisRalanPsikiatri);
 
         MnPenilaianAwalMedisRalanPenyakitDalam.setBackground(new java.awt.Color(255, 255, 254));
         MnPenilaianAwalMedisRalanPenyakitDalam.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
@@ -1567,7 +1555,6 @@ public final class DlgReg extends javax.swing.JDialog {
                 MnPenilaianAwalMedisRalanPenyakitDalamActionPerformed(evt);
             }
         });
-        MnAwalMedis.add(MnPenilaianAwalMedisRalanPenyakitDalam);
 
         MnPenilaianAwalMedisRalanMata.setBackground(new java.awt.Color(255, 255, 254));
         MnPenilaianAwalMedisRalanMata.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
@@ -1583,7 +1570,6 @@ public final class DlgReg extends javax.swing.JDialog {
                 MnPenilaianAwalMedisRalanMataActionPerformed(evt);
             }
         });
-        MnAwalMedis.add(MnPenilaianAwalMedisRalanMata);
 
         MnPenilaianAwalMedisRalanNeurologi.setBackground(new java.awt.Color(255, 255, 254));
         MnPenilaianAwalMedisRalanNeurologi.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
@@ -1599,7 +1585,6 @@ public final class DlgReg extends javax.swing.JDialog {
                 MnPenilaianAwalMedisRalanNeurologiActionPerformed(evt);
             }
         });
-        MnAwalMedis.add(MnPenilaianAwalMedisRalanNeurologi);
 
         MnPenilaianAwalMedisRalanOrthopedi.setBackground(new java.awt.Color(255, 255, 254));
         MnPenilaianAwalMedisRalanOrthopedi.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
@@ -1615,7 +1600,6 @@ public final class DlgReg extends javax.swing.JDialog {
                 MnPenilaianAwalMedisRalanOrthopediActionPerformed(evt);
             }
         });
-        MnAwalMedis.add(MnPenilaianAwalMedisRalanOrthopedi);
 
         MnPenilaianAwalMedisRalanBedah.setBackground(new java.awt.Color(255, 255, 254));
         MnPenilaianAwalMedisRalanBedah.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
@@ -1631,7 +1615,6 @@ public final class DlgReg extends javax.swing.JDialog {
                 MnPenilaianAwalMedisRalanBedahActionPerformed(evt);
             }
         });
-        MnAwalMedis.add(MnPenilaianAwalMedisRalanBedah);
 
         MnPenilaianAwalMedisRalanBedahMulut.setBackground(new java.awt.Color(255, 255, 254));
         MnPenilaianAwalMedisRalanBedahMulut.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
@@ -1647,7 +1630,6 @@ public final class DlgReg extends javax.swing.JDialog {
                 MnPenilaianAwalMedisRalanBedahMulutActionPerformed(evt);
             }
         });
-        MnAwalMedis.add(MnPenilaianAwalMedisRalanBedahMulut);
 
         MnPenilaianAwalMedisRalanGeriatri.setBackground(new java.awt.Color(255, 255, 254));
         MnPenilaianAwalMedisRalanGeriatri.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
@@ -1663,7 +1645,6 @@ public final class DlgReg extends javax.swing.JDialog {
                 MnPenilaianAwalMedisRalanGeriatriActionPerformed(evt);
             }
         });
-        MnAwalMedis.add(MnPenilaianAwalMedisRalanGeriatri);
 
         MnPenilaianAwalMedisRalanKulitKelamin.setBackground(new java.awt.Color(255, 255, 254));
         MnPenilaianAwalMedisRalanKulitKelamin.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
@@ -1679,7 +1660,6 @@ public final class DlgReg extends javax.swing.JDialog {
                 MnPenilaianAwalMedisRalanKulitKelaminActionPerformed(evt);
             }
         });
-        MnAwalMedis.add(MnPenilaianAwalMedisRalanKulitKelamin);
 
         MnPenilaianAwalMedisRalanParu.setBackground(new java.awt.Color(255, 255, 254));
         MnPenilaianAwalMedisRalanParu.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
@@ -1695,7 +1675,6 @@ public final class DlgReg extends javax.swing.JDialog {
                 MnPenilaianAwalMedisRalanParuActionPerformed(evt);
             }
         });
-        MnAwalMedis.add(MnPenilaianAwalMedisRalanParu);
 
         MnPenilaianAwalMedisRalanFisikRehabilitasi.setBackground(new java.awt.Color(255, 255, 254));
         MnPenilaianAwalMedisRalanFisikRehabilitasi.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
@@ -1711,7 +1690,6 @@ public final class DlgReg extends javax.swing.JDialog {
                 MnPenilaianAwalMedisRalanFisikRehabilitasiActionPerformed(evt);
             }
         });
-        MnAwalMedis.add(MnPenilaianAwalMedisRalanFisikRehabilitasi);
 
         MnPenilaianAwalMedisHemodialisa.setBackground(new java.awt.Color(255, 255, 254));
         MnPenilaianAwalMedisHemodialisa.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
@@ -1727,9 +1705,6 @@ public final class DlgReg extends javax.swing.JDialog {
                 MnPenilaianAwalMedisHemodialisaActionPerformed(evt);
             }
         });
-        MnAwalMedis.add(MnPenilaianAwalMedisHemodialisa);
-
-        MnRMRawatJalan.add(MnAwalMedis);
 
         MnHasilPemeriksaanUSG.setBackground(new java.awt.Color(255, 255, 254));
         MnHasilPemeriksaanUSG.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
@@ -1745,8 +1720,7 @@ public final class DlgReg extends javax.swing.JDialog {
                 MnHasilPemeriksaanUSGActionPerformed(evt);
             }
         });
-        MnRMRawatJalan.add(MnHasilPemeriksaanUSG);
-
+        
         MnDokumentasiTindakanESWL.setBackground(new java.awt.Color(255, 255, 254));
         MnDokumentasiTindakanESWL.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
         MnDokumentasiTindakanESWL.setForeground(new java.awt.Color(50, 50, 50));
@@ -1761,8 +1735,7 @@ public final class DlgReg extends javax.swing.JDialog {
                 MnDokumentasiTindakanESWLActionPerformed(evt);
             }
         });
-        MnRMRawatJalan.add(MnDokumentasiTindakanESWL);
-
+        
         MnPenilaianFisioterapi.setBackground(new java.awt.Color(255, 255, 254));
         MnPenilaianFisioterapi.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
         MnPenilaianFisioterapi.setForeground(new java.awt.Color(50, 50, 50));
@@ -1777,8 +1750,7 @@ public final class DlgReg extends javax.swing.JDialog {
                 MnPenilaianFisioterapiActionPerformed(evt);
             }
         });
-        MnRMRawatJalan.add(MnPenilaianFisioterapi);
-
+        
         MnPenilaianPsikolog.setBackground(new java.awt.Color(255, 255, 254));
         MnPenilaianPsikolog.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
         MnPenilaianPsikolog.setForeground(new java.awt.Color(50, 50, 50));
@@ -1793,8 +1765,7 @@ public final class DlgReg extends javax.swing.JDialog {
                 MnPenilaianPsikologActionPerformed(evt);
             }
         });
-        MnRMRawatJalan.add(MnPenilaianPsikolog);
-
+        
         MnPenilaianTerapiWicara.setBackground(new java.awt.Color(255, 255, 254));
         MnPenilaianTerapiWicara.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
         MnPenilaianTerapiWicara.setForeground(new java.awt.Color(50, 50, 50));
@@ -1809,8 +1780,7 @@ public final class DlgReg extends javax.swing.JDialog {
                 MnPenilaianTerapiWicaraActionPerformed(evt);
             }
         });
-        MnRMRawatJalan.add(MnPenilaianTerapiWicara);
-
+        
         MnDataRM.add(MnRMRawatJalan);
 
         MnRMIGD.setBackground(new java.awt.Color(255, 255, 254));
@@ -14405,6 +14375,29 @@ private void MnLaporanRekapKunjunganBulananPoliActionPerformed(java.awt.event.Ac
         }
     } 
     
+    private void MnHasilPemeriksaanUSGUrologiActionPerformed(java.awt.event.ActionEvent evt) {                                                      
+        if(tabMode.getRowCount()==0){
+            JOptionPane.showMessageDialog(null,"Maaf, data registrasi sudah habis...!!!!");
+            TNoRM.requestFocus();
+        }else if(TPasien.getText().trim().equals("")){
+            JOptionPane.showMessageDialog(null,"Maaf, Silahkan anda pilih dulu data pasien dengan menklik data pada table...!!!");
+            tbPetugas.requestFocus();
+        }else{
+            if(tbPetugas.getSelectedRow()!= -1){
+                this.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
+                RMHasilPemeriksaanUSGUrologi form=new RMHasilPemeriksaanUSGUrologi(null,false);
+                form.isCek();
+                form.setSize(internalFrame1.getWidth()-20,internalFrame1.getHeight()-20);
+                form.setLocationRelativeTo(internalFrame1);
+                form.setVisible(true);
+                form.emptTeks();
+                form.setNoRm(TNoRw.getText(),DTPCari2.getDate());
+                form.tampil();
+                this.setCursor(Cursor.getDefaultCursor());
+            }
+        }
+    } 
+    
 
     private void MnPenilaianLanjutanSkriningFungsionalActionPerformed(java.awt.event.ActionEvent evt) {
         if(tabMode.getRowCount()==0){
@@ -14565,7 +14558,7 @@ private void MnLaporanRekapKunjunganBulananPoliActionPerformed(java.awt.event.Ac
                 this.setCursor(Cursor.getDefaultCursor());
             }
         }
-    }
+    } 
 
     /**
     * @param args the command line arguments
@@ -15008,7 +15001,7 @@ private void MnLaporanRekapKunjunganBulananPoliActionPerformed(java.awt.event.Ac
                                  MnPenilaianRisikoJatuhGeriatri,
                                  MnPenilaianRisikoJatuhPsikiatri,
                                  MnPenilaianLanjutanSkriningFungsional,
-            MnPenilaianPreInduksi;
+            MnPenilaianPreInduksi,MnHasilPemeriksaanUSGUrologi;
    
     private void tampil() {
         Valid.tabelKosong(tabMode);   
@@ -15554,6 +15547,7 @@ private void MnLaporanRekapKunjunganBulananPoliActionPerformed(java.awt.event.Ac
         MnSkorStewardPascaAnestesi.setEnabled(akses.getskor_steward_pasca_anestesi());
         MnSkorBromagePascaAnestesi.setEnabled(akses.getskor_bromage_pasca_anestesi());
         MnPenilaianPreInduksi.setEnabled(akses.getpenilaian_pre_induksi());
+        MnHasilPemeriksaanUSGUrologi.setEnabled(akses.gethasil_usg_urologi());
     }
     
     private void isNumber(){         
@@ -15999,6 +15993,18 @@ private void MnLaporanRekapKunjunganBulananPoliActionPerformed(java.awt.event.Ac
         MnPenilaianLanjutanSkriningFungsional.setPreferredSize(new java.awt.Dimension(250, 26));
         MnPenilaianLanjutanSkriningFungsional.addActionListener(this::MnPenilaianLanjutanSkriningFungsionalActionPerformed);
         
+        MnHasilPemeriksaanUSGUrologi = new javax.swing.JMenuItem();
+        MnHasilPemeriksaanUSGUrologi.setBackground(new java.awt.Color(255, 255, 254));
+        MnHasilPemeriksaanUSGUrologi.setFont(new java.awt.Font("Tahoma", 0, 11)); 
+        MnHasilPemeriksaanUSGUrologi.setForeground(new java.awt.Color(50, 50, 50));
+        MnHasilPemeriksaanUSGUrologi.setIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/category.png"))); 
+        MnHasilPemeriksaanUSGUrologi.setText("Hasil USG Urologi");
+        MnHasilPemeriksaanUSGUrologi.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        MnHasilPemeriksaanUSGUrologi.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
+        MnHasilPemeriksaanUSGUrologi.setName("MnHasilPemeriksaanUSGUrologi");
+        MnHasilPemeriksaanUSGUrologi.setPreferredSize(new java.awt.Dimension(200, 26));
+        MnHasilPemeriksaanUSGUrologi.addActionListener(this::MnHasilPemeriksaanUSGUrologiActionPerformed);
+        
         MnRMOperasi.add(MnPenilaianPreInduksi);
 	MnRMOperasi.add(MnChecklistPreOperasi);
         MnRMOperasi.add(MnSignInSebelumAnestesi);
@@ -16018,5 +16024,38 @@ private void MnLaporanRekapKunjunganBulananPoliActionPerformed(java.awt.event.Ac
         MnRMRisikoJatuh.add(MnPenilaianRisikoJatuhGeriatri);
         MnRMRisikoJatuh.add(MnPenilaianRisikoJatuhPsikiatri);
         MnRMRisikoJatuh.add(MnPenilaianLanjutanSkriningFungsional);
+        
+        MnAwalKeperawatan.add(MnPenilaianAwalKeperawatanRalan);
+        MnAwalKeperawatan.add(MnPenilaianAwalKeperawatanGigi);
+        MnAwalKeperawatan.add(MnPenilaianAwalKeperawatanKebidanan);
+        MnAwalKeperawatan.add(MnPenilaianAwalKeperawatanBayiAnak);
+        MnAwalKeperawatan.add(MnPenilaianAwalKeperawatanPsikiatri);
+        MnAwalKeperawatan.add(MnPenilaianAwalKeperawatanRalanGeriatri);
+        
+        MnAwalMedis.add(MnPenilaianAwalMedisRalan);
+        MnAwalMedis.add(MnPenilaianAwalMedisRalanKebidanan);
+        MnAwalMedis.add(MnPenilaianAwalMedisRalanBayi);
+        MnAwalMedis.add(MnPenilaianAwalMedisRalanTHT);
+        MnAwalMedis.add(MnPenilaianAwalMedisRalanPsikiatri);
+        MnAwalMedis.add(MnPenilaianAwalMedisRalanPenyakitDalam);
+        MnAwalMedis.add(MnPenilaianAwalMedisRalanMata);
+        MnAwalMedis.add(MnPenilaianAwalMedisRalanNeurologi);
+        MnAwalMedis.add(MnPenilaianAwalMedisRalanOrthopedi);
+        MnAwalMedis.add(MnPenilaianAwalMedisRalanBedah);
+        MnAwalMedis.add(MnPenilaianAwalMedisRalanBedahMulut);
+        MnAwalMedis.add(MnPenilaianAwalMedisRalanGeriatri);
+        MnAwalMedis.add(MnPenilaianAwalMedisRalanKulitKelamin);
+        MnAwalMedis.add(MnPenilaianAwalMedisRalanParu);
+        MnAwalMedis.add(MnPenilaianAwalMedisRalanFisikRehabilitasi);
+        MnAwalMedis.add(MnPenilaianAwalMedisHemodialisa);
+        
+        MnRMRawatJalan.add(MnAwalKeperawatan);
+        MnRMRawatJalan.add(MnAwalMedis);
+        MnRMRawatJalan.add(MnHasilPemeriksaanUSG);
+        MnRMRawatJalan.add(MnHasilPemeriksaanUSGUrologi);
+        MnRMRawatJalan.add(MnDokumentasiTindakanESWL);
+        MnRMRawatJalan.add(MnPenilaianFisioterapi);
+        MnRMRawatJalan.add(MnPenilaianPsikolog);
+        MnRMRawatJalan.add(MnPenilaianTerapiWicara);
     }
 }
