@@ -15,9 +15,19 @@
 			<location>D:/Projects/java/simrs-khanza/KhanzaHMSAnjunganCustom/report/rptBarcodeRawatAPM.jasper</location>
 		</link>
 		<link>
+			<name>rptBarcodeRawatAPM.jrxml</name>
+			<type>1</type>
+			<location>D:/Projects/java/simrs-khanza/KhanzaHMSAnjunganCustom/report/rptBarcodeRawatAPM.jrxml</location>
+		</link>
+		<link>
 			<name>rptBridgingSEPAPM1.jasper</name>
 			<type>1</type>
 			<location>D:/Projects/java/simrs-khanza/KhanzaHMSAnjunganCustom/report/rptBridgingSEPAPM1.jasper</location>
+		</link>
+		<link>
+			<name>rptBridgingSEPAPM1.jrxml</name>
+			<type>1</type>
+			<location>D:/Projects/java/simrs-khanza/KhanzaHMSAnjunganCustom/report/rptBridgingSEPAPM1.jrxml</location>
 		</link>
 		<link>
 			<name>rptBridgingSEPAPM2.jasper</name>
@@ -25,9 +35,19 @@
 			<location>D:/Projects/java/simrs-khanza/KhanzaHMSAnjunganCustom/report/rptBridgingSEPAPM2.jasper</location>
 		</link>
 		<link>
+			<name>rptBridgingSEPAPM2.jrxml</name>
+			<type>1</type>
+			<location>D:/Projects/java/simrs-khanza/KhanzaHMSAnjunganCustom/report/rptBridgingSEPAPM2.jrxml</location>
+		</link>
+		<link>
 			<name>rptBuktiRegisterAPM_1.jasper</name>
 			<type>1</type>
 			<location>D:/Projects/java/simrs-khanza/KhanzaHMSAnjunganCustom/report/rptBuktiRegisterAPM.jasper</location>
+		</link>
+		<link>
+			<name>rptBuktiRegisterAPM_1.jrxml</name>
+			<type>1</type>
+			<location>D:/Projects/java/simrs-khanza/KhanzaHMSAnjunganCustom/report/rptBuktiRegisterAPM.jrxml</location>
 		</link>
 	</linkedResources>
 </projectDescription>
