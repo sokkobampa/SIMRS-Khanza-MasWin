@@ -33,13 +33,15 @@ public class DlgAbout extends javax.swing.JDialog {
      */
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
-    private void initComponents() {
+    private void initComponents()
+    {
 
         internalFrame1 = new widget.InternalFrame();
         jLabel6 = new javax.swing.JLabel();
         panelGlass1 = new usu.widget.glass.PanelGlass();
         jLabel7 = new javax.swing.JLabel();
         jLabel17 = new javax.swing.JLabel();
+        jLabel18 = new javax.swing.JLabel();
         jLabel16 = new javax.swing.JLabel();
         panelGlass4 = new usu.widget.glass.PanelGlass();
         jLabel19 = new javax.swing.JLabel();
@@ -96,6 +98,13 @@ public class DlgAbout extends javax.swing.JDialog {
         jLabel17.setName("jLabel17"); // NOI18N
         panelGlass1.add(jLabel17);
         jLabel17.setBounds(107, 8, 120, 14);
+
+        jLabel18.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
+        jLabel18.setForeground(new java.awt.Color(50, 50, 50));
+        jLabel18.setText("Patch 2023-12-22");
+        jLabel18.setName("jLabel18"); // NOI18N
+        panelGlass1.add(jLabel18);
+        jLabel18.setBounds(107, 28, 170, 14);
 
         internalFrame1.add(panelGlass1);
         panelGlass1.setBounds(7, 38, 454, 90);
@@ -188,13 +197,17 @@ public class DlgAbout extends javax.swing.JDialog {
         BtnKeluar.setToolTipText("Alt+K");
         BtnKeluar.setIconTextGap(3);
         BtnKeluar.setName("BtnKeluar"); // NOI18N
-        BtnKeluar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        BtnKeluar.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 BtnKeluarActionPerformed(evt);
             }
         });
-        BtnKeluar.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
+        BtnKeluar.addKeyListener(new java.awt.event.KeyAdapter()
+        {
+            public void keyPressed(java.awt.event.KeyEvent evt)
+            {
                 BtnKeluarKeyPressed(evt);
             }
         });
@@ -289,6 +302,7 @@ public class DlgAbout extends javax.swing.JDialog {
     private widget.InternalFrame internalFrame1;
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
+    private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel21;
