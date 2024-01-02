@@ -1,5 +1,2 @@
-[submodule "KhanzaHMSAnjunganCustomSMC"]
-	path = KhanzaHMSAnjunganCustomSMC
-	url = git@github.com:Rizky92/KhanzaHMSAnjunganCustom.git
 [submodule "KhanzaHMSAnjunganCustomSMC/"]
 	url = git@github.com:Rizky92/KhanzaHMSAnjunganCustom.git
