@@ -88,7 +88,7 @@ public final class validasi {
         String sql = "select " +
             "concat(?, date_format(?, '%Y%m%d'), " +
             "lpad(ifnull(max(convert(right(" + table + "." + kolom + ", ?), signed)), 0) + 1, ?, ?)) " +
-            "from " + table +
+            "from " + table + " " +
             "where " + table + "." + kolom + " like concat(?, date_format(?, '%Y%m%d'), '%')";
         
         try {
