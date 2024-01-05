@@ -76,7 +76,8 @@ public class frmUtama extends javax.swing.JFrame {
      */
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
-    private void initComponents() {
+    private void initComponents()
+    {
 
         jScrollPane1 = new javax.swing.JScrollPane();
         TeksArea = new javax.swing.JTextArea();
@@ -89,7 +90,7 @@ public class frmUtama extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("SIMKES Khanza Service Mobile JKN");
+        setTitle("SIMKES Khanza Service Mobile JKN ERM");
 
         TeksArea.setColumns(20);
         TeksArea.setRows(5);
@@ -116,8 +117,10 @@ public class frmUtama extends javax.swing.JFrame {
         jPanel1.add(jLabel2);
 
         jButton1.setText("Keluar");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        jButton1.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 jButton1ActionPerformed(evt);
             }
         });
