@@ -455,7 +455,7 @@ public final class RMPenilaianAwalKeperawatanRanap extends javax.swing.JDialog {
         TNoRw.setDocument(new batasInput((byte)17).getKata(TNoRw));
         KetAnamnesis.setDocument(new batasInput((byte)30).getKata(KetAnamnesis));
         RPS.setDocument(new batasInput((int)300).getKata(RPS));
-        RPD.setDocument(new batasInput((int)100).getKata(RPD));
+        RPD.setDocument(new batasInput((int)300).getKata(RPD));
         RPK.setDocument(new batasInput((int)100).getKata(RPK));
         RPO.setDocument(new batasInput((int)100).getKata(RPO));
         RPembedahan.setDocument(new batasInput((byte)40).getKata(RPembedahan));
