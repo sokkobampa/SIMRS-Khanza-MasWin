@@ -1,4 +1,4 @@
-SET FOREIGN_KEY_CHECKS = 0;
+SET FOREIGN_KEY_CHECKS=0;
 
 ALTER TABLE `khanza`.`datasuplier` MODIFY COLUMN `alamat` varchar(100) CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT NULL AFTER `nama_suplier`;
 
@@ -32,46 +32,47 @@ ALTER TABLE `khanza`.`pasien` MODIFY COLUMN `tmp_lahir` varchar(30) CHARACTER SE
 
 ALTER TABLE `khanza`.`pasien` MODIFY COLUMN `nm_ibu` varchar(60) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL AFTER `tgl_lahir`;
 
-CREATE DEFINER = `root` @`%` TRIGGER `set_password_user` AFTER INSERT ON `pasien` FOR EACH ROW
-insert into personal_pasien
-values(
-        new.no_rkm_medis,
-        '',
-        aes_encrypt(date_format(new.tgl_lahir, '%d%m%Y'), 'windi')
-    );
+CREATE DEFINER = `root`@`%` TRIGGER `set_password_user` AFTER INSERT ON `pasien` FOR EACH ROW insert into personal_pasien values(
+  new.no_rkm_medis,
+  '',
+  aes_encrypt(date_format(new.tgl_lahir, '%d%m%Y'), 'windi')
+);
+
 ALTER TABLE `khanza`.`pegawai` MODIFY COLUMN `alamat` varchar(150) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL AFTER `tgl_lahir`;
 
 ALTER TABLE `khanza`.`pengeluaran_harian` MODIFY COLUMN `keterangan` varchar(250) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL DEFAULT '' AFTER `nip`;
+
+ALTER TABLE `khanza`.`penilaian_awal_keperawatan_ranap` MODIFY COLUMN `rpd` varchar(300) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL AFTER `rps`;
 
 ALTER TABLE `khanza`.`resep_obat` ADD COLUMN `nama_template` varchar(100) CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT NULL AFTER `jam_penyerahan`;
 
 ALTER TABLE `khanza`.`resiko_kerja` MODIFY COLUMN `nama_resiko` varchar(200) CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT NULL AFTER `kode_resiko`;
 
-ALTER TABLE `khanza`.`surat_persetujuan_umum` MODIFY COLUMN `umur_pj` varchar(3) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL AFTER `nama_pj`;
+ALTER TABLE `khanza`.`skdp_bpjs` MODIFY COLUMN `terapi` varchar(50) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL AFTER `diagnosa`;
 
 CREATE TABLE `khanza`.`tampjurnal_rvpbpjs` (
-    `kd_rek` char(15) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL,
-    `nm_rek` varchar(100) CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT NULL,
-    `debet` double NULL DEFAULT NULL,
-    `kredit` double NULL DEFAULT NULL,
-    PRIMARY KEY (`kd_rek`) USING HASH,
-    INDEX `nm_rek`(`nm_rek`) USING HASH,
-    INDEX `debet`(`debet`) USING HASH,
-    INDEX `kredit`(`kredit`) USING HASH
+  `kd_rek` char(15) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL,
+  `nm_rek` varchar(100) CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT NULL,
+  `debet` double NULL DEFAULT NULL,
+  `kredit` double NULL DEFAULT NULL,
+  PRIMARY KEY (`kd_rek`) USING HASH,
+  INDEX `nm_rek`(`nm_rek`) USING HASH,
+  INDEX `debet`(`debet`) USING HASH,
+  INDEX `kredit`(`kredit`) USING HASH
 ) ENGINE = MEMORY CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Fixed;
 
 CREATE TABLE `khanza`.`tampjurnal_smc` (
-    `kd_rek` char(15) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL,
-    `nm_rek` varchar(100) CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT NULL,
-    `debet` double NULL DEFAULT NULL,
-    `kredit` double NULL DEFAULT NULL,
-    `user_id` varchar(20) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL,
-    `ip` varchar(25) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL,
-    PRIMARY KEY (`kd_rek`, `user_id`, `ip`) USING HASH
+  `kd_rek` char(15) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL,
+  `nm_rek` varchar(100) CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT NULL,
+  `debet` double NULL DEFAULT NULL,
+  `kredit` double NULL DEFAULT NULL,
+  `user_id` varchar(20) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL,
+  `ip` varchar(25) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL,
+  PRIMARY KEY (`kd_rek`, `user_id`, `ip`) USING HASH
 ) ENGINE = MEMORY CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Fixed;
 
 ALTER TABLE `khanza`.`tokoopname` MODIFY COLUMN `kode_brng` varchar(10) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL FIRST;
 
-ALTER TABLE `khanza`.`transfer_pasien_antar_ruang` MODIFY COLUMN `diagnosa_utama` varchar(100) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL AFTER `ruang_selanjutnya`;
+ALTER TABLE `khanza`.`transfer_pasien_antar_ruang` MODIFY COLUMN `diagnosa_utama` varchar(100) CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT NULL AFTER `ruang_selanjutnya`;
 
-SET FOREIGN_KEY_CHECKS = 1;
+SET FOREIGN_KEY_CHECKS=1;
