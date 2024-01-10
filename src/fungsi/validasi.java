@@ -84,48 +84,14 @@ public final class validasi {
         super();
     };
     
-    public void autoNomorSmc(JTextField component, String prefix, String table, String kolom, int panjang, String pad, String tanggal) {
-        String sql = "select " +
-            "concat(?, date_format(?, '%Y%m%d'), " +
-            "lpad(ifnull(max(convert(right(" + table + "." + kolom + ", ?), signed)), 0) + 1, ?, ?)) " +
-            "from " + table + " " +
-            "where " + table + "." + kolom + " like concat(?, date_format(?, '%Y%m%d'), '%')";
-        
-        try {
-            ps = connect.prepareStatement(sql);
-            
-            try {
-                ps.setString(1, prefix);
-                ps.setString(2, tanggal);
-                ps.setInt(3, panjang);
-                ps.setInt(4, panjang);
-                ps.setString(5, pad);
-                ps.setString(6, prefix);
-                ps.setString(7, tanggal);
-
-                rs = ps.executeQuery();
-
-                if (rs.next()) {
-                    component.setText(rs.getString(1));
-                }
-            } catch (Exception e) {
-                System.out.println("Notif : " + e);
-            } finally {
-                if (rs != null) {
-                    rs.close();
-                }
-                
-                if (ps != null) {
-                    ps.close();
-                }
-            }
-        } catch (Exception e) {
-            System.out.println("Notif : " + e);
-        }
+    public void autoNomorSmc(JTextField component, String prefix, String table, String kolom, int panjang, String pad, String tanggal)
+    {
+        component.setText(sek.autoNomorSmc(prefix, table, kolom, panjang, pad, tanggal));
     }
     
-    public void autoNomorSmc(JTextField component, String prefix, String table, String kolom, int panjang, String pad, ItemEvent item) {
-        autoNomorSmc(component, prefix, table, kolom, panjang, pad, SetTgl(item.getItem().toString()));
+    public void autoNomorSmc(JTextField component, String prefix, String table, String kolom, int panjang, String pad, Object item)
+    {
+        autoNomorSmc(component, prefix, table, kolom, panjang, pad, SetTgl(item.toString()));
     }
     
     public void autoNomer(DefaultTableModel tabMode,String strAwal,Integer pnj,javax.swing.JTextField teks){        
