@@ -74,7 +74,7 @@
                                             <tr>
                                                <td><font color='333333' size='3'  face='Tahoma'>Telah terima dari</font></td>
                                                <td><font color='333333' size='3'  face='Tahoma'>:</font></td>
-                                               <td><font color='333333' size='3'  face='Tahoma'>".getOne("select p_jawab from reg_periksa where no_rawat='$norawat'")."</font></td>
+                                               <td><font color='333333' size='3'  face='Tahoma'>".getOne("select if (reg_periksa.kd_pj = 'BPJ' or reg_periksa.kd_pj = 'A09', reg_periksa.p_jawab, penjab.png_jawab) from reg_periksa join penjab on reg_periksa.kd_pj = penjab.kd_pj where no_rawat='$norawat'")."</font></td>
                                             </tr>
                                             <tr valign='top'>
                                                <td><font color='333333' size='3'  face='Tahoma'>Uang Sebanyak</font></td>
