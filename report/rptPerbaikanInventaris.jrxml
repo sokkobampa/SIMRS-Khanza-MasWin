@@ -150,7 +150,15 @@ inner join petugas on perbaikan_inventaris.nip=petugas.nip]]>
 		<band height="17">
 			<property name="com.jaspersoft.studio.unit.height" value="px"/>
 			<staticText>
-				<reportElement mode="Opaque" x="959" y="1" width="61" height="16" forecolor="#000000" backcolor="#F0F0DC" uuid="5c84c716-19ea-4185-8f72-8088bda262f3"/>
+				<reportElement mode="Opaque" x="680" y="1" width="155" height="16" forecolor="#000000" backcolor="#F0F0DC" uuid="1b4f0bb5-615a-4023-938b-89dd87f4dc37"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Tahoma" size="8" isBold="false"/>
+					<paragraph lineSpacing="Single"/>
+				</textElement>
+				<text><![CDATA[Keterangan]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="962" y="1" width="61" height="16" forecolor="#000000" backcolor="#F0F0DC" uuid="5c84c716-19ea-4185-8f72-8088bda262f3"/>
 				<textElement textAlignment="Right" verticalAlignment="Middle">
 					<font fontName="Tahoma" size="8" isBold="false"/>
 					<paragraph lineSpacing="Single"/>
@@ -158,7 +166,7 @@ inner join petugas on perbaikan_inventaris.nip=petugas.nip]]>
 				<text><![CDATA[Biaya  ]]></text>
 			</staticText>
 			<staticText>
-				<reportElement mode="Opaque" x="1020" y="1" width="77" height="16" forecolor="#000000" backcolor="#F0F0DC" uuid="52f66342-451a-4e1e-ac39-2a251cb3f981"/>
+				<reportElement mode="Opaque" x="1023" y="1" width="74" height="16" forecolor="#000000" backcolor="#F0F0DC" uuid="52f66342-451a-4e1e-ac39-2a251cb3f981"/>
 				<textElement verticalAlignment="Middle">
 					<font fontName="Tahoma" size="8" isBold="false"/>
 					<paragraph lineSpacing="Single"/>
@@ -166,7 +174,7 @@ inner join petugas on perbaikan_inventaris.nip=petugas.nip]]>
 				<text><![CDATA[Status]]></text>
 			</staticText>
 			<staticText>
-				<reportElement mode="Opaque" x="380" y="0" width="90" height="16" forecolor="#000000" backcolor="#F0F0DC" uuid="85498986-2ca1-48d5-b430-b2514b22ff40"/>
+				<reportElement mode="Opaque" x="310" y="0" width="70" height="16" forecolor="#000000" backcolor="#F0F0DC" uuid="85498986-2ca1-48d5-b430-b2514b22ff40"/>
 				<textElement verticalAlignment="Middle">
 					<font fontName="Tahoma" size="8" isBold="false"/>
 					<paragraph lineSpacing="Single"/>
@@ -174,7 +182,7 @@ inner join petugas on perbaikan_inventaris.nip=petugas.nip]]>
 				<text><![CDATA[Ruang]]></text>
 			</staticText>
 			<staticText>
-				<reportElement mode="Opaque" x="640" y="1" width="192" height="16" forecolor="#000000" backcolor="#F0F0DC" uuid="72b0c1ce-7547-4a13-9ea8-9ca9fed9dc7c"/>
+				<reportElement mode="Opaque" x="523" y="1" width="157" height="16" forecolor="#000000" backcolor="#F0F0DC" uuid="72b0c1ce-7547-4a13-9ea8-9ca9fed9dc7c"/>
 				<textElement verticalAlignment="Middle">
 					<font fontName="Tahoma" size="8" isBold="false"/>
 					<paragraph lineSpacing="Single"/>
@@ -182,7 +190,7 @@ inner join petugas on perbaikan_inventaris.nip=petugas.nip]]>
 				<text><![CDATA[Uraian Kegiatan]]></text>
 			</staticText>
 			<staticText>
-				<reportElement mode="Opaque" x="76" y="1" width="84" height="16" forecolor="#000000" backcolor="#F0F0DC" uuid="5975b433-79c1-480a-85bf-980387efed4d"/>
+				<reportElement mode="Opaque" x="76" y="1" width="54" height="16" forecolor="#000000" backcolor="#F0F0DC" uuid="5975b433-79c1-480a-85bf-980387efed4d"/>
 				<textElement verticalAlignment="Middle">
 					<font fontName="Tahoma" size="8" isBold="false"/>
 					<paragraph lineSpacing="Single"/>
@@ -198,7 +206,7 @@ inner join petugas on perbaikan_inventaris.nip=petugas.nip]]>
 				<text><![CDATA[No.Permintaan]]></text>
 			</staticText>
 			<staticText>
-				<reportElement mode="Opaque" x="160" y="1" width="55" height="16" forecolor="#000000" backcolor="#F0F0DC" uuid="bc5d9b16-3c0c-4a91-bce3-27b1c2a5ab8b"/>
+				<reportElement mode="Opaque" x="130" y="1" width="55" height="16" forecolor="#000000" backcolor="#F0F0DC" uuid="bc5d9b16-3c0c-4a91-bce3-27b1c2a5ab8b"/>
 				<textElement verticalAlignment="Middle">
 					<font fontName="Tahoma" size="8" isBold="false"/>
 					<paragraph lineSpacing="Single"/>
@@ -206,7 +214,7 @@ inner join petugas on perbaikan_inventaris.nip=petugas.nip]]>
 				<text><![CDATA[Kode Barang]]></text>
 			</staticText>
 			<staticText>
-				<reportElement mode="Opaque" x="215" y="1" width="165" height="16" forecolor="#000000" backcolor="#F0F0DC" uuid="136a7e97-14c4-4f27-b179-d2c7f3ccbe3e"/>
+				<reportElement mode="Opaque" x="185" y="1" width="125" height="16" forecolor="#000000" backcolor="#F0F0DC" uuid="136a7e97-14c4-4f27-b179-d2c7f3ccbe3e"/>
 				<textElement verticalAlignment="Middle">
 					<font fontName="Tahoma" size="8" isBold="false"/>
 					<paragraph lineSpacing="Single"/>
@@ -214,7 +222,7 @@ inner join petugas on perbaikan_inventaris.nip=petugas.nip]]>
 				<text><![CDATA[Nama Barang]]></text>
 			</staticText>
 			<staticText>
-				<reportElement mode="Opaque" x="470" y="1" width="57" height="16" forecolor="#000000" backcolor="#F0F0DC" uuid="8b95acf6-a2b0-4a68-acf3-6aa78a5758b8"/>
+				<reportElement mode="Opaque" x="380" y="1" width="30" height="16" forecolor="#000000" backcolor="#F0F0DC" uuid="8b95acf6-a2b0-4a68-acf3-6aa78a5758b8"/>
 				<textElement verticalAlignment="Middle">
 					<font fontName="Tahoma" size="8" isBold="false"/>
 					<paragraph lineSpacing="Single"/>
@@ -222,7 +230,7 @@ inner join petugas on perbaikan_inventaris.nip=petugas.nip]]>
 				<text><![CDATA[NIP]]></text>
 			</staticText>
 			<staticText>
-				<reportElement mode="Opaque" x="527" y="1" width="113" height="16" forecolor="#000000" backcolor="#F0F0DC" uuid="41f0e33e-d276-4775-a4d2-ca3a3967faed"/>
+				<reportElement mode="Opaque" x="410" y="1" width="113" height="16" forecolor="#000000" backcolor="#F0F0DC" uuid="41f0e33e-d276-4775-a4d2-ca3a3967faed"/>
 				<textElement verticalAlignment="Middle">
 					<font fontName="Tahoma" size="8" isBold="false"/>
 					<paragraph lineSpacing="Single"/>
@@ -230,7 +238,7 @@ inner join petugas on perbaikan_inventaris.nip=petugas.nip]]>
 				<text><![CDATA[Penanggung Jawab]]></text>
 			</staticText>
 			<staticText>
-				<reportElement mode="Opaque" x="832" y="1" width="50" height="16" forecolor="#000000" backcolor="#F0F0DC" uuid="3bc5affc-8ce3-4ba3-956c-bf16307ca527">
+				<reportElement mode="Opaque" x="835" y="1" width="50" height="16" forecolor="#000000" backcolor="#F0F0DC" uuid="3bc5affc-8ce3-4ba3-956c-bf16307ca527">
 					<property name="com.jaspersoft.studio.unit.width" value="px"/>
 				</reportElement>
 				<textElement verticalAlignment="Middle">
@@ -240,7 +248,7 @@ inner join petugas on perbaikan_inventaris.nip=petugas.nip]]>
 				<text><![CDATA[Perbaikan]]></text>
 			</staticText>
 			<staticText>
-				<reportElement mode="Opaque" x="882" y="1" width="77" height="16" forecolor="#000000" backcolor="#F0F0DC" uuid="655afd54-2672-494d-b956-dcde5b2c817f"/>
+				<reportElement mode="Opaque" x="885" y="1" width="77" height="16" forecolor="#000000" backcolor="#F0F0DC" uuid="655afd54-2672-494d-b956-dcde5b2c817f"/>
 				<textElement verticalAlignment="Middle">
 					<font fontName="Tahoma" size="8" isBold="false"/>
 					<paragraph lineSpacing="Single"/>
@@ -273,7 +281,7 @@ inner join petugas on perbaikan_inventaris.nip=petugas.nip]]>
 				<textFieldExpression><![CDATA[$F{no_permintaan}]]></textFieldExpression>
 			</textField>
 			<textField isStretchWithOverflow="true">
-				<reportElement positionType="Float" x="160" y="0" width="55" height="10" uuid="524c1435-719c-414d-855f-da5882abbbf7"/>
+				<reportElement positionType="Float" x="130" y="0" width="55" height="10" uuid="524c1435-719c-414d-855f-da5882abbbf7"/>
 				<textElement>
 					<font fontName="Tahoma" size="8"/>
 					<paragraph lineSpacing="Single"/>
@@ -281,7 +289,7 @@ inner join petugas on perbaikan_inventaris.nip=petugas.nip]]>
 				<textFieldExpression><![CDATA[$F{kode_barang}]]></textFieldExpression>
 			</textField>
 			<textField isStretchWithOverflow="true">
-				<reportElement positionType="Float" x="215" y="0" width="165" height="10" uuid="faad27b0-295f-41f5-8630-ec724f197a99"/>
+				<reportElement positionType="Float" x="185" y="0" width="125" height="10" uuid="faad27b0-295f-41f5-8630-ec724f197a99"/>
 				<textElement>
 					<font fontName="Tahoma" size="8"/>
 					<paragraph lineSpacing="Single"/>
@@ -289,7 +297,7 @@ inner join petugas on perbaikan_inventaris.nip=petugas.nip]]>
 				<textFieldExpression><![CDATA[$F{nama_barang}]]></textFieldExpression>
 			</textField>
 			<textField isStretchWithOverflow="true">
-				<reportElement positionType="Float" x="470" y="0" width="57" height="10" uuid="fc77b781-cd23-4048-9b81-df727a5caeaa"/>
+				<reportElement positionType="Float" x="380" y="0" width="30" height="10" uuid="fc77b781-cd23-4048-9b81-df727a5caeaa"/>
 				<textElement>
 					<font fontName="Tahoma" size="8"/>
 					<paragraph lineSpacing="Single"/>
@@ -297,7 +305,7 @@ inner join petugas on perbaikan_inventaris.nip=petugas.nip]]>
 				<textFieldExpression><![CDATA[$F{nip}]]></textFieldExpression>
 			</textField>
 			<textField isStretchWithOverflow="true">
-				<reportElement positionType="Float" x="527" y="0" width="113" height="10" uuid="cbcf91b0-80ac-4a2b-a3f7-58570d449d67"/>
+				<reportElement positionType="Float" x="410" y="0" width="113" height="10" uuid="cbcf91b0-80ac-4a2b-a3f7-58570d449d67"/>
 				<textElement>
 					<font fontName="Tahoma" size="8"/>
 					<paragraph lineSpacing="Single"/>
@@ -305,7 +313,7 @@ inner join petugas on perbaikan_inventaris.nip=petugas.nip]]>
 				<textFieldExpression><![CDATA[$F{nama}]]></textFieldExpression>
 			</textField>
 			<textField isStretchWithOverflow="true" pattern="dd/MM/yyyy">
-				<reportElement positionType="Float" x="832" y="0" width="50" height="10" uuid="9496f35d-7d2f-496f-b6bc-9046d8600614">
+				<reportElement positionType="Float" x="835" y="0" width="50" height="10" uuid="9496f35d-7d2f-496f-b6bc-9046d8600614">
 					<property name="com.jaspersoft.studio.unit.width" value="px"/>
 				</reportElement>
 				<textElement>
@@ -315,7 +323,7 @@ inner join petugas on perbaikan_inventaris.nip=petugas.nip]]>
 				<textFieldExpression><![CDATA[$F{tanggal}]]></textFieldExpression>
 			</textField>
 			<textField isStretchWithOverflow="true">
-				<reportElement positionType="Float" x="882" y="0" width="77" height="10" uuid="3389f1ed-6371-4049-98da-2c60bab9d84c"/>
+				<reportElement positionType="Float" x="885" y="0" width="77" height="10" uuid="3389f1ed-6371-4049-98da-2c60bab9d84c"/>
 				<textElement>
 					<font fontName="Tahoma" size="8"/>
 					<paragraph lineSpacing="Single"/>
@@ -323,7 +331,7 @@ inner join petugas on perbaikan_inventaris.nip=petugas.nip]]>
 				<textFieldExpression><![CDATA[$F{pelaksana}]]></textFieldExpression>
 			</textField>
 			<textField isStretchWithOverflow="true">
-				<reportElement positionType="Float" x="76" y="0" width="83" height="10" uuid="cfd3b6ec-8669-4a03-b9a3-e221a4a0b4ba"/>
+				<reportElement positionType="Float" x="76" y="0" width="53" height="10" uuid="cfd3b6ec-8669-4a03-b9a3-e221a4a0b4ba"/>
 				<textElement>
 					<font fontName="Tahoma" size="8"/>
 					<paragraph lineSpacing="Single"/>
@@ -331,7 +339,7 @@ inner join petugas on perbaikan_inventaris.nip=petugas.nip]]>
 				<textFieldExpression><![CDATA[$F{no_inventaris}]]></textFieldExpression>
 			</textField>
 			<textField isStretchWithOverflow="true">
-				<reportElement positionType="Float" x="640" y="0" width="191" height="10" uuid="33f1513b-61d3-427a-8312-10cf9f012904"/>
+				<reportElement positionType="Float" x="523" y="0" width="156" height="10" uuid="33f1513b-61d3-427a-8312-10cf9f012904"/>
 				<textElement>
 					<font fontName="Tahoma" size="8"/>
 					<paragraph lineSpacing="Single"/>
@@ -339,7 +347,7 @@ inner join petugas on perbaikan_inventaris.nip=petugas.nip]]>
 				<textFieldExpression><![CDATA[$F{uraian_kegiatan}]]></textFieldExpression>
 			</textField>
 			<textField isStretchWithOverflow="true">
-				<reportElement positionType="Float" x="380" y="0" width="90" height="10" uuid="ba3437cf-a904-4322-b9c4-372cd29e79bb"/>
+				<reportElement positionType="Float" x="310" y="0" width="70" height="10" uuid="ba3437cf-a904-4322-b9c4-372cd29e79bb"/>
 				<textElement>
 					<font fontName="Tahoma" size="8"/>
 					<paragraph lineSpacing="Single"/>
@@ -347,7 +355,7 @@ inner join petugas on perbaikan_inventaris.nip=petugas.nip]]>
 				<textFieldExpression><![CDATA[$F{nama_ruang}]]></textFieldExpression>
 			</textField>
 			<textField isStretchWithOverflow="true" pattern="#,##0">
-				<reportElement positionType="Float" x="959" y="0" width="59" height="10" uuid="7a12542b-c12e-4b53-b4ac-92505cec71bd"/>
+				<reportElement positionType="Float" x="962" y="0" width="59" height="10" uuid="7a12542b-c12e-4b53-b4ac-92505cec71bd"/>
 				<textElement textAlignment="Right">
 					<font fontName="Tahoma" size="8"/>
 					<paragraph lineSpacing="Single"/>
@@ -355,7 +363,7 @@ inner join petugas on perbaikan_inventaris.nip=petugas.nip]]>
 				<textFieldExpression><![CDATA[$F{biaya}]]></textFieldExpression>
 			</textField>
 			<textField isStretchWithOverflow="true">
-				<reportElement positionType="Float" x="1020" y="0" width="77" height="10" uuid="eb329390-5725-4419-a97c-8a51b14f0138"/>
+				<reportElement positionType="Float" x="1023" y="0" width="74" height="10" uuid="eb329390-5725-4419-a97c-8a51b14f0138"/>
 				<textElement>
 					<font fontName="Tahoma" size="8"/>
 					<paragraph lineSpacing="Single"/>
@@ -370,6 +378,14 @@ inner join petugas on perbaikan_inventaris.nip=petugas.nip]]>
 					<pen lineWidth="0.25" lineStyle="Solid"/>
 				</graphicElement>
 			</line>
+			<textField isStretchWithOverflow="true">
+				<reportElement positionType="Float" x="681" y="0" width="153" height="10" uuid="6f5efe02-960e-4864-a8dd-e0786fa91264"/>
+				<textElement>
+					<font fontName="Tahoma" size="8"/>
+					<paragraph lineSpacing="Single"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{keterangan}]]></textFieldExpression>
+			</textField>
 		</band>
 	</detail>
 	<columnFooter>
