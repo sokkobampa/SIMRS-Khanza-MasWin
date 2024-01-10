@@ -1097,16 +1097,14 @@ private void KdKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TKdKey
                     Sequel.queryu("delete from temporary_lab where temp36 = '"+akses.getkode()+"' and temp37 = '"+akses.getalamatip()+"'");
                     int row=tabMode.getRowCount();
                     for(i=0;i<row;i++){
-                        Sequel.temporaryLab(new String[] {
-                            "0",
+                        Sequel.temporaryLab(String.valueOf(i+1),
                             tabMode.getValueAt(i, 0).toString(),
                             tabMode.getValueAt(i, 1).toString(),
                             tabMode.getValueAt(i, 2).toString(),
                             tabMode.getValueAt(i, 3).toString(),
                             tabMode.getValueAt(i, 4).toString(),
                             tabMode.getValueAt(i, 5).toString(),
-                            tabMode.getValueAt(i, 6).toString(),
-                        }, 36);
+                            tabMode.getValueAt(i, 6).toString());
                     }
                     
                     Map<String, Object> param = new HashMap<>();
@@ -1130,23 +1128,21 @@ private void KdKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TKdKey
                     Sequel.queryu("delete from temporary_lab where temp36 = '"+akses.getkode()+"' and temp37 = '"+akses.getalamatip()+"'");
                     int row=tabMode2.getRowCount();
                     for(i=0;i<row;i++){
-                        Sequel.temporaryLab(new String[] {
-                            "0",
-                            tabMode.getValueAt(i, 0).toString(),
-                            tabMode.getValueAt(i, 1).toString(),
-                            tabMode.getValueAt(i, 2).toString(),
-                            tabMode.getValueAt(i, 3).toString(),
-                            tabMode.getValueAt(i, 4).toString(),
-                            tabMode.getValueAt(i, 5).toString(),
-                            tabMode.getValueAt(i, 6).toString(),
-                            tabMode.getValueAt(i, 7).toString(),
-                            tabMode.getValueAt(i, 8).toString(),
-                            tabMode.getValueAt(i, 9).toString(),
-                            tabMode.getValueAt(i, 10).toString(),
-                            tabMode.getValueAt(i, 11).toString(),
-                            tabMode.getValueAt(i, 12).toString(),
-                            tabMode.getValueAt(i, 13).toString(),
-                        }, 36);
+                        Sequel.temporaryLab(String.valueOf(i+1),
+                            tabMode2.getValueAt(i, 0).toString(),
+                            tabMode2.getValueAt(i, 1).toString(),
+                            tabMode2.getValueAt(i, 2).toString(),
+                            tabMode2.getValueAt(i, 3).toString(),
+                            tabMode2.getValueAt(i, 4).toString(),
+                            tabMode2.getValueAt(i, 5).toString(),
+                            tabMode2.getValueAt(i, 6).toString(),
+                            tabMode2.getValueAt(i, 7).toString(),
+                            tabMode2.getValueAt(i, 8).toString(),
+                            tabMode2.getValueAt(i, 9).toString(),
+                            tabMode2.getValueAt(i, 10).toString(),
+                            tabMode2.getValueAt(i, 11).toString(),
+                            tabMode2.getValueAt(i, 12).toString(),
+                            tabMode2.getValueAt(i, 13).toString());
                     }
                     
                     Map<String, Object> param = new HashMap<>();

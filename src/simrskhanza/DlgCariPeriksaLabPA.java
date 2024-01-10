@@ -1753,8 +1753,7 @@ private void tbDokterKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_
                 Sequel.queryu("delete from temporary_lab where temp36 = '"+akses.getkode()+"' and temp37 = '"+akses.getalamatip()+"'");
                 int row=tabMode.getRowCount();
                 for(i=0;i<row;i++){
-                    Sequel.temporaryLab(new String[] {
-                        "0",
+                    Sequel.temporaryLab(String.valueOf(i+1),
                         tabMode.getValueAt(i, 0).toString(),
                         tabMode.getValueAt(i, 1).toString(),
                         tabMode.getValueAt(i, 2).toString(),
@@ -1768,8 +1767,7 @@ private void tbDokterKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_
                         tabMode.getValueAt(i, 10).toString(),
                         tabMode.getValueAt(i, 11).toString(),
                         tabMode.getValueAt(i, 12).toString(),
-                        tabMode.getValueAt(i, 13).toString(),
-                    }, 36);
+                        tabMode.getValueAt(i, 13).toString());
                 }
 
                 Map<String, Object> param = new HashMap<>();

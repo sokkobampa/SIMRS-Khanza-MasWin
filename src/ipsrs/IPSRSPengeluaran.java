@@ -935,7 +935,7 @@ private void btnPetugasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FI
             return;
         }
         
-        if (Sequel.cariIsiDoubleSmc("select ifnull(stok, 0) from ipsrsbarang where kode_brng = ?", kodeBarang) < jumlah) {
+        if (Sequel.cariDoubleSmc("select ifnull(stok, 0) from ipsrsbarang where kode_brng = ?", kodeBarang) < jumlah) {
             JOptionPane.showMessageDialog(rootPane, "Maaf, jumlah barang " + namaBarang + " yang dikeluarkan\nmelebihi stok di gudang saat ini..!!");
 
             sukses = false;
