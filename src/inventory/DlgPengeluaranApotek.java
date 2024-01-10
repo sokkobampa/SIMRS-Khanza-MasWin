@@ -1465,7 +1465,7 @@ private void BtnGudangActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIR
             sql = sql + " and no_batch = '' and no_faktur = ''";
         }
         
-        if (Sequel.cariIsiDoubleSmc(sql, 2, ! aktifkanbatch.equals("yes"), kodeBarang, kdgudang.getText(), noBatch, noFaktur) < jumlah) {
+        if (Sequel.cariDoubleSmc(sql, 2, ! aktifkanbatch.equals("yes"), kodeBarang, kdgudang.getText(), noBatch, noFaktur) < jumlah) {
             JOptionPane.showMessageDialog(rootPane, "Maaf, jumlah barang " + namaBarang + " yang dikeluarkan\nmelebihi stok di gudang saat ini..!!");
             
             sukses = false;

@@ -847,7 +847,7 @@ private void ppHapusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST
                 }
                 
                 if(sukses==true){
-                    double totalDetilReturPiutang = Sequel.cariIsiDouble("select sum(subtotal) from detreturpiutang where no_retur_piutang = ?", rs.getString("no_retur_piutang"));
+                    double totalDetilReturPiutang = Sequel.cariDoubleSmc("select sum(subtotal) from detreturpiutang where no_retur_piutang = ?", rs.getString("no_retur_piutang"));
                     Sequel.deleteTampJurnal();
                     Sequel.insertTampJurnal(Sequel.cariIsi("select Retur_Piutang_Obat from set_akun"), "RETUR PIUTANG", 0, totalDetilReturPiutang);
                     Sequel.insertTampJurnal(Sequel.cariIsi("select Kontra_Retur_Piutang_Obat from set_akun"), "KAS DI TANGAN", totalDetilReturPiutang, 0);

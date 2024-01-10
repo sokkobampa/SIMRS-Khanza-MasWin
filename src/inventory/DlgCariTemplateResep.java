@@ -323,7 +323,7 @@ private void KdKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TKdKey
             if(tbPemisahan.getValueAt(tbPemisahan.getSelectedRow(),0).toString().equals("")){
                 JOptionPane.showMessageDialog(rootPane,"Maaf, Silahkan pilih data pada baris yang ada nama template resep..!!");
             }else {
-                query.updateSMC("resep_obat", "nama_template = null", "nama_template = ?", tbPemisahan.getValueAt(tbPemisahan.getSelectedRow(),0).toString());
+                query.mengupdateSmc("resep_obat", "nama_template = null", "nama_template = ?", tbPemisahan.getValueAt(tbPemisahan.getSelectedRow(),0).toString());
                 tampil();
             }
         }

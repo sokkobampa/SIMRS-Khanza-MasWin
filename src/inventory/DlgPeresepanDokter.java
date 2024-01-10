@@ -1947,13 +1947,7 @@ private void ppBersihkanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-F
 
     public void emptTeksobat() {
         if(ChkRM.isSelected()==true){
-            NoResep.setText(
-                Sequel.cariIsiSmc(
-                    "select concat(date_format(?, '%Y%m%d'), lpad(ifnull(max(convert(right(resep_obat.no_resep, 4), signed)), 0) + 1, 4, '0')) from resep_obat where resep_obat.no_resep like concat(date_format(?, '%Y%m%d'), '%')",
-                    Valid.SetTgl(DTPBeri.getSelectedItem().toString()),
-                    Valid.SetTgl(DTPBeri.getSelectedItem().toString())
-                )
-            );
+            Valid.autoNomorSmc(NoResep, null, "resep_obat", "no_resep", 4, "0", DTPBeri.getSelectedItem());
         } 
     }
 

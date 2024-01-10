@@ -1381,7 +1381,7 @@ private void ppHapusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST
                   if(sukses==true){
                       String stokKeluarMedis = Sequel.cariIsi("select Stok_Keluar_Medis from set_akun");
                       String kontraStokKeluarMedis = Sequel.cariIsi("select Kontra_Stok_Keluar_Medis from set_akun");
-                      double totalPengeluaranObat = Sequel.cariIsiDouble("select sum(total) from detail_pengeluaran_obat_bhp where no_keluar = ?", rs.getString("no_keluar"));
+                      double totalPengeluaranObat = Sequel.cariDoubleSmc("select sum(total) from detail_pengeluaran_obat_bhp where no_keluar = ?", rs.getString("no_keluar"));
 
                     Sequel.deleteTampJurnal();
                     Sequel.insertTampJurnal(stokKeluarMedis, "PERSEDIAAN BARANG", totalPengeluaranObat, 0);

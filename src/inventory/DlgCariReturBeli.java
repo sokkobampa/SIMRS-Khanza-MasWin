@@ -861,7 +861,7 @@ private void ppHapusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST
                 }
 
                 if(sukses==true){
-                    double totalDetilReturObat = Sequel.cariIsiDouble("select sum(total) from detreturbeli where no_retur_beli = ?", rs.getString("no_retur_beli"));
+                    double totalDetilReturObat = Sequel.cariDoubleSmc("select sum(total) from detreturbeli where no_retur_beli = ?", rs.getString("no_retur_beli"));
 
                     Sequel.deleteTampJurnal();
                     Sequel.insertTampJurnal(Sequel.cariIsi("select Retur_Ke_Suplayer from set_akun"), "RETUR PEMBELIAN", totalDetilReturObat, 0);

@@ -1131,7 +1131,7 @@ private void ppHapusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST
                      }
 
                      if(sukses==true){
-                        double sisaPiutangPasien = Sequel.cariIsiDouble("select sisapiutang from piutang where nota_piutang = ?", rs.getString("nota_piutang"));
+                        double sisaPiutangPasien = Sequel.cariDoubleSmc("select sisapiutang from piutang where nota_piutang = ?", rs.getString("nota_piutang"));
 
                         Sequel.deleteTampJurnal();
                         Sequel.insertTampJurnal(Sequel.cariIsi("select Piutang_Obat from set_akun"), "PIUTANG PASIEN", 0, sisaPiutangPasien);
