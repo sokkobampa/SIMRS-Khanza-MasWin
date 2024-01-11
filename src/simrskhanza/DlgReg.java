@@ -8251,14 +8251,18 @@ private void BtnDokterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIR
                 dokter.setLocationRelativeTo(internalFrame1);
                 dokter.setVisible(true);
             }else{
-                dokter2.setPoli(TPoli.getText());
-                dokter2.isCek();                 
-                dokter2.SetHari(DTPReg.getDate());
-                dokter2.tampil();
-                dokter2.TCari.requestFocus();
-                dokter2.setSize(internalFrame1.getWidth()-20,internalFrame1.getHeight()-20);
-                dokter2.setLocationRelativeTo(internalFrame1);
-                dokter2.setVisible(true);
+                if (kdpoli.getText().isBlank()) {
+                    JOptionPane.showMessageDialog(rootPane, "Pilih poliklinik dahulu..!!");
+                } else {
+                    dokter2.setPoli(TPoli.getText());
+                    dokter2.isCek();
+                    dokter2.SetHari(DTPReg.getDate());
+                    dokter2.tampil();
+                    dokter2.TCari.requestFocus();
+                    dokter2.setSize(internalFrame1.getWidth()-20,internalFrame1.getHeight()-20);
+                    dokter2.setLocationRelativeTo(internalFrame1);
+                    dokter2.setVisible(true);
+                }
             }                
         }else{
             dokter.isCek();        
