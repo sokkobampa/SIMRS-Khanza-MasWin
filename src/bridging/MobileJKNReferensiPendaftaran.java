@@ -396,21 +396,21 @@ public final class MobileJKNReferensiPendaftaran extends javax.swing.JDialog {
             for(int r=0;r<row;r++){  
                 Sequel.temporary(
                     String.valueOf(r + 1),
-                    ((tabMode.getValueAt(r, 0) != null) ? tabMode.getValueAt(r, 0).toString() : ""),
-                    ((tabMode.getValueAt(r, 1) != null) ? tabMode.getValueAt(r, 1).toString() : ""),
-                    ((tabMode.getValueAt(r, 2) != null) ? tabMode.getValueAt(r, 2).toString() : ""),
-                    ((tabMode.getValueAt(r, 3) != null) ? tabMode.getValueAt(r, 3).toString() : ""),
-                    ((tabMode.getValueAt(r, 4) != null) ? tabMode.getValueAt(r, 4).toString() : ""),
-                    ((tabMode.getValueAt(r, 5) != null) ? tabMode.getValueAt(r, 5).toString() : ""),
-                    ((tabMode.getValueAt(r, 6) != null) ? tabMode.getValueAt(r, 6).toString() : ""),
-                    ((tabMode.getValueAt(r, 7) != null) ? tabMode.getValueAt(r, 7).toString() : ""),
-                    ((tabMode.getValueAt(r, 8) != null) ? tabMode.getValueAt(r, 8).toString() : ""),
-                    ((tabMode.getValueAt(r, 9) != null) ? tabMode.getValueAt(r, 9).toString() : ""),
-                    ((tabMode.getValueAt(r, 10) != null) ? tabMode.getValueAt(r, 10).toString() : ""),
-                    ((tabMode.getValueAt(r, 11) != null) ? tabMode.getValueAt(r, 11).toString() : ""),
-                    ((tabMode.getValueAt(r, 12) != null) ? tabMode.getValueAt(r, 12).toString() : ""),
-                    ((tabMode.getValueAt(r, 13) != null) ? tabMode.getValueAt(r, 13).toString() : ""),
-                    ((tabMode.getValueAt(r, 14) != null) ? tabMode.getValueAt(r, 14).toString() : "")
+                    (String) tabMode.getValueAt(r, 0),
+                    (String) tabMode.getValueAt(r, 1),
+                    (String) tabMode.getValueAt(r, 2),
+                    (String) tabMode.getValueAt(r, 3),
+                    (String) tabMode.getValueAt(r, 4),
+                    (String) tabMode.getValueAt(r, 5),
+                    (String) tabMode.getValueAt(r, 6),
+                    (String) tabMode.getValueAt(r, 7),
+                    (String) tabMode.getValueAt(r, 8),
+                    (String) tabMode.getValueAt(r, 9),
+                    (String) tabMode.getValueAt(r, 10),
+                    (String) tabMode.getValueAt(r, 11),
+                    (String) tabMode.getValueAt(r, 12),
+                    (String) tabMode.getValueAt(r, 13),
+                    (String) tabMode.getValueAt(r, 14)
                 );
             }
             
