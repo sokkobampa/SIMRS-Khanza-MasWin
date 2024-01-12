@@ -390,6 +390,40 @@
 				</textElement>
 				<text><![CDATA[Rp.]]></text>
 			</staticText>
+			<textField>
+				<reportElement stretchType="RelativeToBandHeight" mode="Transparent" x="16" y="299" width="179" height="12" forecolor="#000000" backcolor="#F0F0DC" uuid="70f4cf46-4b6a-429d-929a-cd2ef60ede9e">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Tahoma" size="9"/>
+					<paragraph lineSpacing="Single"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{namars}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement positionType="Float" x="16" y="286" width="179" height="12" uuid="0f65f3b5-fa2b-45a4-a142-d47fd4a69eb1">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Tahoma" size="9" isBold="false"/>
+					<paragraph lineSpacing="Single"/>
+				</textElement>
+				<text><![CDATA[DIREKTUR]]></text>
+			</staticText>
+			<staticText>
+				<reportElement positionType="Float" x="16" y="359" width="179" height="12" uuid="de12c71c-2227-4b69-9f56-4ea8ff2ca4ca"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Tahoma" size="9"/>
+					<paragraph lineSpacing="Single"/>
+				</textElement>
+				<text><![CDATA[dr. TEGUH NURWANTO, MARS]]></text>
+			</staticText>
+			<line>
+				<reportElement positionType="Float" x="17" y="371" width="177" height="1" uuid="57c72281-3353-4cd9-90be-1627b83589a3"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineStyle="Solid"/>
+				</graphicElement>
+			</line>
 		</band>
 	</title>
 	<pageHeader>
