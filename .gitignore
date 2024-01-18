@@ -1,0 +1,16 @@
+/.vscode
+/build
+/dist
+/lib
+**/*.DS_Store
+**/.DS_Store
+*.DS_Store
+.DS_Store
+**/*.*~
+**/*.~*
+**/*.html
+**/*.css
+**/*.csv
+**/*.wps
+!*.sql
+**/*.[*]~
