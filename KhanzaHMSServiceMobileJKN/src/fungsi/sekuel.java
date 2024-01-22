@@ -65,6 +65,60 @@ public final class sekuel {
         super();
     }
 
+    public boolean cariBooleanSmc(String sql, String... values)
+    {
+        boolean output = false;
+        try {
+            ps = connect.prepareStatement(sql);
+            try {
+                for (int i = 0; i < values.length; i++) {
+                    ps.setString(i + 1, values[i]);
+                }
+                rs = ps.executeQuery();
+                if (rs.next()) {
+                    output = rs.getBoolean(1);
+                }
+            } catch (Exception e) {
+                System.out.println("Notif : " + e);
+            } finally {
+                if (rs != null) {
+                    rs.close();
+                }
+                if (ps != null) {
+                    ps.close();
+                }
+            }
+        } catch (Exception e) {
+            System.out.println("Notif : " + e);
+        }
+        return output;
+    }
+    
+    public void logTaskid(String noRawat, String jenisKunjungan, String taskid, String code, String message)
+    {
+        String query = "insert into referensi_mobilejkn_bpjs_taskid_response (no_rawat, jenispasien, taskid, code, message, waktu) values (?, ?, ?, ?, ?, now())";
+        
+        try {
+            ps = connect.prepareStatement(query);
+            try {
+                ps.setString(1, noRawat);
+                ps.setString(2, jenisKunjungan);
+                ps.setString(3, taskid);
+                ps.setString(4, code);
+                ps.setString(5, message);
+                ps.executeUpdate();
+            } catch (Exception e) {
+                System.out.println("Notif : " + e);
+            } finally {
+                if (ps != null) {
+                    ps.close();
+                }
+            }
+        } catch (Exception e) {
+            System.out.println("Notif : " + e);
+        }
+    }
+    
 
     public void menyimpan(String table,String value,String sama){
         try {
