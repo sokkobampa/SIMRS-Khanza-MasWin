@@ -743,7 +743,8 @@ public class DlgKamarInap extends javax.swing.JDialog {
      */
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
-    private void initComponents() {
+    private void initComponents()
+    {
 
         WindowInputKamar = new javax.swing.JDialog();
         internalFrame2 = new widget.InternalFrame();
@@ -805,8 +806,6 @@ public class DlgKamarInap extends javax.swing.JDialog {
         MnChecklistPostOperasi = new javax.swing.JMenuItem();
         MnPenilaianPreOp = new javax.swing.JMenuItem();
         MnPenilaianPreAnestesi = new javax.swing.JMenuItem();
-        MnSkorAldrettePascaAnestesi = new javax.swing.JMenuItem();
-        MnSkorStewardPascaAnestesi = new javax.swing.JMenuItem();
         MnRMHCU = new javax.swing.JMenu();
         MnCheckListKriteriaMasukHCU = new javax.swing.JMenuItem();
         MnCheckListKriteriaKeluarHCU = new javax.swing.JMenuItem();
@@ -1121,8 +1120,10 @@ public class DlgKamarInap extends javax.swing.JDialog {
         WindowInputKamar.setName("WindowInputKamar"); // NOI18N
         WindowInputKamar.setUndecorated(true);
         WindowInputKamar.setResizable(false);
-        WindowInputKamar.addWindowListener(new java.awt.event.WindowAdapter() {
-            public void windowActivated(java.awt.event.WindowEvent evt) {
+        WindowInputKamar.addWindowListener(new java.awt.event.WindowAdapter()
+        {
+            public void windowActivated(java.awt.event.WindowEvent evt)
+            {
                 WindowInputKamarWindowActivated(evt);
             }
         });
@@ -1133,8 +1134,10 @@ public class DlgKamarInap extends javax.swing.JDialog {
 
         norawat.setHighlighter(null);
         norawat.setName("norawat"); // NOI18N
-        norawat.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
+        norawat.addKeyListener(new java.awt.event.KeyAdapter()
+        {
+            public void keyPressed(java.awt.event.KeyEvent evt)
+            {
                 norawatKeyPressed(evt);
             }
         });
@@ -1149,8 +1152,10 @@ public class DlgKamarInap extends javax.swing.JDialog {
 
         kdkamar.setHighlighter(null);
         kdkamar.setName("kdkamar"); // NOI18N
-        kdkamar.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
+        kdkamar.addKeyListener(new java.awt.event.KeyAdapter()
+        {
+            public void keyPressed(java.awt.event.KeyEvent evt)
+            {
                 kdkamarKeyPressed(evt);
             }
         });
@@ -1166,8 +1171,10 @@ public class DlgKamarInap extends javax.swing.JDialog {
         ttlbiaya.setText("0");
         ttlbiaya.setHighlighter(null);
         ttlbiaya.setName("ttlbiaya"); // NOI18N
-        ttlbiaya.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
+        ttlbiaya.addKeyListener(new java.awt.event.KeyAdapter()
+        {
+            public void keyPressed(java.awt.event.KeyEvent evt)
+            {
                 ttlbiayaKeyPressed(evt);
             }
         });
@@ -1188,13 +1195,17 @@ public class DlgKamarInap extends javax.swing.JDialog {
         btnReg.setMnemonic('1');
         btnReg.setToolTipText("Alt+1");
         btnReg.setName("btnReg"); // NOI18N
-        btnReg.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        btnReg.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 btnRegActionPerformed(evt);
             }
         });
-        btnReg.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
+        btnReg.addKeyListener(new java.awt.event.KeyAdapter()
+        {
+            public void keyPressed(java.awt.event.KeyEvent evt)
+            {
                 btnRegKeyPressed(evt);
             }
         });
@@ -1211,13 +1222,17 @@ public class DlgKamarInap extends javax.swing.JDialog {
         btnKamar.setMnemonic('2');
         btnKamar.setToolTipText("Alt+2");
         btnKamar.setName("btnKamar"); // NOI18N
-        btnKamar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        btnKamar.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 btnKamarActionPerformed(evt);
             }
         });
-        btnKamar.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
+        btnKamar.addKeyListener(new java.awt.event.KeyAdapter()
+        {
+            public void keyPressed(java.awt.event.KeyEvent evt)
+            {
                 btnKamarKeyPressed(evt);
             }
         });
@@ -1236,13 +1251,17 @@ public class DlgKamarInap extends javax.swing.JDialog {
 
         cmbDtk.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "00", "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31", "32", "33", "34", "35", "36", "37", "38", "39", "40", "41", "42", "43", "44", "45", "46", "47", "48", "49", "50", "51", "52", "53", "54", "55", "56", "57", "58", "59" }));
         cmbDtk.setName("cmbDtk"); // NOI18N
-        cmbDtk.addItemListener(new java.awt.event.ItemListener() {
-            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+        cmbDtk.addItemListener(new java.awt.event.ItemListener()
+        {
+            public void itemStateChanged(java.awt.event.ItemEvent evt)
+            {
                 CmbTahunItemStateChanged(evt);
             }
         });
-        cmbDtk.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
+        cmbDtk.addKeyListener(new java.awt.event.KeyAdapter()
+        {
+            public void keyPressed(java.awt.event.KeyEvent evt)
+            {
                 cmbDtkKeyPressed(evt);
             }
         });
@@ -1251,13 +1270,17 @@ public class DlgKamarInap extends javax.swing.JDialog {
 
         cmbMnt.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "00", "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31", "32", "33", "34", "35", "36", "37", "38", "39", "40", "41", "42", "43", "44", "45", "46", "47", "48", "49", "50", "51", "52", "53", "54", "55", "56", "57", "58", "59" }));
         cmbMnt.setName("cmbMnt"); // NOI18N
-        cmbMnt.addItemListener(new java.awt.event.ItemListener() {
-            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+        cmbMnt.addItemListener(new java.awt.event.ItemListener()
+        {
+            public void itemStateChanged(java.awt.event.ItemEvent evt)
+            {
                 CmbTahunItemStateChanged(evt);
             }
         });
-        cmbMnt.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
+        cmbMnt.addKeyListener(new java.awt.event.KeyAdapter()
+        {
+            public void keyPressed(java.awt.event.KeyEvent evt)
+            {
                 cmbMntKeyPressed(evt);
             }
         });
@@ -1266,13 +1289,17 @@ public class DlgKamarInap extends javax.swing.JDialog {
 
         cmbJam.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "00", "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23" }));
         cmbJam.setName("cmbJam"); // NOI18N
-        cmbJam.addItemListener(new java.awt.event.ItemListener() {
-            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+        cmbJam.addItemListener(new java.awt.event.ItemListener()
+        {
+            public void itemStateChanged(java.awt.event.ItemEvent evt)
+            {
                 CmbTahunItemStateChanged(evt);
             }
         });
-        cmbJam.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
+        cmbJam.addKeyListener(new java.awt.event.KeyAdapter()
+        {
+            public void keyPressed(java.awt.event.KeyEvent evt)
+            {
                 cmbJamKeyPressed(evt);
             }
         });
@@ -1282,8 +1309,10 @@ public class DlgKamarInap extends javax.swing.JDialog {
         TBangsal.setEditable(false);
         TBangsal.setHighlighter(null);
         TBangsal.setName("TBangsal"); // NOI18N
-        TBangsal.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
+        TBangsal.addKeyListener(new java.awt.event.KeyAdapter()
+        {
+            public void keyPressed(java.awt.event.KeyEvent evt)
+            {
                 TBangsalKeyPressed(evt);
             }
         });
@@ -1317,13 +1346,17 @@ public class DlgKamarInap extends javax.swing.JDialog {
         BtnCloseIn.setText("Tutup");
         BtnCloseIn.setToolTipText("Alt+U");
         BtnCloseIn.setName("BtnCloseIn"); // NOI18N
-        BtnCloseIn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        BtnCloseIn.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 BtnCloseInActionPerformed(evt);
             }
         });
-        BtnCloseIn.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
+        BtnCloseIn.addKeyListener(new java.awt.event.KeyAdapter()
+        {
+            public void keyPressed(java.awt.event.KeyEvent evt)
+            {
                 BtnCloseInKeyPressed(evt);
             }
         });
@@ -1340,13 +1373,17 @@ public class DlgKamarInap extends javax.swing.JDialog {
         BtnSimpan.setText("Simpan");
         BtnSimpan.setToolTipText("Alt+S");
         BtnSimpan.setName("BtnSimpan"); // NOI18N
-        BtnSimpan.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        BtnSimpan.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 BtnSimpanActionPerformed(evt);
             }
         });
-        BtnSimpan.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
+        BtnSimpan.addKeyListener(new java.awt.event.KeyAdapter()
+        {
+            public void keyPressed(java.awt.event.KeyEvent evt)
+            {
                 BtnSimpanKeyPressed(evt);
             }
         });
@@ -1358,13 +1395,17 @@ public class DlgKamarInap extends javax.swing.JDialog {
         BtnBatal.setText("Batal");
         BtnBatal.setToolTipText("Alt+B");
         BtnBatal.setName("BtnBatal"); // NOI18N
-        BtnBatal.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        BtnBatal.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 BtnBatalActionPerformed(evt);
             }
         });
-        BtnBatal.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
+        BtnBatal.addKeyListener(new java.awt.event.KeyAdapter()
+        {
+            public void keyPressed(java.awt.event.KeyEvent evt)
+            {
                 BtnBatalKeyPressed(evt);
             }
         });
@@ -1400,8 +1441,10 @@ public class DlgKamarInap extends javax.swing.JDialog {
 
         diagnosaawal.setHighlighter(null);
         diagnosaawal.setName("diagnosaawal"); // NOI18N
-        diagnosaawal.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
+        diagnosaawal.addKeyListener(new java.awt.event.KeyAdapter()
+        {
+            public void keyPressed(java.awt.event.KeyEvent evt)
+            {
                 diagnosaawalKeyPressed(evt);
             }
         });
@@ -1410,8 +1453,10 @@ public class DlgKamarInap extends javax.swing.JDialog {
 
         diagnosaakhir.setHighlighter(null);
         diagnosaakhir.setName("diagnosaakhir"); // NOI18N
-        diagnosaakhir.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
+        diagnosaakhir.addKeyListener(new java.awt.event.KeyAdapter()
+        {
+            public void keyPressed(java.awt.event.KeyEvent evt)
+            {
                 diagnosaakhirKeyPressed(evt);
             }
         });
@@ -1424,13 +1469,17 @@ public class DlgKamarInap extends javax.swing.JDialog {
         jLabel23.setBounds(295, 115, 140, 23);
 
         CmbTahun.setName("CmbTahun"); // NOI18N
-        CmbTahun.addItemListener(new java.awt.event.ItemListener() {
-            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+        CmbTahun.addItemListener(new java.awt.event.ItemListener()
+        {
+            public void itemStateChanged(java.awt.event.ItemEvent evt)
+            {
                 CmbTahunItemStateChanged(evt);
             }
         });
-        CmbTahun.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
+        CmbTahun.addKeyListener(new java.awt.event.KeyAdapter()
+        {
+            public void keyPressed(java.awt.event.KeyEvent evt)
+            {
                 CmbTahunKeyPressed(evt);
             }
         });
@@ -1439,13 +1488,17 @@ public class DlgKamarInap extends javax.swing.JDialog {
 
         CmbBln.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12" }));
         CmbBln.setName("CmbBln"); // NOI18N
-        CmbBln.addItemListener(new java.awt.event.ItemListener() {
-            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+        CmbBln.addItemListener(new java.awt.event.ItemListener()
+        {
+            public void itemStateChanged(java.awt.event.ItemEvent evt)
+            {
                 CmbTahunItemStateChanged(evt);
             }
         });
-        CmbBln.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
+        CmbBln.addKeyListener(new java.awt.event.KeyAdapter()
+        {
+            public void keyPressed(java.awt.event.KeyEvent evt)
+            {
                 CmbBlnKeyPressed(evt);
             }
         });
@@ -1454,13 +1507,17 @@ public class DlgKamarInap extends javax.swing.JDialog {
 
         CmbTgl.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31" }));
         CmbTgl.setName("CmbTgl"); // NOI18N
-        CmbTgl.addItemListener(new java.awt.event.ItemListener() {
-            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+        CmbTgl.addItemListener(new java.awt.event.ItemListener()
+        {
+            public void itemStateChanged(java.awt.event.ItemEvent evt)
+            {
                 CmbTahunItemStateChanged(evt);
             }
         });
-        CmbTgl.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
+        CmbTgl.addKeyListener(new java.awt.event.KeyAdapter()
+        {
+            public void keyPressed(java.awt.event.KeyEvent evt)
+            {
                 CmbTglKeyPressed(evt);
             }
         });
@@ -1474,8 +1531,10 @@ public class DlgKamarInap extends javax.swing.JDialog {
 
         cmbStatus.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Sehat", "Rujuk", "APS", "+", "Meninggal", "Sembuh", "Membaik", "Pulang Paksa", "-", "Pindah Kamar", "Status Belum Lengkap", "Atas Persetujuan Dokter", "Atas Permintaan Sendiri", "Isoman", "Lain-lain" }));
         cmbStatus.setName("cmbStatus"); // NOI18N
-        cmbStatus.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
+        cmbStatus.addKeyListener(new java.awt.event.KeyAdapter()
+        {
+            public void keyPressed(java.awt.event.KeyEvent evt)
+            {
                 cmbStatusKeyPressed(evt);
             }
         });
@@ -1491,13 +1550,17 @@ public class DlgKamarInap extends javax.swing.JDialog {
         btnDiagnosa.setMnemonic('3');
         btnDiagnosa.setToolTipText("Alt+3");
         btnDiagnosa.setName("btnDiagnosa"); // NOI18N
-        btnDiagnosa.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        btnDiagnosa.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 btnDiagnosaActionPerformed(evt);
             }
         });
-        btnDiagnosa.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
+        btnDiagnosa.addKeyListener(new java.awt.event.KeyAdapter()
+        {
+            public void keyPressed(java.awt.event.KeyEvent evt)
+            {
                 btnDiagnosaKeyPressed(evt);
             }
         });
@@ -1510,8 +1573,10 @@ public class DlgKamarInap extends javax.swing.JDialog {
         TOut.setForeground(new java.awt.Color(255, 255, 255));
         TOut.setHighlighter(null);
         TOut.setName("TOut"); // NOI18N
-        TOut.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
+        TOut.addKeyListener(new java.awt.event.KeyAdapter()
+        {
+            public void keyPressed(java.awt.event.KeyEvent evt)
+            {
                 TOutKeyPressed(evt);
             }
         });
@@ -1520,8 +1585,10 @@ public class DlgKamarInap extends javax.swing.JDialog {
         TIn.setForeground(new java.awt.Color(255, 255, 255));
         TIn.setHighlighter(null);
         TIn.setName("TIn"); // NOI18N
-        TIn.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
+        TIn.addKeyListener(new java.awt.event.KeyAdapter()
+        {
+            public void keyPressed(java.awt.event.KeyEvent evt)
+            {
                 TInKeyPressed(evt);
             }
         });
@@ -1561,8 +1628,10 @@ public class DlgKamarInap extends javax.swing.JDialog {
         MnPenilaianAwalKeperawatanRanap.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
         MnPenilaianAwalKeperawatanRanap.setName("MnPenilaianAwalKeperawatanRanap"); // NOI18N
         MnPenilaianAwalKeperawatanRanap.setPreferredSize(new java.awt.Dimension(240, 26));
-        MnPenilaianAwalKeperawatanRanap.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        MnPenilaianAwalKeperawatanRanap.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 MnPenilaianAwalKeperawatanRanapActionPerformed(evt);
             }
         });
@@ -1577,8 +1646,10 @@ public class DlgKamarInap extends javax.swing.JDialog {
         MnPenilaianAwalKeperawatanKebidanan.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
         MnPenilaianAwalKeperawatanKebidanan.setName("MnPenilaianAwalKeperawatanKebidanan"); // NOI18N
         MnPenilaianAwalKeperawatanKebidanan.setPreferredSize(new java.awt.Dimension(240, 26));
-        MnPenilaianAwalKeperawatanKebidanan.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        MnPenilaianAwalKeperawatanKebidanan.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 MnPenilaianAwalKeperawatanKebidananActionPerformed(evt);
             }
         });
@@ -1593,8 +1664,10 @@ public class DlgKamarInap extends javax.swing.JDialog {
         MnPenilaianAwalMedisRanap.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
         MnPenilaianAwalMedisRanap.setName("MnPenilaianAwalMedisRanap"); // NOI18N
         MnPenilaianAwalMedisRanap.setPreferredSize(new java.awt.Dimension(240, 26));
-        MnPenilaianAwalMedisRanap.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        MnPenilaianAwalMedisRanap.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 MnPenilaianAwalMedisRanapActionPerformed(evt);
             }
         });
@@ -1609,8 +1682,10 @@ public class DlgKamarInap extends javax.swing.JDialog {
         MnPenilaianAwalMedisKandungan.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
         MnPenilaianAwalMedisKandungan.setName("MnPenilaianAwalMedisKandungan"); // NOI18N
         MnPenilaianAwalMedisKandungan.setPreferredSize(new java.awt.Dimension(240, 26));
-        MnPenilaianAwalMedisKandungan.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        MnPenilaianAwalMedisKandungan.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 MnPenilaianAwalMedisKandunganActionPerformed(evt);
             }
         });
@@ -1625,8 +1700,10 @@ public class DlgKamarInap extends javax.swing.JDialog {
         MnPenilaianAwalMedisHemodialisa.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
         MnPenilaianAwalMedisHemodialisa.setName("MnPenilaianAwalMedisHemodialisa"); // NOI18N
         MnPenilaianAwalMedisHemodialisa.setPreferredSize(new java.awt.Dimension(240, 26));
-        MnPenilaianAwalMedisHemodialisa.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        MnPenilaianAwalMedisHemodialisa.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 MnPenilaianAwalMedisHemodialisaActionPerformed(evt);
             }
         });
@@ -1641,8 +1718,10 @@ public class DlgKamarInap extends javax.swing.JDialog {
         MnPenilaianFisioterapi.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
         MnPenilaianFisioterapi.setName("MnPenilaianFisioterapi"); // NOI18N
         MnPenilaianFisioterapi.setPreferredSize(new java.awt.Dimension(190, 26));
-        MnPenilaianFisioterapi.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        MnPenilaianFisioterapi.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 MnPenilaianFisioterapiActionPerformed(evt);
             }
         });
@@ -1669,11 +1748,14 @@ public class DlgKamarInap extends javax.swing.JDialog {
         MnChecklistPreOperasi.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
         MnChecklistPreOperasi.setName("MnChecklistPreOperasi"); // NOI18N
         MnChecklistPreOperasi.setPreferredSize(new java.awt.Dimension(210, 26));
-        MnChecklistPreOperasi.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        MnChecklistPreOperasi.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 MnChecklistPreOperasiActionPerformed(evt);
             }
         });
+        MnRMOperasi.add(MnChecklistPreOperasi);
 
         MnSignInSebelumAnestesi.setBackground(new java.awt.Color(255, 255, 254));
         MnSignInSebelumAnestesi.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
@@ -1684,11 +1766,14 @@ public class DlgKamarInap extends javax.swing.JDialog {
         MnSignInSebelumAnestesi.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
         MnSignInSebelumAnestesi.setName("MnSignInSebelumAnestesi"); // NOI18N
         MnSignInSebelumAnestesi.setPreferredSize(new java.awt.Dimension(210, 26));
-        MnSignInSebelumAnestesi.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        MnSignInSebelumAnestesi.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 MnSignInSebelumAnestesiActionPerformed(evt);
             }
         });
+        MnRMOperasi.add(MnSignInSebelumAnestesi);
 
         MnTimeOutSebelumInsisi.setBackground(new java.awt.Color(255, 255, 254));
         MnTimeOutSebelumInsisi.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
@@ -1699,11 +1784,14 @@ public class DlgKamarInap extends javax.swing.JDialog {
         MnTimeOutSebelumInsisi.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
         MnTimeOutSebelumInsisi.setName("MnTimeOutSebelumInsisi"); // NOI18N
         MnTimeOutSebelumInsisi.setPreferredSize(new java.awt.Dimension(210, 26));
-        MnTimeOutSebelumInsisi.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        MnTimeOutSebelumInsisi.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 MnTimeOutSebelumInsisiActionPerformed(evt);
             }
         });
+        MnRMOperasi.add(MnTimeOutSebelumInsisi);
 
         MnSignOutSebelumMenutupLuka.setBackground(new java.awt.Color(255, 255, 254));
         MnSignOutSebelumMenutupLuka.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
@@ -1714,11 +1802,14 @@ public class DlgKamarInap extends javax.swing.JDialog {
         MnSignOutSebelumMenutupLuka.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
         MnSignOutSebelumMenutupLuka.setName("MnSignOutSebelumMenutupLuka"); // NOI18N
         MnSignOutSebelumMenutupLuka.setPreferredSize(new java.awt.Dimension(210, 26));
-        MnSignOutSebelumMenutupLuka.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        MnSignOutSebelumMenutupLuka.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 MnSignOutSebelumMenutupLukaActionPerformed(evt);
             }
         });
+        MnRMOperasi.add(MnSignOutSebelumMenutupLuka);
 
         MnChecklistPostOperasi.setBackground(new java.awt.Color(255, 255, 254));
         MnChecklistPostOperasi.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
@@ -1729,11 +1820,14 @@ public class DlgKamarInap extends javax.swing.JDialog {
         MnChecklistPostOperasi.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
         MnChecklistPostOperasi.setName("MnChecklistPostOperasi"); // NOI18N
         MnChecklistPostOperasi.setPreferredSize(new java.awt.Dimension(210, 26));
-        MnChecklistPostOperasi.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        MnChecklistPostOperasi.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 MnChecklistPostOperasiActionPerformed(evt);
             }
         });
+        MnRMOperasi.add(MnChecklistPostOperasi);
 
         MnPenilaianPreOp.setBackground(new java.awt.Color(255, 255, 254));
         MnPenilaianPreOp.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
@@ -1744,11 +1838,14 @@ public class DlgKamarInap extends javax.swing.JDialog {
         MnPenilaianPreOp.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
         MnPenilaianPreOp.setName("MnPenilaianPreOp"); // NOI18N
         MnPenilaianPreOp.setPreferredSize(new java.awt.Dimension(210, 26));
-        MnPenilaianPreOp.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        MnPenilaianPreOp.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 MnPenilaianPreOpActionPerformed(evt);
             }
         });
+        MnRMOperasi.add(MnPenilaianPreOp);
 
         MnPenilaianPreAnestesi.setBackground(new java.awt.Color(255, 255, 254));
         MnPenilaianPreAnestesi.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
@@ -1759,41 +1856,14 @@ public class DlgKamarInap extends javax.swing.JDialog {
         MnPenilaianPreAnestesi.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
         MnPenilaianPreAnestesi.setName("MnPenilaianPreAnestesi"); // NOI18N
         MnPenilaianPreAnestesi.setPreferredSize(new java.awt.Dimension(210, 26));
-        MnPenilaianPreAnestesi.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        MnPenilaianPreAnestesi.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 MnPenilaianPreAnestesiActionPerformed(evt);
             }
         });
-
-        MnSkorAldrettePascaAnestesi.setBackground(new java.awt.Color(255, 255, 254));
-        MnSkorAldrettePascaAnestesi.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
-        MnSkorAldrettePascaAnestesi.setForeground(new java.awt.Color(50, 50, 50));
-        MnSkorAldrettePascaAnestesi.setIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/category.png"))); // NOI18N
-        MnSkorAldrettePascaAnestesi.setText("Skor Aldrette Pasca Anestesi");
-        MnSkorAldrettePascaAnestesi.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        MnSkorAldrettePascaAnestesi.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
-        MnSkorAldrettePascaAnestesi.setName("MnSkorAldrettePascaAnestesi"); // NOI18N
-        MnSkorAldrettePascaAnestesi.setPreferredSize(new java.awt.Dimension(210, 26));
-        MnSkorAldrettePascaAnestesi.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                MnSkorAldrettePascaAnestesiActionPerformed(evt);
-            }
-        });
-
-        MnSkorStewardPascaAnestesi.setBackground(new java.awt.Color(255, 255, 254));
-        MnSkorStewardPascaAnestesi.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
-        MnSkorStewardPascaAnestesi.setForeground(new java.awt.Color(50, 50, 50));
-        MnSkorStewardPascaAnestesi.setIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/category.png"))); // NOI18N
-        MnSkorStewardPascaAnestesi.setText("Skor Steward Pasca Anestesi");
-        MnSkorStewardPascaAnestesi.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        MnSkorStewardPascaAnestesi.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
-        MnSkorStewardPascaAnestesi.setName("MnSkorStewardPascaAnestesi"); // NOI18N
-        MnSkorStewardPascaAnestesi.setPreferredSize(new java.awt.Dimension(210, 26));
-        MnSkorStewardPascaAnestesi.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                MnSkorStewardPascaAnestesiActionPerformed(evt);
-            }
-        });
+        MnRMOperasi.add(MnPenilaianPreAnestesi);
 
         MnDataRM.add(MnRMOperasi);
 
@@ -1816,8 +1886,10 @@ public class DlgKamarInap extends javax.swing.JDialog {
         MnCheckListKriteriaMasukHCU.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
         MnCheckListKriteriaMasukHCU.setName("MnCheckListKriteriaMasukHCU"); // NOI18N
         MnCheckListKriteriaMasukHCU.setPreferredSize(new java.awt.Dimension(200, 26));
-        MnCheckListKriteriaMasukHCU.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        MnCheckListKriteriaMasukHCU.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 MnCheckListKriteriaMasukHCUActionPerformed(evt);
             }
         });
@@ -1832,8 +1904,10 @@ public class DlgKamarInap extends javax.swing.JDialog {
         MnCheckListKriteriaKeluarHCU.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
         MnCheckListKriteriaKeluarHCU.setName("MnCheckListKriteriaKeluarHCU"); // NOI18N
         MnCheckListKriteriaKeluarHCU.setPreferredSize(new java.awt.Dimension(200, 26));
-        MnCheckListKriteriaKeluarHCU.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        MnCheckListKriteriaKeluarHCU.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 MnCheckListKriteriaKeluarHCUActionPerformed(evt);
             }
         });
@@ -1848,8 +1922,10 @@ public class DlgKamarInap extends javax.swing.JDialog {
         MnCheckListKriteriaMasukICU.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
         MnCheckListKriteriaMasukICU.setName("MnCheckListKriteriaMasukICU"); // NOI18N
         MnCheckListKriteriaMasukICU.setPreferredSize(new java.awt.Dimension(200, 26));
-        MnCheckListKriteriaMasukICU.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        MnCheckListKriteriaMasukICU.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 MnCheckListKriteriaMasukICUActionPerformed(evt);
             }
         });
@@ -1864,8 +1940,10 @@ public class DlgKamarInap extends javax.swing.JDialog {
         MnCheckListKriteriaKeluarICU.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
         MnCheckListKriteriaKeluarICU.setName("MnCheckListKriteriaKeluarICU"); // NOI18N
         MnCheckListKriteriaKeluarICU.setPreferredSize(new java.awt.Dimension(200, 26));
-        MnCheckListKriteriaKeluarICU.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        MnCheckListKriteriaKeluarICU.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 MnCheckListKriteriaKeluarICUActionPerformed(evt);
             }
         });
@@ -1882,8 +1960,10 @@ public class DlgKamarInap extends javax.swing.JDialog {
         MnUjiFungsiKFR.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
         MnUjiFungsiKFR.setName("MnUjiFungsiKFR"); // NOI18N
         MnUjiFungsiKFR.setPreferredSize(new java.awt.Dimension(200, 26));
-        MnUjiFungsiKFR.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        MnUjiFungsiKFR.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 MnUjiFungsiKFRActionPerformed(evt);
             }
         });
@@ -1908,8 +1988,10 @@ public class DlgKamarInap extends javax.swing.JDialog {
         MnPenilaianRisikoJatuhDewasa.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
         MnPenilaianRisikoJatuhDewasa.setName("MnPenilaianRisikoJatuhDewasa"); // NOI18N
         MnPenilaianRisikoJatuhDewasa.setPreferredSize(new java.awt.Dimension(250, 26));
-        MnPenilaianRisikoJatuhDewasa.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        MnPenilaianRisikoJatuhDewasa.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 MnPenilaianRisikoJatuhDewasaActionPerformed(evt);
             }
         });
@@ -1924,8 +2006,10 @@ public class DlgKamarInap extends javax.swing.JDialog {
         MnPenilaianRisikoJatuhAnak.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
         MnPenilaianRisikoJatuhAnak.setName("MnPenilaianRisikoJatuhAnak"); // NOI18N
         MnPenilaianRisikoJatuhAnak.setPreferredSize(new java.awt.Dimension(250, 26));
-        MnPenilaianRisikoJatuhAnak.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        MnPenilaianRisikoJatuhAnak.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 MnPenilaianRisikoJatuhAnakActionPerformed(evt);
             }
         });
@@ -1940,8 +2024,10 @@ public class DlgKamarInap extends javax.swing.JDialog {
         MnPenilaianRisikoJatuhLansia.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
         MnPenilaianRisikoJatuhLansia.setName("MnPenilaianRisikoJatuhLansia"); // NOI18N
         MnPenilaianRisikoJatuhLansia.setPreferredSize(new java.awt.Dimension(250, 26));
-        MnPenilaianRisikoJatuhLansia.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        MnPenilaianRisikoJatuhLansia.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 MnPenilaianRisikoJatuhLansiaActionPerformed(evt);
             }
         });
@@ -1956,8 +2042,10 @@ public class DlgKamarInap extends javax.swing.JDialog {
         MnPenilaianRisikoJatuhNeonatus.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
         MnPenilaianRisikoJatuhNeonatus.setName("MnPenilaianRisikoJatuhNeonatus"); // NOI18N
         MnPenilaianRisikoJatuhNeonatus.setPreferredSize(new java.awt.Dimension(250, 26));
-        MnPenilaianRisikoJatuhNeonatus.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        MnPenilaianRisikoJatuhNeonatus.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 MnPenilaianRisikoJatuhNeonatusActionPerformed(evt);
             }
         });
@@ -1972,8 +2060,10 @@ public class DlgKamarInap extends javax.swing.JDialog {
         MnPenilaianRisikoJatuhGeriatri.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
         MnPenilaianRisikoJatuhGeriatri.setName("MnPenilaianRisikoJatuhGeriatri"); // NOI18N
         MnPenilaianRisikoJatuhGeriatri.setPreferredSize(new java.awt.Dimension(250, 26));
-        MnPenilaianRisikoJatuhGeriatri.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        MnPenilaianRisikoJatuhGeriatri.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 MnPenilaianRisikoJatuhGeriatriActionPerformed(evt);
             }
         });
@@ -1988,8 +2078,10 @@ public class DlgKamarInap extends javax.swing.JDialog {
         MnPenilaianRisikoJatuhPsikiatri.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
         MnPenilaianRisikoJatuhPsikiatri.setName("MnPenilaianRisikoJatuhPsikiatri"); // NOI18N
         MnPenilaianRisikoJatuhPsikiatri.setPreferredSize(new java.awt.Dimension(250, 26));
-        MnPenilaianRisikoJatuhPsikiatri.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        MnPenilaianRisikoJatuhPsikiatri.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 MnPenilaianRisikoJatuhPsikiatriActionPerformed(evt);
             }
         });
@@ -2004,8 +2096,10 @@ public class DlgKamarInap extends javax.swing.JDialog {
         MnPenilaianRisikoDikubitus.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
         MnPenilaianRisikoDikubitus.setName("MnPenilaianRisikoDikubitus"); // NOI18N
         MnPenilaianRisikoDikubitus.setPreferredSize(new java.awt.Dimension(250, 26));
-        MnPenilaianRisikoDikubitus.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        MnPenilaianRisikoDikubitus.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 MnPenilaianRisikoDikubitusActionPerformed(evt);
             }
         });
@@ -2020,8 +2114,10 @@ public class DlgKamarInap extends javax.swing.JDialog {
         MnPenilaianLanjutanSkriningFungsional.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
         MnPenilaianLanjutanSkriningFungsional.setName("MnPenilaianLanjutanSkriningFungsional"); // NOI18N
         MnPenilaianLanjutanSkriningFungsional.setPreferredSize(new java.awt.Dimension(250, 26));
-        MnPenilaianLanjutanSkriningFungsional.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        MnPenilaianLanjutanSkriningFungsional.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 MnPenilaianLanjutanSkriningFungsionalActionPerformed(evt);
             }
         });
@@ -2048,8 +2144,10 @@ public class DlgKamarInap extends javax.swing.JDialog {
         MnPenilaianTambahanGeriatri.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
         MnPenilaianTambahanGeriatri.setName("MnPenilaianTambahanGeriatri"); // NOI18N
         MnPenilaianTambahanGeriatri.setPreferredSize(new java.awt.Dimension(250, 26));
-        MnPenilaianTambahanGeriatri.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        MnPenilaianTambahanGeriatri.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 MnPenilaianTambahanGeriatriActionPerformed(evt);
             }
         });
@@ -2064,8 +2162,10 @@ public class DlgKamarInap extends javax.swing.JDialog {
         MnPenilaianTambahanBunuhDiri.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
         MnPenilaianTambahanBunuhDiri.setName("MnPenilaianTambahanBunuhDiri"); // NOI18N
         MnPenilaianTambahanBunuhDiri.setPreferredSize(new java.awt.Dimension(250, 26));
-        MnPenilaianTambahanBunuhDiri.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        MnPenilaianTambahanBunuhDiri.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 MnPenilaianTambahanBunuhDiriActionPerformed(evt);
             }
         });
@@ -2080,8 +2180,10 @@ public class DlgKamarInap extends javax.swing.JDialog {
         MnPenilaianTambahanPerilakuKekerasan.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
         MnPenilaianTambahanPerilakuKekerasan.setName("MnPenilaianTambahanPerilakuKekerasan"); // NOI18N
         MnPenilaianTambahanPerilakuKekerasan.setPreferredSize(new java.awt.Dimension(250, 26));
-        MnPenilaianTambahanPerilakuKekerasan.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        MnPenilaianTambahanPerilakuKekerasan.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 MnPenilaianTambahanPerilakuKekerasanActionPerformed(evt);
             }
         });
@@ -2096,8 +2198,10 @@ public class DlgKamarInap extends javax.swing.JDialog {
         MnPenilaianTambahanMalarikanDiri.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
         MnPenilaianTambahanMalarikanDiri.setName("MnPenilaianTambahanMalarikanDiri"); // NOI18N
         MnPenilaianTambahanMalarikanDiri.setPreferredSize(new java.awt.Dimension(250, 26));
-        MnPenilaianTambahanMalarikanDiri.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        MnPenilaianTambahanMalarikanDiri.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 MnPenilaianTambahanMalarikanDiriActionPerformed(evt);
             }
         });
@@ -2112,8 +2216,10 @@ public class DlgKamarInap extends javax.swing.JDialog {
         MnPenilaianPasienTerminal.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
         MnPenilaianPasienTerminal.setName("MnPenilaianPasienTerminal"); // NOI18N
         MnPenilaianPasienTerminal.setPreferredSize(new java.awt.Dimension(250, 26));
-        MnPenilaianPasienTerminal.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        MnPenilaianPasienTerminal.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 MnPenilaianPasienTerminalActionPerformed(evt);
             }
         });
@@ -2128,8 +2234,10 @@ public class DlgKamarInap extends javax.swing.JDialog {
         MnPenilaianKorbanKekerasan.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
         MnPenilaianKorbanKekerasan.setName("MnPenilaianKorbanKekerasan"); // NOI18N
         MnPenilaianKorbanKekerasan.setPreferredSize(new java.awt.Dimension(250, 26));
-        MnPenilaianKorbanKekerasan.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        MnPenilaianKorbanKekerasan.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 MnPenilaianKorbanKekerasanActionPerformed(evt);
             }
         });
@@ -2144,8 +2252,10 @@ public class DlgKamarInap extends javax.swing.JDialog {
         MnPenilaianKecemasanAnak.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
         MnPenilaianKecemasanAnak.setName("MnPenilaianKecemasanAnak"); // NOI18N
         MnPenilaianKecemasanAnak.setPreferredSize(new java.awt.Dimension(250, 26));
-        MnPenilaianKecemasanAnak.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        MnPenilaianKecemasanAnak.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 MnPenilaianKecemasanAnakActionPerformed(evt);
             }
         });
@@ -2160,8 +2270,10 @@ public class DlgKamarInap extends javax.swing.JDialog {
         MnPenilaianPasienPenyakitMenular.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
         MnPenilaianPasienPenyakitMenular.setName("MnPenilaianPasienPenyakitMenular"); // NOI18N
         MnPenilaianPasienPenyakitMenular.setPreferredSize(new java.awt.Dimension(250, 26));
-        MnPenilaianPasienPenyakitMenular.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        MnPenilaianPasienPenyakitMenular.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 MnPenilaianPasienPenyakitMenularActionPerformed(evt);
             }
         });
@@ -2176,8 +2288,10 @@ public class DlgKamarInap extends javax.swing.JDialog {
         MnPenilaianPsikolog.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
         MnPenilaianPsikolog.setName("MnPenilaianPsikolog"); // NOI18N
         MnPenilaianPsikolog.setPreferredSize(new java.awt.Dimension(200, 26));
-        MnPenilaianPsikolog.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        MnPenilaianPsikolog.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 MnPenilaianPsikologActionPerformed(evt);
             }
         });
@@ -2192,8 +2306,10 @@ public class DlgKamarInap extends javax.swing.JDialog {
         MnHemodialisa.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
         MnHemodialisa.setName("[170,26]"); // NOI18N
         MnHemodialisa.setPreferredSize(new java.awt.Dimension(200, 26));
-        MnHemodialisa.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        MnHemodialisa.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 MnHemodialisaActionPerformed(evt);
             }
         });
@@ -2208,8 +2324,10 @@ public class DlgKamarInap extends javax.swing.JDialog {
         MnPengkajianRestrain.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
         MnPengkajianRestrain.setName("MnPengkajianRestrain"); // NOI18N
         MnPengkajianRestrain.setPreferredSize(new java.awt.Dimension(230, 26));
-        MnPengkajianRestrain.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        MnPengkajianRestrain.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 MnPengkajianRestrainActionPerformed(evt);
             }
         });
@@ -2236,8 +2354,10 @@ public class DlgKamarInap extends javax.swing.JDialog {
         MnPemantauanPEWSAnak.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
         MnPemantauanPEWSAnak.setName("MnPemantauanPEWSAnak"); // NOI18N
         MnPemantauanPEWSAnak.setPreferredSize(new java.awt.Dimension(100, 26));
-        MnPemantauanPEWSAnak.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        MnPemantauanPEWSAnak.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 MnPemantauanPEWSAnakActionPerformed(evt);
             }
         });
@@ -2252,8 +2372,10 @@ public class DlgKamarInap extends javax.swing.JDialog {
         MnPemantauanPEWSDewasa.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
         MnPemantauanPEWSDewasa.setName("MnPemantauanPEWSDewasa"); // NOI18N
         MnPemantauanPEWSDewasa.setPreferredSize(new java.awt.Dimension(100, 26));
-        MnPemantauanPEWSDewasa.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        MnPemantauanPEWSDewasa.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 MnPemantauanPEWSDewasaActionPerformed(evt);
             }
         });
@@ -2268,8 +2390,10 @@ public class DlgKamarInap extends javax.swing.JDialog {
         MnPemantauanMEOWS.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
         MnPemantauanMEOWS.setName("MnPemantauanMEOWS"); // NOI18N
         MnPemantauanMEOWS.setPreferredSize(new java.awt.Dimension(100, 26));
-        MnPemantauanMEOWS.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        MnPemantauanMEOWS.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 MnPemantauanMEOWSActionPerformed(evt);
             }
         });
@@ -2284,8 +2408,10 @@ public class DlgKamarInap extends javax.swing.JDialog {
         MnPemantauanEWSNeonatus.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
         MnPemantauanEWSNeonatus.setName("MnPemantauanEWSNeonatus"); // NOI18N
         MnPemantauanEWSNeonatus.setPreferredSize(new java.awt.Dimension(100, 26));
-        MnPemantauanEWSNeonatus.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        MnPemantauanEWSNeonatus.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 MnPemantauanEWSNeonatusActionPerformed(evt);
             }
         });
@@ -2312,8 +2438,10 @@ public class DlgKamarInap extends javax.swing.JDialog {
         MnKonselingFarmasi.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
         MnKonselingFarmasi.setName("MnKonselingFarmasi"); // NOI18N
         MnKonselingFarmasi.setPreferredSize(new java.awt.Dimension(170, 26));
-        MnKonselingFarmasi.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        MnKonselingFarmasi.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 MnKonselingFarmasiActionPerformed(evt);
             }
         });
@@ -2328,8 +2456,10 @@ public class DlgKamarInap extends javax.swing.JDialog {
         MnRekonsiliasiObat.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
         MnRekonsiliasiObat.setName("MnRekonsiliasiObat"); // NOI18N
         MnRekonsiliasiObat.setPreferredSize(new java.awt.Dimension(170, 26));
-        MnRekonsiliasiObat.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        MnRekonsiliasiObat.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 MnRekonsiliasiObatActionPerformed(evt);
             }
         });
@@ -2356,11 +2486,14 @@ public class DlgKamarInap extends javax.swing.JDialog {
         MnCatatanObservasiRanap.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
         MnCatatanObservasiRanap.setName("MnCatatanObservasiRanap"); // NOI18N
         MnCatatanObservasiRanap.setPreferredSize(new java.awt.Dimension(230, 26));
-        MnCatatanObservasiRanap.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        MnCatatanObservasiRanap.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 MnCatatanObservasiRanapActionPerformed(evt);
             }
         });
+        MnObservasi.add(MnCatatanObservasiRanap);
 
         MnCatatanObservasiRanapKebidanan.setBackground(new java.awt.Color(255, 255, 254));
         MnCatatanObservasiRanapKebidanan.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
@@ -2371,11 +2504,14 @@ public class DlgKamarInap extends javax.swing.JDialog {
         MnCatatanObservasiRanapKebidanan.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
         MnCatatanObservasiRanapKebidanan.setName("MnCatatanObservasiRanapKebidanan"); // NOI18N
         MnCatatanObservasiRanapKebidanan.setPreferredSize(new java.awt.Dimension(230, 26));
-        MnCatatanObservasiRanapKebidanan.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        MnCatatanObservasiRanapKebidanan.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 MnCatatanObservasiRanapKebidananActionPerformed(evt);
             }
         });
+        MnObservasi.add(MnCatatanObservasiRanapKebidanan);
 
         MnCatatanObservasiRanapPostPartum.setBackground(new java.awt.Color(255, 255, 254));
         MnCatatanObservasiRanapPostPartum.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
@@ -2386,11 +2522,14 @@ public class DlgKamarInap extends javax.swing.JDialog {
         MnCatatanObservasiRanapPostPartum.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
         MnCatatanObservasiRanapPostPartum.setName("MnCatatanObservasiRanapPostPartum"); // NOI18N
         MnCatatanObservasiRanapPostPartum.setPreferredSize(new java.awt.Dimension(230, 26));
-        MnCatatanObservasiRanapPostPartum.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        MnCatatanObservasiRanapPostPartum.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 MnCatatanObservasiRanapPostPartumActionPerformed(evt);
             }
         });
+        MnObservasi.add(MnCatatanObservasiRanapPostPartum);
 
         MnFollowUpDBD.setBackground(new java.awt.Color(255, 255, 254));
         MnFollowUpDBD.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
@@ -2401,11 +2540,14 @@ public class DlgKamarInap extends javax.swing.JDialog {
         MnFollowUpDBD.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
         MnFollowUpDBD.setName("MnFollowUpDBD"); // NOI18N
         MnFollowUpDBD.setPreferredSize(new java.awt.Dimension(230, 26));
-        MnFollowUpDBD.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        MnFollowUpDBD.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 MnFollowUpDBDActionPerformed(evt);
             }
         });
+        MnObservasi.add(MnFollowUpDBD);
 
         MnCatatanKeperawatan.setBackground(new java.awt.Color(255, 255, 254));
         MnCatatanKeperawatan.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
@@ -2416,11 +2558,14 @@ public class DlgKamarInap extends javax.swing.JDialog {
         MnCatatanKeperawatan.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
         MnCatatanKeperawatan.setName("MnCatatanKeperawatan"); // NOI18N
         MnCatatanKeperawatan.setPreferredSize(new java.awt.Dimension(230, 26));
-        MnCatatanKeperawatan.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        MnCatatanKeperawatan.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 MnCatatanKeperawatanActionPerformed(evt);
             }
         });
+        MnObservasi.add(MnCatatanKeperawatan);
 
         MnCatatanCekGDS.setBackground(new java.awt.Color(255, 255, 254));
         MnCatatanCekGDS.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
@@ -2431,11 +2576,14 @@ public class DlgKamarInap extends javax.swing.JDialog {
         MnCatatanCekGDS.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
         MnCatatanCekGDS.setName("MnCatatanCekGDS"); // NOI18N
         MnCatatanCekGDS.setPreferredSize(new java.awt.Dimension(230, 26));
-        MnCatatanCekGDS.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        MnCatatanCekGDS.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 MnCatatanCekGDSActionPerformed(evt);
             }
         });
+        MnObservasi.add(MnCatatanCekGDS);
 
         MnMonitoringReaksiTranfusi.setBackground(new java.awt.Color(255, 255, 254));
         MnMonitoringReaksiTranfusi.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
@@ -2446,11 +2594,14 @@ public class DlgKamarInap extends javax.swing.JDialog {
         MnMonitoringReaksiTranfusi.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
         MnMonitoringReaksiTranfusi.setName("MnMonitoringReaksiTranfusi"); // NOI18N
         MnMonitoringReaksiTranfusi.setPreferredSize(new java.awt.Dimension(210, 26));
-        MnMonitoringReaksiTranfusi.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        MnMonitoringReaksiTranfusi.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 MnMonitoringReaksiTranfusiActionPerformed(evt);
             }
         });
+        MnObservasi.add(MnMonitoringReaksiTranfusi);
 
         MnHasilPemeriksaanUSG.setBackground(new java.awt.Color(255, 255, 254));
         MnHasilPemeriksaanUSG.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
@@ -2461,11 +2612,14 @@ public class DlgKamarInap extends javax.swing.JDialog {
         MnHasilPemeriksaanUSG.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
         MnHasilPemeriksaanUSG.setName("MnHasilPemeriksaanUSG"); // NOI18N
         MnHasilPemeriksaanUSG.setPreferredSize(new java.awt.Dimension(230, 26));
-        MnHasilPemeriksaanUSG.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        MnHasilPemeriksaanUSG.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 MnHasilPemeriksaanUSGActionPerformed(evt);
             }
         });
+        MnObservasi.add(MnHasilPemeriksaanUSG);
 
         MnDokumentasiTindakanESWL.setBackground(new java.awt.Color(255, 255, 254));
         MnDokumentasiTindakanESWL.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
@@ -2476,11 +2630,14 @@ public class DlgKamarInap extends javax.swing.JDialog {
         MnDokumentasiTindakanESWL.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
         MnDokumentasiTindakanESWL.setName("MnDokumentasiTindakanESWL"); // NOI18N
         MnDokumentasiTindakanESWL.setPreferredSize(new java.awt.Dimension(230, 26));
-        MnDokumentasiTindakanESWL.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        MnDokumentasiTindakanESWL.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 MnDokumentasiTindakanESWLActionPerformed(evt);
             }
         });
+        MnObservasi.add(MnDokumentasiTindakanESWL);
 
         MnPenilaianUlangNyeri.setBackground(new java.awt.Color(255, 255, 254));
         MnPenilaianUlangNyeri.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
@@ -2491,11 +2648,14 @@ public class DlgKamarInap extends javax.swing.JDialog {
         MnPenilaianUlangNyeri.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
         MnPenilaianUlangNyeri.setName("MnPenilaianUlangNyeri"); // NOI18N
         MnPenilaianUlangNyeri.setPreferredSize(new java.awt.Dimension(230, 26));
-        MnPenilaianUlangNyeri.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        MnPenilaianUlangNyeri.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 MnPenilaianUlangNyeriActionPerformed(evt);
             }
         });
+        MnObservasi.add(MnPenilaianUlangNyeri);
 
         MnCatatanPersalinan.setBackground(new java.awt.Color(255, 255, 254));
         MnCatatanPersalinan.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
@@ -2506,11 +2666,14 @@ public class DlgKamarInap extends javax.swing.JDialog {
         MnCatatanPersalinan.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
         MnCatatanPersalinan.setName("MnCatatanPersalinan"); // NOI18N
         MnCatatanPersalinan.setPreferredSize(new java.awt.Dimension(230, 26));
-        MnCatatanPersalinan.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        MnCatatanPersalinan.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 MnCatatanPersalinanActionPerformed(evt);
             }
         });
+        MnObservasi.add(MnCatatanPersalinan);
 
         MnDataRM.add(MnObservasi);
 
@@ -2523,8 +2686,10 @@ public class DlgKamarInap extends javax.swing.JDialog {
         MnDiagnosa.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
         MnDiagnosa.setName("[170,26]"); // NOI18N
         MnDiagnosa.setPreferredSize(new java.awt.Dimension(200, 26));
-        MnDiagnosa.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        MnDiagnosa.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 MnDiagnosaActionPerformed(evt);
             }
         });
@@ -2549,8 +2714,10 @@ public class DlgKamarInap extends javax.swing.JDialog {
         ppSkriningNutrisiDewasa.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
         ppSkriningNutrisiDewasa.setName("ppSkriningNutrisiDewasa"); // NOI18N
         ppSkriningNutrisiDewasa.setPreferredSize(new java.awt.Dimension(210, 26));
-        ppSkriningNutrisiDewasa.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        ppSkriningNutrisiDewasa.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 ppSkriningNutrisiDewasaBtnPrintActionPerformed(evt);
             }
         });
@@ -2565,8 +2732,10 @@ public class DlgKamarInap extends javax.swing.JDialog {
         ppSkriningNutrisiLansia.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
         ppSkriningNutrisiLansia.setName("ppSkriningNutrisiLansia"); // NOI18N
         ppSkriningNutrisiLansia.setPreferredSize(new java.awt.Dimension(210, 26));
-        ppSkriningNutrisiLansia.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        ppSkriningNutrisiLansia.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 ppSkriningNutrisiLansiaBtnPrintActionPerformed(evt);
             }
         });
@@ -2581,8 +2750,10 @@ public class DlgKamarInap extends javax.swing.JDialog {
         ppSkriningNutrisiAnak.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
         ppSkriningNutrisiAnak.setName("ppSkriningNutrisiAnak"); // NOI18N
         ppSkriningNutrisiAnak.setPreferredSize(new java.awt.Dimension(210, 26));
-        ppSkriningNutrisiAnak.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        ppSkriningNutrisiAnak.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 ppSkriningNutrisiAnakBtnPrintActionPerformed(evt);
             }
         });
@@ -2597,8 +2768,10 @@ public class DlgKamarInap extends javax.swing.JDialog {
         ppSkriningGizi.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
         ppSkriningGizi.setName("[170,26]"); // NOI18N
         ppSkriningGizi.setPreferredSize(new java.awt.Dimension(210, 26));
-        ppSkriningGizi.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        ppSkriningGizi.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 ppSkriningGiziBtnPrintActionPerformed(evt);
             }
         });
@@ -2613,8 +2786,10 @@ public class DlgKamarInap extends javax.swing.JDialog {
         ppAsuhanGizi.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
         ppAsuhanGizi.setName("[170,26]"); // NOI18N
         ppAsuhanGizi.setPreferredSize(new java.awt.Dimension(210, 26));
-        ppAsuhanGizi.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        ppAsuhanGizi.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 ppAsuhanGiziBtnPrintActionPerformed(evt);
             }
         });
@@ -2629,8 +2804,10 @@ public class DlgKamarInap extends javax.swing.JDialog {
         ppMonitoringAsuhanGizi.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
         ppMonitoringAsuhanGizi.setName("[170,26]"); // NOI18N
         ppMonitoringAsuhanGizi.setPreferredSize(new java.awt.Dimension(210, 26));
-        ppMonitoringAsuhanGizi.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        ppMonitoringAsuhanGizi.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 ppMonitoringAsuhanGiziBtnPrintActionPerformed(evt);
             }
         });
@@ -2645,8 +2822,10 @@ public class DlgKamarInap extends javax.swing.JDialog {
         ppCatatanADIMEGizi.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
         ppCatatanADIMEGizi.setName("ppCatatanADIMEGizi"); // NOI18N
         ppCatatanADIMEGizi.setPreferredSize(new java.awt.Dimension(210, 26));
-        ppCatatanADIMEGizi.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        ppCatatanADIMEGizi.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 ppCatatanADIMEGiziBtnPrintActionPerformed(evt);
             }
         });
@@ -2663,8 +2842,10 @@ public class DlgKamarInap extends javax.swing.JDialog {
         MnTransferAntarRuang.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
         MnTransferAntarRuang.setName("MnTransferAntarRuang"); // NOI18N
         MnTransferAntarRuang.setPreferredSize(new java.awt.Dimension(200, 26));
-        MnTransferAntarRuang.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        MnTransferAntarRuang.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 MnTransferAntarRuangActionPerformed(evt);
             }
         });
@@ -2679,8 +2860,10 @@ public class DlgKamarInap extends javax.swing.JDialog {
         MnPerencanaanPemulangan.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
         MnPerencanaanPemulangan.setName("MnPerencanaanPemulangan"); // NOI18N
         MnPerencanaanPemulangan.setPreferredSize(new java.awt.Dimension(200, 26));
-        MnPerencanaanPemulangan.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        MnPerencanaanPemulangan.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 MnPerencanaanPemulanganActionPerformed(evt);
             }
         });
@@ -2695,8 +2878,10 @@ public class DlgKamarInap extends javax.swing.JDialog {
         ppResume.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
         ppResume.setName("[170,26]"); // NOI18N
         ppResume.setPreferredSize(new java.awt.Dimension(200, 26));
-        ppResume.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        ppResume.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 ppResumeBtnPrintActionPerformed(evt);
             }
         });
@@ -2711,8 +2896,10 @@ public class DlgKamarInap extends javax.swing.JDialog {
         ppRiwayat.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
         ppRiwayat.setName("[170,26]"); // NOI18N
         ppRiwayat.setPreferredSize(new java.awt.Dimension(200, 26));
-        ppRiwayat.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        ppRiwayat.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 ppRiwayatBtnPrintActionPerformed(evt);
             }
         });
@@ -2739,8 +2926,10 @@ public class DlgKamarInap extends javax.swing.JDialog {
         MnJadwalOperasi.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
         MnJadwalOperasi.setName("MnJadwalOperasi"); // NOI18N
         MnJadwalOperasi.setPreferredSize(new java.awt.Dimension(170, 26));
-        MnJadwalOperasi.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        MnJadwalOperasi.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 MnJadwalOperasiActionPerformed(evt);
             }
         });
@@ -2755,8 +2944,10 @@ public class DlgKamarInap extends javax.swing.JDialog {
         MnPermintaanLab.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
         MnPermintaanLab.setName("MnPermintaanLab"); // NOI18N
         MnPermintaanLab.setPreferredSize(new java.awt.Dimension(170, 26));
-        MnPermintaanLab.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        MnPermintaanLab.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 MnPermintaanLabActionPerformed(evt);
             }
         });
@@ -2771,8 +2962,10 @@ public class DlgKamarInap extends javax.swing.JDialog {
         MnPermintaanRadiologi.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
         MnPermintaanRadiologi.setName("MnPermintaanRadiologi"); // NOI18N
         MnPermintaanRadiologi.setPreferredSize(new java.awt.Dimension(170, 26));
-        MnPermintaanRadiologi.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        MnPermintaanRadiologi.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 MnPermintaanRadiologiActionPerformed(evt);
             }
         });
@@ -2787,8 +2980,10 @@ public class DlgKamarInap extends javax.swing.JDialog {
         MnPermintaanInformasiObat.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
         MnPermintaanInformasiObat.setName("MnPermintaanInformasiObat"); // NOI18N
         MnPermintaanInformasiObat.setPreferredSize(new java.awt.Dimension(170, 26));
-        MnPermintaanInformasiObat.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        MnPermintaanInformasiObat.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 MnPermintaanInformasiObatActionPerformed(evt);
             }
         });
@@ -2815,8 +3010,10 @@ public class DlgKamarInap extends javax.swing.JDialog {
         MnRawatJalan.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
         MnRawatJalan.setName("MnRawatJalan"); // NOI18N
         MnRawatJalan.setPreferredSize(new java.awt.Dimension(250, 28));
-        MnRawatJalan.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        MnRawatJalan.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 MnRawatJalanActionPerformed(evt);
             }
         });
@@ -2831,8 +3028,10 @@ public class DlgKamarInap extends javax.swing.JDialog {
         MnRawatInap.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
         MnRawatInap.setName("MnRawatInap"); // NOI18N
         MnRawatInap.setPreferredSize(new java.awt.Dimension(220, 26));
-        MnRawatInap.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        MnRawatInap.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 MnRawatInapActionPerformed(evt);
             }
         });
@@ -2847,8 +3046,10 @@ public class DlgKamarInap extends javax.swing.JDialog {
         MnPeriksaLab.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
         MnPeriksaLab.setName("MnPeriksaLab"); // NOI18N
         MnPeriksaLab.setPreferredSize(new java.awt.Dimension(220, 26));
-        MnPeriksaLab.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        MnPeriksaLab.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 MnPeriksaLabActionPerformed(evt);
             }
         });
@@ -2863,8 +3064,10 @@ public class DlgKamarInap extends javax.swing.JDialog {
         MnPeriksaLabPA.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
         MnPeriksaLabPA.setName("MnPeriksaLabPA"); // NOI18N
         MnPeriksaLabPA.setPreferredSize(new java.awt.Dimension(240, 26));
-        MnPeriksaLabPA.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        MnPeriksaLabPA.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 MnPeriksaLabPAActionPerformed(evt);
             }
         });
@@ -2879,8 +3082,10 @@ public class DlgKamarInap extends javax.swing.JDialog {
         MnPeriksaLabMB.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
         MnPeriksaLabMB.setName("MnPeriksaLabMB"); // NOI18N
         MnPeriksaLabMB.setPreferredSize(new java.awt.Dimension(240, 26));
-        MnPeriksaLabMB.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        MnPeriksaLabMB.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 MnPeriksaLabMBActionPerformed(evt);
             }
         });
@@ -2895,8 +3100,10 @@ public class DlgKamarInap extends javax.swing.JDialog {
         MnPeriksaRadiologi.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
         MnPeriksaRadiologi.setName("MnPeriksaRadiologi"); // NOI18N
         MnPeriksaRadiologi.setPreferredSize(new java.awt.Dimension(220, 26));
-        MnPeriksaRadiologi.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        MnPeriksaRadiologi.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 MnPeriksaRadiologiActionPerformed(evt);
             }
         });
@@ -2911,8 +3118,10 @@ public class DlgKamarInap extends javax.swing.JDialog {
         MnOperasi.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
         MnOperasi.setName("MnOperasi"); // NOI18N
         MnOperasi.setPreferredSize(new java.awt.Dimension(220, 26));
-        MnOperasi.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        MnOperasi.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 MnOperasiActionPerformed(evt);
             }
         });
@@ -2927,8 +3136,10 @@ public class DlgKamarInap extends javax.swing.JDialog {
         MnDiet.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
         MnDiet.setName("MnDiet"); // NOI18N
         MnDiet.setPreferredSize(new java.awt.Dimension(220, 26));
-        MnDiet.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        MnDiet.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 MnDietActionPerformed(evt);
             }
         });
@@ -2955,8 +3166,10 @@ public class DlgKamarInap extends javax.swing.JDialog {
         MnPemberianObat.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
         MnPemberianObat.setName("MnPemberianObat"); // NOI18N
         MnPemberianObat.setPreferredSize(new java.awt.Dimension(200, 26));
-        MnPemberianObat.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        MnPemberianObat.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 MnPemberianObatActionPerformed(evt);
             }
         });
@@ -2971,8 +3184,10 @@ public class DlgKamarInap extends javax.swing.JDialog {
         MnInputResep.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
         MnInputResep.setName("MnInputResep"); // NOI18N
         MnInputResep.setPreferredSize(new java.awt.Dimension(200, 26));
-        MnInputResep.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        MnInputResep.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 MnInputResepActionPerformed(evt);
             }
         });
@@ -2987,8 +3202,10 @@ public class DlgKamarInap extends javax.swing.JDialog {
         MnNoResep.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
         MnNoResep.setName("MnNoResep"); // NOI18N
         MnNoResep.setPreferredSize(new java.awt.Dimension(200, 26));
-        MnNoResep.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        MnNoResep.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 MnNoResepActionPerformed(evt);
             }
         });
@@ -3003,8 +3220,10 @@ public class DlgKamarInap extends javax.swing.JDialog {
         MnResepDOkter.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
         MnResepDOkter.setName("MnResepDOkter"); // NOI18N
         MnResepDOkter.setPreferredSize(new java.awt.Dimension(190, 26));
-        MnResepDOkter.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        MnResepDOkter.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 MnResepDOkterActionPerformed(evt);
             }
         });
@@ -3019,8 +3238,10 @@ public class DlgKamarInap extends javax.swing.JDialog {
         MnPermintaanStokObatPasien.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
         MnPermintaanStokObatPasien.setName("MnPermintaanStokObatPasien"); // NOI18N
         MnPermintaanStokObatPasien.setPreferredSize(new java.awt.Dimension(200, 26));
-        MnPermintaanStokObatPasien.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        MnPermintaanStokObatPasien.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 MnPermintaanStokObatPasienActionPerformed(evt);
             }
         });
@@ -3035,8 +3256,10 @@ public class DlgKamarInap extends javax.swing.JDialog {
         MnPermintaanResepPulang.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
         MnPermintaanResepPulang.setName("MnPermintaanResepPulang"); // NOI18N
         MnPermintaanResepPulang.setPreferredSize(new java.awt.Dimension(200, 26));
-        MnPermintaanResepPulang.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        MnPermintaanResepPulang.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 MnPermintaanResepPulangActionPerformed(evt);
             }
         });
@@ -3051,8 +3274,10 @@ public class DlgKamarInap extends javax.swing.JDialog {
         MnStokObatPasien.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
         MnStokObatPasien.setName("MnStokObatPasien"); // NOI18N
         MnStokObatPasien.setPreferredSize(new java.awt.Dimension(200, 26));
-        MnStokObatPasien.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        MnStokObatPasien.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 MnStokObatPasienActionPerformed(evt);
             }
         });
@@ -3067,8 +3292,10 @@ public class DlgKamarInap extends javax.swing.JDialog {
         MnResepPulang.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
         MnResepPulang.setName("MnResepPulang"); // NOI18N
         MnResepPulang.setPreferredSize(new java.awt.Dimension(200, 26));
-        MnResepPulang.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        MnResepPulang.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 MnResepPulangActionPerformed(evt);
             }
         });
@@ -3083,8 +3310,10 @@ public class DlgKamarInap extends javax.swing.JDialog {
         MnReturJual.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
         MnReturJual.setName("MnReturJual"); // NOI18N
         MnReturJual.setPreferredSize(new java.awt.Dimension(200, 26));
-        MnReturJual.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        MnReturJual.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 MnReturJualActionPerformed(evt);
             }
         });
@@ -3099,8 +3328,10 @@ public class DlgKamarInap extends javax.swing.JDialog {
         MnPenjualan1.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
         MnPenjualan1.setName("MnPenjualan1"); // NOI18N
         MnPenjualan1.setPreferredSize(new java.awt.Dimension(200, 26));
-        MnPenjualan1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        MnPenjualan1.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 MnPenjualan1ActionPerformed(evt);
             }
         });
@@ -3117,8 +3348,10 @@ public class DlgKamarInap extends javax.swing.JDialog {
         MnDeposit.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
         MnDeposit.setName("MnDeposit"); // NOI18N
         MnDeposit.setPreferredSize(new java.awt.Dimension(200, 26));
-        MnDeposit.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        MnDeposit.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 MnDepositActionPerformed(evt);
             }
         });
@@ -3133,8 +3366,10 @@ public class DlgKamarInap extends javax.swing.JDialog {
         MnBilling.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
         MnBilling.setName("MnBilling"); // NOI18N
         MnBilling.setPreferredSize(new java.awt.Dimension(200, 26));
-        MnBilling.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        MnBilling.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 MnBillingActionPerformed(evt);
             }
         });
@@ -3166,8 +3401,10 @@ public class DlgKamarInap extends javax.swing.JDialog {
         MnPersetujuanUmum.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
         MnPersetujuanUmum.setName("MnPersetujuanUmum"); // NOI18N
         MnPersetujuanUmum.setPreferredSize(new java.awt.Dimension(230, 26));
-        MnPersetujuanUmum.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        MnPersetujuanUmum.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 MnPersetujuanUmumActionPerformed(evt);
             }
         });
@@ -3182,8 +3419,10 @@ public class DlgKamarInap extends javax.swing.JDialog {
         MnPersetujuanPenolakanTindakan.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
         MnPersetujuanPenolakanTindakan.setName("MnPersetujuanPenolakanTindakan"); // NOI18N
         MnPersetujuanPenolakanTindakan.setPreferredSize(new java.awt.Dimension(230, 26));
-        MnPersetujuanPenolakanTindakan.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        MnPersetujuanPenolakanTindakan.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 MnPersetujuanPenolakanTindakanActionPerformed(evt);
             }
         });
@@ -3198,8 +3437,10 @@ public class DlgKamarInap extends javax.swing.JDialog {
         MnPulangAtasPermintaanSendiri.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
         MnPulangAtasPermintaanSendiri.setName("MnPulangAtasPermintaanSendiri"); // NOI18N
         MnPulangAtasPermintaanSendiri.setPreferredSize(new java.awt.Dimension(230, 26));
-        MnPulangAtasPermintaanSendiri.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        MnPulangAtasPermintaanSendiri.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 MnPulangAtasPermintaanSendiriActionPerformed(evt);
             }
         });
@@ -3214,8 +3455,10 @@ public class DlgKamarInap extends javax.swing.JDialog {
         MnPernyataanPasienUmum.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
         MnPernyataanPasienUmum.setName("MnPernyataanPasienUmum"); // NOI18N
         MnPernyataanPasienUmum.setPreferredSize(new java.awt.Dimension(230, 26));
-        MnPernyataanPasienUmum.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        MnPernyataanPasienUmum.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 MnPernyataanPasienUmumActionPerformed(evt);
             }
         });
@@ -3230,8 +3473,10 @@ public class DlgKamarInap extends javax.swing.JDialog {
         MnPersetujuanPenundaanPelayanan.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
         MnPersetujuanPenundaanPelayanan.setName("MnPersetujuanPenundaanPelayanan"); // NOI18N
         MnPersetujuanPenundaanPelayanan.setPreferredSize(new java.awt.Dimension(230, 26));
-        MnPersetujuanPenundaanPelayanan.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        MnPersetujuanPenundaanPelayanan.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 MnPersetujuanPenundaanPelayananActionPerformed(evt);
             }
         });
@@ -3246,8 +3491,10 @@ public class DlgKamarInap extends javax.swing.JDialog {
         MnPenolakanAnjuranMedis.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
         MnPenolakanAnjuranMedis.setName("MnPenolakanAnjuranMedis"); // NOI18N
         MnPenolakanAnjuranMedis.setPreferredSize(new java.awt.Dimension(230, 26));
-        MnPenolakanAnjuranMedis.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        MnPenolakanAnjuranMedis.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 MnPenolakanAnjuranMedisActionPerformed(evt);
             }
         });
@@ -3262,8 +3509,10 @@ public class DlgKamarInap extends javax.swing.JDialog {
         MnSuratKontrol.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
         MnSuratKontrol.setName("MnSuratKontrol"); // NOI18N
         MnSuratKontrol.setPreferredSize(new java.awt.Dimension(230, 26));
-        MnSuratKontrol.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        MnSuratKontrol.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 MnSuratKontrolActionPerformed(evt);
             }
         });
@@ -3278,8 +3527,10 @@ public class DlgKamarInap extends javax.swing.JDialog {
         MnRincianObat.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
         MnRincianObat.setName("MnRincianObat"); // NOI18N
         MnRincianObat.setPreferredSize(new java.awt.Dimension(230, 26));
-        MnRincianObat.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        MnRincianObat.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 MnRincianObatActionPerformed(evt);
             }
         });
@@ -3294,8 +3545,10 @@ public class DlgKamarInap extends javax.swing.JDialog {
         MnSensusRanap.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
         MnSensusRanap.setName("MnSensusRanap"); // NOI18N
         MnSensusRanap.setPreferredSize(new java.awt.Dimension(230, 26));
-        MnSensusRanap.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        MnSensusRanap.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 MnSensusRanapActionPerformed(evt);
             }
         });
@@ -3310,8 +3563,10 @@ public class DlgKamarInap extends javax.swing.JDialog {
         MnPenggunaanKamar.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
         MnPenggunaanKamar.setName("MnPenggunaanKamar"); // NOI18N
         MnPenggunaanKamar.setPreferredSize(new java.awt.Dimension(230, 26));
-        MnPenggunaanKamar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        MnPenggunaanKamar.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 MnPenggunaanKamarActionPerformed(evt);
             }
         });
@@ -3326,8 +3581,10 @@ public class DlgKamarInap extends javax.swing.JDialog {
         MnPengantarPulang.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
         MnPengantarPulang.setName("MnPengantarPulang"); // NOI18N
         MnPengantarPulang.setPreferredSize(new java.awt.Dimension(230, 26));
-        MnPengantarPulang.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        MnPengantarPulang.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 MnPengantarPulangActionPerformed(evt);
             }
         });
@@ -3342,8 +3599,10 @@ public class DlgKamarInap extends javax.swing.JDialog {
         MnFormulirPenerimaan.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
         MnFormulirPenerimaan.setName("MnFormulirPenerimaan"); // NOI18N
         MnFormulirPenerimaan.setPreferredSize(new java.awt.Dimension(230, 26));
-        MnFormulirPenerimaan.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        MnFormulirPenerimaan.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 MnFormulirPenerimaanActionPerformed(evt);
             }
         });
@@ -3358,8 +3617,10 @@ public class DlgKamarInap extends javax.swing.JDialog {
         MnFormulirPenerimaan1.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
         MnFormulirPenerimaan1.setName("MnFormulirPenerimaan1"); // NOI18N
         MnFormulirPenerimaan1.setPreferredSize(new java.awt.Dimension(230, 26));
-        MnFormulirPenerimaan1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        MnFormulirPenerimaan1.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 MnFormulirPenerimaan1ActionPerformed(evt);
             }
         });
@@ -3374,8 +3635,10 @@ public class DlgKamarInap extends javax.swing.JDialog {
         MnCetakSuratSakit1.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
         MnCetakSuratSakit1.setName("MnCetakSuratSakit1"); // NOI18N
         MnCetakSuratSakit1.setPreferredSize(new java.awt.Dimension(230, 26));
-        MnCetakSuratSakit1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        MnCetakSuratSakit1.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 MnCetakSuratSakit1ActionPerformed(evt);
             }
         });
@@ -3390,8 +3653,10 @@ public class DlgKamarInap extends javax.swing.JDialog {
         MnSuratKeteranganRawatInap.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
         MnSuratKeteranganRawatInap.setName("MnSuratKeteranganRawatInap"); // NOI18N
         MnSuratKeteranganRawatInap.setPreferredSize(new java.awt.Dimension(230, 26));
-        MnSuratKeteranganRawatInap.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        MnSuratKeteranganRawatInap.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 MnSuratKeteranganRawatInapActionPerformed(evt);
             }
         });
@@ -3406,8 +3671,10 @@ public class DlgKamarInap extends javax.swing.JDialog {
         MnSuratJaminanPelayanan.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
         MnSuratJaminanPelayanan.setName("MnSuratJaminanPelayanan"); // NOI18N
         MnSuratJaminanPelayanan.setPreferredSize(new java.awt.Dimension(230, 26));
-        MnSuratJaminanPelayanan.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        MnSuratJaminanPelayanan.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 MnSuratJaminanPelayananActionPerformed(evt);
             }
         });
@@ -3422,8 +3689,10 @@ public class DlgKamarInap extends javax.swing.JDialog {
         MnCetakSuratSakit.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
         MnCetakSuratSakit.setName("MnCetakSuratSakit"); // NOI18N
         MnCetakSuratSakit.setPreferredSize(new java.awt.Dimension(230, 26));
-        MnCetakSuratSakit.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        MnCetakSuratSakit.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 MnCetakSuratSakitActionPerformed(evt);
             }
         });
@@ -3438,8 +3707,10 @@ public class DlgKamarInap extends javax.swing.JDialog {
         MnCetakSuratSakitPihak2.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
         MnCetakSuratSakitPihak2.setName("MnCetakSuratSakitPihak2"); // NOI18N
         MnCetakSuratSakitPihak2.setPreferredSize(new java.awt.Dimension(230, 26));
-        MnCetakSuratSakitPihak2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        MnCetakSuratSakitPihak2.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 MnCetakSuratSakitPihak2ActionPerformed(evt);
             }
         });
@@ -3454,8 +3725,10 @@ public class DlgKamarInap extends javax.swing.JDialog {
         MnRingkasanMasukKeluar.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
         MnRingkasanMasukKeluar.setName("MnRingkasanMasukKeluar"); // NOI18N
         MnRingkasanMasukKeluar.setPreferredSize(new java.awt.Dimension(230, 26));
-        MnRingkasanMasukKeluar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        MnRingkasanMasukKeluar.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 MnRingkasanMasukKeluarActionPerformed(evt);
             }
         });
@@ -3482,8 +3755,10 @@ public class DlgKamarInap extends javax.swing.JDialog {
         MnLabelTracker.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
         MnLabelTracker.setName("MnLabelTracker"); // NOI18N
         MnLabelTracker.setPreferredSize(new java.awt.Dimension(180, 26));
-        MnLabelTracker.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        MnLabelTracker.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 MnLabelTrackerActionPerformed(evt);
             }
         });
@@ -3498,8 +3773,10 @@ public class DlgKamarInap extends javax.swing.JDialog {
         MnLabelTracker1.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
         MnLabelTracker1.setName("MnLabelTracker1"); // NOI18N
         MnLabelTracker1.setPreferredSize(new java.awt.Dimension(180, 26));
-        MnLabelTracker1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        MnLabelTracker1.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 MnLabelTracker1ActionPerformed(evt);
             }
         });
@@ -3514,8 +3791,10 @@ public class DlgKamarInap extends javax.swing.JDialog {
         MnLabelTracker2.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
         MnLabelTracker2.setName("MnLabelTracker2"); // NOI18N
         MnLabelTracker2.setPreferredSize(new java.awt.Dimension(180, 26));
-        MnLabelTracker2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        MnLabelTracker2.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 MnLabelTracker2ActionPerformed(evt);
             }
         });
@@ -3530,8 +3809,10 @@ public class DlgKamarInap extends javax.swing.JDialog {
         MnLabelTracker3.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
         MnLabelTracker3.setName("MnLabelTracker3"); // NOI18N
         MnLabelTracker3.setPreferredSize(new java.awt.Dimension(180, 26));
-        MnLabelTracker3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        MnLabelTracker3.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 MnLabelTracker3ActionPerformed(evt);
             }
         });
@@ -3546,8 +3827,10 @@ public class DlgKamarInap extends javax.swing.JDialog {
         MnBarcode.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
         MnBarcode.setName("MnBarcode"); // NOI18N
         MnBarcode.setPreferredSize(new java.awt.Dimension(180, 26));
-        MnBarcode.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        MnBarcode.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 MnBarcodeActionPerformed(evt);
             }
         });
@@ -3562,8 +3845,10 @@ public class DlgKamarInap extends javax.swing.JDialog {
         MnBarcode1.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
         MnBarcode1.setName("MnBarcode1"); // NOI18N
         MnBarcode1.setPreferredSize(new java.awt.Dimension(180, 26));
-        MnBarcode1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        MnBarcode1.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 MnBarcode1ActionPerformed(evt);
             }
         });
@@ -3578,8 +3863,10 @@ public class DlgKamarInap extends javax.swing.JDialog {
         MnBarcode2.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
         MnBarcode2.setName("MnBarcode2"); // NOI18N
         MnBarcode2.setPreferredSize(new java.awt.Dimension(200, 26));
-        MnBarcode2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        MnBarcode2.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 MnBarcode2ActionPerformed(evt);
             }
         });
@@ -3594,8 +3881,10 @@ public class DlgKamarInap extends javax.swing.JDialog {
         MnBarcodeRM9.setToolTipText("L");
         MnBarcodeRM9.setName("MnBarcodeRM9"); // NOI18N
         MnBarcodeRM9.setPreferredSize(new java.awt.Dimension(180, 26));
-        MnBarcodeRM9.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        MnBarcodeRM9.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 MnBarcodeRM9ActionPerformed(evt);
             }
         });
@@ -3610,8 +3899,10 @@ public class DlgKamarInap extends javax.swing.JDialog {
         MnGelang5.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
         MnGelang5.setName("MnGelang5"); // NOI18N
         MnGelang5.setPreferredSize(new java.awt.Dimension(180, 26));
-        MnGelang5.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        MnGelang5.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 MnGelang5ActionPerformed(evt);
             }
         });
@@ -3626,8 +3917,10 @@ public class DlgKamarInap extends javax.swing.JDialog {
         MnGelang6.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
         MnGelang6.setName("MnGelang6"); // NOI18N
         MnGelang6.setPreferredSize(new java.awt.Dimension(180, 26));
-        MnGelang6.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        MnGelang6.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 MnGelang6ActionPerformed(evt);
             }
         });
@@ -3642,8 +3935,10 @@ public class DlgKamarInap extends javax.swing.JDialog {
         MnGelang7.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
         MnGelang7.setName("MnGelang7"); // NOI18N
         MnGelang7.setPreferredSize(new java.awt.Dimension(180, 26));
-        MnGelang7.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        MnGelang7.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 MnGelang7ActionPerformed(evt);
             }
         });
@@ -3658,8 +3953,10 @@ public class DlgKamarInap extends javax.swing.JDialog {
         MnGelang8.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
         MnGelang8.setName("MnGelang8"); // NOI18N
         MnGelang8.setPreferredSize(new java.awt.Dimension(180, 26));
-        MnGelang8.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        MnGelang8.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 MnGelang8ActionPerformed(evt);
             }
         });
@@ -3674,8 +3971,10 @@ public class DlgKamarInap extends javax.swing.JDialog {
         MnGelang9.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
         MnGelang9.setName("MnGelang9"); // NOI18N
         MnGelang9.setPreferredSize(new java.awt.Dimension(180, 26));
-        MnGelang9.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        MnGelang9.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 MnGelang9ActionPerformed(evt);
             }
         });
@@ -3690,8 +3989,10 @@ public class DlgKamarInap extends javax.swing.JDialog {
         MnGelang10.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
         MnGelang10.setName("MnGelang10"); // NOI18N
         MnGelang10.setPreferredSize(new java.awt.Dimension(180, 26));
-        MnGelang10.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        MnGelang10.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 MnGelang10ActionPerformed(evt);
             }
         });
@@ -3706,8 +4007,10 @@ public class DlgKamarInap extends javax.swing.JDialog {
         MnGelang11.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
         MnGelang11.setName("MnGelang11"); // NOI18N
         MnGelang11.setPreferredSize(new java.awt.Dimension(180, 26));
-        MnGelang11.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        MnGelang11.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 MnGelang11ActionPerformed(evt);
             }
         });
@@ -3722,8 +4025,10 @@ public class DlgKamarInap extends javax.swing.JDialog {
         MnGelang1.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
         MnGelang1.setName("MnGelang1"); // NOI18N
         MnGelang1.setPreferredSize(new java.awt.Dimension(200, 26));
-        MnGelang1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        MnGelang1.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 MnGelang1ActionPerformed(evt);
             }
         });
@@ -3738,8 +4043,10 @@ public class DlgKamarInap extends javax.swing.JDialog {
         MnGelang2.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
         MnGelang2.setName("MnGelang2"); // NOI18N
         MnGelang2.setPreferredSize(new java.awt.Dimension(200, 26));
-        MnGelang2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        MnGelang2.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 MnGelang2ActionPerformed(evt);
             }
         });
@@ -3754,8 +4061,10 @@ public class DlgKamarInap extends javax.swing.JDialog {
         MnGelang3.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
         MnGelang3.setName("MnGelang3"); // NOI18N
         MnGelang3.setPreferredSize(new java.awt.Dimension(200, 26));
-        MnGelang3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        MnGelang3.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 MnGelang3ActionPerformed(evt);
             }
         });
@@ -3770,8 +4079,10 @@ public class DlgKamarInap extends javax.swing.JDialog {
         MnGelang4.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
         MnGelang4.setName("MnGelang4"); // NOI18N
         MnGelang4.setPreferredSize(new java.awt.Dimension(200, 26));
-        MnGelang4.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        MnGelang4.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 MnGelang4ActionPerformed(evt);
             }
         });
@@ -3788,8 +4099,10 @@ public class DlgKamarInap extends javax.swing.JDialog {
         MnRanapGabung.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
         MnRanapGabung.setName("MnRanapGabung"); // NOI18N
         MnRanapGabung.setPreferredSize(new java.awt.Dimension(200, 26));
-        MnRanapGabung.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        MnRanapGabung.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 MnRanapGabungActionPerformed(evt);
             }
         });
@@ -3804,8 +4117,10 @@ public class DlgKamarInap extends javax.swing.JDialog {
         MnGabungkanRanap.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
         MnGabungkanRanap.setName("MnGabungkanRanap"); // NOI18N
         MnGabungkanRanap.setPreferredSize(new java.awt.Dimension(200, 26));
-        MnGabungkanRanap.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        MnGabungkanRanap.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 MnGabungkanRanapActionPerformed(evt);
             }
         });
@@ -3820,8 +4135,10 @@ public class DlgKamarInap extends javax.swing.JDialog {
         MnDPJP.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
         MnDPJP.setName("MnDPJP"); // NOI18N
         MnDPJP.setPreferredSize(new java.awt.Dimension(200, 26));
-        MnDPJP.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        MnDPJP.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 MnDPJPActionPerformed(evt);
             }
         });
@@ -3836,8 +4153,10 @@ public class DlgKamarInap extends javax.swing.JDialog {
         MnDPJPRanap.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
         MnDPJPRanap.setName("MnDPJPRanap"); // NOI18N
         MnDPJPRanap.setPreferredSize(new java.awt.Dimension(200, 26));
-        MnDPJPRanap.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        MnDPJPRanap.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 MnDPJPRanapActionPerformed(evt);
             }
         });
@@ -3869,8 +4188,10 @@ public class DlgKamarInap extends javax.swing.JDialog {
         MnRujuk.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
         MnRujuk.setName("MnRujuk"); // NOI18N
         MnRujuk.setPreferredSize(new java.awt.Dimension(150, 26));
-        MnRujuk.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        MnRujuk.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 MnRujukActionPerformed(evt);
             }
         });
@@ -3885,8 +4206,10 @@ public class DlgKamarInap extends javax.swing.JDialog {
         MnRujukMasuk.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
         MnRujukMasuk.setName("MnRujukMasuk"); // NOI18N
         MnRujukMasuk.setPreferredSize(new java.awt.Dimension(150, 26));
-        MnRujukMasuk.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        MnRujukMasuk.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 MnRujukMasukActionPerformed(evt);
             }
         });
@@ -3909,11 +4232,14 @@ public class DlgKamarInap extends javax.swing.JDialog {
         MnCekKepesertaan.setText("Pencarian Peserta BPJS Berdasarkan Nomor Kepesertaan");
         MnCekKepesertaan.setName("MnCekKepesertaan"); // NOI18N
         MnCekKepesertaan.setPreferredSize(new java.awt.Dimension(330, 26));
-        MnCekKepesertaan.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        MnCekKepesertaan.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 MnCekKepesertaanActionPerformed(evt);
             }
         });
+        MenuBPJS.add(MnCekKepesertaan);
 
         MnCekNIK.setBackground(new java.awt.Color(255, 255, 254));
         MnCekNIK.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
@@ -3922,11 +4248,14 @@ public class DlgKamarInap extends javax.swing.JDialog {
         MnCekNIK.setText("Pencarian Peserta BPJS Berdasarkan NIK/No.KTP");
         MnCekNIK.setName("MnCekNIK"); // NOI18N
         MnCekNIK.setPreferredSize(new java.awt.Dimension(330, 26));
-        MnCekNIK.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        MnCekNIK.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 MnCekNIKActionPerformed(evt);
             }
         });
+        MenuBPJS.add(MnCekNIK);
 
         MnSEP.setBackground(new java.awt.Color(255, 255, 254));
         MnSEP.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
@@ -3937,11 +4266,14 @@ public class DlgKamarInap extends javax.swing.JDialog {
         MnSEP.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
         MnSEP.setName("MnSEP"); // NOI18N
         MnSEP.setPreferredSize(new java.awt.Dimension(330, 26));
-        MnSEP.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        MnSEP.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 MnSEPActionPerformed(evt);
             }
         });
+        MenuBPJS.add(MnSEP);
 
         MnDataSEP.setBackground(new java.awt.Color(255, 255, 254));
         MnDataSEP.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
@@ -3952,11 +4284,14 @@ public class DlgKamarInap extends javax.swing.JDialog {
         MnDataSEP.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
         MnDataSEP.setName("MnDataSEP"); // NOI18N
         MnDataSEP.setPreferredSize(new java.awt.Dimension(230, 26));
-        MnDataSEP.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        MnDataSEP.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 MnDataSEPActionPerformed(evt);
             }
         });
+        MenuBPJS.add(MnDataSEP);
 
         ppSuratKontrol.setBackground(new java.awt.Color(255, 255, 254));
         ppSuratKontrol.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
@@ -3967,11 +4302,14 @@ public class DlgKamarInap extends javax.swing.JDialog {
         ppSuratKontrol.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
         ppSuratKontrol.setName("ppSuratKontrol"); // NOI18N
         ppSuratKontrol.setPreferredSize(new java.awt.Dimension(230, 26));
-        ppSuratKontrol.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        ppSuratKontrol.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 ppSuratKontrolBtnPrintActionPerformed(evt);
             }
         });
+        MenuBPJS.add(ppSuratKontrol);
 
         ppSuratPRI.setBackground(new java.awt.Color(255, 255, 254));
         ppSuratPRI.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
@@ -3982,11 +4320,14 @@ public class DlgKamarInap extends javax.swing.JDialog {
         ppSuratPRI.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
         ppSuratPRI.setName("ppSuratPRI"); // NOI18N
         ppSuratPRI.setPreferredSize(new java.awt.Dimension(230, 26));
-        ppSuratPRI.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        ppSuratPRI.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 ppSuratPRIBtnPrintActionPerformed(evt);
             }
         });
+        MenuBPJS.add(ppSuratPRI);
 
         ppSuplesiJasaRaharja.setBackground(new java.awt.Color(255, 255, 254));
         ppSuplesiJasaRaharja.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
@@ -3997,11 +4338,14 @@ public class DlgKamarInap extends javax.swing.JDialog {
         ppSuplesiJasaRaharja.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
         ppSuplesiJasaRaharja.setName("ppSuplesiJasaRaharja"); // NOI18N
         ppSuplesiJasaRaharja.setPreferredSize(new java.awt.Dimension(230, 26));
-        ppSuplesiJasaRaharja.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        ppSuplesiJasaRaharja.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 ppSuplesiJasaRaharjaBtnPrintActionPerformed(evt);
             }
         });
+        MenuBPJS.add(ppSuplesiJasaRaharja);
 
         ppDataIndukKecelakaan.setBackground(new java.awt.Color(255, 255, 254));
         ppDataIndukKecelakaan.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
@@ -4012,11 +4356,14 @@ public class DlgKamarInap extends javax.swing.JDialog {
         ppDataIndukKecelakaan.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
         ppDataIndukKecelakaan.setName("ppDataIndukKecelakaan"); // NOI18N
         ppDataIndukKecelakaan.setPreferredSize(new java.awt.Dimension(230, 26));
-        ppDataIndukKecelakaan.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        ppDataIndukKecelakaan.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 ppDataIndukKecelakaanBtnPrintActionPerformed(evt);
             }
         });
+        MenuBPJS.add(ppDataIndukKecelakaan);
 
         MnRujukSisrute.setBackground(new java.awt.Color(255, 255, 254));
         MnRujukSisrute.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
@@ -4027,11 +4374,14 @@ public class DlgKamarInap extends javax.swing.JDialog {
         MnRujukSisrute.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
         MnRujukSisrute.setName("MnRujukSisrute"); // NOI18N
         MnRujukSisrute.setPreferredSize(new java.awt.Dimension(330, 26));
-        MnRujukSisrute.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        MnRujukSisrute.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 MnRujukSisruteActionPerformed(evt);
             }
         });
+        MenuBPJS.add(MnRujukSisrute);
 
         ppPasienCorona.setBackground(new java.awt.Color(255, 255, 254));
         ppPasienCorona.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
@@ -4042,11 +4392,14 @@ public class DlgKamarInap extends javax.swing.JDialog {
         ppPasienCorona.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
         ppPasienCorona.setName("ppPasienCorona"); // NOI18N
         ppPasienCorona.setPreferredSize(new java.awt.Dimension(330, 26));
-        ppPasienCorona.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        ppPasienCorona.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 ppPasienCoronaBtnPrintActionPerformed(evt);
             }
         });
+        MenuBPJS.add(ppPasienCorona);
 
         ppPerawatanCorona.setBackground(new java.awt.Color(255, 255, 254));
         ppPerawatanCorona.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
@@ -4057,11 +4410,14 @@ public class DlgKamarInap extends javax.swing.JDialog {
         ppPerawatanCorona.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
         ppPerawatanCorona.setName("ppPerawatanCorona"); // NOI18N
         ppPerawatanCorona.setPreferredSize(new java.awt.Dimension(330, 26));
-        ppPerawatanCorona.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        ppPerawatanCorona.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 ppPerawatanCoronaBtnPrintActionPerformed(evt);
             }
         });
+        MenuBPJS.add(ppPerawatanCorona);
 
         MnTeridentifikasiTB.setBackground(new java.awt.Color(255, 255, 254));
         MnTeridentifikasiTB.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
@@ -4072,11 +4428,14 @@ public class DlgKamarInap extends javax.swing.JDialog {
         MnTeridentifikasiTB.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
         MnTeridentifikasiTB.setName("MnTeridentifikasiTB"); // NOI18N
         MnTeridentifikasiTB.setPreferredSize(new java.awt.Dimension(330, 26));
-        MnTeridentifikasiTB.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        MnTeridentifikasiTB.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 MnTeridentifikasiTBActionPerformed(evt);
             }
         });
+        MenuBPJS.add(MnTeridentifikasiTB);
 
         MnPCare.setBackground(new java.awt.Color(255, 255, 254));
         MnPCare.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
@@ -4087,11 +4446,14 @@ public class DlgKamarInap extends javax.swing.JDialog {
         MnPCare.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
         MnPCare.setName("MnPCare"); // NOI18N
         MnPCare.setPreferredSize(new java.awt.Dimension(230, 26));
-        MnPCare.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        MnPCare.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 MnPCareActionPerformed(evt);
             }
         });
+        MenuBPJS.add(MnPCare);
 
         jPopupMenu1.add(MenuBPJS);
 
@@ -4112,8 +4474,10 @@ public class DlgKamarInap extends javax.swing.JDialog {
         ppCatatanPasien.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
         ppCatatanPasien.setName("ppCatatanPasien"); // NOI18N
         ppCatatanPasien.setPreferredSize(new java.awt.Dimension(225, 26));
-        ppCatatanPasien.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        ppCatatanPasien.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 ppCatatanPasienBtnPrintActionPerformed(evt);
             }
         });
@@ -4128,8 +4492,10 @@ public class DlgKamarInap extends javax.swing.JDialog {
         ppDataHAIs.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
         ppDataHAIs.setName("ppDataHAIs"); // NOI18N
         ppDataHAIs.setPreferredSize(new java.awt.Dimension(225, 26));
-        ppDataHAIs.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        ppDataHAIs.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 ppDataHAIsBtnPrintActionPerformed(evt);
             }
         });
@@ -4144,8 +4510,10 @@ public class DlgKamarInap extends javax.swing.JDialog {
         ppBerkasDigital.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
         ppBerkasDigital.setName("ppBerkasDigital"); // NOI18N
         ppBerkasDigital.setPreferredSize(new java.awt.Dimension(225, 26));
-        ppBerkasDigital.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        ppBerkasDigital.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 ppBerkasDigitalBtnPrintActionPerformed(evt);
             }
         });
@@ -4160,8 +4528,10 @@ public class DlgKamarInap extends javax.swing.JDialog {
         ppIKP.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
         ppIKP.setName("ppIKP"); // NOI18N
         ppIKP.setPreferredSize(new java.awt.Dimension(225, 26));
-        ppIKP.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        ppIKP.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 ppIKPBtnPrintActionPerformed(evt);
             }
         });
@@ -4176,8 +4546,10 @@ public class DlgKamarInap extends javax.swing.JDialog {
         ppKlasifikasiPasien.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
         ppKlasifikasiPasien.setName("ppKlasifikasiPasien"); // NOI18N
         ppKlasifikasiPasien.setPreferredSize(new java.awt.Dimension(225, 26));
-        ppKlasifikasiPasien.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        ppKlasifikasiPasien.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 ppKlasifikasiPasienBtnPrintActionPerformed(evt);
             }
         });
@@ -4192,8 +4564,10 @@ public class DlgKamarInap extends javax.swing.JDialog {
         ppSkriningManagerPelayananPasien.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
         ppSkriningManagerPelayananPasien.setName("ppSkriningManagerPelayananPasien"); // NOI18N
         ppSkriningManagerPelayananPasien.setPreferredSize(new java.awt.Dimension(225, 26));
-        ppSkriningManagerPelayananPasien.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        ppSkriningManagerPelayananPasien.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 ppSkriningManagerPelayananPasienBtnPrintActionPerformed(evt);
             }
         });
@@ -4220,8 +4594,10 @@ public class DlgKamarInap extends javax.swing.JDialog {
         MnSehat.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
         MnSehat.setName("MnSehat"); // NOI18N
         MnSehat.setPreferredSize(new java.awt.Dimension(170, 26));
-        MnSehat.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        MnSehat.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 MnSehatActionPerformed(evt);
             }
         });
@@ -4236,8 +4612,10 @@ public class DlgKamarInap extends javax.swing.JDialog {
         MnStatusRujuk.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
         MnStatusRujuk.setName("MnStatusRujuk"); // NOI18N
         MnStatusRujuk.setPreferredSize(new java.awt.Dimension(170, 26));
-        MnStatusRujuk.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        MnStatusRujuk.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 MnStatusRujukActionPerformed(evt);
             }
         });
@@ -4252,8 +4630,10 @@ public class DlgKamarInap extends javax.swing.JDialog {
         MnStatusAPS.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
         MnStatusAPS.setName("MnStatusAPS"); // NOI18N
         MnStatusAPS.setPreferredSize(new java.awt.Dimension(170, 26));
-        MnStatusAPS.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        MnStatusAPS.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 MnStatusAPSActionPerformed(evt);
             }
         });
@@ -4268,8 +4648,10 @@ public class DlgKamarInap extends javax.swing.JDialog {
         MnStatusPlus.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
         MnStatusPlus.setName("MnStatusPlus"); // NOI18N
         MnStatusPlus.setPreferredSize(new java.awt.Dimension(170, 26));
-        MnStatusPlus.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        MnStatusPlus.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 MnStatusPlusActionPerformed(evt);
             }
         });
@@ -4284,8 +4666,10 @@ public class DlgKamarInap extends javax.swing.JDialog {
         MnStatusMeninggal.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
         MnStatusMeninggal.setName("MnStatusMeninggal"); // NOI18N
         MnStatusMeninggal.setPreferredSize(new java.awt.Dimension(170, 26));
-        MnStatusMeninggal.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        MnStatusMeninggal.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 MnStatusMeninggalActionPerformed(evt);
             }
         });
@@ -4300,8 +4684,10 @@ public class DlgKamarInap extends javax.swing.JDialog {
         MnStatusSembuh.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
         MnStatusSembuh.setName("MnStatusSembuh"); // NOI18N
         MnStatusSembuh.setPreferredSize(new java.awt.Dimension(170, 26));
-        MnStatusSembuh.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        MnStatusSembuh.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 MnStatusSembuhActionPerformed(evt);
             }
         });
@@ -4316,8 +4702,10 @@ public class DlgKamarInap extends javax.swing.JDialog {
         MnStatusMembaik.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
         MnStatusMembaik.setName("MnStatusMembaik"); // NOI18N
         MnStatusMembaik.setPreferredSize(new java.awt.Dimension(170, 26));
-        MnStatusMembaik.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        MnStatusMembaik.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 MnStatusMembaikActionPerformed(evt);
             }
         });
@@ -4332,8 +4720,10 @@ public class DlgKamarInap extends javax.swing.JDialog {
         MnStatusPulangPaksa.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
         MnStatusPulangPaksa.setName("MnStatusPulangPaksa"); // NOI18N
         MnStatusPulangPaksa.setPreferredSize(new java.awt.Dimension(170, 26));
-        MnStatusPulangPaksa.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        MnStatusPulangPaksa.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 MnStatusPulangPaksaActionPerformed(evt);
             }
         });
@@ -4348,8 +4738,10 @@ public class DlgKamarInap extends javax.swing.JDialog {
         MnStatusMin.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
         MnStatusMin.setName("MnStatusMin"); // NOI18N
         MnStatusMin.setPreferredSize(new java.awt.Dimension(170, 26));
-        MnStatusMin.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        MnStatusMin.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 MnStatusMinActionPerformed(evt);
             }
         });
@@ -4364,8 +4756,10 @@ public class DlgKamarInap extends javax.swing.JDialog {
         MnStatusBelumLengkap.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
         MnStatusBelumLengkap.setName("MnStatusBelumLengkap"); // NOI18N
         MnStatusBelumLengkap.setPreferredSize(new java.awt.Dimension(170, 26));
-        MnStatusBelumLengkap.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        MnStatusBelumLengkap.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 MnStatusBelumLengkapActionPerformed(evt);
             }
         });
@@ -4380,8 +4774,10 @@ public class DlgKamarInap extends javax.swing.JDialog {
         MnStatusBelumPulang.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
         MnStatusBelumPulang.setName("MnStatusBelumPulang"); // NOI18N
         MnStatusBelumPulang.setPreferredSize(new java.awt.Dimension(170, 26));
-        MnStatusBelumPulang.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        MnStatusBelumPulang.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 MnStatusBelumPulangActionPerformed(evt);
             }
         });
@@ -4408,8 +4804,10 @@ public class DlgKamarInap extends javax.swing.JDialog {
         MnPenjab.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
         MnPenjab.setName("MnPenjab"); // NOI18N
         MnPenjab.setPreferredSize(new java.awt.Dimension(220, 26));
-        MnPenjab.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        MnPenjab.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 MnPenjabActionPerformed(evt);
             }
         });
@@ -4424,8 +4822,10 @@ public class DlgKamarInap extends javax.swing.JDialog {
         MnDiagnosaMasuk.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
         MnDiagnosaMasuk.setName("MnDiagnosaMasuk"); // NOI18N
         MnDiagnosaMasuk.setPreferredSize(new java.awt.Dimension(220, 26));
-        MnDiagnosaMasuk.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        MnDiagnosaMasuk.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 MnDiagnosaMasukActionPerformed(evt);
             }
         });
@@ -4440,8 +4840,10 @@ public class DlgKamarInap extends javax.swing.JDialog {
         MnDiagnosaAkhir.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
         MnDiagnosaAkhir.setName("MnDiagnosaAkhir"); // NOI18N
         MnDiagnosaAkhir.setPreferredSize(new java.awt.Dimension(220, 26));
-        MnDiagnosaAkhir.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        MnDiagnosaAkhir.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 MnDiagnosaAkhirActionPerformed(evt);
             }
         });
@@ -4468,8 +4870,10 @@ public class DlgKamarInap extends javax.swing.JDialog {
         MnHapusTagihanOperasi.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
         MnHapusTagihanOperasi.setName("MnHapusTagihanOperasi"); // NOI18N
         MnHapusTagihanOperasi.setPreferredSize(new java.awt.Dimension(200, 26));
-        MnHapusTagihanOperasi.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        MnHapusTagihanOperasi.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 MnHapusTagihanOperasiActionPerformed(evt);
             }
         });
@@ -4484,8 +4888,10 @@ public class DlgKamarInap extends javax.swing.JDialog {
         MnHapusObatOperasi.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
         MnHapusObatOperasi.setName("MnHapusObatOperasi"); // NOI18N
         MnHapusObatOperasi.setPreferredSize(new java.awt.Dimension(200, 26));
-        MnHapusObatOperasi.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        MnHapusObatOperasi.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 MnHapusObatOperasiActionPerformed(evt);
             }
         });
@@ -4500,8 +4906,10 @@ public class DlgKamarInap extends javax.swing.JDialog {
         MnHapusDataSalah.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
         MnHapusDataSalah.setName("MnHapusDataSalah"); // NOI18N
         MnHapusDataSalah.setPreferredSize(new java.awt.Dimension(200, 26));
-        MnHapusDataSalah.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        MnHapusDataSalah.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 MnHapusDataSalahActionPerformed(evt);
             }
         });
@@ -4525,8 +4933,10 @@ public class DlgKamarInap extends javax.swing.JDialog {
         MnUpdateHari.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
         MnUpdateHari.setName("MnUpdateHari"); // NOI18N
         MnUpdateHari.setPreferredSize(new java.awt.Dimension(200, 26));
-        MnUpdateHari.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        MnUpdateHari.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 MnUpdateHariActionPerformed(evt);
             }
         });
@@ -4541,8 +4951,10 @@ public class DlgKamarInap extends javax.swing.JDialog {
         MnPerkiraanBiaya.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
         MnPerkiraanBiaya.setName("MnPerkiraanBiaya"); // NOI18N
         MnPerkiraanBiaya.setPreferredSize(new java.awt.Dimension(200, 26));
-        MnPerkiraanBiaya.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        MnPerkiraanBiaya.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 MnPerkiraanBiayaActionPerformed(evt);
             }
         });
@@ -4567,8 +4979,10 @@ public class DlgKamarInap extends javax.swing.JDialog {
         MnUrutNoRawatDesc.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
         MnUrutNoRawatDesc.setName("MnUrutNoRawatDesc"); // NOI18N
         MnUrutNoRawatDesc.setPreferredSize(new java.awt.Dimension(180, 26));
-        MnUrutNoRawatDesc.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        MnUrutNoRawatDesc.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 MnUrutNoRawatDescActionPerformed(evt);
             }
         });
@@ -4583,8 +4997,10 @@ public class DlgKamarInap extends javax.swing.JDialog {
         MnUrutNoRawatAsc.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
         MnUrutNoRawatAsc.setName("MnUrutNoRawatAsc"); // NOI18N
         MnUrutNoRawatAsc.setPreferredSize(new java.awt.Dimension(180, 26));
-        MnUrutNoRawatAsc.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        MnUrutNoRawatAsc.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 MnUrutNoRawatAscActionPerformed(evt);
             }
         });
@@ -4599,8 +5015,10 @@ public class DlgKamarInap extends javax.swing.JDialog {
         MnUrutPenjabDesc.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
         MnUrutPenjabDesc.setName("MnUrutPenjabDesc"); // NOI18N
         MnUrutPenjabDesc.setPreferredSize(new java.awt.Dimension(180, 26));
-        MnUrutPenjabDesc.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        MnUrutPenjabDesc.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 MnUrutPenjabDescActionPerformed(evt);
             }
         });
@@ -4615,8 +5033,10 @@ public class DlgKamarInap extends javax.swing.JDialog {
         MnUrutPenjabAsc.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
         MnUrutPenjabAsc.setName("MnUrutPenjabAsc"); // NOI18N
         MnUrutPenjabAsc.setPreferredSize(new java.awt.Dimension(180, 26));
-        MnUrutPenjabAsc.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        MnUrutPenjabAsc.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 MnUrutPenjabAscActionPerformed(evt);
             }
         });
@@ -4631,8 +5051,10 @@ public class DlgKamarInap extends javax.swing.JDialog {
         MnUrutRMDesc.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
         MnUrutRMDesc.setName("MnUrutRMDesc"); // NOI18N
         MnUrutRMDesc.setPreferredSize(new java.awt.Dimension(180, 26));
-        MnUrutRMDesc.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        MnUrutRMDesc.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 MnUrutRMDescActionPerformed(evt);
             }
         });
@@ -4647,8 +5069,10 @@ public class DlgKamarInap extends javax.swing.JDialog {
         MnUrutRMAsc.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
         MnUrutRMAsc.setName("MnUrutRMAsc"); // NOI18N
         MnUrutRMAsc.setPreferredSize(new java.awt.Dimension(180, 26));
-        MnUrutRMAsc.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        MnUrutRMAsc.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 MnUrutRMAscActionPerformed(evt);
             }
         });
@@ -4663,8 +5087,10 @@ public class DlgKamarInap extends javax.swing.JDialog {
         MnUrutNamaDesc.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
         MnUrutNamaDesc.setName("MnUrutNamaDesc"); // NOI18N
         MnUrutNamaDesc.setPreferredSize(new java.awt.Dimension(180, 26));
-        MnUrutNamaDesc.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        MnUrutNamaDesc.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 MnUrutNamaDescActionPerformed(evt);
             }
         });
@@ -4679,8 +5105,10 @@ public class DlgKamarInap extends javax.swing.JDialog {
         MnUrutNamaAsc.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
         MnUrutNamaAsc.setName("MnUrutNamaAsc"); // NOI18N
         MnUrutNamaAsc.setPreferredSize(new java.awt.Dimension(180, 26));
-        MnUrutNamaAsc.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        MnUrutNamaAsc.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 MnUrutNamaAscActionPerformed(evt);
             }
         });
@@ -4695,8 +5123,10 @@ public class DlgKamarInap extends javax.swing.JDialog {
         MnUrutKamarDesc.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
         MnUrutKamarDesc.setName("MnUrutKamarDesc"); // NOI18N
         MnUrutKamarDesc.setPreferredSize(new java.awt.Dimension(180, 26));
-        MnUrutKamarDesc.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        MnUrutKamarDesc.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 MnUrutKamarDescActionPerformed(evt);
             }
         });
@@ -4711,8 +5141,10 @@ public class DlgKamarInap extends javax.swing.JDialog {
         MnUrutKamarAsc.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
         MnUrutKamarAsc.setName("MnUrutKamarAsc"); // NOI18N
         MnUrutKamarAsc.setPreferredSize(new java.awt.Dimension(180, 26));
-        MnUrutKamarAsc.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        MnUrutKamarAsc.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 MnUrutKamarAscActionPerformed(evt);
             }
         });
@@ -4727,8 +5159,10 @@ public class DlgKamarInap extends javax.swing.JDialog {
         MnUrutTanggalMasukAsc.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
         MnUrutTanggalMasukAsc.setName("MnUrutTanggalMasukAsc"); // NOI18N
         MnUrutTanggalMasukAsc.setPreferredSize(new java.awt.Dimension(180, 26));
-        MnUrutTanggalMasukAsc.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        MnUrutTanggalMasukAsc.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 MnUrutTanggalMasukAscActionPerformed(evt);
             }
         });
@@ -4743,8 +5177,10 @@ public class DlgKamarInap extends javax.swing.JDialog {
         MnUrutTanggalMasukDesc.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
         MnUrutTanggalMasukDesc.setName("MnUrutTanggalMasukDesc"); // NOI18N
         MnUrutTanggalMasukDesc.setPreferredSize(new java.awt.Dimension(180, 26));
-        MnUrutTanggalMasukDesc.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        MnUrutTanggalMasukDesc.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 MnUrutTanggalMasukDescActionPerformed(evt);
             }
         });
@@ -4756,8 +5192,10 @@ public class DlgKamarInap extends javax.swing.JDialog {
         JamMasuk.setForeground(new java.awt.Color(255, 255, 255));
         JamMasuk.setHighlighter(null);
         JamMasuk.setName("JamMasuk"); // NOI18N
-        JamMasuk.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
+        JamMasuk.addKeyListener(new java.awt.event.KeyAdapter()
+        {
+            public void keyPressed(java.awt.event.KeyEvent evt)
+            {
                 JamMasukKeyPressed(evt);
             }
         });
@@ -4766,8 +5204,10 @@ public class DlgKamarInap extends javax.swing.JDialog {
         WindowPindahKamar.setName("WindowPindahKamar"); // NOI18N
         WindowPindahKamar.setUndecorated(true);
         WindowPindahKamar.setResizable(false);
-        WindowPindahKamar.addWindowListener(new java.awt.event.WindowAdapter() {
-            public void windowActivated(java.awt.event.WindowEvent evt) {
+        WindowPindahKamar.addWindowListener(new java.awt.event.WindowAdapter()
+        {
+            public void windowActivated(java.awt.event.WindowEvent evt)
+            {
                 WindowPindahKamarWindowActivated(evt);
             }
         });
@@ -4790,8 +5230,10 @@ public class DlgKamarInap extends javax.swing.JDialog {
 
         kdkamarpindah.setHighlighter(null);
         kdkamarpindah.setName("kdkamarpindah"); // NOI18N
-        kdkamarpindah.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
+        kdkamarpindah.addKeyListener(new java.awt.event.KeyAdapter()
+        {
+            public void keyPressed(java.awt.event.KeyEvent evt)
+            {
                 kdkamarpindahKeyPressed(evt);
             }
         });
@@ -4825,8 +5267,10 @@ public class DlgKamarInap extends javax.swing.JDialog {
         btnKamar2.setMnemonic('2');
         btnKamar2.setToolTipText("Alt+2");
         btnKamar2.setName("btnKamar2"); // NOI18N
-        btnKamar2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        btnKamar2.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 btnKamar2ActionPerformed(evt);
             }
         });
@@ -4861,8 +5305,10 @@ public class DlgKamarInap extends javax.swing.JDialog {
         TBangsalpindah.setEditable(false);
         TBangsalpindah.setHighlighter(null);
         TBangsalpindah.setName("TBangsalpindah"); // NOI18N
-        TBangsalpindah.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
+        TBangsalpindah.addKeyListener(new java.awt.event.KeyAdapter()
+        {
+            public void keyPressed(java.awt.event.KeyEvent evt)
+            {
                 TBangsalpindahKeyPressed(evt);
             }
         });
@@ -4896,13 +5342,17 @@ public class DlgKamarInap extends javax.swing.JDialog {
         BtnCloseInpindah.setText("Tutup");
         BtnCloseInpindah.setToolTipText("Alt+U");
         BtnCloseInpindah.setName("BtnCloseInpindah"); // NOI18N
-        BtnCloseInpindah.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        BtnCloseInpindah.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 BtnCloseInpindahActionPerformed(evt);
             }
         });
-        BtnCloseInpindah.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
+        BtnCloseInpindah.addKeyListener(new java.awt.event.KeyAdapter()
+        {
+            public void keyPressed(java.awt.event.KeyEvent evt)
+            {
                 BtnCloseInpindahKeyPressed(evt);
             }
         });
@@ -4919,13 +5369,17 @@ public class DlgKamarInap extends javax.swing.JDialog {
         BtnSimpanpindah.setText("Simpan");
         BtnSimpanpindah.setToolTipText("Alt+S");
         BtnSimpanpindah.setName("BtnSimpanpindah"); // NOI18N
-        BtnSimpanpindah.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        BtnSimpanpindah.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 BtnSimpanpindahActionPerformed(evt);
             }
         });
-        BtnSimpanpindah.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
+        BtnSimpanpindah.addKeyListener(new java.awt.event.KeyAdapter()
+        {
+            public void keyPressed(java.awt.event.KeyEvent evt)
+            {
                 BtnSimpanpindahKeyPressed(evt);
             }
         });
@@ -5014,8 +5468,10 @@ public class DlgKamarInap extends javax.swing.JDialog {
         BtnCloseIn4.setText("Tutup");
         BtnCloseIn4.setToolTipText("Alt+U");
         BtnCloseIn4.setName("BtnCloseIn4"); // NOI18N
-        BtnCloseIn4.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        BtnCloseIn4.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 BtnCloseIn4ActionPerformed(evt);
             }
         });
@@ -5027,8 +5483,10 @@ public class DlgKamarInap extends javax.swing.JDialog {
         BtnSimpan4.setText("Simpan");
         BtnSimpan4.setToolTipText("Alt+S");
         BtnSimpan4.setName("BtnSimpan4"); // NOI18N
-        BtnSimpan4.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        BtnSimpan4.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 BtnSimpan4ActionPerformed(evt);
             }
         });
@@ -5042,8 +5500,10 @@ public class DlgKamarInap extends javax.swing.JDialog {
 
         kdpenjab.setHighlighter(null);
         kdpenjab.setName("kdpenjab"); // NOI18N
-        kdpenjab.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
+        kdpenjab.addKeyListener(new java.awt.event.KeyAdapter()
+        {
+            public void keyPressed(java.awt.event.KeyEvent evt)
+            {
                 kdpenjabKeyPressed(evt);
             }
         });
@@ -5059,8 +5519,10 @@ public class DlgKamarInap extends javax.swing.JDialog {
         btnBayar.setMnemonic('7');
         btnBayar.setToolTipText("ALt+7");
         btnBayar.setName("btnBayar"); // NOI18N
-        btnBayar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        btnBayar.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 btnBayarActionPerformed(evt);
             }
         });
@@ -5083,8 +5545,10 @@ public class DlgKamarInap extends javax.swing.JDialog {
         BtnCloseGabung.setText("Tutup");
         BtnCloseGabung.setToolTipText("Alt+U");
         BtnCloseGabung.setName("BtnCloseGabung"); // NOI18N
-        BtnCloseGabung.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        BtnCloseGabung.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 BtnCloseGabungActionPerformed(evt);
             }
         });
@@ -5096,8 +5560,10 @@ public class DlgKamarInap extends javax.swing.JDialog {
         BtnSimpanGabung.setText("Simpan");
         BtnSimpanGabung.setToolTipText("Alt+S");
         BtnSimpanGabung.setName("BtnSimpanGabung"); // NOI18N
-        BtnSimpanGabung.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        BtnSimpanGabung.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 BtnSimpanGabungActionPerformed(evt);
             }
         });
@@ -5111,8 +5577,10 @@ public class DlgKamarInap extends javax.swing.JDialog {
 
         NoRmBayi.setHighlighter(null);
         NoRmBayi.setName("NoRmBayi"); // NOI18N
-        NoRmBayi.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
+        NoRmBayi.addKeyListener(new java.awt.event.KeyAdapter()
+        {
+            public void keyPressed(java.awt.event.KeyEvent evt)
+            {
                 NoRmBayiKeyPressed(evt);
             }
         });
@@ -5128,8 +5596,10 @@ public class DlgKamarInap extends javax.swing.JDialog {
         btnPasienRanapGabung.setMnemonic('7');
         btnPasienRanapGabung.setToolTipText("ALt+7");
         btnPasienRanapGabung.setName("btnPasienRanapGabung"); // NOI18N
-        btnPasienRanapGabung.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        btnPasienRanapGabung.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 btnPasienRanapGabungActionPerformed(evt);
             }
         });
@@ -5142,8 +5612,10 @@ public class DlgKamarInap extends javax.swing.JDialog {
         BtnHapusGabung.setToolTipText("Alt+H");
         BtnHapusGabung.setName("BtnHapusGabung"); // NOI18N
         BtnHapusGabung.setPreferredSize(new java.awt.Dimension(100, 30));
-        BtnHapusGabung.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        BtnHapusGabung.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 BtnHapusGabungActionPerformed(evt);
             }
         });
@@ -5159,8 +5631,10 @@ public class DlgKamarInap extends javax.swing.JDialog {
         btnPasienRanapGabung1.setMnemonic('7');
         btnPasienRanapGabung1.setToolTipText("ALt+7");
         btnPasienRanapGabung1.setName("btnPasienRanapGabung1"); // NOI18N
-        btnPasienRanapGabung1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        btnPasienRanapGabung1.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 btnPasienRanapGabung1ActionPerformed(evt);
             }
         });
@@ -5192,8 +5666,10 @@ public class DlgKamarInap extends javax.swing.JDialog {
         BtnPrint5.setToolTipText("Alt+T");
         BtnPrint5.setName("BtnPrint5"); // NOI18N
         BtnPrint5.setPreferredSize(new java.awt.Dimension(100, 30));
-        BtnPrint5.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        BtnPrint5.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 BtnPrint5ActionPerformed(evt);
             }
         });
@@ -5206,8 +5682,10 @@ public class DlgKamarInap extends javax.swing.JDialog {
         BtnKeluar4.setToolTipText("Alt+K");
         BtnKeluar4.setName("BtnKeluar4"); // NOI18N
         BtnKeluar4.setPreferredSize(new java.awt.Dimension(100, 30));
-        BtnKeluar4.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        BtnKeluar4.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 BtnKeluar4ActionPerformed(evt);
             }
         });
@@ -5224,8 +5702,10 @@ public class DlgKamarInap extends javax.swing.JDialog {
         BtnSeek5.setToolTipText("ALt+6");
         BtnSeek5.setName("BtnSeek5"); // NOI18N
         BtnSeek5.setPreferredSize(new java.awt.Dimension(28, 23));
-        BtnSeek5.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        BtnSeek5.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 BtnSeek5ActionPerformed(evt);
             }
         });
@@ -5262,8 +5742,10 @@ public class DlgKamarInap extends javax.swing.JDialog {
         BtnCloseIn5.setText("Tutup");
         BtnCloseIn5.setToolTipText("Alt+U");
         BtnCloseIn5.setName("BtnCloseIn5"); // NOI18N
-        BtnCloseIn5.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        BtnCloseIn5.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 BtnCloseIn5ActionPerformed(evt);
             }
         });
@@ -5275,8 +5757,10 @@ public class DlgKamarInap extends javax.swing.JDialog {
         BtnSimpan5.setText("Simpan");
         BtnSimpan5.setToolTipText("Alt+S");
         BtnSimpan5.setName("BtnSimpan5"); // NOI18N
-        BtnSimpan5.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        BtnSimpan5.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 BtnSimpan5ActionPerformed(evt);
             }
         });
@@ -5290,8 +5774,10 @@ public class DlgKamarInap extends javax.swing.JDialog {
 
         DiagnosaAwalSementara.setHighlighter(null);
         DiagnosaAwalSementara.setName("DiagnosaAwalSementara"); // NOI18N
-        DiagnosaAwalSementara.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
+        DiagnosaAwalSementara.addKeyListener(new java.awt.event.KeyAdapter()
+        {
+            public void keyPressed(java.awt.event.KeyEvent evt)
+            {
                 DiagnosaAwalSementaraKeyPressed(evt);
             }
         });
@@ -5314,8 +5800,10 @@ public class DlgKamarInap extends javax.swing.JDialog {
         BtnCloseIn6.setText("Tutup");
         BtnCloseIn6.setToolTipText("Alt+U");
         BtnCloseIn6.setName("BtnCloseIn6"); // NOI18N
-        BtnCloseIn6.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        BtnCloseIn6.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 BtnCloseIn6ActionPerformed(evt);
             }
         });
@@ -5327,8 +5815,10 @@ public class DlgKamarInap extends javax.swing.JDialog {
         BtnSimpan6.setText("Simpan");
         BtnSimpan6.setToolTipText("Alt+S");
         BtnSimpan6.setName("BtnSimpan6"); // NOI18N
-        BtnSimpan6.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        BtnSimpan6.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 BtnSimpan6ActionPerformed(evt);
             }
         });
@@ -5342,8 +5832,10 @@ public class DlgKamarInap extends javax.swing.JDialog {
 
         DiagnosaAkhirSementara.setHighlighter(null);
         DiagnosaAkhirSementara.setName("DiagnosaAkhirSementara"); // NOI18N
-        DiagnosaAkhirSementara.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
+        DiagnosaAkhirSementara.addKeyListener(new java.awt.event.KeyAdapter()
+        {
+            public void keyPressed(java.awt.event.KeyEvent evt)
+            {
                 DiagnosaAkhirSementaraKeyPressed(evt);
             }
         });
@@ -5355,11 +5847,14 @@ public class DlgKamarInap extends javax.swing.JDialog {
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setUndecorated(true);
         setResizable(false);
-        addWindowListener(new java.awt.event.WindowAdapter() {
-            public void windowActivated(java.awt.event.WindowEvent evt) {
+        addWindowListener(new java.awt.event.WindowAdapter()
+        {
+            public void windowActivated(java.awt.event.WindowEvent evt)
+            {
                 formWindowActivated(evt);
             }
-            public void windowOpened(java.awt.event.WindowEvent evt) {
+            public void windowOpened(java.awt.event.WindowEvent evt)
+            {
                 formWindowOpened(evt);
             }
         });
@@ -5383,13 +5878,17 @@ public class DlgKamarInap extends javax.swing.JDialog {
         BtnIn.setToolTipText("Alt+M");
         BtnIn.setName("BtnIn"); // NOI18N
         BtnIn.setPreferredSize(new java.awt.Dimension(100, 30));
-        BtnIn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        BtnIn.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 BtnInActionPerformed(evt);
             }
         });
-        BtnIn.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
+        BtnIn.addKeyListener(new java.awt.event.KeyAdapter()
+        {
+            public void keyPressed(java.awt.event.KeyEvent evt)
+            {
                 BtnInKeyPressed(evt);
             }
         });
@@ -5401,13 +5900,17 @@ public class DlgKamarInap extends javax.swing.JDialog {
         BtnOut.setToolTipText("Alt+U");
         BtnOut.setName("BtnOut"); // NOI18N
         BtnOut.setPreferredSize(new java.awt.Dimension(100, 30));
-        BtnOut.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        BtnOut.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 BtnOutActionPerformed(evt);
             }
         });
-        BtnOut.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
+        BtnOut.addKeyListener(new java.awt.event.KeyAdapter()
+        {
+            public void keyPressed(java.awt.event.KeyEvent evt)
+            {
                 BtnOutKeyPressed(evt);
             }
         });
@@ -5419,13 +5922,17 @@ public class DlgKamarInap extends javax.swing.JDialog {
         btnPindah.setToolTipText("Alt+P");
         btnPindah.setName("btnPindah"); // NOI18N
         btnPindah.setPreferredSize(new java.awt.Dimension(100, 30));
-        btnPindah.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        btnPindah.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 btnPindahActionPerformed(evt);
             }
         });
-        btnPindah.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
+        btnPindah.addKeyListener(new java.awt.event.KeyAdapter()
+        {
+            public void keyPressed(java.awt.event.KeyEvent evt)
+            {
                 btnPindahKeyPressed(evt);
             }
         });
@@ -5448,13 +5955,17 @@ public class DlgKamarInap extends javax.swing.JDialog {
         BtnPrint.setToolTipText("Alt+T");
         BtnPrint.setName("BtnPrint"); // NOI18N
         BtnPrint.setPreferredSize(new java.awt.Dimension(100, 30));
-        BtnPrint.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        BtnPrint.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 BtnPrintActionPerformed(evt);
             }
         });
-        BtnPrint.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
+        BtnPrint.addKeyListener(new java.awt.event.KeyAdapter()
+        {
+            public void keyPressed(java.awt.event.KeyEvent evt)
+            {
                 BtnPrintKeyPressed(evt);
             }
         });
@@ -5466,13 +5977,17 @@ public class DlgKamarInap extends javax.swing.JDialog {
         BtnKeluar.setToolTipText("Alt+K");
         BtnKeluar.setName("BtnKeluar"); // NOI18N
         BtnKeluar.setPreferredSize(new java.awt.Dimension(100, 30));
-        BtnKeluar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        BtnKeluar.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 BtnKeluarActionPerformed(evt);
             }
         });
-        BtnKeluar.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
+        BtnKeluar.addKeyListener(new java.awt.event.KeyAdapter()
+        {
+            public void keyPressed(java.awt.event.KeyEvent evt)
+            {
                 BtnKeluarKeyPressed(evt);
             }
         });
@@ -5491,8 +6006,10 @@ public class DlgKamarInap extends javax.swing.JDialog {
 
         BangsalCari.setName("BangsalCari"); // NOI18N
         BangsalCari.setPreferredSize(new java.awt.Dimension(230, 23));
-        BangsalCari.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
+        BangsalCari.addKeyListener(new java.awt.event.KeyAdapter()
+        {
+            public void keyPressed(java.awt.event.KeyEvent evt)
+            {
                 BangsalCariKeyPressed(evt);
             }
         });
@@ -5503,13 +6020,17 @@ public class DlgKamarInap extends javax.swing.JDialog {
         btnBangsalCari.setToolTipText("Alt+3");
         btnBangsalCari.setName("btnBangsalCari"); // NOI18N
         btnBangsalCari.setPreferredSize(new java.awt.Dimension(28, 23));
-        btnBangsalCari.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        btnBangsalCari.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 btnBangsalCariActionPerformed(evt);
             }
         });
-        btnBangsalCari.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
+        btnBangsalCari.addKeyListener(new java.awt.event.KeyAdapter()
+        {
+            public void keyPressed(java.awt.event.KeyEvent evt)
+            {
                 btnBangsalCariKeyPressed(evt);
             }
         });
@@ -5522,8 +6043,10 @@ public class DlgKamarInap extends javax.swing.JDialog {
 
         TCari.setName("TCari"); // NOI18N
         TCari.setPreferredSize(new java.awt.Dimension(265, 23));
-        TCari.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
+        TCari.addKeyListener(new java.awt.event.KeyAdapter()
+        {
+            public void keyPressed(java.awt.event.KeyEvent evt)
+            {
                 TCariKeyPressed(evt);
             }
         });
@@ -5534,13 +6057,17 @@ public class DlgKamarInap extends javax.swing.JDialog {
         BtnCari.setToolTipText("Alt+4");
         BtnCari.setName("BtnCari"); // NOI18N
         BtnCari.setPreferredSize(new java.awt.Dimension(28, 23));
-        BtnCari.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        BtnCari.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 BtnCariActionPerformed(evt);
             }
         });
-        BtnCari.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
+        BtnCari.addKeyListener(new java.awt.event.KeyAdapter()
+        {
+            public void keyPressed(java.awt.event.KeyEvent evt)
+            {
                 BtnCariKeyPressed(evt);
             }
         });
@@ -5551,13 +6078,17 @@ public class DlgKamarInap extends javax.swing.JDialog {
         BtnAll.setToolTipText("Alt+M");
         BtnAll.setName("BtnAll"); // NOI18N
         BtnAll.setPreferredSize(new java.awt.Dimension(28, 23));
-        BtnAll.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        BtnAll.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 BtnAllActionPerformed(evt);
             }
         });
-        BtnAll.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
+        BtnAll.addKeyListener(new java.awt.event.KeyAdapter()
+        {
+            public void keyPressed(java.awt.event.KeyEvent evt)
+            {
                 BtnAllKeyPressed(evt);
             }
         });
@@ -5588,18 +6119,22 @@ public class DlgKamarInap extends javax.swing.JDialog {
         R2.setPreferredSize(new java.awt.Dimension(90, 23));
         panelCari.add(R2);
 
-        DTPCari1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "02-12-2023" }));
+        DTPCari1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "24-01-2024" }));
         DTPCari1.setDisplayFormat("dd-MM-yyyy");
         DTPCari1.setName("DTPCari1"); // NOI18N
         DTPCari1.setOpaque(false);
         DTPCari1.setPreferredSize(new java.awt.Dimension(95, 23));
-        DTPCari1.addItemListener(new java.awt.event.ItemListener() {
-            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+        DTPCari1.addItemListener(new java.awt.event.ItemListener()
+        {
+            public void itemStateChanged(java.awt.event.ItemEvent evt)
+            {
                 DTPCari1ItemStateChanged(evt);
             }
         });
-        DTPCari1.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
+        DTPCari1.addKeyListener(new java.awt.event.KeyAdapter()
+        {
+            public void keyPressed(java.awt.event.KeyEvent evt)
+            {
                 DTPCari1KeyPressed(evt);
             }
         });
@@ -5611,18 +6146,22 @@ public class DlgKamarInap extends javax.swing.JDialog {
         jLabel22.setPreferredSize(new java.awt.Dimension(25, 23));
         panelCari.add(jLabel22);
 
-        DTPCari2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "02-12-2023" }));
+        DTPCari2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "24-01-2024" }));
         DTPCari2.setDisplayFormat("dd-MM-yyyy");
         DTPCari2.setName("DTPCari2"); // NOI18N
         DTPCari2.setOpaque(false);
         DTPCari2.setPreferredSize(new java.awt.Dimension(95, 23));
-        DTPCari2.addItemListener(new java.awt.event.ItemListener() {
-            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+        DTPCari2.addItemListener(new java.awt.event.ItemListener()
+        {
+            public void itemStateChanged(java.awt.event.ItemEvent evt)
+            {
                 DTPCari1ItemStateChanged(evt);
             }
         });
-        DTPCari2.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
+        DTPCari2.addKeyListener(new java.awt.event.KeyAdapter()
+        {
+            public void keyPressed(java.awt.event.KeyEvent evt)
+            {
                 DTPCari2KeyPressed(evt);
             }
         });
@@ -5637,18 +6176,22 @@ public class DlgKamarInap extends javax.swing.JDialog {
         R3.setPreferredSize(new java.awt.Dimension(75, 23));
         panelCari.add(R3);
 
-        DTPCari3.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "02-12-2023" }));
+        DTPCari3.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "24-01-2024" }));
         DTPCari3.setDisplayFormat("dd-MM-yyyy");
         DTPCari3.setName("DTPCari3"); // NOI18N
         DTPCari3.setOpaque(false);
         DTPCari3.setPreferredSize(new java.awt.Dimension(95, 23));
-        DTPCari3.addItemListener(new java.awt.event.ItemListener() {
-            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+        DTPCari3.addItemListener(new java.awt.event.ItemListener()
+        {
+            public void itemStateChanged(java.awt.event.ItemEvent evt)
+            {
                 DTPCari3ItemStateChanged(evt);
             }
         });
-        DTPCari3.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
+        DTPCari3.addKeyListener(new java.awt.event.KeyAdapter()
+        {
+            public void keyPressed(java.awt.event.KeyEvent evt)
+            {
                 DTPCari3KeyPressed(evt);
             }
         });
@@ -5660,18 +6203,22 @@ public class DlgKamarInap extends javax.swing.JDialog {
         jLabel25.setPreferredSize(new java.awt.Dimension(25, 23));
         panelCari.add(jLabel25);
 
-        DTPCari4.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "02-12-2023" }));
+        DTPCari4.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "24-01-2024" }));
         DTPCari4.setDisplayFormat("dd-MM-yyyy");
         DTPCari4.setName("DTPCari4"); // NOI18N
         DTPCari4.setOpaque(false);
         DTPCari4.setPreferredSize(new java.awt.Dimension(95, 23));
-        DTPCari4.addItemListener(new java.awt.event.ItemListener() {
-            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+        DTPCari4.addItemListener(new java.awt.event.ItemListener()
+        {
+            public void itemStateChanged(java.awt.event.ItemEvent evt)
+            {
                 DTPCari4ItemStateChanged(evt);
             }
         });
-        DTPCari4.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
+        DTPCari4.addKeyListener(new java.awt.event.KeyAdapter()
+        {
+            public void keyPressed(java.awt.event.KeyEvent evt)
+            {
                 DTPCari4KeyPressed(evt);
             }
         });
@@ -5689,13 +6236,17 @@ public class DlgKamarInap extends javax.swing.JDialog {
         tbKamIn.setToolTipText("Klik data di table, kemudian klik kanan untuk memilih menu yang diinginkan");
         tbKamIn.setComponentPopupMenu(jPopupMenu1);
         tbKamIn.setName("tbKamIn"); // NOI18N
-        tbKamIn.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
+        tbKamIn.addMouseListener(new java.awt.event.MouseAdapter()
+        {
+            public void mouseClicked(java.awt.event.MouseEvent evt)
+            {
                 tbKamInMouseClicked(evt);
             }
         });
-        tbKamIn.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
+        tbKamIn.addKeyListener(new java.awt.event.KeyAdapter()
+        {
+            public void keyPressed(java.awt.event.KeyEvent evt)
+            {
                 tbKamInKeyPressed(evt);
             }
         });
@@ -5716,8 +6267,10 @@ public class DlgKamarInap extends javax.swing.JDialog {
         TNoRwCari.setHighlighter(null);
         TNoRwCari.setName("TNoRwCari"); // NOI18N
         TNoRwCari.setPreferredSize(new java.awt.Dimension(130, 23));
-        TNoRwCari.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
+        TNoRwCari.addMouseListener(new java.awt.event.MouseAdapter()
+        {
+            public void mouseClicked(java.awt.event.MouseEvent evt)
+            {
                 TNoRwCariMouseClicked(evt);
             }
         });
@@ -15604,7 +16157,8 @@ private void MnRujukMasukActionPerformed(java.awt.event.ActionEvent evt) {//GEN-
         } 
     }//GEN-LAST:event_MnCatatanPersalinanActionPerformed
 
-    private void MnSkorAldrettePascaAnestesiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MnSkorAldrettePascaAnestesiActionPerformed
+    private void MnSkorAldrettePascaAnestesiActionPerformed(java.awt.event.ActionEvent evt)
+    {
         if(tabMode.getRowCount()==0){
             JOptionPane.showMessageDialog(null,"Maaf, table masih kosong...!!!!");
             TCari.requestFocus();
@@ -15613,7 +16167,7 @@ private void MnRujukMasukActionPerformed(java.awt.event.ActionEvent evt) {//GEN-
                 if(tbKamIn.getValueAt(tbKamIn.getSelectedRow(),0).toString().equals("")){
                     try {
                         psanak=koneksi.prepareStatement(
-                            "select ranap_gabung.no_rawat2 from ranap_gabung where ranap_gabung.no_rawat=?");            
+                            "select ranap_gabung.no_rawat2 from ranap_gabung where ranap_gabung.no_rawat=?");
                         try {
                             psanak.setString(1,tbKamIn.getValueAt(tbKamIn.getSelectedRow()-1,0).toString());
                             rs2=psanak.executeQuery();
@@ -15641,12 +16195,12 @@ private void MnRujukMasukActionPerformed(java.awt.event.ActionEvent evt) {//GEN-
                         } catch(Exception ex){
                             System.out.println("Notifikasi : "+ex);
                         }finally{
-                              if(rs2 != null){
-                                  rs2.close();
-                              }
-                              if(psanak != null){
-                                  psanak.close();
-                              }
+                            if(rs2 != null){
+                                rs2.close();
+                            }
+                            if(psanak != null){
+                                psanak.close();
+                            }
                         }
                     } catch (Exception e) {
                         System.out.println(e);
@@ -15664,85 +16218,17 @@ private void MnRujukMasukActionPerformed(java.awt.event.ActionEvent evt) {//GEN-
                         form.setNoRm(norawat.getText(),DTPCari2.getDate());
                     }else if(R3.isSelected()==true){
                         form.setNoRm(norawat.getText(),DTPCari4.getDate());
-                    }  
-                    form.emptTeks();
-                    form.tampil();
-                    this.setCursor(Cursor.getDefaultCursor());
-                }
-            }
-        } 
-    }//GEN-LAST:event_MnSkorAldrettePascaAnestesiActionPerformed
-
-    private void MnSkorStewardPascaAnestesiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MnSkorStewardPascaAnestesiActionPerformed
-        if(tabMode.getRowCount()==0){
-            JOptionPane.showMessageDialog(null,"Maaf, table masih kosong...!!!!");
-            TCari.requestFocus();
-        }else{
-            if(tbKamIn.getSelectedRow()>-1){
-                if(tbKamIn.getValueAt(tbKamIn.getSelectedRow(),0).toString().equals("")){
-                    try {
-                        psanak=koneksi.prepareStatement(
-                            "select ranap_gabung.no_rawat2 from ranap_gabung where ranap_gabung.no_rawat=?");            
-                        try {
-                            psanak.setString(1,tbKamIn.getValueAt(tbKamIn.getSelectedRow()-1,0).toString());
-                            rs2=psanak.executeQuery();
-                            if(rs2.next()){
-                                this.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
-                                RMMonitoringStewardPascaAnestesi form=new RMMonitoringStewardPascaAnestesi(null,false);
-                                form.isCek();
-                                form.setSize(internalFrame1.getWidth()-20,internalFrame1.getHeight()-20);
-                                form.setLocationRelativeTo(internalFrame1);
-                                form.setVisible(true);
-                                if(R1.isSelected()==true){
-                                    form.setNoRm(rs2.getString("no_rawat2"),new Date());
-                                }else if(R2.isSelected()==true){
-                                    form.setNoRm(rs2.getString("no_rawat2"),DTPCari2.getDate());
-                                }else if(R3.isSelected()==true){
-                                    form.setNoRm(rs2.getString("no_rawat2"),DTPCari4.getDate());
-                                }
-                                form.emptTeks();
-                                form.tampil();
-                                this.setCursor(Cursor.getDefaultCursor());
-                            }else{
-                                JOptionPane.showMessageDialog(null,"Maaf, Silahkan anda pilih dulu pasien...!!!");
-                                tbKamIn.requestFocus();
-                            }
-                        } catch(Exception ex){
-                            System.out.println("Notifikasi : "+ex);
-                        }finally{
-                              if(rs2 != null){
-                                  rs2.close();
-                              }
-                              if(psanak != null){
-                                  psanak.close();
-                              }
-                        }
-                    } catch (Exception e) {
-                        System.out.println(e);
                     }
-                }else{
-                    this.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
-                    RMMonitoringStewardPascaAnestesi form=new RMMonitoringStewardPascaAnestesi(null,false);
-                    form.isCek();
-                    form.setSize(internalFrame1.getWidth()-20,internalFrame1.getHeight()-20);
-                    form.setLocationRelativeTo(internalFrame1);
-                    form.setVisible(true);
-                    if(R1.isSelected()==true){
-                        form.setNoRm(norawat.getText(),new Date());
-                    }else if(R2.isSelected()==true){
-                        form.setNoRm(norawat.getText(),DTPCari2.getDate());
-                    }else if(R3.isSelected()==true){
-                        form.setNoRm(norawat.getText(),DTPCari4.getDate());
-                    }  
                     form.emptTeks();
                     form.tampil();
                     this.setCursor(Cursor.getDefaultCursor());
                 }
             }
-        } 
-    }//GEN-LAST:event_MnSkorStewardPascaAnestesiActionPerformed
+        }
+    }
 
-    private void MnSkorBromagePascaAnestesiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MnSkorBromagePascaAnestesiActionPerformed
+    private void MnSkorBromagePascaAnestesiActionPerformed(java.awt.event.ActionEvent evt)
+    {
         if(tabMode.getRowCount()==0){
             JOptionPane.showMessageDialog(null,"Maaf, table masih kosong...!!!!");
             TCari.requestFocus();
@@ -15751,7 +16237,7 @@ private void MnRujukMasukActionPerformed(java.awt.event.ActionEvent evt) {//GEN-
                 if(tbKamIn.getValueAt(tbKamIn.getSelectedRow(),0).toString().equals("")){
                     try {
                         psanak=koneksi.prepareStatement(
-                            "select ranap_gabung.no_rawat2 from ranap_gabung where ranap_gabung.no_rawat=?");            
+                            "select ranap_gabung.no_rawat2 from ranap_gabung where ranap_gabung.no_rawat=?");
                         try {
                             psanak.setString(1,tbKamIn.getValueAt(tbKamIn.getSelectedRow()-1,0).toString());
                             rs2=psanak.executeQuery();
@@ -15779,12 +16265,12 @@ private void MnRujukMasukActionPerformed(java.awt.event.ActionEvent evt) {//GEN-
                         } catch(Exception ex){
                             System.out.println("Notifikasi : "+ex);
                         }finally{
-                              if(rs2 != null){
-                                  rs2.close();
-                              }
-                              if(psanak != null){
-                                  psanak.close();
-                              }
+                            if(rs2 != null){
+                                rs2.close();
+                            }
+                            if(psanak != null){
+                                psanak.close();
+                            }
                         }
                     } catch (Exception e) {
                         System.out.println(e);
@@ -15802,14 +16288,84 @@ private void MnRujukMasukActionPerformed(java.awt.event.ActionEvent evt) {//GEN-
                         form.setNoRm(norawat.getText(),DTPCari2.getDate());
                     }else if(R3.isSelected()==true){
                         form.setNoRm(norawat.getText(),DTPCari4.getDate());
-                    }  
+                    }
                     form.emptTeks();
                     form.tampil();
                     this.setCursor(Cursor.getDefaultCursor());
                 }
             }
-        } 
-    }//GEN-LAST:event_MnSkorBromagePascaAnestesiActionPerformed
+        }
+    }
+
+    private void MnSkorStewardPascaAnestesiActionPerformed(java.awt.event.ActionEvent evt)
+    {
+        if(tabMode.getRowCount()==0){
+            JOptionPane.showMessageDialog(null,"Maaf, table masih kosong...!!!!");
+            TCari.requestFocus();
+        }else{
+            if(tbKamIn.getSelectedRow()>-1){
+                if(tbKamIn.getValueAt(tbKamIn.getSelectedRow(),0).toString().equals("")){
+                    try {
+                        psanak=koneksi.prepareStatement(
+                            "select ranap_gabung.no_rawat2 from ranap_gabung where ranap_gabung.no_rawat=?");
+                        try {
+                            psanak.setString(1,tbKamIn.getValueAt(tbKamIn.getSelectedRow()-1,0).toString());
+                            rs2=psanak.executeQuery();
+                            if(rs2.next()){
+                                this.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
+                                RMMonitoringStewardPascaAnestesi form=new RMMonitoringStewardPascaAnestesi(null,false);
+                                form.isCek();
+                                form.setSize(internalFrame1.getWidth()-20,internalFrame1.getHeight()-20);
+                                form.setLocationRelativeTo(internalFrame1);
+                                form.setVisible(true);
+                                if(R1.isSelected()==true){
+                                    form.setNoRm(rs2.getString("no_rawat2"),new Date());
+                                }else if(R2.isSelected()==true){
+                                    form.setNoRm(rs2.getString("no_rawat2"),DTPCari2.getDate());
+                                }else if(R3.isSelected()==true){
+                                    form.setNoRm(rs2.getString("no_rawat2"),DTPCari4.getDate());
+                                }
+                                form.emptTeks();
+                                form.tampil();
+                                this.setCursor(Cursor.getDefaultCursor());
+                            }else{
+                                JOptionPane.showMessageDialog(null,"Maaf, Silahkan anda pilih dulu pasien...!!!");
+                                tbKamIn.requestFocus();
+                            }
+                        } catch(Exception ex){
+                            System.out.println("Notifikasi : "+ex);
+                        }finally{
+                            if(rs2 != null){
+                                rs2.close();
+                            }
+                            if(psanak != null){
+                                psanak.close();
+                            }
+                        }
+                    } catch (Exception e) {
+                        System.out.println(e);
+                    }
+                }else{
+                    this.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
+                    RMMonitoringStewardPascaAnestesi form=new RMMonitoringStewardPascaAnestesi(null,false);
+                    form.isCek();
+                    form.setSize(internalFrame1.getWidth()-20,internalFrame1.getHeight()-20);
+                    form.setLocationRelativeTo(internalFrame1);
+                    form.setVisible(true);
+                    if(R1.isSelected()==true){
+                        form.setNoRm(norawat.getText(),new Date());
+                    }else if(R2.isSelected()==true){
+                        form.setNoRm(norawat.getText(),DTPCari2.getDate());
+                    }else if(R3.isSelected()==true){
+                        form.setNoRm(norawat.getText(),DTPCari4.getDate());
+                    }
+                    form.emptTeks();
+                    form.tampil();
+                    this.setCursor(Cursor.getDefaultCursor());
+                }
+            }
+        }
+    }
 
     private void MnPenilaianPreInduksiActionPerformed(java.awt.event.ActionEvent evt) {                                                       
         if(tabMode.getRowCount()==0){
@@ -16306,8 +16862,6 @@ private void MnRujukMasukActionPerformed(java.awt.event.ActionEvent evt) {//GEN-
     private javax.swing.JMenuItem MnSensusRanap;
     private javax.swing.JMenuItem MnSignInSebelumAnestesi;
     private javax.swing.JMenuItem MnSignOutSebelumMenutupLuka;
-    private javax.swing.JMenuItem MnSkorAldrettePascaAnestesi;
-    private javax.swing.JMenuItem MnSkorStewardPascaAnestesi;
     private javax.swing.JMenuItem MnStatusAPS;
     private javax.swing.JMenuItem MnStatusBelumLengkap;
     private javax.swing.JMenuItem MnStatusBelumPulang;
@@ -16486,7 +17040,7 @@ private void MnRujukMasukActionPerformed(java.awt.event.ActionEvent evt) {//GEN-
     private widget.TextBox ttlbiaya;
     private widget.TextBox ttlbiayapindah;
     // End of variables declaration//GEN-END:variables
-    private javax.swing.JMenuItem MnSkorBromagePascaAnestesi,MnPenilaianPreInduksi,MnHasilPemeriksaanUSGUrologi,MnHasilPemeriksaanUSGGynecologi,MnHasilPemeriksaanEKG,MnBelumTerbitSEP,MnSudahTerbitSEP;
+    private javax.swing.JMenuItem MnSkorAldrettePascaAnestesi,MnSkorStewardPascaAnestesi,MnSkorBromagePascaAnestesi,MnPenilaianPreInduksi,MnHasilPemeriksaanUSGUrologi,MnHasilPemeriksaanUSGGynecologi,MnHasilPemeriksaanEKG,MnBelumTerbitSEP,MnSudahTerbitSEP;
     
     private void tampil() {
         if(R1.isSelected()==true){
@@ -17079,6 +17633,31 @@ private void MnRujukMasukActionPerformed(java.awt.event.ActionEvent evt) {//GEN-
         MnPenilaianPreInduksi.setName("MnPenilaianPreInduksi"); 
         MnPenilaianPreInduksi.setPreferredSize(new java.awt.Dimension(210, 26));
         MnPenilaianPreInduksi.addActionListener(this::MnPenilaianPreInduksiActionPerformed);
+
+        
+        MnSkorAldrettePascaAnestesi = new javax.swing.JMenuItem();
+        MnSkorAldrettePascaAnestesi.setBackground(new java.awt.Color(255, 255, 254));
+        MnSkorAldrettePascaAnestesi.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
+        MnSkorAldrettePascaAnestesi.setForeground(new java.awt.Color(50, 50, 50));
+        MnSkorAldrettePascaAnestesi.setIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/category.png"))); // NOI18N
+        MnSkorAldrettePascaAnestesi.setText("Skor Aldrette Pasca Anestesi");
+        MnSkorAldrettePascaAnestesi.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        MnSkorAldrettePascaAnestesi.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
+        MnSkorAldrettePascaAnestesi.setName("MnSkorAldrettePascaAnestesi"); // NOI18N
+        MnSkorAldrettePascaAnestesi.setPreferredSize(new java.awt.Dimension(210, 26));
+        MnSkorAldrettePascaAnestesi.addActionListener(this::MnSkorAldrettePascaAnestesiActionPerformed);
+
+        MnSkorStewardPascaAnestesi = new javax.swing.JMenuItem();
+        MnSkorStewardPascaAnestesi.setBackground(new java.awt.Color(255, 255, 254));
+        MnSkorStewardPascaAnestesi.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
+        MnSkorStewardPascaAnestesi.setForeground(new java.awt.Color(50, 50, 50));
+        MnSkorStewardPascaAnestesi.setIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/category.png"))); // NOI18N
+        MnSkorStewardPascaAnestesi.setText("Skor Steward Pasca Anestesi");
+        MnSkorStewardPascaAnestesi.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        MnSkorStewardPascaAnestesi.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
+        MnSkorStewardPascaAnestesi.setName("MnSkorStewardPascaAnestesi"); // NOI18N
+        MnSkorStewardPascaAnestesi.setPreferredSize(new java.awt.Dimension(210, 26));
+        MnSkorStewardPascaAnestesi.addActionListener(this::MnSkorStewardPascaAnestesiActionPerformed);
         
         MnSkorBromagePascaAnestesi = new javax.swing.JMenuItem();
         MnSkorBromagePascaAnestesi.setBackground(new java.awt.Color(255, 255, 254));
@@ -17091,7 +17670,7 @@ private void MnRujukMasukActionPerformed(java.awt.event.ActionEvent evt) {//GEN-
         MnSkorBromagePascaAnestesi.setName("MnSkorBromagePascaAnestesi");
         MnSkorBromagePascaAnestesi.setPreferredSize(new java.awt.Dimension(210, 26));
         MnSkorBromagePascaAnestesi.addActionListener(this::MnSkorBromagePascaAnestesiActionPerformed);
-        
+
         MnHasilPemeriksaanUSGUrologi = new javax.swing.JMenuItem();
         MnHasilPemeriksaanUSGUrologi.setBackground(new java.awt.Color(255, 255, 254));
         MnHasilPemeriksaanUSGUrologi.setFont(new java.awt.Font("Tahoma", 0, 11)); 
