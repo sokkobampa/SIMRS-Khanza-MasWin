@@ -378,7 +378,7 @@
 					<font fontName="Tahoma" size="9"/>
 					<paragraph lineSpacing="Single"/>
 				</textElement>
-				<textFieldExpression><![CDATA["Jatuh tempo "+$P{tempo}+" hari setelah tanggal kwitansi dan cantumkan nomor invoice pada bukti transfer. Setelah melakukan pembayaran, bukti transfer dan rincian pembayaran wajib dikirim ke email piutang.rssmc@gmail.com atau WA +62 821-5800-8760. Demikian permohonan ini kami ajukan, mohon untuk ditindaklanjuti. Atas perhatian dan kerjasamanya, kami ucapkan terima kasih."]]></textFieldExpression>
+				<textFieldExpression><![CDATA["Jatuh tempo "+$P{tempo}+" hari setelah tanggal kwitansi dan cantumkan nomor invoice pada bukti transfer. Setelah melakukan pembayaran, bukti transfer dan rincian pembayaran wajib dikirim ke email piutang.rssmc@gmail.com atau WA +62 821-5559-9232. Demikian permohonan ini kami ajukan, mohon untuk ditindaklanjuti. Atas perhatian dan kerjasamanya, kami ucapkan terima kasih."]]></textFieldExpression>
 			</textField>
 			<staticText>
 				<reportElement stretchType="RelativeToBandHeight" mode="Transparent" x="88" y="132" width="17" height="12" forecolor="#000000" backcolor="#F0F0DC" uuid="c19011f2-5b79-4ad1-b323-ecfe49b91f27">
