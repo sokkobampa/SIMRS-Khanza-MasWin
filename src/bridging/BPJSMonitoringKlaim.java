@@ -36,7 +36,6 @@ public class BPJSMonitoringKlaim extends javax.swing.JDialog {
     private sekuel Sequel=new sekuel();
     private validasi Valid=new validasi();
     private Connection koneksi=koneksiDB.condb();
-    private Dimension screen=Toolkit.getDefaultToolkit().getScreenSize();
     private PreparedStatement ps,pssep;
     private ResultSet rs,rssep;
     private final Properties prop = new Properties();
