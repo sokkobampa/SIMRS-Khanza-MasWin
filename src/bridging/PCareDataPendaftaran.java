@@ -4903,7 +4903,7 @@ public final class PCareDataPendaftaran extends javax.swing.JDialog {
                                         "\"signa1\": "+signa1+"," +
                                         "\"signa2\": "+signa2+"," +
                                         "\"jmlObat\": "+rscari.getString("jml")+"," +
-                                        "\"jmlPermintaan\": 0," +
+                                        "\"jmlPermintaan\": "+rscari.getString("jml")+"," +
                                         "\"nmObatNonDPHO\": \"-\"" +
                                      "}";
                                     System.out.println(requestJson);
@@ -7684,7 +7684,7 @@ public final class PCareDataPendaftaran extends javax.swing.JDialog {
                                                             "\"signa1\": "+signa1+"," +
                                                             "\"signa2\": "+signa2+"," +
                                                             "\"jmlObat\": "+rscari.getString("jml")+"," +
-                                                            "\"jmlPermintaan\": 0," +
+                                                            "\"jmlPermintaan\": "+rscari.getString("jml")+"," +
                                                             "\"nmObatNonDPHO\": \"-\"" +
                                                          "}";
                                                         PesanKirim.append(requestJson+"\n");
