@@ -4,6 +4,7 @@
 	<property name="ireport.zoom" value="2.0"/>
 	<property name="ireport.x" value="0"/>
 	<property name="ireport.y" value="0"/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="SIK LOCALHOST UPD"/>
 	<parameter name="namars" class="java.lang.String"/>
 	<parameter name="alamatrs" class="java.lang.String"/>
 	<parameter name="kotars" class="java.lang.String"/>
@@ -84,7 +85,7 @@
 		<band splitType="Stretch"/>
 	</background>
 	<title>
-		<band height="386" splitType="Stretch">
+		<band height="542" splitType="Stretch">
 			<property name="com.jaspersoft.studio.unit.height" value="px"/>
 			<staticText>
 				<reportElement x="2" y="60" width="553" height="14" uuid="f63aae1f-c584-42f3-88fc-5eb8002d06cb"/>
@@ -165,11 +166,11 @@
 				<text><![CDATA[:]]></text>
 			</staticText>
 			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
-				<reportElement positionType="Float" x="370" y="286" width="179" height="12" uuid="5dcd4792-e4f1-48f2-a147-29311d2ca705">
+				<reportElement positionType="Float" x="370" y="440" width="179" height="12" uuid="5dcd4792-e4f1-48f2-a147-29311d2ca705">
 					<property name="com.jaspersoft.studio.unit.height" value="px"/>
 				</reportElement>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font fontName="Tahoma" size="9" isBold="true"/>
+					<font fontName="Tahoma" size="9" isBold="false" isItalic="false"/>
 					<paragraph lineSpacing="Single"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$P{kotars}+", "+$P{tanggal}]]></textFieldExpression>
@@ -291,7 +292,7 @@
 				<text><![CDATA[Pembayaran mohon ditransfer melalui :]]></text>
 			</staticText>
 			<staticText>
-				<reportElement stretchType="RelativeToBandHeight" mode="Transparent" x="370" y="299" width="179" height="12" forecolor="#000000" backcolor="#F0F0DC" uuid="6d51dd45-b694-4612-96e9-92d88d273df4">
+				<reportElement stretchType="RelativeToBandHeight" mode="Transparent" x="370" y="453" width="179" height="12" forecolor="#000000" backcolor="#F0F0DC" uuid="6d51dd45-b694-4612-96e9-92d88d273df4">
 					<property name="com.jaspersoft.studio.unit.height" value="px"/>
 				</reportElement>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
@@ -325,13 +326,13 @@
 				<textFieldExpression><![CDATA["No.Rek. "+$P{norek}]]></textFieldExpression>
 			</textField>
 			<line>
-				<reportElement positionType="Float" x="370" y="371" width="177" height="1" uuid="09109f4d-d6fe-492b-b73a-38bc260c1230"/>
+				<reportElement positionType="Float" x="370" y="525" width="177" height="1" uuid="09109f4d-d6fe-492b-b73a-38bc260c1230"/>
 				<graphicElement>
 					<pen lineWidth="0.5" lineStyle="Solid"/>
 				</graphicElement>
 			</line>
 			<staticText>
-				<reportElement stretchType="RelativeToBandHeight" mode="Transparent" x="370" y="374" width="178" height="12" forecolor="#000000" backcolor="#F0F0DC" uuid="4a87531a-036e-4935-bf45-d0d0e3d01260">
+				<reportElement stretchType="RelativeToBandHeight" mode="Transparent" x="370" y="528" width="178" height="12" forecolor="#000000" backcolor="#F0F0DC" uuid="4a87531a-036e-4935-bf45-d0d0e3d01260">
 					<property name="com.jaspersoft.studio.unit.height" value="px"/>
 				</reportElement>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
@@ -341,7 +342,7 @@
 				<text><![CDATA[Manager Keuangan]]></text>
 			</staticText>
 			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
-				<reportElement positionType="Float" x="370" y="359" width="179" height="12" uuid="6888fcc1-59d0-4e11-9351-3432cbef0a4a"/>
+				<reportElement positionType="Float" x="370" y="513" width="179" height="12" uuid="6888fcc1-59d0-4e11-9351-3432cbef0a4a"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font fontName="Tahoma" size="9"/>
 					<paragraph lineSpacing="Single"/>
@@ -349,7 +350,7 @@
 				<textFieldExpression><![CDATA[$P{menyetujui}]]></textFieldExpression>
 			</textField>
 			<componentElement>
-				<reportElement x="370" y="310" width="178" height="47" isRemoveLineWhenBlank="true" uuid="63d2c425-32ff-44c1-84cb-b5970e152bca">
+				<reportElement x="370" y="464" width="177" height="46" isRemoveLineWhenBlank="true" uuid="63d2c425-32ff-44c1-84cb-b5970e152bca">
 					<property name="com.jaspersoft.studio.unit.width" value="px"/>
 				</reportElement>
 				<jr:QRCode xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd" errorCorrectionLevel="H">
@@ -373,12 +374,12 @@
 				<text><![CDATA[CATATAN :]]></text>
 			</staticText>
 			<textField>
-				<reportElement stretchType="RelativeToBandHeight" mode="Transparent" x="16" y="236" width="539" height="50" forecolor="#000000" backcolor="#F0F0DC" uuid="37922198-a037-4ff1-946b-5ed380107b06"/>
-				<textElement verticalAlignment="Top">
+				<reportElement stretchType="ContainerHeight" mode="Transparent" x="16" y="236" width="539" height="22" forecolor="#000000" backcolor="#F0F0DC" uuid="37922198-a037-4ff1-946b-5ed380107b06"/>
+				<textElement textAlignment="Justified" verticalAlignment="Top">
 					<font fontName="Tahoma" size="9"/>
 					<paragraph lineSpacing="Single"/>
 				</textElement>
-				<textFieldExpression><![CDATA["Jatuh tempo "+$P{tempo}+" hari setelah tanggal kwitansi dan cantumkan nomor invoice pada bukti transfer. Setelah melakukan pembayaran, bukti transfer dan rincian pembayaran wajib dikirim ke email piutang.rssmc@gmail.com atau WA +62 821-5559-9232. Demikian permohonan ini kami ajukan, mohon untuk ditindaklanjuti. Atas perhatian dan kerjasamanya, kami ucapkan terima kasih."]]></textFieldExpression>
+				<textFieldExpression><![CDATA["Perlu kami informasikan bahwa sesuai dengan kesepakatan dengan perjanjian kerjasama pelayanan kesehatan antara " + $P{namars} + " dengan asuransi/perusahaan, maka :"]]></textFieldExpression>
 			</textField>
 			<staticText>
 				<reportElement stretchType="RelativeToBandHeight" mode="Transparent" x="88" y="132" width="17" height="12" forecolor="#000000" backcolor="#F0F0DC" uuid="c19011f2-5b79-4ad1-b323-ecfe49b91f27">
@@ -391,7 +392,7 @@
 				<text><![CDATA[Rp.]]></text>
 			</staticText>
 			<textField>
-				<reportElement stretchType="RelativeToBandHeight" mode="Transparent" x="16" y="299" width="179" height="12" forecolor="#000000" backcolor="#F0F0DC" uuid="70f4cf46-4b6a-429d-929a-cd2ef60ede9e">
+				<reportElement stretchType="RelativeToBandHeight" mode="Transparent" x="16" y="453" width="179" height="12" forecolor="#000000" backcolor="#F0F0DC" uuid="70f4cf46-4b6a-429d-929a-cd2ef60ede9e">
 					<property name="com.jaspersoft.studio.unit.height" value="px"/>
 				</reportElement>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
@@ -401,7 +402,7 @@
 				<textFieldExpression><![CDATA[$P{namars}]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement positionType="Float" x="16" y="286" width="179" height="12" uuid="0f65f3b5-fa2b-45a4-a142-d47fd4a69eb1">
+				<reportElement positionType="Float" x="16" y="440" width="179" height="12" uuid="0f65f3b5-fa2b-45a4-a142-d47fd4a69eb1">
 					<property name="com.jaspersoft.studio.unit.height" value="px"/>
 				</reportElement>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
@@ -411,7 +412,7 @@
 				<text><![CDATA[DIREKTUR]]></text>
 			</staticText>
 			<staticText>
-				<reportElement positionType="Float" x="16" y="359" width="179" height="12" uuid="de12c71c-2227-4b69-9f56-4ea8ff2ca4ca"/>
+				<reportElement positionType="Float" x="16" y="513" width="179" height="12" uuid="de12c71c-2227-4b69-9f56-4ea8ff2ca4ca"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font fontName="Tahoma" size="9"/>
 					<paragraph lineSpacing="Single"/>
@@ -419,11 +420,61 @@
 				<text><![CDATA[dr. TEGUH NURWANTO, MARS]]></text>
 			</staticText>
 			<line>
-				<reportElement positionType="Float" x="17" y="371" width="177" height="1" uuid="57c72281-3353-4cd9-90be-1627b83589a3"/>
+				<reportElement positionType="Float" x="17" y="525" width="177" height="1" uuid="57c72281-3353-4cd9-90be-1627b83589a3"/>
 				<graphicElement>
 					<pen lineWidth="0.5" lineStyle="Solid"/>
 				</graphicElement>
 			</line>
+			<staticText>
+				<reportElement x="16" y="270" width="16" height="50" uuid="d4dc174c-6cf7-41c6-b3ef-84f8fd3f018b"/>
+				<textElement>
+					<font fontName="Tahoma" size="9"/>
+				</textElement>
+				<text><![CDATA[1.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="16" y="320" width="16" height="30" uuid="7a9f35dc-878e-45df-b2c0-84133230b32c"/>
+				<textElement>
+					<font fontName="Tahoma" size="9"/>
+				</textElement>
+				<text><![CDATA[2.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="16" y="350" width="16" height="30" uuid="1f89c083-63ec-4ca9-95e7-f7de94f8ae7f"/>
+				<textElement>
+					<font fontName="Tahoma" size="9"/>
+				</textElement>
+				<text><![CDATA[3.]]></text>
+			</staticText>
+			<textField>
+				<reportElement stretchType="ContainerHeight" mode="Transparent" x="32" y="270" width="523" height="50" forecolor="#000000" backcolor="#F0F0DC" uuid="fdd21281-eabd-406e-9e57-657abe1154c6"/>
+				<textElement textAlignment="Justified" verticalAlignment="Top">
+					<font fontName="Tahoma" size="9"/>
+					<paragraph lineSpacing="Single"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Apabila dalam jangka waktu 7 hari sejak diterimanya berkas tagihan oleh perusahaan pemberi jaminan, perusahaan yang bersangkutan tidak menyampaikan konfirmasi apapun mengenai berkas tagihan yang kami kirimkan, maka kami anggap berkas tagihan yang telah kami kirimkan telah lengkap dan dalam jangka waktu selambat-lambatnya " + $P{tempo} + " hari kami mohon agar biaya tersebut dapat segera dilunasi."]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="32" y="320" width="522" height="30" uuid="3d4769f0-59f0-401a-9bcc-0fad19e3c1e3"/>
+				<textElement textAlignment="Justified">
+					<font fontName="Tahoma" size="9"/>
+				</textElement>
+				<text><![CDATA[Apabila dalam jangka waktu tersebut belum melunasi pembayaran, maka kami akan mengenakan sanksi sebesar 2,00% dari total tagihan kami.]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="32" y="350" width="522" height="30" uuid="a40e8842-67ae-4e7e-9ffa-5e321a7cbc3d"/>
+				<textElement textAlignment="Justified" markup="styled">
+					<font fontName="Tahoma" size="9" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Setelah melakukan pembayaran, " + "<style isBold='true'>" + "bukti transfer dan rincian pembayaran wajib dikirim ke email piutang.rssmc@gmail.com atau WA +62 821-5559-9232. " + "</style>"]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="16" y="389" width="522" height="30" uuid="e691e8f1-b61a-4947-bd81-1d067405c9c5"/>
+				<textElement>
+					<font fontName="Tahoma" size="9"/>
+				</textElement>
+				<text><![CDATA[Demikian permohonan ini kami ajukan, mohon untuk ditindaklanjuti. Atas perhatian dan kerjasamanya, kami ucapkan terima kasih.]]></text>
+			</staticText>
 		</band>
 	</title>
 	<pageHeader>
