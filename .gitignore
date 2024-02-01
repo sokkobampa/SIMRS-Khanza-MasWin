@@ -4,6 +4,7 @@
 /lib
 **/*.DS_Store
 **/.DS_Store
+**/*.html_files
 *.DS_Store
 .DS_Store
 **/*.*~
