@@ -100,6 +100,22 @@ ALTER TABLE `tokoopname` MODIFY COLUMN `kode_brng` varchar(10) CHARACTER SET lat
 
 ALTER TABLE `transfer_pasien_antar_ruang` MODIFY COLUMN `diagnosa_utama` varchar(100) CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT NULL AFTER `ruang_selanjutnya`;
 
+ALTER TABLE `user` MODIFY COLUMN `grafik_per_perujuk` enum('true','false') CHARACTER SET latin1 COLLATE latin1_swedish_ci DEFAULT NULL NULL `surat_pemesanan_non_medis`;
+
+ALTER TABLE `user` MODIFY COLUMN `grafik_tb_hasilteshiv` enum('true','false') CHARACTER SET latin1 COLLATE latin1_swedish_ci DEFAULT NULL NULL AFTER `grafik_tb_hasilakhirpengobatan`;
+
+ALTER TABLE `user` MODIFY COLUMN `kadaluarsa_batch` enum('true','false') CHARACTER SET latin1 COLLATE latin1_swedish_ci DEFAULT NULL NULL AFTER `grafik_tb_hasilteshiv`;
+
+ALTER TABLE `user` MODIFY COLUMN `kemenkes_sitt` enum('true','false') CHARACTER SET latin1 COLLATE latin1_swedish_ci DEFAULT NULL NULL AFTER `password_asuransi`;
+
+ALTER TABLE `user` MODIFY COLUMN `pcare_pemberian_tindakan` enum('true','false') CHARACTER SET latin1 COLLATE latin1_swedish_ci DEFAULT NULL NULL AFTER `pcare_pemberian_obat`;
+
+ALTER TABLE `user` MODIFY COLUMN `peminjam_piutang` enum('true','false') CHARACTER SET latin1 COLLATE latin1_swedish_ci DEFAULT NULL NULL AFTER `hibah_aset_inventaris`;
+
+ALTER TABLE `user` MODIFY COLUMN `satu_sehat_kirim_clinicalimpression` enum('true','false') CHARACTER SET latin1 COLLATE latin1_swedish_ci DEFAULT NULL NULL AFTER `konfirmasi_rekonsiliasi_obat`;
+
+ALTER TABLE `user` MODIFY COLUMN `surat_balas` enum('true','false') CHARACTER SET latin1 COLLATE latin1_swedish_ci DEFAULT NULL NULL AFTER `surat_sifat`;
+
 ALTER TABLE `user` MODIFY COLUMN `template_persetujuan_penolakan_tindakan` enum('true','false') CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT NULL AFTER `laporan_anestesi`;
 
 SET FOREIGN_KEY_CHECKS=1;
