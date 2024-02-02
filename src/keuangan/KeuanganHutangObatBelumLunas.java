@@ -811,33 +811,32 @@ public final class KeuanganHutangObatBelumLunas extends javax.swing.JDialog {
 
     private void BtnPrintActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnPrintActionPerformed
         this.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
-        if(tabMode.getRowCount()==0){
+        if (tabMode.getRowCount() == 0) {
             JOptionPane.showMessageDialog(null,"Maaf, data sudah habis. Tidak ada data yang bisa anda print...!!!!");
-            //TCari.requestFocus();
-        }else if(tabMode.getRowCount()!=0){
-            
-            Sequel.queryu("delete from temporary where temp37='"+akses.getalamatip()+"'");
-            int row=tabMode.getRowCount();
-            for(i=0;i<row;i++){  
-                    Sequel.menyimpan("temporary","'"+i+"','"+
-                                tabMode.getValueAt(i,1).toString()+"','"+
-                                tabMode.getValueAt(i,2).toString()+"','"+
-                                tabMode.getValueAt(i,3).toString()+"','"+
-                                tabMode.getValueAt(i,4).toString()+"','"+
-                                tabMode.getValueAt(i,5).toString()+"','"+
-                                tabMode.getValueAt(i,6).toString()+"','"+
-                                tabMode.getValueAt(i,7).toString()+"','"+
-                                tabMode.getValueAt(i,8).toString()+"','"+
-                                Valid.SetAngka(Double.parseDouble(tabMode.getValueAt(i,9).toString()))+"','"+
-                                Valid.SetAngka(Double.parseDouble(tabMode.getValueAt(i,10).toString()))+"','"+
-                                tabMode.getValueAt(i,13).toString()+"','"+
-                                tabMode.getValueAt(i,14).toString()+"','','','','','','','','','','','','','','','','','','','','','','','','','"+akses.getalamatip()+"'","Hutang"); 
+        } else if (tabMode.getRowCount()!=0) {
+            Sequel.deleteTemporary();
+            for(i = 0; i < tabMode.getRowCount(); i++) {
+                Sequel.temporary(
+                    String.valueOf(i + 1),
+                    tabMode.getValueAt(i, 1).toString(),
+                    tabMode.getValueAt(i, 2).toString(),
+                    tabMode.getValueAt(i, 3).toString(),
+                    tabMode.getValueAt(i, 4).toString(),
+                    tabMode.getValueAt(i, 5).toString(),
+                    tabMode.getValueAt(i, 6).toString(),
+                    tabMode.getValueAt(i, 7).toString(),
+                    tabMode.getValueAt(i, 8).toString(),
+                    Valid.SetAngka(Double.parseDouble(tabMode.getValueAt(i, 9).toString())),
+                    Valid.SetAngka(Double.parseDouble(tabMode.getValueAt(i, 10).toString())),
+                    tabMode.getValueAt(i, 13).toString(),
+                    tabMode.getValueAt(i, 14).toString()
+                );
             }
-            i++;
-            Sequel.menyimpan("temporary","'"+i+"','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','"+akses.getalamatip()+"'","Hutang"); 
-            i++;
-            Sequel.menyimpan("temporary","'"+i+"','TOTAL HUTANG :','','','','','','','','"+LCount.getText()+"','','','','','','','','','','','','','','','','','','','','','','','','','','','','"+akses.getalamatip()+"'","Hutang"); 
-            
+            Sequel.temporary(String.valueOf(++i));
+            Sequel.temporary(
+                String.valueOf(++i),
+                "TOTAL PEMBAYARAN :", "", "", "", "", "", "", "", LCount.getText()
+            );
             
             Map<String, Object> param = new HashMap<>();                 
             param.put("namars",akses.getnamars());
@@ -1056,6 +1055,7 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
             if(sukses==true){
                 if(!notagihan.equals("")){
                     Sequel.queryu("update titip_faktur set status='Dibayar' where no_tagihan=?",notagihan);
+                    cetakDetailPembayaranHutang();
                     notagihan="";
                 }
                 Sequel.Commit();
@@ -1481,5 +1481,35 @@ private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
         }catch(Exception e){
             System.out.println("Notifikasi : "+e);
         }
+    }
+    
+    private void cetakDetailPembayaranHutang()
+    {
+        this.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
+        if (tabMode.getRowCount() <= 0) {
+            JOptionPane.showMessageDialog(null, "Maaf, data sudah habis. Tidak ada data yang bisa anda print...!!!!");
+            return;
+        }
+        
+        Map<String, Object> param = new HashMap<>();
+        param.put("namars", akses.getnamars());
+        param.put("alamatrs", akses.getalamatrs());
+        param.put("kotars", akses.getkabupatenrs());
+        param.put("propinsirs", akses.getpropinsirs());
+        param.put("kontakrs", akses.getkontakrs());
+        param.put("emailrs", akses.getemailrs());
+        param.put("logo", Sequel.cariGambar("select setting.logo from setting"));
+        
+        String sql = "select bayar_pemesanan.tgl_bayar, pemesanan.tgl_faktur, pemesanan.tgl_pesan, pemesanan.tgl_tempo, " +
+            "bayar_pemesanan.no_faktur, datasuplier.nama_suplier, bayar_pemesanan.nama_bayar,bayar_pemesanan.no_bukti, " +
+            "bayar_pemesanan.besar_bayar, bayar_pemesanan.keterangan, bayar_pemesanan.nip, petugas.nama from bayar_pemesanan " +
+            "join petugas on bayar_pemesanan.nip = petugas.nip join pemesanan on bayar_pemesanan.no_faktur = pemesanan.no_faktur " +
+            "join datasuplier on pemesanan.kode_suplier = datasuplier.kode_suplier where bayar_pemesanan.no_faktur in " +
+            "(select detail_titip_faktur.no_faktur from detail_titip_faktur where detail_titip_faktur.no_tagihan = ?) " +
+            "order by bayar_pemesanan.tgl_bayar";
+        
+        Valid.reportQuery("rptBayarPemesanan.jasper", "report", "::[ Bayar Pemesanan ]::", param, sql, notagihan);
+            
+        this.setCursor(Cursor.getDefaultCursor());
     }
 }
