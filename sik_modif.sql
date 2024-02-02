@@ -6,9 +6,10 @@ CREATE TABLE `antriloketcetak_smc`  (
   `jam` time NULL DEFAULT NULL,
   `jam_panggil` time NULL DEFAULT NULL,
   `no_rawat` varchar(17) CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT NULL,
-  PRIMARY KEY (`nomor`, `tanggal`) USING BTREE,
-  INDEX `antriloketcetak_smc_no_rawat_IDX`(`no_rawat`) USING BTREE,
-  INDEX `antriloketcetak_smc_jam_IDX`(`jam`) USING BTREE
+  PRIMARY KEY (`tanggal`, `nomor`) USING BTREE,
+  INDEX `antriloketcetak_smc_jam_IDX`(`jam`) USING BTREE,
+  INDEX `antriloketcetak_smc_tanggal_IDX`(`tanggal`) USING BTREE,
+  INDEX `antriloketcetak_smc_no_rawat_IDX`(`no_rawat`) USING BTREE
 ) ENGINE = InnoDB CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Dynamic;
 
 ALTER TABLE `datasuplier` MODIFY COLUMN `alamat` varchar(100) CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT NULL AFTER `nama_suplier`;
@@ -59,7 +60,7 @@ CREATE TABLE `referensi_mobilejkn_bpjs_taskid_response`  (
   `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT,
   `no_rawat` varchar(17) CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT NULL,
   `jenispasien` enum('JKN','NON JKN') CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT NULL,
-  `taskid` char(1) CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT NULL,
+  `taskid` char(2) CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT NULL,
   `code` varchar(5) CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT NULL,
   `message` varchar(200) CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT NULL,
   `waktu` datetime NULL DEFAULT NULL,
@@ -98,5 +99,7 @@ CREATE TABLE `tampjurnal_smc`  (
 ALTER TABLE `tokoopname` MODIFY COLUMN `kode_brng` varchar(10) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL FIRST;
 
 ALTER TABLE `transfer_pasien_antar_ruang` MODIFY COLUMN `diagnosa_utama` varchar(100) CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT NULL AFTER `ruang_selanjutnya`;
+
+ALTER TABLE `user` MODIFY COLUMN `template_persetujuan_penolakan_tindakan` enum('true','false') CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT NULL AFTER `laporan_anestesi`;
 
 SET FOREIGN_KEY_CHECKS=1;
