@@ -3027,12 +3027,6 @@ public class DlgUser extends javax.swing.JDialog {
                 case 1011:
                     column.setPreferredWidth(204);
                     break;
-                case 1010:
-                    column.setPreferredWidth(204);
-                    break;
-                case 1011:
-                    column.setPreferredWidth(204);
-                    break;
                 case 1012:
                     column.setPreferredWidth(120);
                     break;
@@ -5834,7 +5828,7 @@ private void BtnPrintKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_
                                         "penatalaksanaan_terapi_okupasi='"+tbUser.getValueAt(barisdicopy,1008).toString()+"',"+
                                         "satu_sehat_kirim_medicationdispense='"+tbUser.getValueAt(barisdicopy,1009).toString()+"',"+
                                         "edit_hapus_spo_medis='"+tbUser.getValueAt(barisdicopy,1010).toString()+"',"+
-                                        "edit_hapus_spo_nonmedis='"+tbUser.getValueAt(barisdicopy,1011).toString()+"',");
+                                        "edit_hapus_spo_nonmedis='"+tbUser.getValueAt(barisdicopy,1011).toString()+"',"+
                                         "hasil_usg_neonatus='"+tbUser.getValueAt(barisdicopy,1012).toString()+"',"+
                                         "hasil_endoskopi_faring_laring='"+tbUser.getValueAt(barisdicopy,1013).toString()+"'");
                                 }
