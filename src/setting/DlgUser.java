@@ -240,7 +240,8 @@ public class DlgUser extends javax.swing.JDialog {
                 "[L]Pencarian SEP Apotek BPJS","[L]Monitoring Klaim Apotek BPJS","[L]Daftar Pelayanan Obat Apotek BPJS","[M]Penilaian Awal Medis Ralan Paru","[M]Catatan Keperawatan Ralan",
                 "[M]Catatan Persalinan","[M]Skor Aldrette Pasca Anestesi","[M]Skor Steward Pasca Anestesi","[M]Skor Bromage Pasca Anestesi","[M]Penilaian Pre Induksi","[M]Hasil USG Urologi",
                 "[M]Hasil USG Gynecologi","[M]Hasil Pemeriksaan EKG","[L]Hapus/Edit SEP VClaim","[L]Kirim Diet Satu Sehat","[L]Mapping Obat/Alkes/BHP Satu Sehat","[F]Ringkasan Pengadaan Barang Dapur",
-                "[L]Kirim Medication Satu Sehat","[L]Kirim Medication Request Satu Sehat","[M]Penatalaksanaan Terapi Okupasi","[L]Kirim Medication Dispense Satu Sehat","[D]Edit/Hapus Surat Pemesanan Medis","[E]Edit/Hapus Surat Pemesanan Nonmedis"
+                "[L]Kirim Medication Satu Sehat","[L]Kirim Medication Request Satu Sehat","[M]Penatalaksanaan Terapi Okupasi","[L]Kirim Medication Dispense Satu Sehat","[D]Edit/Hapus Surat Pemesanan Medis","[E]Edit/Hapus Surat Pemesanan Nonmedis","[M]Hasil USG Neonatus",
+                "[M]Hasil Endoskopi Faring/Laring"
         };
         
         tabMode=new DefaultTableModel(null,row){
@@ -339,6 +340,8 @@ public class DlgUser extends javax.swing.JDialog {
                 java.lang.Boolean.class, java.lang.Boolean.class, java.lang.Boolean.class, java.lang.Boolean.class, 
                 java.lang.Boolean.class, java.lang.Boolean.class, java.lang.Boolean.class, java.lang.Boolean.class, 
                 java.lang.Boolean.class, java.lang.Boolean.class, java.lang.Boolean.class, java.lang.Boolean.class, 
+                java.lang.Boolean.class, java.lang.Boolean.class, java.lang.Boolean.class, java.lang.Boolean.class,
+                java.lang.Boolean.class, java.lang.Boolean.class, java.lang.Boolean.class, java.lang.Boolean.class,
                 java.lang.Boolean.class, java.lang.Boolean.class, java.lang.Boolean.class, java.lang.Boolean.class,
                 java.lang.Boolean.class, java.lang.Boolean.class, java.lang.Boolean.class, java.lang.Boolean.class,
                 java.lang.Boolean.class, java.lang.Boolean.class, java.lang.Boolean.class, java.lang.Boolean.class,
@@ -3024,6 +3027,18 @@ public class DlgUser extends javax.swing.JDialog {
                 case 1011:
                     column.setPreferredWidth(204);
                     break;
+                case 1010:
+                    column.setPreferredWidth(204);
+                    break;
+                case 1011:
+                    column.setPreferredWidth(204);
+                    break;
+                case 1012:
+                    column.setPreferredWidth(120);
+                    break;
+                case 1013:
+                    column.setPreferredWidth(167);
+                    break;
                 default:
                     column.setPreferredWidth(134);
                     break;
@@ -4607,7 +4622,9 @@ public class DlgUser extends javax.swing.JDialog {
                     "penatalaksanaan_terapi_okupasi='"+tbUser.getValueAt(i,1008).toString()+"',"+
                     "satu_sehat_kirim_medicationdispense='"+tbUser.getValueAt(i,1009).toString()+"',"+
                     "edit_hapus_spo_medis='"+tbUser.getValueAt(i,1010).toString()+"',"+
-                    "edit_hapus_spo_nonmedis='"+tbUser.getValueAt(i,1011).toString()+"'")==true){
+                    "edit_hapus_spo_nonmedis='"+tbUser.getValueAt(i,1011).toString()+"',"+
+                    "hasil_usg_neonatus='"+tbUser.getValueAt(i,1011).toString()+"',"+
+                    "hasil_endoskopi_faring_laring='"+tbUser.getValueAt(i,1012).toString()+"'")==true){
                     emptTeks();
                 }
             }         
@@ -5818,6 +5835,8 @@ private void BtnPrintKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_
                                         "satu_sehat_kirim_medicationdispense='"+tbUser.getValueAt(barisdicopy,1009).toString()+"',"+
                                         "edit_hapus_spo_medis='"+tbUser.getValueAt(barisdicopy,1010).toString()+"',"+
                                         "edit_hapus_spo_nonmedis='"+tbUser.getValueAt(barisdicopy,1011).toString()+"',");
+                                        "hasil_usg_neonatus='"+tbUser.getValueAt(barisdicopy,1012).toString()+"',"+
+                                        "hasil_endoskopi_faring_laring='"+tbUser.getValueAt(barisdicopy,1013).toString()+"'");
                                 }
                                 userdicopy="";
                                 copyhakakses="";
@@ -6108,7 +6127,8 @@ private void BtnPrintKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_
                 "user.bpjs_daftar_pelayanan_obat_apotek,user.penilaian_awal_medis_ralan_paru,user.catatan_keperawatan_ralan,user.catatan_persalinan,user.skor_aldrette_pasca_anestesi,"+
                 "user.skor_steward_pasca_anestesi,user.skor_bromage_pasca_anestesi,user.penilaian_pre_induksi,user.hasil_usg_urologi,user.hasil_usg_gynecologi,user.hasil_pemeriksaan_ekg,"+
                 "user.hapus_edit_sep_bpjs,user.satu_sehat_kirim_diet,user.satu_sehat_mapping_obat,user.dapur_ringkasan_pembelian,user.satu_sehat_kirim_medication,"+
-                "user.satu_sehat_kirim_medicationrequest,user.penatalaksanaan_terapi_okupasi,user.satu_sehat_kirim_medicationdispense,user.edit_hapus_spo_medis,user.edit_hapus_spo_nonmedis from user order by AES_DECRYPT(user.id_user,'nur')");
+                "user.satu_sehat_kirim_medicationrequest,user.penatalaksanaan_terapi_okupasi,user.satu_sehat_kirim_medicationdispense,user.edit_hapus_spo_medis,user.edit_hapus_spo_nonmedis,user.hasil_usg_neonatus,"+
+                "user.hasil_endoskopi_faring_laring from user order by AES_DECRYPT(user.id_user,'nur')");
             try {
                 rs=ps.executeQuery();
                 while(rs.next()){
@@ -7132,7 +7152,9 @@ private void BtnPrintKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_
                                rs.getBoolean("penatalaksanaan_terapi_okupasi"),
                                rs.getBoolean("satu_sehat_kirim_medicationdispense"),
                                rs.getBoolean("edit_hapus_spo_medis"),
-                               rs.getBoolean("edit_hapus_spo_nonmedis")
+                               rs.getBoolean("edit_hapus_spo_nonmedis"),
+                               rs.getBoolean("hasil_usg_neonatus"),
+                               rs.getBoolean("hasil_endoskopi_faring_laring")
                             });
                         }   
                     } catch (Exception e) {
@@ -8145,7 +8167,9 @@ private void BtnPrintKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_
                            rs.getBoolean("penatalaksanaan_terapi_okupasi"),
                            rs.getBoolean("satu_sehat_kirim_medicationdispense"),
                            rs.getBoolean("edit_hapus_spo_medis"),
-                           rs.getBoolean("edit_hapus_spo_nonmedis")
+                           rs.getBoolean("edit_hapus_spo_nonmedis"),
+                           rs.getBoolean("hasil_usg_neonatus"),
+                           rs.getBoolean("hasil_endoskopi_faring_laring")
                         });
                     }                                             
                  }

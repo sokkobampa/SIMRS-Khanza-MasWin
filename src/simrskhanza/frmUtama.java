@@ -837,9 +837,11 @@ import rekammedis.RMDataResumePasienRanap;
 import rekammedis.RMDataSkriningGiziLanjut;
 import rekammedis.RMDeteksiDiniCorona;
 import rekammedis.RMEdukasiPasienKeluargaRawatJalan;
+import rekammedis.RMHasilEndoskopiFaringLaring;
 import rekammedis.RMHasilPemeriksaanEKG;
 import rekammedis.RMHasilPemeriksaanUSG;
 import rekammedis.RMHasilPemeriksaanUSGGynecologi;
+import rekammedis.RMHasilPemeriksaanUSGNeonatus;
 import rekammedis.RMHasilPemeriksaanUSGUrologi;
 import rekammedis.RMHasilTindakanESWL;
 import rekammedis.RMKonselingFarmasi;
@@ -22087,6 +22089,34 @@ private void MnGantiPasswordBtnLogActionPerformed(java.awt.event.ActionEvent evt
         aplikasi.setVisible(true);
         this.setCursor(Cursor.getDefaultCursor());
     }
+    
+    private void btnHasilUSGNeonatusActionPerformed(java.awt.event.ActionEvent evt) {
+        isTutup();
+        this.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
+        RMHasilPemeriksaanUSGNeonatus form=new RMHasilPemeriksaanUSGNeonatus(this,false);
+        form.isCek();
+        form.emptTeks();
+        form.setTampil();
+        form.setSize(PanelUtama.getWidth(),PanelUtama.getHeight());
+        form.setLocationRelativeTo(PanelUtama);
+        form.setVisible(true);
+        DlgHome.dispose();
+        this.setCursor(Cursor.getDefaultCursor());
+    }
+    
+    private void btnHasilEndoskopiFaringLaringActionPerformed(java.awt.event.ActionEvent evt) {
+        isTutup();
+        this.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
+        RMHasilEndoskopiFaringLaring form=new RMHasilEndoskopiFaringLaring(this,false);
+        form.isCek();
+        form.emptTeks();
+        form.setTampil();
+        form.setSize(PanelUtama.getWidth(),PanelUtama.getHeight());
+        form.setLocationRelativeTo(PanelUtama);
+        form.setVisible(true);
+        DlgHome.dispose();
+        this.setCursor(Cursor.getDefaultCursor());
+    }
             
     /**
     * @param args the command line arguments
@@ -22773,7 +22803,8 @@ private void MnGantiPasswordBtnLogActionPerformed(java.awt.event.ActionEvent evt
             btnPenilaianUlangNyeri,btnPenilaianTerapiWicara,btnPengkajianRestrain,btnBPJSKunjunganSEPApotek,btnBPJSMonitoringKlaimApotek,btnPenilaianAwalMedisRalanParu,
             btnBPJSDaftarPelayananObatApotek,btnCatatanKeperawatanRalan,btnCatatanPersalinan,btnSkorAldrettePascaAnestesi,btnSkorStewardPascaAnestesi,
             btnSkorBromagePascaAnestesi,btnPenilaianPreInduksi,btnHasilUSGUrologi,btnHasilUSGGynecologi,btnHasilPemeriksaanEKG,btnKirimDietSatuSehat,btnMappingObatSatuSehat,
-            btnRingkasanPengadaanDapur,btnKirimMedicationSatuSehat,btnKirimMedicationRequestSatuSehat,btnPenatalaksanaanTerapiOkupasi,btnKirimMedicationDispenseSatuSehat;
+            btnRingkasanPengadaanDapur,btnKirimMedicationSatuSehat,btnKirimMedicationRequestSatuSehat,btnPenatalaksanaanTerapiOkupasi,btnKirimMedicationDispenseSatuSehat,
+            btnHasilUSGNeonatus,btnHasilEndoskopiFaringLaring;
     
     public void isWall(){
         try{            
@@ -26278,6 +26309,11 @@ private void MnGantiPasswordBtnLogActionPerformed(java.awt.event.ActionEvent evt
                 jmlmenu++;
             }
             
+            if(akses.gethasil_usg_neonatus()==true){
+                Panelmenu.add(btnHasilUSGNeonatus);
+                jmlmenu++;
+            }
+            
             if(akses.getpenilaian_awal_medis_ralan_tht()==true){
                 Panelmenu.add(btnPenilaianAwalMedisRalanTHT);
                 jmlmenu++;
@@ -26345,6 +26381,11 @@ private void MnGantiPasswordBtnLogActionPerformed(java.awt.event.ActionEvent evt
             
             if(akses.gethasil_pemeriksaan_ekg()==true){
                 Panelmenu.add(btnHasilPemeriksaanEKG);
+                jmlmenu++;
+            }
+            
+            if(akses.gethasil_endoskopi_faring_laring()==true){
+                Panelmenu.add(btnHasilEndoskopiFaringLaring);
                 jmlmenu++;
             }
             
@@ -31262,6 +31303,11 @@ private void MnGantiPasswordBtnLogActionPerformed(java.awt.event.ActionEvent evt
             jmlmenu++;
         }
         
+        if(akses.gethasil_usg_neonatus()==true){
+            Panelmenu.add(btnHasilUSGNeonatus);
+            jmlmenu++;
+        }
+        
         if(akses.getpenilaian_awal_medis_ralan_tht()==true){
             Panelmenu.add(btnPenilaianAwalMedisRalanTHT);
             jmlmenu++;
@@ -31329,6 +31375,11 @@ private void MnGantiPasswordBtnLogActionPerformed(java.awt.event.ActionEvent evt
             
         if(akses.gethasil_pemeriksaan_ekg()==true){
             Panelmenu.add(btnHasilPemeriksaanEKG);
+            jmlmenu++;
+        }
+        
+        if(akses.gethasil_endoskopi_faring_laring()==true){
+            Panelmenu.add(btnHasilEndoskopiFaringLaring);
             jmlmenu++;
         }
         
@@ -37594,6 +37645,13 @@ private void MnGantiPasswordBtnLogActionPerformed(java.awt.event.ActionEvent evt
             }                
         }
         
+        if(akses.gethasil_usg_neonatus()==true){
+            if(btnHasilUSGNeonatus.getText().toLowerCase().trim().contains(TCari.getText().toLowerCase().trim())){
+                Panelmenu.add(btnHasilUSGNeonatus);
+                jmlmenu++;
+            }                
+        }
+        
         if(akses.getpenilaian_awal_medis_ralan_tht()==true){
             if(btnPenilaianAwalMedisRalanTHT.getText().toLowerCase().trim().contains(TCari.getText().toLowerCase().trim())){
                 Panelmenu.add(btnPenilaianAwalMedisRalanTHT);
@@ -37688,6 +37746,13 @@ private void MnGantiPasswordBtnLogActionPerformed(java.awt.event.ActionEvent evt
         if(akses.gethasil_pemeriksaan_ekg()==true){
             if(btnHasilPemeriksaanEKG.getText().toLowerCase().trim().contains(TCari.getText().toLowerCase().trim())){
                 Panelmenu.add(btnHasilPemeriksaanEKG);
+                jmlmenu++;
+            }                
+        }
+        
+        if(akses.gethasil_endoskopi_faring_laring()==true){
+            if(btnHasilEndoskopiFaringLaring.getText().toLowerCase().trim().contains(TCari.getText().toLowerCase().trim())){
+                Panelmenu.add(btnHasilEndoskopiFaringLaring);
                 jmlmenu++;
             }                
         }
@@ -44150,5 +44215,21 @@ private void MnGantiPasswordBtnLogActionPerformed(java.awt.event.ActionEvent evt
         btnKirimMedicationDispenseSatuSehat.setName("btnKirimMedicationDispenseSatuSehat"); 
         btnKirimMedicationDispenseSatuSehat.setPreferredSize(new java.awt.Dimension(200, 90));
         btnKirimMedicationDispenseSatuSehat.addActionListener(this::btnKirimMedicationDispenseSatuSehatActionPerformed);
+        
+        btnHasilUSGNeonatus = new widget.ButtonBig();
+        btnHasilUSGNeonatus.setIcon(new javax.swing.ImageIcon(getClass().getResource("/48x48/7744782_mom_baby_mom and baby_mothers day_mother_icon.png")));
+        btnHasilUSGNeonatus.setText("Hasil USG Neonatus");
+        btnHasilUSGNeonatus.setIconTextGap(0);
+        btnHasilUSGNeonatus.setName("btnHasilUSGNeonatus"); 
+        btnHasilUSGNeonatus.setPreferredSize(new java.awt.Dimension(200, 90));
+        btnHasilUSGNeonatus.addActionListener(this::btnHasilUSGNeonatusActionPerformed);
+        
+        btnHasilEndoskopiFaringLaring = new widget.ButtonBig();
+        btnHasilEndoskopiFaringLaring.setIcon(new javax.swing.ImageIcon(getClass().getResource("/48x48/8725899_ear_icon.png")));
+        btnHasilEndoskopiFaringLaring.setText("Hasil Endoskopi Faring/Laring");
+        btnHasilEndoskopiFaringLaring.setIconTextGap(0);
+        btnHasilEndoskopiFaringLaring.setName("btnHasilEndoskopiFaringLaring"); 
+        btnHasilEndoskopiFaringLaring.setPreferredSize(new java.awt.Dimension(200, 90));
+        btnHasilEndoskopiFaringLaring.addActionListener(this::btnHasilEndoskopiFaringLaringActionPerformed);
     }
 }
