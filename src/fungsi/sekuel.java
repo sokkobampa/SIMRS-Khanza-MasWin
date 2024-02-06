@@ -195,6 +195,39 @@ public final class sekuel {
         return output;
     }
     
+    public int cariIntegerSmc(String sql, String... values) {
+        int output = 0;
+        
+        try {
+            ps = connect.prepareStatement(sql);
+            
+            try {
+                for (int i = 0; i < values.length; i++) {
+                    ps.setString(i + 1, values[i]);
+                }
+                
+                rs = ps.executeQuery();
+                
+                if (rs.next()) {
+                    output = rs.getInt(1);
+                }
+            } catch (Exception e) {
+                System.out.println("Notif : " + e);
+            } finally {
+                if (rs != null) {
+                    rs.close();
+                }
+                if (ps != null) {
+                    ps.close();
+                }
+            }
+        } catch (Exception e) {
+            System.out.println("Notif : " + e);
+        }
+        
+        return output;
+    }
+    
     public double cariDoubleSmc(String sql, String... values) {
         double output = 0;
         
