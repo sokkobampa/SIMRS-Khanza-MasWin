@@ -283,8 +283,8 @@ public final class sekuel {
             track = track.concat("'" + value + "', ");
         }
         
-        query = query.replaceFirst("\\?\\, \\)", "?)");
-        track = Utils.replaceLast(track, "', )", "')");
+        query = query.concat(")").replaceFirst("\\?\\, \\)", "?)");
+        track = Utils.replaceLast(track.concat(")"), "', )", "')");
         
         try {
             ps = connect.prepareStatement(query);
@@ -328,8 +328,8 @@ public final class sekuel {
             }
         }
         
-        query = query.replaceFirst("\\?\\, \\)", "?)");
-        track = Utils.replaceLast(track, "', )", "')");
+        query = query.concat(")").replaceFirst("\\?\\, \\)", "?)");
+        track = Utils.replaceLast(track.concat(")"), "', )", "')");
         
         try {
             ps = connect.prepareStatement(query);
@@ -337,7 +337,7 @@ public final class sekuel {
                 for (int i = 0; i < values.length; i++) {
                     ps.setString(i + 1, values[i]);
                 }
-                
+
                 ps.executeUpdate();
                 SimpanTrack(track);
                 output = true;
@@ -532,10 +532,8 @@ public final class sekuel {
             }
         }
         
-        query = query.concat("?, ?)");
-        
         try {
-            ps = connect.prepareStatement(query);
+            ps = connect.prepareStatement(query.concat("?, ?)"));
             
             try {
                 for (int i = 0; i < length; i++) {
