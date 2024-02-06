@@ -271,20 +271,26 @@ public final class sekuel {
     
     public void menyimpanSmc(String table, String kolom, String... values)
     {
-        String query = "insert into " + table + " (" + kolom + ") values (";
-        String track = query;
+        String bindings = "";
+        String trackedBindings = "";
+        
+        for (int i = 0; i < values.length; i++) {
+            if (i == values.length - 1) {
+                bindings = bindings.concat("?");
+                trackedBindings = trackedBindings.concat("'" + values[i] + "'");
+            } else {
+                bindings = bindings.concat("?, ");
+                trackedBindings = trackedBindings.concat("'" + values[i] + "', ");
+            }
+        }
+        
+        String query = "insert into " + table + " (" + kolom + ") values (" + bindings + ")";
+        String track = "insert into " + table + " (" + kolom + ") values (" + trackedBindings + ")";
         
         if (kolom == null) {
-            track = query = "insert into " + table + " values (";
+            query = "insert into " + table + " values (" + bindings + ")";
+            track = "insert into " + table + " values (" + trackedBindings + ")";
         }
-        
-        for (String value : values) {
-            query = query.concat("?, ");
-            track = track.concat("'" + value + "', ");
-        }
-        
-        query = query.concat(")").replaceFirst("\\?\\, \\)", "?)");
-        track = Utils.replaceLast(track.concat(")"), "', )", "')");
         
         try {
             ps = connect.prepareStatement(query);
@@ -311,25 +317,26 @@ public final class sekuel {
     public boolean menyimpantfSmc(String table, String kolom, String... values)
     {
         boolean output = false;
-        String query = "insert into " + table + " (" + kolom + ") values (";
-        String track = query;
+        String bindings = "";
+        String trackedBindings = "";
         
-        if (kolom == null) {
-            track = query = "insert into " + table + " values (";
-        }
-        
-        for (String value : values) {
-            if (Arrays.stream(new String[] {"now", "now()", "current_date", "current_date()", "current_time", "current_time()"}).anyMatch(value.toLowerCase()::equals)) {
-                query = query.concat(value + ", ");
-                track = track.concat(value + ", ");
+        for (int i = 0; i < values.length; i++) {
+            if (i == values.length - 1) {
+                bindings = bindings.concat("?");
+                trackedBindings = trackedBindings.concat("'" + values[i] + "'");
             } else {
-                query = query.concat("?, ");
-                track = track.concat("'" + value + "', ");
+                bindings = bindings.concat("?, ");
+                trackedBindings = trackedBindings.concat("'" + values[i] + "', ");
             }
         }
         
-        query = query.concat(")").replaceFirst("\\?\\, \\)", "?)");
-        track = Utils.replaceLast(track.concat(")"), "', )", "')");
+        String query = "insert into " + table + " (" + kolom + ") values (" + bindings + ")";
+        String track = "insert into " + table + " (" + kolom + ") values (" + trackedBindings + ")";
+        
+        if (kolom == null) {
+            query = "insert into " + table + " values (" + bindings + ")";
+            track = "insert into " + table + " values (" + trackedBindings + ")";
+        }
         
         try {
             ps = connect.prepareStatement(query);
