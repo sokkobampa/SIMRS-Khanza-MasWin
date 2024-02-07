@@ -457,13 +457,16 @@ public final class sekuel {
     
     public void executeRawSmc(String sql, String... values)
     {
+        String track = sql;
         try {
             ps = connect.prepareStatement(sql);
             try {
                 for (int i = 0; i < values.length; i++) {
                     ps.setString(i + 1, values[i]);
+                    track = track.replaceFirst("\\?", "'" + values[i] + "'");
                 }
                 ps.executeUpdate();
+                SimpanTrack(track);
             } catch (Exception e) {
                 System.out.println("Notif : " + e);
             } finally {
