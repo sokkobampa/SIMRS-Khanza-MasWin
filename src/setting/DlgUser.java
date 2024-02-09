@@ -537,7 +537,7 @@ public class DlgUser extends javax.swing.JDialog {
         tbUser.setPreferredScrollableViewportSize(new Dimension(500,500));
         tbUser.setAutoResizeMode(JTable.AUTO_RESIZE_OFF);
 
-        for (i = 0; i < 1013;i++) {
+        for (i = 0; i < 1015;i++) {
             TableColumn column = tbUser.getColumnModel().getColumn(i);
             switch (i) {
                 case 0:
@@ -3033,7 +3033,7 @@ public class DlgUser extends javax.swing.JDialog {
                 case 1013:
                     column.setPreferredWidth(167);
                     break;
-                case 1012:
+                case 1014:
                     column.setPreferredWidth(214);
                     break;
                 default:
@@ -4620,9 +4620,9 @@ public class DlgUser extends javax.swing.JDialog {
                     "satu_sehat_kirim_medicationdispense='"+tbUser.getValueAt(i,1009).toString()+"',"+
                     "edit_hapus_spo_medis='"+tbUser.getValueAt(i,1010).toString()+"',"+
                     "edit_hapus_spo_nonmedis='"+tbUser.getValueAt(i,1011).toString()+"',"+
-                    "hasil_usg_neonatus='"+tbUser.getValueAt(i,1011).toString()+"',"+
-                    "hasil_endoskopi_faring_laring='"+tbUser.getValueAt(i,1012).toString()+"',"+
-                    "satu_sehat_mapping_radiologi='"+tbUser.getValueAt(i,1012).toString()+"'")==true){
+                    "hasil_usg_neonatus='"+tbUser.getValueAt(i,1012).toString()+"',"+
+                    "hasil_endoskopi_faring_laring='"+tbUser.getValueAt(i,1013).toString()+"',"+
+                    "satu_sehat_mapping_radiologi='"+tbUser.getValueAt(i,1014).toString()+"'")==true){
                     emptTeks();
                 }
             }         
@@ -5835,7 +5835,7 @@ private void BtnPrintKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_
                                         "edit_hapus_spo_nonmedis='"+tbUser.getValueAt(barisdicopy,1011).toString()+"',"+
                                         "hasil_usg_neonatus='"+tbUser.getValueAt(barisdicopy,1012).toString()+"',"+
                                         "hasil_endoskopi_faring_laring='"+tbUser.getValueAt(barisdicopy,1013).toString()+"',"+
-                                        "satu_sehat_mapping_radiologi='"+tbUser.getValueAt(barisdicopy,1012).toString()+"'");
+                                        "satu_sehat_mapping_radiologi='"+tbUser.getValueAt(barisdicopy,1014).toString()+"'");
                                 }
                                 userdicopy="";
                                 copyhakakses="";
