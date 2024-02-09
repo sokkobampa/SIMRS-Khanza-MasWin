@@ -220,7 +220,8 @@ public final class akses {
             catatan_keperawatan_ralan=false,catatan_persalinan=false,skor_aldrette_pasca_anestesi=false,skor_steward_pasca_anestesi=false,skor_bromage_pasca_anestesi=false,
             penilaian_pre_induksi=false,hasil_usg_urologi=false,hasil_usg_gynecologi=false,hasil_pemeriksaan_ekg=false,hapus_edit_sep_bpjs=false,satu_sehat_kirim_diet=false,
             satu_sehat_mapping_obat=false,dapur_ringkasan_pembelian=false,satu_sehat_kirim_medication=false,satu_sehat_kirim_medicationrequest=false,
-            penatalaksanaan_terapi_okupasi=false,satu_sehat_kirim_medicationdispense=false,edit_hapus_spo_medis=false,edit_hapus_spo_nonmedis=false,hasil_usg_neonatus=false,hasil_endoskopi_faring_laring=false;
+            penatalaksanaan_terapi_okupasi=false,satu_sehat_kirim_medicationdispense=false,edit_hapus_spo_medis=false,edit_hapus_spo_nonmedis=false,hasil_usg_neonatus=false,hasil_endoskopi_faring_laring=false,
+            satu_sehat_mapping_radiologi=false;
     
     public static void setData(String user, String pass) {
         try {        
@@ -1254,6 +1255,7 @@ public final class akses {
                         akses.edit_hapus_spo_nonmedis=true;
                         akses.hasil_usg_neonatus=true;
                         akses.hasil_endoskopi_faring_laring=true;
+                        akses.satu_sehat_mapping_radiologi=true;
                     }else if(rs2.getRow()>=1){   
                         rs2.beforeFirst();
                         rs2.next();
@@ -2271,6 +2273,7 @@ public final class akses {
                         akses.edit_hapus_spo_nonmedis=rs2.getBoolean("edit_hapus_spo_nonmedis");
                         akses.hasil_usg_neonatus=rs2.getBoolean("hasil_usg_neonatus");
                         akses.hasil_endoskopi_faring_laring=rs2.getBoolean("hasil_endoskopi_faring_laring");
+                        akses.satu_sehat_mapping_radiologi=rs2.getBoolean("satu_sehat_mapping_radiologi");
                     }else if((rs.getRow()==0)&&(rs2.getRow()==0)){
                         akses.kode="";                  
                         akses.penyakit= false;
@@ -3286,6 +3289,7 @@ public final class akses {
                         akses.edit_hapus_spo_nonmedis=false;
                         akses.hasil_usg_neonatus=false;
                         akses.hasil_endoskopi_faring_laring=false;
+                        akses.satu_sehat_mapping_radiologi=false;
                     }
                 } catch (Exception e) {
                     System.out.println("Notifikasi : "+e);
@@ -4324,6 +4328,7 @@ public final class akses {
         akses.edit_hapus_spo_nonmedis=false;
         akses.hasil_usg_neonatus=false;
         akses.hasil_endoskopi_faring_laring=false;
+        akses.satu_sehat_mapping_radiologi=false;
     }
     
     public static int getjml1() {return akses.jml1;}    
@@ -5378,4 +5383,5 @@ public final class akses {
     public static boolean getedit_hapus_spo_nonmedis() { return akses.edit_hapus_spo_nonmedis; }
     public static boolean gethasil_usg_neonatus(){return akses.hasil_usg_neonatus;}
     public static boolean gethasil_endoskopi_faring_laring(){return akses.hasil_endoskopi_faring_laring;}
+    public static boolean getsatu_sehat_mapping_radiologi(){return akses.satu_sehat_mapping_radiologi;}
 }   
