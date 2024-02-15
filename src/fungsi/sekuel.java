@@ -145,7 +145,7 @@ public final class sekuel {
     
     public String cariIsiSmc(String sql, String... values)
     {
-        String output = null;
+        String output = "";
         
         try {
             ps = connect.prepareStatement(sql);
