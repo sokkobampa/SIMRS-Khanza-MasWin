@@ -1016,7 +1016,6 @@ private void btnSatuanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIR
         stok.setText("0");
         kdjenis.setText("");
         nmjenis.setText("");
-        TCari.setText("");
         kode_brng.requestFocus();
         //Valid.autoNomer(" jns_perawatan ","JP",6,TKd);
         Valid.autoNomer3("select ifnull(MAX(CONVERT(RIGHT(ipsrsbarang.kode_brng,4),signed)),0) from ipsrsbarang  ","B",5,kode_brng);
