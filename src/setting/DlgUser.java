@@ -243,7 +243,7 @@ public class DlgUser extends javax.swing.JDialog {
                 "[L]Kirim Medication Satu Sehat","[L]Kirim Medication Request Satu Sehat","[M]Penatalaksanaan Terapi Okupasi","[L]Kirim Medication Dispense Satu Sehat","[D]Edit/Hapus Surat Pemesanan Medis","[E]Edit/Hapus Surat Pemesanan Nonmedis","[M]Hasil USG Neonatus",
                 "[M]Hasil Endoskopi Faring/Laring","[L]Mapping Tindakan Radiologi Satu Sehat","[L]Kirim Service Request Radiologi Satu Sehat","[M]Hasil Endoskopi Hidung",
                 "[L]Kirim Specimen Radiologi Satu Sehat","[M]Master Masalah Keperawatan Neonatus","[M]Master Rencana Keperawatan Neonatus","[M]Penilaian Awal Keperawatan Ranap Neonatus",
-                "[L]Kirim Observation Radiologi Satu Sehat"
+                "[L]Kirim Observation Radiologi Satu Sehat","[L]Kirim Diagnostic Report Radiologi Satu Sehat"
         };
         
         tabMode=new DefaultTableModel(null,row){
@@ -527,6 +527,7 @@ public class DlgUser extends javax.swing.JDialog {
                 java.lang.Boolean.class, java.lang.Boolean.class, java.lang.Boolean.class, java.lang.Boolean.class,
                 java.lang.Boolean.class, java.lang.Boolean.class, java.lang.Boolean.class, java.lang.Boolean.class,
                 java.lang.Boolean.class, java.lang.Boolean.class, java.lang.Boolean.class, java.lang.Boolean.class,
+                java.lang.Boolean.class, java.lang.Boolean.class, java.lang.Boolean.class, java.lang.Boolean.class,
                 java.lang.Boolean.class, java.lang.Boolean.class
              };
              @Override
@@ -540,7 +541,7 @@ public class DlgUser extends javax.swing.JDialog {
         tbUser.setPreferredScrollableViewportSize(new Dimension(500,500));
         tbUser.setAutoResizeMode(JTable.AUTO_RESIZE_OFF);
 
-        for (i = 0; i < 1022;i++) {
+        for (i = 0; i < 1023;i++) {
             TableColumn column = tbUser.getColumnModel().getColumn(i);
             switch (i) {
                 case 0:
@@ -3060,6 +3061,9 @@ public class DlgUser extends javax.swing.JDialog {
                 case 1021:
                     column.setPreferredWidth(212);
                     break;
+                case 1020:
+                    column.setPreferredWidth(240);
+                    break;
                 default:
                     column.setPreferredWidth(134);
                     break;
@@ -3558,7 +3562,8 @@ public class DlgUser extends javax.swing.JDialog {
                     "'false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false',"+
                     "'false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false',"+
                     "'false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false',"+
-                    "'false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false'","User")==true){
+                    "'false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false',"+
+                    "'false'","User")==true){
                 tabMode.addRow(new Object[]{
                     TKd.getText(),TNmUser.getText(),Jabatan.getText(),TPass.getText(),false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,
                     false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,
@@ -3584,7 +3589,7 @@ public class DlgUser extends javax.swing.JDialog {
                     false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,
                     false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,
                     false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,
-                    false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false
+                    false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false
                 });
                 emptTeks();
                 LCount.setText(""+tabMode.getRowCount());
@@ -4653,7 +4658,8 @@ public class DlgUser extends javax.swing.JDialog {
                     "master_masalah_keperawatan_neonatus='"+tbUser.getValueAt(i,1018).toString()+"',"+
                     "master_rencana_keperawatan_neonatus='"+tbUser.getValueAt(i,1019).toString()+"',"+
                     "penilaian_awal_keperawatan_ranap_neonatus='"+tbUser.getValueAt(i,1020).toString()+"',"+
-                    "satu_sehat_kirim_observation_radiologi='"+tbUser.getValueAt(i,1021).toString()+"'")==true){
+                    "satu_sehat_kirim_observation_radiologi='"+tbUser.getValueAt(i,1021).toString()+"',"+
+                    "satu_sehat_kirim_diagnosticreport_radiologi='"+tbUser.getValueAt(i,1022).toString()+"'")==true){
                     emptTeks();
                 }
             }         
@@ -5873,7 +5879,8 @@ private void BtnPrintKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_
                                         "master_masalah_keperawatan_neonatus='"+tbUser.getValueAt(barisdicopy,1018).toString()+"',"+
                                         "master_rencana_keperawatan_neonatus='"+tbUser.getValueAt(barisdicopy,1019).toString()+"',"+
                                         "penilaian_awal_keperawatan_ranap_neonatus='"+tbUser.getValueAt(barisdicopy,1020).toString()+"',"+
-                                        "satu_sehat_kirim_observation_radiologi='"+tbUser.getValueAt(barisdicopy,1021).toString()+"'");
+                                        "satu_sehat_kirim_observation_radiologi='"+tbUser.getValueAt(barisdicopy,1021).toString()+"',"+
+                                        "satu_sehat_kirim_diagnosticreport_radiologi='"+tbUser.getValueAt(barisdicopy,1022).toString()+"'");
                                 }
                                 userdicopy="";
                                 copyhakakses="";
@@ -6167,7 +6174,7 @@ private void BtnPrintKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_
                 "user.satu_sehat_kirim_medicationrequest,user.penatalaksanaan_terapi_okupasi,user.satu_sehat_kirim_medicationdispense,user.edit_hapus_spo_medis,user.edit_hapus_spo_nonmedis,user.hasil_usg_neonatus,"+
                 "user.hasil_endoskopi_faring_laring,user.satu_sehat_mapping_radiologi,user.satu_sehat_kirim_servicerequest_radiologi,user.hasil_endoskopi_hidung,"+
                 "user.satu_sehat_kirim_specimen_radiologi,user.master_masalah_keperawatan_neonatus,user.master_rencana_keperawatan_neonatus,user.penilaian_awal_keperawatan_ranap_neonatus,"+
-                "user.satu_sehat_kirim_observation_radiologi from user order by AES_DECRYPT(user.id_user,'nur')");
+                "user.satu_sehat_kirim_observation_radiologi,user.satu_sehat_kirim_diagnosticreport_radiologi from user order by AES_DECRYPT(user.id_user,'nur')");
             try {
                 rs=ps.executeQuery();
                 while(rs.next()){
@@ -7201,7 +7208,8 @@ private void BtnPrintKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_
                                rs.getBoolean("master_masalah_keperawatan_neonatus"),
                                rs.getBoolean("master_rencana_keperawatan_neonatus"),
                                rs.getBoolean("penilaian_awal_keperawatan_ranap_neonatus"),
-                               rs.getBoolean("satu_sehat_kirim_observation_radiologi")
+                               rs.getBoolean("satu_sehat_kirim_observation_radiologi"),
+                               rs.getBoolean("satu_sehat_kirim_diagnosticreport_radiologi")
                             });
                         }   
                     } catch (Exception e) {
@@ -8224,7 +8232,8 @@ private void BtnPrintKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_
                            rs.getBoolean("master_masalah_keperawatan_neonatus"),
                            rs.getBoolean("master_rencana_keperawatan_neonatus"),
                            rs.getBoolean("penilaian_awal_keperawatan_ranap_neonatus"),
-                           rs.getBoolean("satu_sehat_kirim_observation_radiologi")
+                           rs.getBoolean("satu_sehat_kirim_observation_radiologi"),
+                           rs.getBoolean("satu_sehat_kirim_diagnosticreport_radiologi")
                         });
                     }                                             
                  }

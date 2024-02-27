@@ -637,7 +637,7 @@ public final class SatuSehatKirimServiceRequestRadiologi extends javax.swing.JDi
                         root = mapper.readTree(json);
                         response = root.path("id");
                         if(!response.asText().equals("")){
-                            if(Sequel.menyimpantf2("satu_sehat_servicerequest_radiologi","?,?,?","No.Rawat",3,new String[]{
+                            if(Sequel.menyimpantf2("satu_sehat_servicerequest_radiologi","?,?,?","No.Order",3,new String[]{
                                 tbObat.getValueAt(i,9).toString(),tbObat.getValueAt(i,17).toString(),response.asText()
                             })==true){
                                 tbObat.setValueAt(response.asText(),i,16);
@@ -810,7 +810,7 @@ public final class SatuSehatKirimServiceRequestRadiologi extends javax.swing.JDi
                    "where nota_jalan.tanggal between ? and ? "+
                    (TCari.getText().equals("")?"":"and (reg_periksa.no_rawat like ? or reg_periksa.no_rkm_medis like ? or "+
                    "pasien.nm_pasien like ? or pasien.no_ktp like ? or pegawai.nama like ? or jns_perawatan_radiologi.nm_perawatan like ? or "+
-                   "satu_sehat_mapping_radiologi.code like ? or permintaan_radiologi.noorder like ?)")+" order by reg_periksa.tgl_registrasi,reg_periksa.jam_reg");
+                   "satu_sehat_mapping_radiologi.code like ? or permintaan_radiologi.noorder like ?)"));
             try {
                 ps.setString(1,Valid.SetTgl(DTPCari1.getSelectedItem()+""));
                 ps.setString(2,Valid.SetTgl(DTPCari2.getSelectedItem()+""));
@@ -860,7 +860,7 @@ public final class SatuSehatKirimServiceRequestRadiologi extends javax.swing.JDi
                    "where nota_inap.tanggal between ? and ? "+
                    (TCari.getText().equals("")?"":"and (reg_periksa.no_rawat like ? or reg_periksa.no_rkm_medis like ? or "+
                    "pasien.nm_pasien like ? or pasien.no_ktp like ? or pegawai.nama like ? or jns_perawatan_radiologi.nm_perawatan like ? or "+
-                   "satu_sehat_mapping_radiologi.code like ? or permintaan_radiologi.noorder like ?)")+" order by reg_periksa.tgl_registrasi,reg_periksa.jam_reg");
+                   "satu_sehat_mapping_radiologi.code like ? or permintaan_radiologi.noorder like ?)"));
             try {
                 ps.setString(1,Valid.SetTgl(DTPCari1.getSelectedItem()+""));
                 ps.setString(2,Valid.SetTgl(DTPCari2.getSelectedItem()+""));

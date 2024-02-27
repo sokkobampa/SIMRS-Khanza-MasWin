@@ -603,7 +603,7 @@ public final class SatuSehatKirimSpecimenRadiologi extends javax.swing.JDialog {
                         root = mapper.readTree(json);
                         response = root.path("id");
                         if(!response.asText().equals("")){
-                            if(Sequel.menyimpantf2("satu_sehat_specimen_radiologi","?,?,?","No.Rawat",3,new String[]{
+                            if(Sequel.menyimpantf2("satu_sehat_specimen_radiologi","?,?,?","No.Order",3,new String[]{
                                 tbObat.getValueAt(i,5).toString(),tbObat.getValueAt(i,12).toString(),response.asText()
                             })==true){
                                 tbObat.setValueAt(response.asText(),i,13);
@@ -763,7 +763,7 @@ public final class SatuSehatKirimSpecimenRadiologi extends javax.swing.JDialog {
                    "where nota_jalan.tanggal between ? and ? "+
                    (TCari.getText().equals("")?"":"and (reg_periksa.no_rawat like ? or reg_periksa.no_rkm_medis like ? or "+
                    "pasien.nm_pasien like ? or pasien.no_ktp like ? or jns_perawatan_radiologi.nm_perawatan like ? or "+
-                   "satu_sehat_mapping_radiologi.sampel_code like ? or permintaan_radiologi.noorder like ?)")+" order by reg_periksa.tgl_registrasi,reg_periksa.jam_reg");
+                   "satu_sehat_mapping_radiologi.sampel_code like ? or permintaan_radiologi.noorder like ?)"));
             try {
                 ps.setString(1,Valid.SetTgl(DTPCari1.getSelectedItem()+""));
                 ps.setString(2,Valid.SetTgl(DTPCari2.getSelectedItem()+""));
@@ -779,9 +779,9 @@ public final class SatuSehatKirimSpecimenRadiologi extends javax.swing.JDialog {
                 rs=ps.executeQuery();
                 while(rs.next()){
                     tabMode.addRow(new Object[]{
-                        false,rs.getString("reg_periksa.no_rawat"),rs.getString("no_rkm_medis"),rs.getString("nm_pasien"),rs.getString("no_ktp"),rs.getString("noorder"),
-                        rs.getString("tgl_sampel")+" "+rs.getString("jam_sampel"),rs.getString("nm_perawatan"),rs.getString("sampel_code"),rs.getString("sampel_system"),rs.getString("sampel_display"),
-                        rs.getString("id_servicerequest"),rs.getString("kd_jenis_prw"),rs.getString("id_specimen")
+                        false,rs.getString("no_rawat"),rs.getString("no_rkm_medis"),rs.getString("nm_pasien"),rs.getString("no_ktp"),rs.getString("noorder"),
+                        rs.getString("tgl_sampel")+" "+rs.getString("jam_sampel"),rs.getString("nm_perawatan"),rs.getString("sampel_code"),rs.getString("sampel_system"),
+                        rs.getString("sampel_display"),rs.getString("id_servicerequest"),rs.getString("kd_jenis_prw"),rs.getString("id_specimen")
                     });
                 }
             } catch (Exception e) {
@@ -812,7 +812,7 @@ public final class SatuSehatKirimSpecimenRadiologi extends javax.swing.JDialog {
                    "where nota_inap.tanggal between ? and ? "+
                    (TCari.getText().equals("")?"":"and (reg_periksa.no_rawat like ? or reg_periksa.no_rkm_medis like ? or "+
                    "pasien.nm_pasien like ? or pasien.no_ktp like ? or jns_perawatan_radiologi.nm_perawatan like ? or "+
-                   "satu_sehat_mapping_radiologi.sampel_code like ? or permintaan_radiologi.noorder like ?)")+" order by reg_periksa.tgl_registrasi,reg_periksa.jam_reg");
+                   "satu_sehat_mapping_radiologi.sampel_code like ? or permintaan_radiologi.noorder like ?)"));
             try {
                 ps.setString(1,Valid.SetTgl(DTPCari1.getSelectedItem()+""));
                 ps.setString(2,Valid.SetTgl(DTPCari2.getSelectedItem()+""));
@@ -828,9 +828,9 @@ public final class SatuSehatKirimSpecimenRadiologi extends javax.swing.JDialog {
                 rs=ps.executeQuery();
                 while(rs.next()){
                     tabMode.addRow(new Object[]{
-                        false,rs.getString("reg_periksa.no_rawat"),rs.getString("no_rkm_medis"),rs.getString("nm_pasien"),rs.getString("no_ktp"),rs.getString("noorder"),
-                        rs.getString("tgl_sampel")+" "+rs.getString("jam_sampel"),rs.getString("nm_perawatan"),rs.getString("sampel_code"),rs.getString("sampel_system"),rs.getString("sampel_display"),
-                        rs.getString("id_servicerequest"),rs.getString("kd_jenis_prw"),rs.getString("id_specimen")
+                        false,rs.getString("no_rawat"),rs.getString("no_rkm_medis"),rs.getString("nm_pasien"),rs.getString("no_ktp"),rs.getString("noorder"),
+                        rs.getString("tgl_sampel")+" "+rs.getString("jam_sampel"),rs.getString("nm_perawatan"),rs.getString("sampel_code"),rs.getString("sampel_system"),
+                        rs.getString("sampel_display"),rs.getString("id_servicerequest"),rs.getString("kd_jenis_prw"),rs.getString("id_specimen")
                     });
                 }
             } catch (Exception e) {
