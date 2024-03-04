@@ -978,6 +978,120 @@ public final class RMPenilaianAwalKeperawatanRanapNeonatus extends javax.swing.J
         KeadaanMentalUmum5 = new widget.ComboBox();
         jLabel140 = new widget.Label();
         GCS3 = new widget.TextBox();
+        jLabel88 = new widget.Label();
+        jLabel89 = new widget.Label();
+        KeadaanMentalUmum6 = new widget.ComboBox();
+        GCS4 = new widget.TextBox();
+        jLabel141 = new widget.Label();
+        KeadaanMentalUmum7 = new widget.ComboBox();
+        GCS5 = new widget.TextBox();
+        jLabel90 = new widget.Label();
+        jLabel91 = new widget.Label();
+        KeadaanMentalUmum8 = new widget.ComboBox();
+        GCS6 = new widget.TextBox();
+        jLabel142 = new widget.Label();
+        KeadaanMentalUmum9 = new widget.ComboBox();
+        GCS7 = new widget.TextBox();
+        jLabel92 = new widget.Label();
+        jLabel93 = new widget.Label();
+        jLabel96 = new widget.Label();
+        MacamKasus25 = new widget.ComboBox();
+        jLabel143 = new widget.Label();
+        KeadaanMentalUmum10 = new widget.ComboBox();
+        GCS8 = new widget.TextBox();
+        KeadaanMentalUmum11 = new widget.ComboBox();
+        jLabel144 = new widget.Label();
+        GCS9 = new widget.TextBox();
+        jLabel97 = new widget.Label();
+        jLabel98 = new widget.Label();
+        jLabel99 = new widget.Label();
+        MacamKasus26 = new widget.ComboBox();
+        jLabel145 = new widget.Label();
+        KeadaanMentalUmum12 = new widget.ComboBox();
+        GCS10 = new widget.TextBox();
+        KeadaanMentalUmum13 = new widget.ComboBox();
+        jLabel146 = new widget.Label();
+        jLabel100 = new widget.Label();
+        jLabel147 = new widget.Label();
+        MacamKasus27 = new widget.ComboBox();
+        jLabel148 = new widget.Label();
+        KeadaanMentalUmum14 = new widget.ComboBox();
+        KeadaanMentalUmum15 = new widget.ComboBox();
+        jLabel149 = new widget.Label();
+        jLabel150 = new widget.Label();
+        jLabel151 = new widget.Label();
+        KeadaanMentalUmum16 = new widget.ComboBox();
+        jLabel152 = new widget.Label();
+        GCS11 = new widget.TextBox();
+        jLabel153 = new widget.Label();
+        KeadaanMentalUmum17 = new widget.ComboBox();
+        GCS12 = new widget.TextBox();
+        KeadaanMentalUmum18 = new widget.ComboBox();
+        jLabel154 = new widget.Label();
+        jLabel155 = new widget.Label();
+        GCS13 = new widget.TextBox();
+        jLabel156 = new widget.Label();
+        KeadaanMentalUmum19 = new widget.ComboBox();
+        GCS14 = new widget.TextBox();
+        jLabel157 = new widget.Label();
+        KeadaanMentalUmum20 = new widget.ComboBox();
+        jLabel158 = new widget.Label();
+        GCS15 = new widget.TextBox();
+        jLabel159 = new widget.Label();
+        KeadaanMentalUmum21 = new widget.ComboBox();
+        GCS16 = new widget.TextBox();
+        jLabel160 = new widget.Label();
+        KeadaanMentalUmum22 = new widget.ComboBox();
+        jLabel161 = new widget.Label();
+        GCS17 = new widget.TextBox();
+        jLabel162 = new widget.Label();
+        KeadaanMentalUmum23 = new widget.ComboBox();
+        GCS18 = new widget.TextBox();
+        jLabel163 = new widget.Label();
+        jLabel164 = new widget.Label();
+        jLabel165 = new widget.Label();
+        MacamKasus28 = new widget.ComboBox();
+        jLabel166 = new widget.Label();
+        KeadaanMentalUmum24 = new widget.ComboBox();
+        GCS19 = new widget.TextBox();
+        KeadaanMentalUmum25 = new widget.ComboBox();
+        jLabel167 = new widget.Label();
+        KeadaanMentalUmum26 = new widget.ComboBox();
+        jLabel168 = new widget.Label();
+        jLabel169 = new widget.Label();
+        GCS20 = new widget.TextBox();
+        jLabel170 = new widget.Label();
+        KeadaanMentalUmum27 = new widget.ComboBox();
+        GCS21 = new widget.TextBox();
+        KeadaanMentalUmum28 = new widget.ComboBox();
+        jLabel171 = new widget.Label();
+        jLabel172 = new widget.Label();
+        GCS22 = new widget.TextBox();
+        jLabel173 = new widget.Label();
+        KeadaanMentalUmum29 = new widget.ComboBox();
+        GCS23 = new widget.TextBox();
+        jLabel174 = new widget.Label();
+        jLabel176 = new widget.Label();
+        MacamKasus29 = new widget.ComboBox();
+        jLabel175 = new widget.Label();
+        jLabel177 = new widget.Label();
+        KeadaanMentalUmum30 = new widget.ComboBox();
+        KeadaanMentalUmum31 = new widget.ComboBox();
+        jLabel178 = new widget.Label();
+        GCS24 = new widget.TextBox();
+        GCS25 = new widget.TextBox();
+        MacamKasus30 = new widget.ComboBox();
+        jLabel180 = new widget.Label();
+        jLabel179 = new widget.Label();
+        jLabel181 = new widget.Label();
+        KeadaanMentalUmum32 = new widget.ComboBox();
+        KeadaanMentalUmum33 = new widget.ComboBox();
+        jLabel182 = new widget.Label();
+        jLabel183 = new widget.Label();
+        jLabel202 = new widget.Label();
+        MacamKasus31 = new widget.ComboBox();
+        GCS26 = new widget.TextBox();
+        jLabel184 = new widget.Label();
         internalFrame3 = new widget.InternalFrame();
         Scroll = new widget.ScrollPane();
         tbObat = new widget.Table();
@@ -1287,7 +1401,7 @@ public final class RMPenilaianAwalKeperawatanRanapNeonatus extends javax.swing.J
         Anamnesis.setBounds(79, 100, 105, 23);
 
         TglAsuhan.setForeground(new java.awt.Color(50, 70, 50));
-        TglAsuhan.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "29-02-2024 16:27:37" }));
+        TglAsuhan.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "03-03-2024 09:20:52" }));
         TglAsuhan.setDisplayFormat("dd-MM-yyyy HH:mm:ss");
         TglAsuhan.setName("TglAsuhan"); // NOI18N
         TglAsuhan.setOpaque(false);
@@ -2062,7 +2176,7 @@ public final class RMPenilaianAwalKeperawatanRanapNeonatus extends javax.swing.J
         label19.setBounds(365, 330, 60, 23);
 
         TglAsuhan1.setForeground(new java.awt.Color(50, 70, 50));
-        TglAsuhan1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "29-02-2024 16:27:38" }));
+        TglAsuhan1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "03-03-2024 09:20:53" }));
         TglAsuhan1.setDisplayFormat("dd-MM-yyyy HH:mm:ss");
         TglAsuhan1.setName("TglAsuhan1"); // NOI18N
         TglAsuhan1.setOpaque(false);
@@ -3345,6 +3459,887 @@ public final class RMPenilaianAwalKeperawatanRanapNeonatus extends javax.swing.J
         FormInput.add(GCS3);
         GCS3.setBounds(729, 980, 125, 23);
 
+        jLabel88.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        jLabel88.setText("Wajah");
+        jLabel88.setName("jLabel88"); // NOI18N
+        FormInput.add(jLabel88);
+        jLabel88.setBounds(74, 1010, 60, 23);
+
+        jLabel89.setText(":");
+        jLabel89.setName("jLabel89"); // NOI18N
+        FormInput.add(jLabel89);
+        jLabel89.setBounds(0, 1010, 112, 23);
+
+        KeadaanMentalUmum6.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "TAK", "Asimetris", "Kelainan Kongenital", "Lainnya" }));
+        KeadaanMentalUmum6.setName("KeadaanMentalUmum6"); // NOI18N
+        KeadaanMentalUmum6.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                KeadaanMentalUmum6KeyPressed(evt);
+            }
+        });
+        FormInput.add(KeadaanMentalUmum6);
+        KeadaanMentalUmum6.setBounds(120, 1010, 150, 23);
+
+        GCS4.setFocusTraversalPolicyProvider(true);
+        GCS4.setName("GCS4"); // NOI18N
+        GCS4.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                GCS4KeyPressed(evt);
+            }
+        });
+        FormInput.add(GCS4);
+        GCS4.setBounds(273, 1010, 180, 23);
+
+        jLabel141.setText("Kejang :");
+        jLabel141.setName("jLabel141"); // NOI18N
+        FormInput.add(jLabel141);
+        jLabel141.setBounds(435, 1010, 70, 23);
+
+        KeadaanMentalUmum7.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Tidak Ada", "Ada" }));
+        KeadaanMentalUmum7.setName("KeadaanMentalUmum7"); // NOI18N
+        KeadaanMentalUmum7.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                KeadaanMentalUmum7KeyPressed(evt);
+            }
+        });
+        FormInput.add(KeadaanMentalUmum7);
+        KeadaanMentalUmum7.setBounds(509, 1010, 98, 23);
+
+        GCS5.setFocusTraversalPolicyProvider(true);
+        GCS5.setName("GCS5"); // NOI18N
+        GCS5.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                GCS5KeyPressed(evt);
+            }
+        });
+        FormInput.add(GCS5);
+        GCS5.setBounds(610, 1010, 244, 23);
+
+        jLabel90.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        jLabel90.setText("Refleks");
+        jLabel90.setName("jLabel90"); // NOI18N
+        FormInput.add(jLabel90);
+        jLabel90.setBounds(74, 1040, 60, 23);
+
+        jLabel91.setText(":");
+        jLabel91.setName("jLabel91"); // NOI18N
+        FormInput.add(jLabel91);
+        jLabel91.setBounds(0, 1040, 117, 23);
+
+        KeadaanMentalUmum8.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Moro", "Menelan", "Hisap", "Babinski", "Rooting", "Lainnya" }));
+        KeadaanMentalUmum8.setName("KeadaanMentalUmum8"); // NOI18N
+        KeadaanMentalUmum8.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                KeadaanMentalUmum8KeyPressed(evt);
+            }
+        });
+        FormInput.add(KeadaanMentalUmum8);
+        KeadaanMentalUmum8.setBounds(121, 1040, 95, 23);
+
+        GCS6.setFocusTraversalPolicyProvider(true);
+        GCS6.setName("GCS6"); // NOI18N
+        GCS6.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                GCS6KeyPressed(evt);
+            }
+        });
+        FormInput.add(GCS6);
+        GCS6.setBounds(219, 1040, 212, 23);
+
+        jLabel142.setText("Tangis Bayi :");
+        jLabel142.setName("jLabel142"); // NOI18N
+        FormInput.add(jLabel142);
+        jLabel142.setBounds(425, 1040, 80, 23);
+
+        KeadaanMentalUmum9.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Kuat", "Melengking", "Lainnya" }));
+        KeadaanMentalUmum9.setName("KeadaanMentalUmum9"); // NOI18N
+        KeadaanMentalUmum9.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                KeadaanMentalUmum9KeyPressed(evt);
+            }
+        });
+        FormInput.add(KeadaanMentalUmum9);
+        KeadaanMentalUmum9.setBounds(509, 1040, 107, 23);
+
+        GCS7.setFocusTraversalPolicyProvider(true);
+        GCS7.setName("GCS7"); // NOI18N
+        GCS7.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                GCS7KeyPressed(evt);
+            }
+        });
+        FormInput.add(GCS7);
+        GCS7.setBounds(619, 1040, 235, 23);
+
+        jLabel92.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        jLabel92.setText("Kardiovaskuler :");
+        jLabel92.setName("jLabel92"); // NOI18N
+        FormInput.add(jLabel92);
+        jLabel92.setBounds(44, 1070, 170, 23);
+
+        jLabel93.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        jLabel93.setText("Denyut Nadi");
+        jLabel93.setName("jLabel93"); // NOI18N
+        FormInput.add(jLabel93);
+        jLabel93.setBounds(74, 1090, 60, 23);
+
+        jLabel96.setText(":");
+        jLabel96.setName("jLabel96"); // NOI18N
+        FormInput.add(jLabel96);
+        jLabel96.setBounds(0, 1090, 139, 23);
+
+        MacamKasus25.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Teratur", "Tidak Teratur" }));
+        MacamKasus25.setName("MacamKasus25"); // NOI18N
+        MacamKasus25.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                MacamKasus25KeyPressed(evt);
+            }
+        });
+        FormInput.add(MacamKasus25);
+        MacamKasus25.setBounds(143, 1090, 116, 23);
+
+        jLabel143.setText("Sirkulasi :");
+        jLabel143.setName("jLabel143"); // NOI18N
+        FormInput.add(jLabel143);
+        jLabel143.setBounds(260, 1090, 60, 23);
+
+        KeadaanMentalUmum10.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Akral Hangat", "Akral Dingin", "CRT", "Edema" }));
+        KeadaanMentalUmum10.setName("KeadaanMentalUmum10"); // NOI18N
+        KeadaanMentalUmum10.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                KeadaanMentalUmum10KeyPressed(evt);
+            }
+        });
+        FormInput.add(KeadaanMentalUmum10);
+        KeadaanMentalUmum10.setBounds(324, 1090, 117, 23);
+
+        GCS8.setFocusTraversalPolicyProvider(true);
+        GCS8.setName("GCS8"); // NOI18N
+        GCS8.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                GCS8KeyPressed(evt);
+            }
+        });
+        FormInput.add(GCS8);
+        GCS8.setBounds(444, 1090, 132, 23);
+
+        KeadaanMentalUmum11.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Kuat", "Lemah", "Lainnya" }));
+        KeadaanMentalUmum11.setName("KeadaanMentalUmum11"); // NOI18N
+        KeadaanMentalUmum11.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                KeadaanMentalUmum11KeyPressed(evt);
+            }
+        });
+        FormInput.add(KeadaanMentalUmum11);
+        KeadaanMentalUmum11.setBounds(635, 1090, 91, 23);
+
+        jLabel144.setText("Pulsasi :");
+        jLabel144.setName("jLabel144"); // NOI18N
+        FormInput.add(jLabel144);
+        jLabel144.setBounds(571, 1090, 60, 23);
+
+        GCS9.setFocusTraversalPolicyProvider(true);
+        GCS9.setName("GCS9"); // NOI18N
+        GCS9.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                GCS9KeyPressed(evt);
+            }
+        });
+        FormInput.add(GCS9);
+        GCS9.setBounds(729, 1090, 125, 23);
+
+        jLabel97.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        jLabel97.setText("Respirasi :");
+        jLabel97.setName("jLabel97"); // NOI18N
+        FormInput.add(jLabel97);
+        jLabel97.setBounds(44, 1120, 170, 23);
+
+        jLabel98.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        jLabel98.setText("Pola Napas");
+        jLabel98.setName("jLabel98"); // NOI18N
+        FormInput.add(jLabel98);
+        jLabel98.setBounds(74, 1140, 60, 23);
+
+        jLabel99.setText(":");
+        jLabel99.setName("jLabel99"); // NOI18N
+        FormInput.add(jLabel99);
+        jLabel99.setBounds(0, 1140, 135, 23);
+
+        MacamKasus26.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Normal", "Bradipnea", "Tachipnea", "Hiperventilasi", "Othopneu", "Kusmaul", "Apneu" }));
+        MacamKasus26.setName("MacamKasus26"); // NOI18N
+        MacamKasus26.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                MacamKasus26KeyPressed(evt);
+            }
+        });
+        FormInput.add(MacamKasus26);
+        MacamKasus26.setBounds(139, 1140, 120, 23);
+
+        jLabel145.setText("Jenis Pernapasan :");
+        jLabel145.setName("jLabel145"); // NOI18N
+        FormInput.add(jLabel145);
+        jLabel145.setBounds(260, 1140, 104, 23);
+
+        KeadaanMentalUmum12.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Pernapasan Dada", "Pernapasan Perut", "Bahu Diangkat", "Cuping Hidung", "Alat Bantu Napas" }));
+        KeadaanMentalUmum12.setName("KeadaanMentalUmum12"); // NOI18N
+        KeadaanMentalUmum12.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                KeadaanMentalUmum12KeyPressed(evt);
+            }
+        });
+        FormInput.add(KeadaanMentalUmum12);
+        KeadaanMentalUmum12.setBounds(368, 1140, 140, 23);
+
+        GCS10.setFocusTraversalPolicyProvider(true);
+        GCS10.setName("GCS10"); // NOI18N
+        GCS10.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                GCS10KeyPressed(evt);
+            }
+        });
+        FormInput.add(GCS10);
+        GCS10.setBounds(511, 1140, 179, 23);
+
+        KeadaanMentalUmum13.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Tidak Ada", "Ringan", "Berat" }));
+        KeadaanMentalUmum13.setName("KeadaanMentalUmum13"); // NOI18N
+        KeadaanMentalUmum13.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                KeadaanMentalUmum13KeyPressed(evt);
+            }
+        });
+        FormInput.add(KeadaanMentalUmum13);
+        KeadaanMentalUmum13.setBounds(754, 1140, 100, 23);
+
+        jLabel146.setText("Retraksi :");
+        jLabel146.setName("jLabel146"); // NOI18N
+        FormInput.add(jLabel146);
+        jLabel146.setBounds(680, 1140, 70, 23);
+
+        jLabel100.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        jLabel100.setText("Air Entry");
+        jLabel100.setName("jLabel100"); // NOI18N
+        FormInput.add(jLabel100);
+        jLabel100.setBounds(74, 1170, 60, 23);
+
+        jLabel147.setText(":");
+        jLabel147.setName("jLabel147"); // NOI18N
+        FormInput.add(jLabel147);
+        jLabel147.setBounds(0, 1170, 123, 23);
+
+        MacamKasus27.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Udara Masuk", "Penurunan Udara Masuk", "Tidak Ada Udara Masuk" }));
+        MacamKasus27.setName("MacamKasus27"); // NOI18N
+        MacamKasus27.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                MacamKasus27KeyPressed(evt);
+            }
+        });
+        FormInput.add(MacamKasus27);
+        MacamKasus27.setBounds(127, 1170, 173, 23);
+
+        jLabel148.setText("Merintih :");
+        jLabel148.setName("jLabel148"); // NOI18N
+        FormInput.add(jLabel148);
+        jLabel148.setBounds(300, 1170, 60, 23);
+
+        KeadaanMentalUmum14.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Tidak Ada", "Terdengar Dengan Stetoskop", "Terdengar Tanpa Stetoskop" }));
+        KeadaanMentalUmum14.setName("KeadaanMentalUmum14"); // NOI18N
+        KeadaanMentalUmum14.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                KeadaanMentalUmum14KeyPressed(evt);
+            }
+        });
+        FormInput.add(KeadaanMentalUmum14);
+        KeadaanMentalUmum14.setBounds(364, 1170, 200, 23);
+
+        KeadaanMentalUmum15.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Vesikuler", "Wheezing", "Ronkhi", "Stridor" }));
+        KeadaanMentalUmum15.setName("KeadaanMentalUmum15"); // NOI18N
+        KeadaanMentalUmum15.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                KeadaanMentalUmum15KeyPressed(evt);
+            }
+        });
+        FormInput.add(KeadaanMentalUmum15);
+        KeadaanMentalUmum15.setBounds(650, 1170, 105, 23);
+
+        jLabel149.setText("Suara Napas :");
+        jLabel149.setName("jLabel149"); // NOI18N
+        FormInput.add(jLabel149);
+        jLabel149.setBounds(567, 1170, 79, 23);
+
+        jLabel150.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        jLabel150.setText("Gastrointestinal :");
+        jLabel150.setName("jLabel150"); // NOI18N
+        FormInput.add(jLabel150);
+        jLabel150.setBounds(44, 1200, 170, 23);
+
+        jLabel151.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        jLabel151.setText("Mulut");
+        jLabel151.setName("jLabel151"); // NOI18N
+        FormInput.add(jLabel151);
+        jLabel151.setBounds(74, 1220, 60, 23);
+
+        KeadaanMentalUmum16.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "TAK", "Simetris", "Asimetri", "Bibir Pucat", "Lainnya" }));
+        KeadaanMentalUmum16.setName("KeadaanMentalUmum16"); // NOI18N
+        KeadaanMentalUmum16.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                KeadaanMentalUmum16KeyPressed(evt);
+            }
+        });
+        FormInput.add(KeadaanMentalUmum16);
+        KeadaanMentalUmum16.setBounds(112, 1220, 107, 23);
+
+        jLabel152.setText(":");
+        jLabel152.setName("jLabel152"); // NOI18N
+        FormInput.add(jLabel152);
+        jLabel152.setBounds(0, 1220, 108, 23);
+
+        GCS11.setFocusTraversalPolicyProvider(true);
+        GCS11.setName("GCS11"); // NOI18N
+        GCS11.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                GCS11KeyPressed(evt);
+            }
+        });
+        FormInput.add(GCS11);
+        GCS11.setBounds(222, 1220, 219, 23);
+
+        jLabel153.setText("Lidah :");
+        jLabel153.setName("jLabel153"); // NOI18N
+        FormInput.add(jLabel153);
+        jLabel153.setBounds(417, 1220, 70, 23);
+
+        KeadaanMentalUmum17.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "TAK", "Kotor", "Gerak Asimetris", "Lainnya" }));
+        KeadaanMentalUmum17.setName("KeadaanMentalUmum17"); // NOI18N
+        KeadaanMentalUmum17.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                KeadaanMentalUmum17KeyPressed(evt);
+            }
+        });
+        FormInput.add(KeadaanMentalUmum17);
+        KeadaanMentalUmum17.setBounds(491, 1220, 130, 23);
+
+        GCS12.setFocusTraversalPolicyProvider(true);
+        GCS12.setName("GCS12"); // NOI18N
+        GCS12.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                GCS12KeyPressed(evt);
+            }
+        });
+        FormInput.add(GCS12);
+        GCS12.setBounds(624, 1220, 230, 23);
+
+        KeadaanMentalUmum18.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "TAK", "Ada Kelainan" }));
+        KeadaanMentalUmum18.setName("KeadaanMentalUmum18"); // NOI18N
+        KeadaanMentalUmum18.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                KeadaanMentalUmum18KeyPressed(evt);
+            }
+        });
+        FormInput.add(KeadaanMentalUmum18);
+        KeadaanMentalUmum18.setBounds(148, 1250, 115, 23);
+
+        jLabel154.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        jLabel154.setText("Tenggorokan");
+        jLabel154.setName("jLabel154"); // NOI18N
+        FormInput.add(jLabel154);
+        jLabel154.setBounds(74, 1250, 90, 23);
+
+        jLabel155.setText(":");
+        jLabel155.setName("jLabel155"); // NOI18N
+        FormInput.add(jLabel155);
+        jLabel155.setBounds(0, 1250, 144, 23);
+
+        GCS13.setFocusTraversalPolicyProvider(true);
+        GCS13.setName("GCS13"); // NOI18N
+        GCS13.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                GCS13KeyPressed(evt);
+            }
+        });
+        FormInput.add(GCS13);
+        GCS13.setBounds(266, 1250, 212, 23);
+
+        jLabel156.setText("Abdomen :");
+        jLabel156.setName("jLabel156"); // NOI18N
+        FormInput.add(jLabel156);
+        jLabel156.setBounds(475, 1250, 70, 23);
+
+        KeadaanMentalUmum19.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Supel", "Asites", "Tegang", "BU", "Lainnya" }));
+        KeadaanMentalUmum19.setName("KeadaanMentalUmum19"); // NOI18N
+        KeadaanMentalUmum19.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                KeadaanMentalUmum19KeyPressed(evt);
+            }
+        });
+        FormInput.add(KeadaanMentalUmum19);
+        KeadaanMentalUmum19.setBounds(549, 1250, 90, 23);
+
+        GCS14.setFocusTraversalPolicyProvider(true);
+        GCS14.setName("GCS14"); // NOI18N
+        GCS14.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                GCS14KeyPressed(evt);
+            }
+        });
+        FormInput.add(GCS14);
+        GCS14.setBounds(642, 1250, 212, 23);
+
+        jLabel157.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        jLabel157.setText("BAB");
+        jLabel157.setName("jLabel157"); // NOI18N
+        FormInput.add(jLabel157);
+        jLabel157.setBounds(74, 1280, 40, 23);
+
+        KeadaanMentalUmum20.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Normal", "Konstipasi", "Melena", "Colostomy", "Diare", "Meco Pertama" }));
+        KeadaanMentalUmum20.setName("KeadaanMentalUmum20"); // NOI18N
+        KeadaanMentalUmum20.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                KeadaanMentalUmum20KeyPressed(evt);
+            }
+        });
+        FormInput.add(KeadaanMentalUmum20);
+        KeadaanMentalUmum20.setBounds(105, 1280, 125, 23);
+
+        jLabel158.setText(":");
+        jLabel158.setName("jLabel158"); // NOI18N
+        FormInput.add(jLabel158);
+        jLabel158.setBounds(0, 1280, 101, 23);
+
+        GCS15.setFocusTraversalPolicyProvider(true);
+        GCS15.setName("GCS15"); // NOI18N
+        GCS15.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                GCS15KeyPressed(evt);
+            }
+        });
+        FormInput.add(GCS15);
+        GCS15.setBounds(233, 1280, 237, 23);
+
+        jLabel159.setText("Warna BAB :");
+        jLabel159.setName("jLabel159"); // NOI18N
+        FormInput.add(jLabel159);
+        jLabel159.setBounds(475, 1280, 70, 23);
+
+        KeadaanMentalUmum21.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Kuning", "Dempul", "Coklat", "Hijau", "Lainnya" }));
+        KeadaanMentalUmum21.setName("KeadaanMentalUmum21"); // NOI18N
+        KeadaanMentalUmum21.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                KeadaanMentalUmum21KeyPressed(evt);
+            }
+        });
+        FormInput.add(KeadaanMentalUmum21);
+        KeadaanMentalUmum21.setBounds(549, 1280, 90, 23);
+
+        GCS16.setFocusTraversalPolicyProvider(true);
+        GCS16.setName("GCS16"); // NOI18N
+        GCS16.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                GCS16KeyPressed(evt);
+            }
+        });
+        FormInput.add(GCS16);
+        GCS16.setBounds(642, 1280, 212, 23);
+
+        jLabel160.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        jLabel160.setText("BAK");
+        jLabel160.setName("jLabel160"); // NOI18N
+        FormInput.add(jLabel160);
+        jLabel160.setBounds(74, 1310, 40, 23);
+
+        KeadaanMentalUmum22.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Normal", "Hematuri", "Urin Menetes", "Oliguri", "BAK Pertama" }));
+        KeadaanMentalUmum22.setName("KeadaanMentalUmum22"); // NOI18N
+        KeadaanMentalUmum22.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                KeadaanMentalUmum22KeyPressed(evt);
+            }
+        });
+        FormInput.add(KeadaanMentalUmum22);
+        KeadaanMentalUmum22.setBounds(105, 1310, 120, 23);
+
+        jLabel161.setText(":");
+        jLabel161.setName("jLabel161"); // NOI18N
+        FormInput.add(jLabel161);
+        jLabel161.setBounds(0, 1310, 101, 23);
+
+        GCS17.setFocusTraversalPolicyProvider(true);
+        GCS17.setName("GCS17"); // NOI18N
+        GCS17.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                GCS17KeyPressed(evt);
+            }
+        });
+        FormInput.add(GCS17);
+        GCS17.setBounds(228, 1310, 220, 23);
+
+        jLabel162.setText("Warna BAK :");
+        jLabel162.setName("jLabel162"); // NOI18N
+        FormInput.add(jLabel162);
+        jLabel162.setBounds(442, 1310, 80, 23);
+
+        KeadaanMentalUmum23.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Jernih", "Kuning", "Kuning Pekat", "Lainnya" }));
+        KeadaanMentalUmum23.setName("KeadaanMentalUmum23"); // NOI18N
+        KeadaanMentalUmum23.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                KeadaanMentalUmum23KeyPressed(evt);
+            }
+        });
+        FormInput.add(KeadaanMentalUmum23);
+        KeadaanMentalUmum23.setBounds(526, 1310, 115, 23);
+
+        GCS18.setFocusTraversalPolicyProvider(true);
+        GCS18.setName("GCS18"); // NOI18N
+        GCS18.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                GCS18KeyPressed(evt);
+            }
+        });
+        FormInput.add(GCS18);
+        GCS18.setBounds(644, 1310, 210, 23);
+
+        jLabel163.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        jLabel163.setText("Neurologi :");
+        jLabel163.setName("jLabel163"); // NOI18N
+        FormInput.add(jLabel163);
+        jLabel163.setBounds(44, 1340, 170, 23);
+
+        jLabel164.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        jLabel164.setText("Posisi Mata ");
+        jLabel164.setName("jLabel164"); // NOI18N
+        FormInput.add(jLabel164);
+        jLabel164.setBounds(74, 1360, 60, 23);
+
+        jLabel165.setText(":");
+        jLabel165.setName("jLabel165"); // NOI18N
+        FormInput.add(jLabel165);
+        jLabel165.setBounds(0, 1360, 136, 23);
+
+        MacamKasus28.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Simetris", "Asimetris" }));
+        MacamKasus28.setName("MacamKasus28"); // NOI18N
+        MacamKasus28.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                MacamKasus28KeyPressed(evt);
+            }
+        });
+        FormInput.add(MacamKasus28);
+        MacamKasus28.setBounds(140, 1360, 100, 23);
+
+        jLabel166.setText("Kelopak Mata :");
+        jLabel166.setName("jLabel166"); // NOI18N
+        FormInput.add(jLabel166);
+        jLabel166.setBounds(240, 1360, 86, 23);
+
+        KeadaanMentalUmum24.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "TAK", "Edema", "Cekung", "Lainnya" }));
+        KeadaanMentalUmum24.setName("KeadaanMentalUmum24"); // NOI18N
+        KeadaanMentalUmum24.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                KeadaanMentalUmum24KeyPressed(evt);
+            }
+        });
+        FormInput.add(KeadaanMentalUmum24);
+        KeadaanMentalUmum24.setBounds(330, 1360, 90, 23);
+
+        GCS19.setFocusTraversalPolicyProvider(true);
+        GCS19.setName("GCS19"); // NOI18N
+        GCS19.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                GCS19KeyPressed(evt);
+            }
+        });
+        FormInput.add(GCS19);
+        GCS19.setBounds(423, 1360, 254, 23);
+
+        KeadaanMentalUmum25.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Isokor", "Anisokor" }));
+        KeadaanMentalUmum25.setName("KeadaanMentalUmum25"); // NOI18N
+        KeadaanMentalUmum25.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                KeadaanMentalUmum25KeyPressed(evt);
+            }
+        });
+        FormInput.add(KeadaanMentalUmum25);
+        KeadaanMentalUmum25.setBounds(757, 1360, 97, 23);
+
+        jLabel167.setText("Besar Pupil :");
+        jLabel167.setName("jLabel167"); // NOI18N
+        FormInput.add(jLabel167);
+        jLabel167.setBounds(683, 1360, 70, 23);
+
+        KeadaanMentalUmum26.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "TAK", "Anemis", "Konjungtivitis", "Lainnya" }));
+        KeadaanMentalUmum26.setName("KeadaanMentalUmum26"); // NOI18N
+        KeadaanMentalUmum26.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                KeadaanMentalUmum26KeyPressed(evt);
+            }
+        });
+        FormInput.add(KeadaanMentalUmum26);
+        KeadaanMentalUmum26.setBounds(142, 1390, 120, 23);
+
+        jLabel168.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        jLabel168.setText("Konjungtiva");
+        jLabel168.setName("jLabel168"); // NOI18N
+        FormInput.add(jLabel168);
+        jLabel168.setBounds(74, 1390, 90, 23);
+
+        jLabel169.setText(":");
+        jLabel169.setName("jLabel169"); // NOI18N
+        FormInput.add(jLabel169);
+        jLabel169.setBounds(0, 1390, 138, 23);
+
+        GCS20.setFocusTraversalPolicyProvider(true);
+        GCS20.setName("GCS20"); // NOI18N
+        GCS20.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                GCS20KeyPressed(evt);
+            }
+        });
+        FormInput.add(GCS20);
+        GCS20.setBounds(265, 1390, 209, 23);
+
+        jLabel170.setText("Sklera :");
+        jLabel170.setName("jLabel170"); // NOI18N
+        FormInput.add(jLabel170);
+        jLabel170.setBounds(475, 1390, 50, 23);
+
+        KeadaanMentalUmum27.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "TAK", "Ikterik", "Perdarahan", "Lainnya" }));
+        KeadaanMentalUmum27.setName("KeadaanMentalUmum27"); // NOI18N
+        KeadaanMentalUmum27.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                KeadaanMentalUmum27KeyPressed(evt);
+            }
+        });
+        FormInput.add(KeadaanMentalUmum27);
+        KeadaanMentalUmum27.setBounds(529, 1390, 113, 23);
+
+        GCS21.setFocusTraversalPolicyProvider(true);
+        GCS21.setName("GCS21"); // NOI18N
+        GCS21.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                GCS21KeyPressed(evt);
+            }
+        });
+        FormInput.add(GCS21);
+        GCS21.setBounds(645, 1390, 209, 23);
+
+        KeadaanMentalUmum28.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "TAK", "Asimetris", "Keluar Cairan", "Lainnya" }));
+        KeadaanMentalUmum28.setName("KeadaanMentalUmum28"); // NOI18N
+        KeadaanMentalUmum28.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                KeadaanMentalUmum28KeyPressed(evt);
+            }
+        });
+        FormInput.add(KeadaanMentalUmum28);
+        KeadaanMentalUmum28.setBounds(149, 1420, 120, 23);
+
+        jLabel171.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        jLabel171.setText("Pendengaran");
+        jLabel171.setName("jLabel171"); // NOI18N
+        FormInput.add(jLabel171);
+        jLabel171.setBounds(74, 1420, 90, 23);
+
+        jLabel172.setText(":");
+        jLabel172.setName("jLabel172"); // NOI18N
+        FormInput.add(jLabel172);
+        jLabel172.setBounds(0, 1420, 145, 23);
+
+        GCS22.setFocusTraversalPolicyProvider(true);
+        GCS22.setName("GCS22"); // NOI18N
+        GCS22.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                GCS22KeyPressed(evt);
+            }
+        });
+        FormInput.add(GCS22);
+        GCS22.setBounds(272, 1420, 190, 23);
+
+        jLabel173.setText("Penciuman :");
+        jLabel173.setName("jLabel173"); // NOI18N
+        FormInput.add(jLabel173);
+        jLabel173.setBounds(457, 1420, 80, 23);
+
+        KeadaanMentalUmum29.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "TAK", "Asimetris", "Keluar Cairan", "Lainnya" }));
+        KeadaanMentalUmum29.setName("KeadaanMentalUmum29"); // NOI18N
+        KeadaanMentalUmum29.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                KeadaanMentalUmum29KeyPressed(evt);
+            }
+        });
+        FormInput.add(KeadaanMentalUmum29);
+        KeadaanMentalUmum29.setBounds(541, 1420, 120, 23);
+
+        GCS23.setFocusTraversalPolicyProvider(true);
+        GCS23.setName("GCS23"); // NOI18N
+        GCS23.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                GCS23KeyPressed(evt);
+            }
+        });
+        FormInput.add(GCS23);
+        GCS23.setBounds(664, 1420, 190, 23);
+
+        jLabel174.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        jLabel174.setText("Integument :");
+        jLabel174.setName("jLabel174"); // NOI18N
+        FormInput.add(jLabel174);
+        jLabel174.setBounds(44, 1450, 170, 23);
+
+        jLabel176.setText(":");
+        jLabel176.setName("jLabel176"); // NOI18N
+        FormInput.add(jLabel176);
+        jLabel176.setBounds(0, 1470, 138, 23);
+
+        MacamKasus29.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Pucat", "Sianosis", "Normal", "Lainnya" }));
+        MacamKasus29.setName("MacamKasus29"); // NOI18N
+        MacamKasus29.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                MacamKasus29KeyPressed(evt);
+            }
+        });
+        FormInput.add(MacamKasus29);
+        MacamKasus29.setBounds(142, 1470, 90, 23);
+
+        jLabel175.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        jLabel175.setText("Warna Kulit");
+        jLabel175.setName("jLabel175"); // NOI18N
+        FormInput.add(jLabel175);
+        jLabel175.setBounds(74, 1470, 80, 23);
+
+        jLabel177.setText("Vernic Kaseosa :");
+        jLabel177.setName("jLabel177"); // NOI18N
+        FormInput.add(jLabel177);
+        jLabel177.setBounds(366, 1470, 100, 23);
+
+        KeadaanMentalUmum30.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Ada", "Tidak Ada", "Lainnya" }));
+        KeadaanMentalUmum30.setName("KeadaanMentalUmum30"); // NOI18N
+        KeadaanMentalUmum30.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                KeadaanMentalUmum30KeyPressed(evt);
+            }
+        });
+        FormInput.add(KeadaanMentalUmum30);
+        KeadaanMentalUmum30.setBounds(470, 1470, 100, 23);
+
+        KeadaanMentalUmum31.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Tidak Ada", "Banyak", "Tipis", "Bercak-bercak Tanpa Lanugo", "Sebagian Besar Tanpa Lanugo" }));
+        KeadaanMentalUmum31.setName("KeadaanMentalUmum31"); // NOI18N
+        KeadaanMentalUmum31.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                KeadaanMentalUmum31KeyPressed(evt);
+            }
+        });
+        FormInput.add(KeadaanMentalUmum31);
+        KeadaanMentalUmum31.setBounds(121, 1500, 205, 23);
+
+        jLabel178.setText("Turgor :");
+        jLabel178.setName("jLabel178"); // NOI18N
+        FormInput.add(jLabel178);
+        jLabel178.setBounds(700, 1470, 60, 23);
+
+        GCS24.setFocusTraversalPolicyProvider(true);
+        GCS24.setName("GCS24"); // NOI18N
+        GCS24.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                GCS24KeyPressed(evt);
+            }
+        });
+        FormInput.add(GCS24);
+        GCS24.setBounds(573, 1470, 135, 23);
+
+        GCS25.setFocusTraversalPolicyProvider(true);
+        GCS25.setName("GCS25"); // NOI18N
+        GCS25.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                GCS25KeyPressed(evt);
+            }
+        });
+        FormInput.add(GCS25);
+        GCS25.setBounds(235, 1470, 135, 23);
+
+        MacamKasus30.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Baik", "Sedang", "Buruk" }));
+        MacamKasus30.setName("MacamKasus30"); // NOI18N
+        MacamKasus30.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                MacamKasus30KeyPressed(evt);
+            }
+        });
+        FormInput.add(MacamKasus30);
+        MacamKasus30.setBounds(764, 1470, 90, 23);
+
+        jLabel180.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        jLabel180.setText("Lanugo");
+        jLabel180.setName("jLabel180"); // NOI18N
+        FormInput.add(jLabel180);
+        jLabel180.setBounds(74, 1500, 80, 23);
+
+        jLabel179.setText(":");
+        jLabel179.setName("jLabel179"); // NOI18N
+        FormInput.add(jLabel179);
+        jLabel179.setBounds(0, 1500, 117, 23);
+
+        jLabel181.setText("Kulit :");
+        jLabel181.setName("jLabel181"); // NOI18N
+        FormInput.add(jLabel181);
+        jLabel181.setBounds(322, 1500, 50, 23);
+
+        KeadaanMentalUmum32.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Normal", "Rash/Kemerahan", "Luka", "Memar", "Ptekie", "Bula" }));
+        KeadaanMentalUmum32.setName("KeadaanMentalUmum32"); // NOI18N
+        KeadaanMentalUmum32.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                KeadaanMentalUmum32KeyPressed(evt);
+            }
+        });
+        FormInput.add(KeadaanMentalUmum32);
+        KeadaanMentalUmum32.setBounds(376, 1500, 140, 23);
+
+        KeadaanMentalUmum33.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Jaringan/Elastisitas Kurang", "Imobilisasi" }));
+        KeadaanMentalUmum33.setName("KeadaanMentalUmum33"); // NOI18N
+        KeadaanMentalUmum33.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                KeadaanMentalUmum33KeyPressed(evt);
+            }
+        });
+        FormInput.add(KeadaanMentalUmum33);
+        KeadaanMentalUmum33.setBounds(662, 1500, 192, 23);
+
+        jLabel182.setText("Kriteria Risiko Dekubitas :");
+        jLabel182.setName("jLabel182"); // NOI18N
+        FormInput.add(jLabel182);
+        jLabel182.setBounds(518, 1500, 140, 23);
+
+        jLabel183.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        jLabel183.setText("Reproduksi");
+        jLabel183.setName("jLabel183"); // NOI18N
+        FormInput.add(jLabel183);
+        jLabel183.setBounds(44, 1530, 70, 23);
+
+        jLabel202.setText(":");
+        jLabel202.setName("jLabel202"); // NOI18N
+        FormInput.add(jLabel202);
+        jLabel202.setBounds(0, 1530, 105, 23);
+
+        MacamKasus31.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Normal", "Hipospadia", "Epispadia", "Fimosis", "Hidrokel", "Keputihan", "Vagina Skintag", "Lainnya" }));
+        MacamKasus31.setName("MacamKasus31"); // NOI18N
+        MacamKasus31.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                MacamKasus31KeyPressed(evt);
+            }
+        });
+        FormInput.add(MacamKasus31);
+        MacamKasus31.setBounds(109, 1530, 125, 23);
+
+        GCS26.setFocusTraversalPolicyProvider(true);
+        GCS26.setName("GCS26"); // NOI18N
+        GCS26.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                GCS26KeyPressed(evt);
+            }
+        });
+        FormInput.add(GCS26);
+        GCS26.setBounds(237, 1530, 617, 23);
+
+        jLabel184.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        jLabel184.setText("Sistem Muskuloskeletal :");
+        jLabel184.setName("jLabel184"); // NOI18N
+        FormInput.add(jLabel184);
+        jLabel184.setBounds(44, 1560, 170, 23);
+
         scrollInput.setViewportView(FormInput);
 
         internalFrame2.add(scrollInput, java.awt.BorderLayout.CENTER);
@@ -3385,7 +4380,7 @@ public final class RMPenilaianAwalKeperawatanRanapNeonatus extends javax.swing.J
         panelGlass9.add(jLabel19);
 
         DTPCari1.setForeground(new java.awt.Color(50, 70, 50));
-        DTPCari1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "29-02-2024" }));
+        DTPCari1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "03-03-2024" }));
         DTPCari1.setDisplayFormat("dd-MM-yyyy");
         DTPCari1.setName("DTPCari1"); // NOI18N
         DTPCari1.setOpaque(false);
@@ -3399,7 +4394,7 @@ public final class RMPenilaianAwalKeperawatanRanapNeonatus extends javax.swing.J
         panelGlass9.add(jLabel21);
 
         DTPCari2.setForeground(new java.awt.Color(50, 70, 50));
-        DTPCari2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "29-02-2024" }));
+        DTPCari2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "03-03-2024" }));
         DTPCari2.setDisplayFormat("dd-MM-yyyy");
         DTPCari2.setName("DTPCari2"); // NOI18N
         DTPCari2.setOpaque(false);
@@ -5520,6 +6515,238 @@ public final class RMPenilaianAwalKeperawatanRanapNeonatus extends javax.swing.J
         // TODO add your handling code here:
     }//GEN-LAST:event_GCS3KeyPressed
 
+    private void KeadaanMentalUmum6KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_KeadaanMentalUmum6KeyPressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_KeadaanMentalUmum6KeyPressed
+
+    private void GCS4KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_GCS4KeyPressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_GCS4KeyPressed
+
+    private void KeadaanMentalUmum7KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_KeadaanMentalUmum7KeyPressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_KeadaanMentalUmum7KeyPressed
+
+    private void GCS5KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_GCS5KeyPressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_GCS5KeyPressed
+
+    private void KeadaanMentalUmum8KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_KeadaanMentalUmum8KeyPressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_KeadaanMentalUmum8KeyPressed
+
+    private void GCS6KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_GCS6KeyPressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_GCS6KeyPressed
+
+    private void KeadaanMentalUmum9KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_KeadaanMentalUmum9KeyPressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_KeadaanMentalUmum9KeyPressed
+
+    private void GCS7KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_GCS7KeyPressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_GCS7KeyPressed
+
+    private void MacamKasus25KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_MacamKasus25KeyPressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_MacamKasus25KeyPressed
+
+    private void KeadaanMentalUmum10KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_KeadaanMentalUmum10KeyPressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_KeadaanMentalUmum10KeyPressed
+
+    private void GCS8KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_GCS8KeyPressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_GCS8KeyPressed
+
+    private void KeadaanMentalUmum11KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_KeadaanMentalUmum11KeyPressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_KeadaanMentalUmum11KeyPressed
+
+    private void GCS9KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_GCS9KeyPressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_GCS9KeyPressed
+
+    private void MacamKasus26KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_MacamKasus26KeyPressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_MacamKasus26KeyPressed
+
+    private void KeadaanMentalUmum12KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_KeadaanMentalUmum12KeyPressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_KeadaanMentalUmum12KeyPressed
+
+    private void GCS10KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_GCS10KeyPressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_GCS10KeyPressed
+
+    private void KeadaanMentalUmum13KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_KeadaanMentalUmum13KeyPressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_KeadaanMentalUmum13KeyPressed
+
+    private void MacamKasus27KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_MacamKasus27KeyPressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_MacamKasus27KeyPressed
+
+    private void KeadaanMentalUmum14KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_KeadaanMentalUmum14KeyPressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_KeadaanMentalUmum14KeyPressed
+
+    private void KeadaanMentalUmum15KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_KeadaanMentalUmum15KeyPressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_KeadaanMentalUmum15KeyPressed
+
+    private void KeadaanMentalUmum16KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_KeadaanMentalUmum16KeyPressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_KeadaanMentalUmum16KeyPressed
+
+    private void GCS11KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_GCS11KeyPressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_GCS11KeyPressed
+
+    private void KeadaanMentalUmum17KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_KeadaanMentalUmum17KeyPressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_KeadaanMentalUmum17KeyPressed
+
+    private void GCS12KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_GCS12KeyPressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_GCS12KeyPressed
+
+    private void KeadaanMentalUmum18KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_KeadaanMentalUmum18KeyPressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_KeadaanMentalUmum18KeyPressed
+
+    private void GCS13KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_GCS13KeyPressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_GCS13KeyPressed
+
+    private void KeadaanMentalUmum19KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_KeadaanMentalUmum19KeyPressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_KeadaanMentalUmum19KeyPressed
+
+    private void GCS14KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_GCS14KeyPressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_GCS14KeyPressed
+
+    private void KeadaanMentalUmum20KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_KeadaanMentalUmum20KeyPressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_KeadaanMentalUmum20KeyPressed
+
+    private void GCS15KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_GCS15KeyPressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_GCS15KeyPressed
+
+    private void KeadaanMentalUmum21KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_KeadaanMentalUmum21KeyPressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_KeadaanMentalUmum21KeyPressed
+
+    private void GCS16KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_GCS16KeyPressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_GCS16KeyPressed
+
+    private void KeadaanMentalUmum22KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_KeadaanMentalUmum22KeyPressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_KeadaanMentalUmum22KeyPressed
+
+    private void GCS17KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_GCS17KeyPressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_GCS17KeyPressed
+
+    private void KeadaanMentalUmum23KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_KeadaanMentalUmum23KeyPressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_KeadaanMentalUmum23KeyPressed
+
+    private void GCS18KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_GCS18KeyPressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_GCS18KeyPressed
+
+    private void MacamKasus28KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_MacamKasus28KeyPressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_MacamKasus28KeyPressed
+
+    private void KeadaanMentalUmum24KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_KeadaanMentalUmum24KeyPressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_KeadaanMentalUmum24KeyPressed
+
+    private void GCS19KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_GCS19KeyPressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_GCS19KeyPressed
+
+    private void KeadaanMentalUmum25KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_KeadaanMentalUmum25KeyPressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_KeadaanMentalUmum25KeyPressed
+
+    private void KeadaanMentalUmum26KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_KeadaanMentalUmum26KeyPressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_KeadaanMentalUmum26KeyPressed
+
+    private void GCS20KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_GCS20KeyPressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_GCS20KeyPressed
+
+    private void KeadaanMentalUmum27KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_KeadaanMentalUmum27KeyPressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_KeadaanMentalUmum27KeyPressed
+
+    private void GCS21KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_GCS21KeyPressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_GCS21KeyPressed
+
+    private void KeadaanMentalUmum28KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_KeadaanMentalUmum28KeyPressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_KeadaanMentalUmum28KeyPressed
+
+    private void GCS22KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_GCS22KeyPressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_GCS22KeyPressed
+
+    private void KeadaanMentalUmum29KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_KeadaanMentalUmum29KeyPressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_KeadaanMentalUmum29KeyPressed
+
+    private void GCS23KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_GCS23KeyPressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_GCS23KeyPressed
+
+    private void MacamKasus29KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_MacamKasus29KeyPressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_MacamKasus29KeyPressed
+
+    private void KeadaanMentalUmum30KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_KeadaanMentalUmum30KeyPressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_KeadaanMentalUmum30KeyPressed
+
+    private void KeadaanMentalUmum31KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_KeadaanMentalUmum31KeyPressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_KeadaanMentalUmum31KeyPressed
+
+    private void GCS24KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_GCS24KeyPressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_GCS24KeyPressed
+
+    private void GCS25KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_GCS25KeyPressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_GCS25KeyPressed
+
+    private void MacamKasus30KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_MacamKasus30KeyPressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_MacamKasus30KeyPressed
+
+    private void KeadaanMentalUmum32KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_KeadaanMentalUmum32KeyPressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_KeadaanMentalUmum32KeyPressed
+
+    private void KeadaanMentalUmum33KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_KeadaanMentalUmum33KeyPressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_KeadaanMentalUmum33KeyPressed
+
+    private void MacamKasus31KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_MacamKasus31KeyPressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_MacamKasus31KeyPressed
+
+    private void GCS26KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_GCS26KeyPressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_GCS26KeyPressed
+
     /**
     * @param args the command line arguments
     */
@@ -5599,8 +6826,31 @@ public final class RMPenilaianAwalKeperawatanRanapNeonatus extends javax.swing.J
     private widget.TextBox G9;
     private widget.TextBox GCS;
     private widget.TextBox GCS1;
+    private widget.TextBox GCS10;
+    private widget.TextBox GCS11;
+    private widget.TextBox GCS12;
+    private widget.TextBox GCS13;
+    private widget.TextBox GCS14;
+    private widget.TextBox GCS15;
+    private widget.TextBox GCS16;
+    private widget.TextBox GCS17;
+    private widget.TextBox GCS18;
+    private widget.TextBox GCS19;
     private widget.TextBox GCS2;
+    private widget.TextBox GCS20;
+    private widget.TextBox GCS21;
+    private widget.TextBox GCS22;
+    private widget.TextBox GCS23;
+    private widget.TextBox GCS24;
+    private widget.TextBox GCS25;
+    private widget.TextBox GCS26;
     private widget.TextBox GCS3;
+    private widget.TextBox GCS4;
+    private widget.TextBox GCS5;
+    private widget.TextBox GCS6;
+    private widget.TextBox GCS7;
+    private widget.TextBox GCS8;
+    private widget.TextBox GCS9;
     private widget.TextBox Hidup;
     private widget.TextBox Hidup1;
     private widget.TextBox Jk;
@@ -5609,10 +6859,38 @@ public final class RMPenilaianAwalKeperawatanRanapNeonatus extends javax.swing.J
     private widget.TextBox KdPetugas2;
     private widget.ComboBox KeadaanMentalUmum;
     private widget.ComboBox KeadaanMentalUmum1;
+    private widget.ComboBox KeadaanMentalUmum10;
+    private widget.ComboBox KeadaanMentalUmum11;
+    private widget.ComboBox KeadaanMentalUmum12;
+    private widget.ComboBox KeadaanMentalUmum13;
+    private widget.ComboBox KeadaanMentalUmum14;
+    private widget.ComboBox KeadaanMentalUmum15;
+    private widget.ComboBox KeadaanMentalUmum16;
+    private widget.ComboBox KeadaanMentalUmum17;
+    private widget.ComboBox KeadaanMentalUmum18;
+    private widget.ComboBox KeadaanMentalUmum19;
     private widget.ComboBox KeadaanMentalUmum2;
+    private widget.ComboBox KeadaanMentalUmum20;
+    private widget.ComboBox KeadaanMentalUmum21;
+    private widget.ComboBox KeadaanMentalUmum22;
+    private widget.ComboBox KeadaanMentalUmum23;
+    private widget.ComboBox KeadaanMentalUmum24;
+    private widget.ComboBox KeadaanMentalUmum25;
+    private widget.ComboBox KeadaanMentalUmum26;
+    private widget.ComboBox KeadaanMentalUmum27;
+    private widget.ComboBox KeadaanMentalUmum28;
+    private widget.ComboBox KeadaanMentalUmum29;
     private widget.ComboBox KeadaanMentalUmum3;
+    private widget.ComboBox KeadaanMentalUmum30;
+    private widget.ComboBox KeadaanMentalUmum31;
+    private widget.ComboBox KeadaanMentalUmum32;
+    private widget.ComboBox KeadaanMentalUmum33;
     private widget.ComboBox KeadaanMentalUmum4;
     private widget.ComboBox KeadaanMentalUmum5;
+    private widget.ComboBox KeadaanMentalUmum6;
+    private widget.ComboBox KeadaanMentalUmum7;
+    private widget.ComboBox KeadaanMentalUmum8;
+    private widget.ComboBox KeadaanMentalUmum9;
     private widget.TextArea KeluhanUtama;
     private widget.TextBox KetAnamnesis;
     private widget.TextBox KetAnamnesis1;
@@ -5646,7 +6924,14 @@ public final class RMPenilaianAwalKeperawatanRanapNeonatus extends javax.swing.J
     private widget.ComboBox MacamKasus22;
     private widget.ComboBox MacamKasus23;
     private widget.ComboBox MacamKasus24;
+    private widget.ComboBox MacamKasus25;
+    private widget.ComboBox MacamKasus26;
+    private widget.ComboBox MacamKasus27;
+    private widget.ComboBox MacamKasus28;
+    private widget.ComboBox MacamKasus29;
     private widget.ComboBox MacamKasus3;
+    private widget.ComboBox MacamKasus30;
+    private widget.ComboBox MacamKasus31;
     private widget.ComboBox MacamKasus4;
     private widget.ComboBox MacamKasus5;
     private widget.ComboBox MacamKasus6;
@@ -5693,6 +6978,7 @@ public final class RMPenilaianAwalKeperawatanRanapNeonatus extends javax.swing.J
     private widget.InternalFrame internalFrame2;
     private widget.InternalFrame internalFrame3;
     private widget.Label jLabel10;
+    private widget.Label jLabel100;
     private widget.Label jLabel101;
     private widget.Label jLabel102;
     private widget.Label jLabel103;
@@ -5736,14 +7022,59 @@ public final class RMPenilaianAwalKeperawatanRanapNeonatus extends javax.swing.J
     private widget.Label jLabel138;
     private widget.Label jLabel139;
     private widget.Label jLabel140;
+    private widget.Label jLabel141;
+    private widget.Label jLabel142;
+    private widget.Label jLabel143;
+    private widget.Label jLabel144;
+    private widget.Label jLabel145;
+    private widget.Label jLabel146;
+    private widget.Label jLabel147;
+    private widget.Label jLabel148;
+    private widget.Label jLabel149;
     private widget.Label jLabel15;
+    private widget.Label jLabel150;
+    private widget.Label jLabel151;
+    private widget.Label jLabel152;
+    private widget.Label jLabel153;
+    private widget.Label jLabel154;
+    private widget.Label jLabel155;
+    private widget.Label jLabel156;
+    private widget.Label jLabel157;
+    private widget.Label jLabel158;
+    private widget.Label jLabel159;
     private widget.Label jLabel16;
+    private widget.Label jLabel160;
+    private widget.Label jLabel161;
+    private widget.Label jLabel162;
+    private widget.Label jLabel163;
+    private widget.Label jLabel164;
+    private widget.Label jLabel165;
+    private widget.Label jLabel166;
+    private widget.Label jLabel167;
+    private widget.Label jLabel168;
+    private widget.Label jLabel169;
     private widget.Label jLabel17;
+    private widget.Label jLabel170;
+    private widget.Label jLabel171;
+    private widget.Label jLabel172;
+    private widget.Label jLabel173;
+    private widget.Label jLabel174;
+    private widget.Label jLabel175;
+    private widget.Label jLabel176;
+    private widget.Label jLabel177;
+    private widget.Label jLabel178;
+    private widget.Label jLabel179;
     private widget.Label jLabel18;
+    private widget.Label jLabel180;
+    private widget.Label jLabel181;
+    private widget.Label jLabel182;
+    private widget.Label jLabel183;
+    private widget.Label jLabel184;
     private widget.Label jLabel19;
     private widget.Label jLabel20;
     private widget.Label jLabel200;
     private widget.Label jLabel201;
+    private widget.Label jLabel202;
     private widget.Label jLabel21;
     private widget.Label jLabel22;
     private widget.Label jLabel23;
@@ -5822,8 +7153,18 @@ public final class RMPenilaianAwalKeperawatanRanapNeonatus extends javax.swing.J
     private widget.Label jLabel85;
     private widget.Label jLabel86;
     private widget.Label jLabel87;
+    private widget.Label jLabel88;
+    private widget.Label jLabel89;
+    private widget.Label jLabel90;
+    private widget.Label jLabel91;
+    private widget.Label jLabel92;
+    private widget.Label jLabel93;
     private widget.Label jLabel94;
     private widget.Label jLabel95;
+    private widget.Label jLabel96;
+    private widget.Label jLabel97;
+    private widget.Label jLabel98;
+    private widget.Label jLabel99;
     private javax.swing.JSeparator jSeparator11;
     private javax.swing.JSeparator jSeparator12;
     private javax.swing.JSeparator jSeparator2;
