@@ -8,15 +8,15 @@
 		<![CDATA[select
   pasien.nm_pasien,
   pasien.tgl_lahir,
-  bridging_sep.no_sep,
+  ifnull ((select bridging_sep.no_sep from bridging_sep where bridging_sep.no_rawat = resep_obat.no_rawat and bridging_sep.jnspelayanan = case when resep_obat.status = 'ranap' then '1' else '2' end), '-') as no_sep,
   pasien.no_rkm_medis,
   resep_obat.no_rawat,
   penjab.png_jawab,
   dokter.nm_dokter,
-  resep_obat.no_resep
+  resep_obat.no_resep,
+  pasien.alamat
 from resep_obat
 join reg_periksa on resep_obat.no_rawat = reg_periksa.no_rawat
-left join bridging_sep on reg_periksa.no_rawat = bridging_sep.no_rawat
 join pasien on reg_periksa.no_rkm_medis = pasien.no_rkm_medis
 join penjab on reg_periksa.kd_pj = penjab.kd_pj
 join dokter on resep_obat.kd_dokter = dokter.kd_dokter
@@ -54,11 +54,15 @@ where no_resep = $P{noresep}]]>
 		<property name="com.jaspersoft.studio.field.label" value="no_resep"/>
 		<property name="com.jaspersoft.studio.field.tree.path" value="resep_obat"/>
 	</field>
+	<field name="alamat" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="alamat"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="pasien"/>
+	</field>
 	<background>
 		<band splitType="Stretch"/>
 	</background>
 	<title>
-		<band height="38">
+		<band height="60">
 			<textField>
 				<reportElement mode="Transparent" x="55" y="27" width="80" height="9" uuid="cde686ae-b5df-440d-bd72-e20035f58c50"/>
 				<textElement markup="none">
@@ -251,6 +255,30 @@ where no_resep = $P{noresep}]]>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{no_sep}]]></textFieldExpression>
 			</textField>
+			<staticText>
+				<reportElement mode="Transparent" x="0" y="36" width="50" height="9" uuid="a7642bd2-dff3-4feb-9dfb-939e1a2c0571"/>
+				<textElement markup="none">
+					<font fontName="Tahoma" size="7"/>
+					<paragraph lineSpacing="Single"/>
+				</textElement>
+				<text><![CDATA[Alamat Pasien]]></text>
+			</staticText>
+			<textField>
+				<reportElement mode="Transparent" x="55" y="36" width="222" height="23" uuid="31256bdb-419d-4fb1-aaa5-7dc47ef6596f"/>
+				<textElement markup="none">
+					<font fontName="Tahoma" size="7"/>
+					<paragraph lineSpacing="Single"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{alamat}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement mode="Transparent" x="50" y="36" width="5" height="9" uuid="8faa6db1-d187-4626-83d3-76d50a3028c7"/>
+				<textElement markup="none">
+					<font fontName="Tahoma" size="7"/>
+					<paragraph lineSpacing="Single"/>
+				</textElement>
+				<text><![CDATA[:]]></text>
+			</staticText>
 		</band>
 	</title>
 </jasperReport>

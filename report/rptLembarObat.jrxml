@@ -34,7 +34,7 @@
 		<band splitType="Stretch"/>
 	</background>
 	<title>
-		<band height="67" splitType="Stretch">
+		<band height="66" splitType="Stretch">
 			<textField>
 				<reportElement x="48" y="14" width="229" height="14" uuid="0539aef5-5cde-45fa-858f-b01b99511e26"/>
 				<textElement textAlignment="Center">
@@ -80,7 +80,7 @@
 				</graphicElement>
 			</line>
 			<subreport>
-				<reportElement x="0" y="55" width="277" height="7" uuid="f8483a21-2bb3-446b-b5ca-6341aff7330e"/>
+				<reportElement x="0" y="56" width="277" height="7" uuid="f8483a21-2bb3-446b-b5ca-6341aff7330e"/>
 				<subreportParameter name="noresep">
 					<subreportParameterExpression><![CDATA[$P{noresep}]]></subreportParameterExpression>
 				</subreportParameter>
@@ -223,7 +223,7 @@
 				<textElement textAlignment="Center">
 					<font fontName="Tahoma" size="7"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$P{kotars} + ", " + $P{tanggal}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$P{kotars} + ", " + new java.text.SimpleDateFormat("dd MMMM yyyy", new java.util.Locale("id")).format(new java.text.SimpleDateFormat("yyyy-MM-dd").parse($P{tanggal}))]]></textFieldExpression>
 			</textField>
 			<componentElement>
 				<reportElement x="0" y="93" width="89" height="28" uuid="50783cec-dccc-4676-9a02-78d48d110417"/>
