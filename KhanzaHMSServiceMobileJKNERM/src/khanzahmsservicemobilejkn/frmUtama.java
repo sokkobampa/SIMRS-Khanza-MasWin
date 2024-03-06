@@ -310,6 +310,7 @@ public class frmUtama extends javax.swing.JFrame {
                                     //System.out.println(api.getRest().exchange(URL, HttpMethod.POST, requestEntity, String.class).getBody());
                                     root = mapper.readTree(api.getRest().exchange(URL, HttpMethod.POST, requestEntity, String.class).getBody());
                                     nameNode = root.path("metadata");
+                                    Sequel.logTaskid(rs.getString("no_rawat"), "JKN", "-", nameNode.path("code").asText(), nameNode.path("message").asText());
                                     if(nameNode.path("code").asText().equals("200")||nameNode.path("code").asText().equals("208")||nameNode.path("message").asText().equals("Ok")){
                                         Sequel.queryu2("update referensi_mobilejkn_bpjs set statuskirim='Sudah' where nobooking='"+rs.getString("nobooking")+"'");
                                     }   
@@ -354,6 +355,7 @@ public class frmUtama extends javax.swing.JFrame {
                                     //System.out.println(api.getRest().exchange(URL, HttpMethod.POST, requestEntity, String.class).getBody());
                                     root = mapper.readTree(api.getRest().exchange(URL, HttpMethod.POST, requestEntity, String.class).getBody());
                                     nameNode = root.path("metadata");
+                                    Sequel.logTaskid(rs.getString("no_rawat_batal"), "JKN", "99", nameNode.path("code").asText(), nameNode.path("message").asText());
                                     if(nameNode.path("code").asText().equals("200")){
                                         Sequel.queryu2("update referensi_mobilejkn_bpjs_batal set statuskirim='Sudah' where nomorreferensi='"+rs.getString("nomorreferensi")+"'");
                                         datajam=rs.getString("tanggalbatal");
@@ -486,9 +488,7 @@ public class frmUtama extends javax.swing.JFrame {
                                                 //System.out.println(api.getRest().exchange(URL, HttpMethod.POST, requestEntity, String.class).getBody());
                                                 root = mapper.readTree(api.getRest().exchange(URL, HttpMethod.POST, requestEntity, String.class).getBody());
                                                 nameNode = root.path("metadata");
-                                                
                                                 Sequel.logTaskid(rs.getString("no_rawat"), "JKN", "3", nameNode.path("code").asText(), nameNode.path("message").asText());
-                                                
                                                 if(!nameNode.path("code").asText().equals("200")){
                                                     Sequel.queryu2("delete from referensi_mobilejkn_bpjs_taskid where taskid='3' and no_rawat='"+rs.getString("no_rawat")+"'");
                                                 }  
@@ -526,9 +526,7 @@ public class frmUtama extends javax.swing.JFrame {
                                                 //System.out.println(api.getRest().exchange(URL, HttpMethod.POST, requestEntity, String.class).getBody());
                                                 root = mapper.readTree(api.getRest().exchange(URL, HttpMethod.POST, requestEntity, String.class).getBody());
                                                 nameNode = root.path("metadata");
-                                                
                                                 Sequel.logTaskid(rs.getString("no_rawat"), "JKN", "4", nameNode.path("code").asText(), nameNode.path("message").asText());
-                                                
                                                 if(!nameNode.path("code").asText().equals("200")){
                                                     Sequel.queryu2("delete from referensi_mobilejkn_bpjs_taskid where taskid='4' and no_rawat='"+rs.getString("no_rawat")+"'");
                                                 }   
@@ -566,9 +564,7 @@ public class frmUtama extends javax.swing.JFrame {
                                                 //System.out.println(api.getRest().exchange(URL, HttpMethod.POST, requestEntity, String.class).getBody());
                                                 root = mapper.readTree(api.getRest().exchange(URL, HttpMethod.POST, requestEntity, String.class).getBody());
                                                 nameNode = root.path("metadata");
-                                                
                                                 Sequel.logTaskid(rs.getString("no_rawat"), "JKN", "5", nameNode.path("code").asText(), nameNode.path("message").asText());
-                                                
                                                 if(!nameNode.path("code").asText().equals("200")){
                                                     Sequel.queryu2("delete from referensi_mobilejkn_bpjs_taskid where taskid='5' and no_rawat='"+rs.getString("no_rawat")+"'");
                                                 }  
@@ -636,9 +632,7 @@ public class frmUtama extends javax.swing.JFrame {
                                                 //System.out.println(api.getRest().exchange(URL, HttpMethod.POST, requestEntity, String.class).getBody());
                                                 root = mapper.readTree(api.getRest().exchange(URL, HttpMethod.POST, requestEntity, String.class).getBody());
                                                 nameNode = root.path("metadata");
-                                                
                                                 Sequel.logTaskid(rs.getString("no_rawat"), "JKN", "6", nameNode.path("code").asText(), nameNode.path("message").asText());
-                                                
                                                 if(!nameNode.path("code").asText().equals("200")){
                                                     Sequel.queryu2("delete from referensi_mobilejkn_bpjs_taskid where taskid='6' and no_rawat='"+rs.getString("no_rawat")+"'");
                                                 }  
@@ -798,7 +792,7 @@ public class frmUtama extends javax.swing.JFrame {
                                                     ps3.close();
                                                 }
                                             }
-                                            
+                                            /*
                                             if (task1.equals("")) {
                                                 datajam=Sequel.cariIsiSmc("select concat(tanggal, ' ', jam) from antriloketcetak_smc where no_rawat = ?", rs.getString("no_rawat"));
                                                 if(!datajam.equals("")){
@@ -874,7 +868,7 @@ public class frmUtama extends javax.swing.JFrame {
                                                     }
                                                 }
                                             }
-                                            
+                                            */
                                             if(task3.equals("")){
                                                 try {     
                                                     datajam=Sequel.cariIsi("select DATE_ADD(concat('"+rs.getString("tgl_registrasi")+"',' ','"+rs2.getString("jam_mulai")+"'),INTERVAL "+(Integer.parseInt(rs.getString("no_reg"))*10)+" MINUTE) ");
@@ -920,6 +914,7 @@ public class frmUtama extends javax.swing.JFrame {
                                                         root = mapper.readTree(api.getRest().exchange(URL, HttpMethod.POST, requestEntity, String.class).getBody());
                                                         nameNode = root.path("metadata");  
                                                         TeksArea.append("respon WS BPJS : "+nameNode.path("code").asText()+" "+nameNode.path("message").asText()+"\n");
+                                                        Sequel.logTaskid(rs.getString("no_rawat"), "NON JKN", "-", nameNode.path("code").asText(), nameNode.path("message").asText());
                                                     }
                                                 }catch (Exception ex) {
                                                     System.out.println("Notifikasi Bridging : "+ex);
