@@ -1553,7 +1553,7 @@ public final class RMPenilaianAwalKeperawatanRanapNeonatus extends javax.swing.J
         Anamnesis.setBounds(79, 100, 105, 23);
 
         TglAsuhan.setForeground(new java.awt.Color(50, 70, 50));
-        TglAsuhan.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "06-03-2024 06:31:47" }));
+        TglAsuhan.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "06-03-2024 09:07:50" }));
         TglAsuhan.setDisplayFormat("dd-MM-yyyy HH:mm:ss");
         TglAsuhan.setName("TglAsuhan"); // NOI18N
         TglAsuhan.setOpaque(false);
@@ -2027,7 +2027,7 @@ public final class RMPenilaianAwalKeperawatanRanapNeonatus extends javax.swing.J
         FormInput.add(jLabel42);
         jLabel42.setBounds(463, 220, 130, 23);
 
-        MacamKasus1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "-", "DM", "Hipertensi", "Jantung", "TBC", "Hep B", "Asma", "PMS", "Lainnya" }));
+        MacamKasus1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Tidak Ada", "DM", "Hipertensi", "Jantung", "TBC", "Hep B", "Asma", "PMS", "Lainnya" }));
         MacamKasus1.setName("MacamKasus1"); // NOI18N
         MacamKasus1.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
@@ -2198,7 +2198,7 @@ public final class RMPenilaianAwalKeperawatanRanapNeonatus extends javax.swing.J
         label19.setBounds(365, 330, 60, 23);
 
         TglAsuhan1.setForeground(new java.awt.Color(50, 70, 50));
-        TglAsuhan1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "06-03-2024 06:31:48" }));
+        TglAsuhan1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "06-03-2024 09:07:51" }));
         TglAsuhan1.setDisplayFormat("dd-MM-yyyy HH:mm:ss");
         TglAsuhan1.setName("TglAsuhan1"); // NOI18N
         TglAsuhan1.setOpaque(false);
@@ -2435,7 +2435,7 @@ public final class RMPenilaianAwalKeperawatanRanapNeonatus extends javax.swing.J
         jLabel118.setBounds(758, 390, 22, 23);
 
         jLabel52.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        jLabel52.setText("Faktor Resiko Infeksi :");
+        jLabel52.setText("Faktor Risiko Infeksi :");
         jLabel52.setName("jLabel52"); // NOI18N
         FormInput.add(jLabel52);
         jLabel52.setBounds(44, 420, 160, 23);
@@ -3436,7 +3436,7 @@ public final class RMPenilaianAwalKeperawatanRanapNeonatus extends javax.swing.J
         FormInput.add(jLabel139);
         jLabel139.setBounds(244, 980, 50, 23);
 
-        KeadaanMentalUmum4.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "TAK", "Hydrocephalus", "Hematoma", "Lainnya " }));
+        KeadaanMentalUmum4.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "TAK", "Hydrocephalus", "Hematoma", "Lainnya" }));
         KeadaanMentalUmum4.setName("KeadaanMentalUmum4"); // NOI18N
         KeadaanMentalUmum4.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
@@ -5390,7 +5390,7 @@ public final class RMPenilaianAwalKeperawatanRanapNeonatus extends javax.swing.J
         FormInput.add(jLabel251);
         jLabel251.setBounds(44, 2400, 200, 23);
 
-        SkalaResiko8.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Otot Relaks, Wajah Tenang, Ekspresi Netral", "Meringis, Otot Wajah Tegang, Alis Berkerut (Ekspresi Wajah Negatif)" }));
+        SkalaResiko8.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Otot Relaks / Wajah Tenang / Ekspresi Netral", "Meringis / Otot Wajah Tegang / Alis Berkerut (Ekspresi Wajah Negatif)" }));
         SkalaResiko8.setName("SkalaResiko8"); // NOI18N
         SkalaResiko8.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
@@ -5417,7 +5417,7 @@ public final class RMPenilaianAwalKeperawatanRanapNeonatus extends javax.swing.J
         FormInput.add(NilaiResiko9);
         NilaiResiko9.setBounds(814, 2430, 40, 23);
 
-        SkalaResiko9.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Tenang, Tidak Menangis", "Merengek, Mengerang Lemah Intermiten", "Menangis Keras, Melengking Terus Menerus / Menangis Tanpa Suara Bila Bayi Intubasi" }));
+        SkalaResiko9.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Tenang / Tidak Menangis", "Merengek / Mengerang Lemah Intermiten", "Menangis Keras / Melengking Terus Menerus / Menangis Tanpa Suara Bila Bayi Intubasi" }));
         SkalaResiko9.setName("SkalaResiko9"); // NOI18N
         SkalaResiko9.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
@@ -5444,7 +5444,7 @@ public final class RMPenilaianAwalKeperawatanRanapNeonatus extends javax.swing.J
         FormInput.add(NilaiResiko10);
         NilaiResiko10.setBounds(814, 2460, 40, 23);
 
-        SkalaResiko10.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Relaks, Bernapas Biasa", "Perubahan Napas / Tarikan Irreguler, Lebih Cepat Dibandingkan Biasa, Menahan Napas, Tersedak" }));
+        SkalaResiko10.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Relaks / Bernapas Biasa", "Perubahan Napas / Tarikan Irreguler / Lebih Cepat Dibandingkan Biasa / Menahan Napas / Tersedak" }));
         SkalaResiko10.setName("SkalaResiko10"); // NOI18N
         SkalaResiko10.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
@@ -5471,7 +5471,7 @@ public final class RMPenilaianAwalKeperawatanRanapNeonatus extends javax.swing.J
         FormInput.add(NilaiResiko11);
         NilaiResiko11.setBounds(814, 2490, 40, 23);
 
-        SkalaResiko11.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Relaks / Tidak Ada Kekakuan Otot, Gerakan Tungkai Biasa", "Fleksi / Ekstensi Tegang Kaku" }));
+        SkalaResiko11.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Relaks / Tidak Ada Kekakuan Otot / Gerakan Tungkai Biasa", "Fleksi / Ekstensi Tegang Kaku" }));
         SkalaResiko11.setName("SkalaResiko11"); // NOI18N
         SkalaResiko11.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
@@ -5498,7 +5498,7 @@ public final class RMPenilaianAwalKeperawatanRanapNeonatus extends javax.swing.J
         FormInput.add(NilaiResiko12);
         NilaiResiko12.setBounds(814, 2520, 40, 23);
 
-        SkalaResiko12.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Tenang, Tidur Lelap / Bangun", "Gelisah" }));
+        SkalaResiko12.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Tenang / Tidur Lelap / Bangun", "Gelisah" }));
         SkalaResiko12.setName("SkalaResiko12"); // NOI18N
         SkalaResiko12.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
@@ -7051,7 +7051,7 @@ public final class RMPenilaianAwalKeperawatanRanapNeonatus extends javax.swing.J
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
         try {
-            if(Valid.daysOld("./cache/masalahkeperawatan.iyem")<30){
+            if(Valid.daysOld("./cache/masalahkeperawatanneonatus.iyem")<30){
                 tampilMasalah2();
             }else{
                 tampilMasalah();
@@ -7086,8 +7086,8 @@ public final class RMPenilaianAwalKeperawatanRanapNeonatus extends javax.swing.J
             try {
                 masalahkeperawatan="";
                 ps=koneksi.prepareStatement(
-                    "select master_masalah_keperawatan.kode_masalah,master_masalah_keperawatan.nama_masalah from master_masalah_keperawatan "+
-                    "inner join penilaian_awal_keperawatan_ranap_masalah on penilaian_awal_keperawatan_ranap_masalah.kode_masalah=master_masalah_keperawatan.kode_masalah "+
+                    "select master_masalah_keperawatan_neonatus.kode_masalah,master_masalah_keperawatan_neonatus.nama_masalah from master_masalah_keperawatan_neonatus "+
+                    "inner join penilaian_awal_keperawatan_ranap_masalah on penilaian_awal_keperawatan_ranap_masalah.kode_masalah=master_masalah_keperawatan_neonatus.kode_masalah "+
                     "where penilaian_awal_keperawatan_ranap_masalah.no_rawat=? order by penilaian_awal_keperawatan_ranap_masalah.kode_masalah");
                 try {
                     ps.setString(1,tbObat.getValueAt(tbObat.getSelectedRow(),0).toString());
@@ -7112,8 +7112,8 @@ public final class RMPenilaianAwalKeperawatanRanapNeonatus extends javax.swing.J
             try {
                 masalahkeperawatan="";
                 ps=koneksi.prepareStatement(
-                    "select master_rencana_keperawatan.kode_rencana,master_rencana_keperawatan.rencana_keperawatan from master_rencana_keperawatan "+
-                    "inner join penilaian_awal_keperawatan_ranap_rencana on penilaian_awal_keperawatan_ranap_rencana.kode_rencana=master_rencana_keperawatan.kode_rencana "+
+                    "select master_rencana_keperawatan_neonatus.kode_rencana,master_rencana_keperawatan_neonatus.rencana_keperawatan from master_rencana_keperawatan_neonatus "+
+                    "inner join penilaian_awal_keperawatan_ranap_rencana on penilaian_awal_keperawatan_ranap_rencana.kode_rencana=master_rencana_keperawatan_neonatus.kode_rencana "+
                     "where penilaian_awal_keperawatan_ranap_rencana.no_rawat=? order by penilaian_awal_keperawatan_ranap_rencana.kode_rencana");
                 try {
                     ps.setString(1,tbObat.getValueAt(tbObat.getSelectedRow(),0).toString());
@@ -7388,7 +7388,7 @@ public final class RMPenilaianAwalKeperawatanRanapNeonatus extends javax.swing.J
 
     private void BtnTambahMasalahActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnTambahMasalahActionPerformed
         this.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
-        MasterMasalahKeperawatan form=new MasterMasalahKeperawatan(null,false);
+        MasterMasalahKeperawatanNeonatus form=new MasterMasalahKeperawatanNeonatus(null,false);
         form.isCek();
         form.setSize(internalFrame1.getWidth()-20,internalFrame1.getHeight()-20);
         form.setLocationRelativeTo(internalFrame1);
@@ -7435,7 +7435,7 @@ public final class RMPenilaianAwalKeperawatanRanapNeonatus extends javax.swing.J
 
     private void BtnTambahRencanaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnTambahRencanaActionPerformed
         this.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
-        MasterRencanaKeperawatan form=new MasterRencanaKeperawatan(null,false);
+        MasterRencanaKeperawatanNeonatus form=new MasterRencanaKeperawatanNeonatus(null,false);
         form.isCek();
         form.setSize(internalFrame1.getWidth()-20,internalFrame1.getHeight()-20);
         form.setLocationRelativeTo(internalFrame1);
@@ -8105,10 +8105,6 @@ public final class RMPenilaianAwalKeperawatanRanapNeonatus extends javax.swing.J
         // TODO add your handling code here:
     }//GEN-LAST:event_KeadaanMentalUmum39KeyPressed
 
-    private void MacamKasus33KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_MacamKasus33KeyPressed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_MacamKasus33KeyPressed
-
     private void KeadaanMentalUmum40KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_KeadaanMentalUmum40KeyPressed
         // TODO add your handling code here:
     }//GEN-LAST:event_KeadaanMentalUmum40KeyPressed
@@ -8446,6 +8442,10 @@ public final class RMPenilaianAwalKeperawatanRanapNeonatus extends javax.swing.J
     private void CaraBelajarDisukai7KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_CaraBelajarDisukai7KeyPressed
         // TODO add your handling code here:
     }//GEN-LAST:event_CaraBelajarDisukai7KeyPressed
+
+    private void MacamKasus33KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_MacamKasus33KeyPressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_MacamKasus33KeyPressed
 
     /**
     * @param args the command line arguments
@@ -9247,8 +9247,8 @@ public final class RMPenilaianAwalKeperawatanRanapNeonatus extends javax.swing.J
                 Valid.tabelKosong(tabModeMasalah);
                 
                 ps=koneksi.prepareStatement(
-                        "select master_masalah_keperawatan.kode_masalah,master_masalah_keperawatan.nama_masalah from master_masalah_keperawatan "+
-                        "inner join penilaian_awal_keperawatan_ranap_masalah on penilaian_awal_keperawatan_ranap_masalah.kode_masalah=master_masalah_keperawatan.kode_masalah "+
+                        "select master_masalah_keperawatan_neonatus.kode_masalah,master_masalah_keperawatan_neonatus.nama_masalah from master_masalah_keperawatan_neonatus "+
+                        "inner join penilaian_awal_keperawatan_ranap_masalah on penilaian_awal_keperawatan_ranap_masalah.kode_masalah=master_masalah_keperawatan_neonatus.kode_masalah "+
                         "where penilaian_awal_keperawatan_ranap_masalah.no_rawat=? order by penilaian_awal_keperawatan_ranap_masalah.kode_masalah");
                 try {
                     ps.setString(1,tbObat.getValueAt(tbObat.getSelectedRow(),0).toString());
@@ -9274,8 +9274,8 @@ public final class RMPenilaianAwalKeperawatanRanapNeonatus extends javax.swing.J
                 Valid.tabelKosong(tabModeRencana);
                 
                 ps=koneksi.prepareStatement(
-                        "select master_rencana_keperawatan.kode_rencana,master_rencana_keperawatan.rencana_keperawatan from master_rencana_keperawatan "+
-                        "inner join penilaian_awal_keperawatan_ranap_rencana on penilaian_awal_keperawatan_ranap_rencana.kode_rencana=master_rencana_keperawatan.kode_rencana "+
+                        "select master_rencana_keperawatan_neonatus.kode_rencana,master_rencana_keperawatan_neonatus.rencana_keperawatan from master_rencana_keperawatan_neonatus "+
+                        "inner join penilaian_awal_keperawatan_ranap_rencana on penilaian_awal_keperawatan_ranap_rencana.kode_rencana=master_rencana_keperawatan_neonatus.kode_rencana "+
                         "where penilaian_awal_keperawatan_ranap_rencana.no_rawat=? order by penilaian_awal_keperawatan_ranap_rencana.kode_rencana");
                 try {
                     ps.setString(1,tbObat.getValueAt(tbObat.getSelectedRow(),0).toString());
@@ -9347,8 +9347,8 @@ public final class RMPenilaianAwalKeperawatanRanapNeonatus extends javax.swing.J
         BtnHapus.setEnabled(akses.getpenilaian_awal_keperawatan_ranap());
         BtnEdit.setEnabled(akses.getpenilaian_awal_keperawatan_ranap());
         BtnEdit.setEnabled(akses.getpenilaian_awal_keperawatan_ranap()); 
-        BtnTambahMasalah.setEnabled(akses.getmaster_masalah_keperawatan()); 
-        BtnTambahRencana.setEnabled(akses.getmaster_rencana_keperawatan()); 
+        BtnTambahMasalah.setEnabled(akses.getmaster_masalah_keperawatan_neonatus()); 
+        BtnTambahRencana.setEnabled(akses.getmaster_rencana_keperawatan_neonatus()); 
         if(akses.getjml2()>=1){
             KdPetugas.setEditable(false);
             BtnPetugas.setEnabled(false);
@@ -9390,8 +9390,8 @@ public final class RMPenilaianAwalKeperawatanRanapNeonatus extends javax.swing.J
             try {
                 Valid.tabelKosong(tabModeDetailMasalah);
                 ps=koneksi.prepareStatement(
-                        "select master_masalah_keperawatan.kode_masalah,master_masalah_keperawatan.nama_masalah from master_masalah_keperawatan "+
-                        "inner join penilaian_awal_keperawatan_ranap_masalah on penilaian_awal_keperawatan_ranap_masalah.kode_masalah=master_masalah_keperawatan.kode_masalah "+
+                        "select master_masalah_keperawatan_neonatus.kode_masalah,master_masalah_keperawatan_neonatus.nama_masalah from master_masalah_keperawatan_neonatus "+
+                        "inner join penilaian_awal_keperawatan_ranap_masalah on penilaian_awal_keperawatan_ranap_masalah.kode_masalah=master_masalah_keperawatan_neonatus.kode_masalah "+
                         "where penilaian_awal_keperawatan_ranap_masalah.no_rawat=? order by penilaian_awal_keperawatan_ranap_masalah.kode_masalah");
                 try {
                     ps.setString(1,tbObat.getValueAt(tbObat.getSelectedRow(),0).toString());
@@ -9416,8 +9416,8 @@ public final class RMPenilaianAwalKeperawatanRanapNeonatus extends javax.swing.J
             try {
                 Valid.tabelKosong(tabModeDetailRencana);
                 ps=koneksi.prepareStatement(
-                        "select master_rencana_keperawatan.kode_rencana,master_rencana_keperawatan.rencana_keperawatan from master_rencana_keperawatan "+
-                        "inner join penilaian_awal_keperawatan_ranap_rencana on penilaian_awal_keperawatan_ranap_rencana.kode_rencana=master_rencana_keperawatan.kode_rencana "+
+                        "select master_rencana_keperawatan_neonatus.kode_rencana,master_rencana_keperawatan_neonatus.rencana_keperawatan from master_rencana_keperawatan_neonatus "+
+                        "inner join penilaian_awal_keperawatan_ranap_rencana on penilaian_awal_keperawatan_ranap_rencana.kode_rencana=master_rencana_keperawatan_neonatus.kode_rencana "+
                         "where penilaian_awal_keperawatan_ranap_rencana.no_rawat=? order by penilaian_awal_keperawatan_ranap_rencana.kode_rencana");
                 try {
                     ps.setString(1,tbObat.getValueAt(tbObat.getSelectedRow(),0).toString());
@@ -9509,11 +9509,11 @@ public final class RMPenilaianAwalKeperawatanRanapNeonatus extends javax.swing.J
     private void tampilMasalah() {
         try{
             Valid.tabelKosong(tabModeMasalah);
-            file=new File("./cache/masalahkeperawatan.iyem");
+            file=new File("./cache/masalahkeperawatanneonatus.iyem");
             file.createNewFile();
             fileWriter = new FileWriter(file);
             iyem="";
-            ps=koneksi.prepareStatement("select * from master_masalah_keperawatan order by master_masalah_keperawatan.kode_masalah");
+            ps=koneksi.prepareStatement("select * from master_masalah_keperawatan_neonatus order by master_masalah_keperawatan_neonatus.kode_masalah");
             try {
                 rs=ps.executeQuery();
                 while(rs.next()){
@@ -9573,7 +9573,7 @@ public final class RMPenilaianAwalKeperawatanRanapNeonatus extends javax.swing.J
                 });
             }
             
-            myObj = new FileReader("./cache/masalahkeperawatan.iyem");
+            myObj = new FileReader("./cache/masalahkeperawatanneonatus.iyem");
             root = mapper.readTree(myObj);
             response = root.path("masalahkeperawatan");
             if(response.isArray()){
@@ -9597,7 +9597,7 @@ public final class RMPenilaianAwalKeperawatanRanapNeonatus extends javax.swing.J
             file.createNewFile();
             fileWriter = new FileWriter(file);
             iyem="";
-            ps=koneksi.prepareStatement("select * from master_rencana_keperawatan order by master_rencana_keperawatan.kode_rencana");
+            ps=koneksi.prepareStatement("select * from master_rencana_keperawatan_neonatus order by master_rencana_keperawatan_neonatus.kode_rencana");
             try {
                 rs=ps.executeQuery();
                 while(rs.next()){
