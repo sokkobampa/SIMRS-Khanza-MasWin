@@ -154,6 +154,4 @@ ALTER TABLE `user` ADD COLUMN IF NOT EXISTS `edit_hapus_spo_medis` enum('true','
 
 ALTER TABLE `user` ADD COLUMN IF NOT EXISTS `edit_hapus_spo_nonmedis` enum('true','false') CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT NULL AFTER `edit_hapus_spo_medis`;
 
-ALTER TABLE `user` MODIFY COLUMN IF EXISTS `hasil_usg_neonatus` enum('true','false') CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT NULL AFTER `edit_hapus_spo_nonmedis`;
-
 SET FOREIGN_KEY_CHECKS=1;
