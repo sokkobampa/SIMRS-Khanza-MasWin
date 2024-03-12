@@ -393,11 +393,6 @@ public class DlgUpdateUser extends javax.swing.JDialog {
 
         TNmUser.setEditable(false);
         TNmUser.setName("TNmUser"); // NOI18N
-        TNmUser.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                TNmUserKeyPressed(evt);
-            }
-        });
         panelGlass5.add(TNmUser);
         TNmUser.setBounds(47, 10, 150, 23);
 
@@ -515,10 +510,6 @@ public class DlgUpdateUser extends javax.swing.JDialog {
     private void TPassKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TPassKeyPressed
         Valid.pindah(evt,TKd,BtnSimpan);
 }//GEN-LAST:event_TPassKeyPressed
-
-    private void TNmUserKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TNmUserKeyPressed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_TNmUserKeyPressed
 
     private void TCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TCariKeyPressed
         if(evt.getKeyCode()==KeyEvent.VK_ENTER){
@@ -751,7 +742,7 @@ public class DlgUpdateUser extends javax.swing.JDialog {
         soap_perawatan=false;klaim_rawat_jalan=false;skrining_gizi=false;lama_penyiapan_rm=false;dosis_radiologi=false;demografi_umur_kunjungan=false;jam_diet_pasien=false;rvu_bpjs=false;
         verifikasi_penerimaan_farmasi=false;verifikasi_penerimaan_logistik=false;pemeriksaan_lab_pa=false;ringkasan_pengajuan_obat=false;ringkasan_pemesanan_obat=false;ringkasan_pengadaan_obat=false;
         ringkasan_penerimaan_obat=false;ringkasan_hibah_obat=false;ringkasan_penjualan_obat=false;ringkasan_beri_obat=false;ringkasan_piutang_obat=false;ringkasan_stok_keluar_obat=false;
-        ringkasan_retur_suplier_obat=false;ringkasan_retur_pembeli_obat=false;penilaian_awal_keperawatan_ranapkebidanan=false;ringkasan_pengajuan_nonmedis=false;ringkasan_pemesanan_nonmedis=false;;
+        ringkasan_retur_suplier_obat=false;ringkasan_retur_pembeli_obat=false;penilaian_awal_keperawatan_ranapkebidanan=false;ringkasan_pengajuan_nonmedis=false;ringkasan_pemesanan_nonmedis=false;
         ringkasan_pengadaan_nonmedis=false;ringkasan_penerimaan_nonmedis=false;ringkasan_stokkeluar_nonmedis=false;ringkasan_returbeli_nonmedis=false;omset_penerimaan=false;validasi_penagihan_piutang=false;
         permintaan_ranap=false;bpjs_diagnosa_prb=false;bpjs_obat_prb=false;bpjs_surat_kontrol=false;penggunaan_bhp_ok=false;surat_keterangan_rawat_inap=false;surat_keterangan_sehat=false;pendapatan_per_carabayar=false;
         akun_host_to_host_bank_jateng=false;pembayaran_bank_jateng=false;bpjs_surat_pri=false;ringkasan_tindakan=false;lama_pelayanan_pasien=false;surat_sakit_pihak_2=false;tagihan_hutang_obat=false;
@@ -5243,12 +5234,11 @@ public class DlgUpdateUser extends javax.swing.JDialog {
         if("[T]Integrasi Khanza Health Services".toLowerCase().contains(TCari.getText().toLowerCase())){
             tabMode.addRow(new Object[]{false,"[T]Integrasi Khanza Health Services",integrasi_khanza_health_services});
         }
-        if ("[P]Template Persetujuan Penolakan Tindakan".toLowerCase().contains(TCari.getText().toLowerCase())) {
-            tabMode.addRow(new Object[]{false, "[P]Template Persetujuan Penolakan Tindakan", template_persetujuan_penolakan_tindakan});
-        }
+        
         if("[D]Edit/Hapus Surat Pemesanan Medis".toLowerCase().contains(TCari.getText().toLowerCase())) {
             tabMode.addRow(new Object[]{false, "[D]Edit/Hapus Surat Pemesanan Medis", edit_hapus_spo_medis});
         }
+        
         if("[E]Edit/Hapus Surat Pemesanan Nonmedis".toLowerCase().contains(TCari.getText().toLowerCase())) {
             tabMode.addRow(new Object[]{false, "[E]Edit/Hapus Surat Pemesanan Nonmedis", edit_hapus_spo_nonmedis});
         }
@@ -9343,12 +9333,11 @@ public class DlgUpdateUser extends javax.swing.JDialog {
             if("[T]Integrasi Khanza Health Services".equals(tbUser.getValueAt(i,1).toString())){
                 Sequel.mengedit("user","id_user=AES_ENCRYPT('"+TKd.getText()+"','nur')","integrasi_khanza_health_services='"+tbUser.getValueAt(i,2).toString()+"'");
             }
-            if("[P]Template Persetujuan Penolakan Tindakan".equals(tbUser.getValueAt(i,1).toString())){
-                Sequel.mengedit("user","id_user=AES_ENCRYPT('"+TKd.getText()+"','nur')","template_persetujuan_penolakan_tindakan='"+tbUser.getValueAt(i,2).toString()+"'");
-            }
+            
             if("[D]Edit/Hapus Surat Pemesanan Medis".equals(tbUser.getValueAt(i,1).toString())){
                 Sequel.mengupdateSmc("user", "edit_hapus_spo_medis = ?", "id_user = aes_encrypt(?, 'nur')", tbUser.getValueAt(i, 2).toString(), TKd.getText());
             }
+            
             if("[E]Edit/Hapus Surat Pemesanan Nonmedis".equals(tbUser.getValueAt(i,1).toString())){
                 Sequel.mengupdateSmc("user", "edit_hapus_spo_nonmedis = ?", "id_user = aes_encrypt(?, 'nur')", tbUser.getValueAt(i, 2).toString(), TKd.getText());
             }
