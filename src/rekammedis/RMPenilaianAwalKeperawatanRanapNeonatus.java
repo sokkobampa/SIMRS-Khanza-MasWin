@@ -77,7 +77,7 @@ public final class RMPenilaianAwalKeperawatanRanapNeonatus extends javax.swing.J
             "Keterangan Alergi Obat","Reaksi Alergi Obat","Alergi Makanan","Keterangan Alergi Makanan","Reaksi Alergi Makanan","Alergi Lainnya","Keterangan Alergi Lainnya",
             "Reaksi Alergi Lainnya","Riwayat Penyakit Keluarga","Keterangan Riwayat Penyakit Keluarga","Riwayat Imunisasi","Keterangan Riwayat Imunisasi","Riwayat Tranfusi Darah",
             "Keterangan Riwayat Tranfusi Darah","Reaksi Tranfusi Darah","Keterangan Reaksi Tranfusi Darah","Obat-obatan Diminum","Keterangan Obat-obatan Diminum",
-            "Obat Tidur/Narkoba","Keterangan Obat Tidur/Narkoba","Merokok","Batang/Hari","Alkohol","Gelas/Hari","Kesadaran","Keadaan Umum","GCS","TD(mmHg)","Suhu(°C)",
+            "Obat Tidur/Narkoba","Keterangan Obat Tidur/Narkoba","Merokok","Batang/Hari","Alkohol","Gelas/Hari","Kesadaran","Keadaan Umum","GCS(E+V+M)","TD(mmHg)","Suhu(°C)",
             "HR(x/menit)","RR(x/menit)","SPO2(%)","Down Score","BB(Kg)","TB(cm)","LK(cm)","LD(cm)","LP(cm)","GD Bayi","GD Ibu","GD Ayah","Gerak Bayi","Kepala","Keterangan Kepala",
             "Ubun-ubun","Keterangan Ubun-ubun","Wajah","Keterangan Wajah","Kejang","Keterangan Kejang","Refleks","Keterangan Refleks","Tangis Bayi","Keterangan Tangis Bayi",
             "Denyut Nadi","Sirkulasi","Keterangan Sirkulasi","Pulsasi","Keterangan Pulsasi","Pola Napas","Jenis Pernapasan","Keterangan Jenis Pernapasan","Retraksi","Air Entry",
@@ -257,13 +257,89 @@ public final class RMPenilaianAwalKeperawatanRanapNeonatus extends javax.swing.J
             }else if(i==74){
                 column.setPreferredWidth(165);
             }else if(i==75){
-                column.setPreferredWidth(55);
+                column.setPreferredWidth(51);
             }else if(i==76){
-                column.setPreferredWidth(70);
+                column.setPreferredWidth(67);
             }else if(i==77){
-                column.setPreferredWidth(55);
+                column.setPreferredWidth(45);
+            }else if(i==78){
+                column.setPreferredWidth(60);
             }else if(i==79){
+                column.setPreferredWidth(85);
+            }else if(i==80){
+                column.setPreferredWidth(100);
+            }else if(i==81){
+                column.setPreferredWidth(74);
+            }else if(i==82){
+                column.setPreferredWidth(61);
+            }else if(i==83){
+                column.setPreferredWidth(52);
+            }else if(i==84){
+                column.setPreferredWidth(68);
+            }else if(i==85){
+                column.setPreferredWidth(68);
+            }else if(i==86){
+                column.setPreferredWidth(55);
+            }else if(i==87){
+                column.setPreferredWidth(66);
+            }else if(i==88){
+                column.setPreferredWidth(44);
+            }else if(i==89){
+                column.setPreferredWidth(44);
+            }else if(i==90){
+                column.setPreferredWidth(44);
+            }else if(i==91){
+                column.setPreferredWidth(44);
+            }else if(i==92){
+                column.setPreferredWidth(44);
+            }else if(i==93){
+                column.setPreferredWidth(48);
+            }else if(i==94){
+                column.setPreferredWidth(42);
+            }else if(i==95){
+                column.setPreferredWidth(50);
+            }else if(i==96){
+                column.setPreferredWidth(60);
+            }else if(i==97){
+                column.setPreferredWidth(78);
+            }else if(i==98){
+                column.setPreferredWidth(100);
+            }else if(i==99){
+                column.setPreferredWidth(62);
+            }else if(i==100){
+                column.setPreferredWidth(121);
+            }else if(i==101){
+                column.setPreferredWidth(101);
+            }else if(i==102){
+                column.setPreferredWidth(130);
+            }else if(i==103){
+                column.setPreferredWidth(53);
+            }else if(i==104){
+                column.setPreferredWidth(130);
+            }else if(i==105){
+                column.setPreferredWidth(48);
+            }else if(i==106){
+                column.setPreferredWidth(130);
+            }else if(i==107){
+                column.setPreferredWidth(65);
+            }else if(i==108){
+                column.setPreferredWidth(130);
+            }else if(i==109){
                 column.setPreferredWidth(70);
+            }else if(i==110){
+                column.setPreferredWidth(70);
+            }else if(i==111){
+                column.setPreferredWidth(130);
+            }else if(i==112){
+                column.setPreferredWidth(44);
+            }else if(i==113){
+                column.setPreferredWidth(130);
+            }else if(i==114){
+                column.setPreferredWidth(80);
+            }else if(i==115){
+                column.setPreferredWidth(90);
+            }else if(i==116){
+                column.setPreferredWidth(130);
             }
         }
         tbObat.setDefaultRenderer(Object.class, new WarnaTable());
