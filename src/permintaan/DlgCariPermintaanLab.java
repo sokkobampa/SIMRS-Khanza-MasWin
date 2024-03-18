@@ -2098,13 +2098,11 @@ private void tbLabRalanKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:even
                                     case "Lembar Permintaan Lab & Barcode No.Permintaan 1":
                                         BtnBarcodePermintaanActionPerformed(evt);
                                         getData();
-                                        getData2();
                                         BtnCetakHasilLabActionPerformed(evt);
                                         break;
                                     case "Lembar Permintaan Lab & Barcode No.Permintaan 2":
                                         BtnBarcodePermintaan2ActionPerformed(evt);
                                         getData();
-                                        getData2();
                                         BtnCetakHasilLabActionPerformed(evt);
                                         break;
                                 }  
@@ -2143,10 +2141,12 @@ private void tbLabRalanKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:even
                                         break;
                                     case "Lembar Permintaan Lab & Barcode No.Permintaan 1":
                                         BtnBarcodePermintaanActionPerformed(evt);
+                                        getData2();
                                         BtnCetakHasilLabActionPerformed(null);
                                         break;
                                     case "Lembar Permintaan Lab & Barcode No.Permintaan 2":
                                         BtnBarcodePermintaan2ActionPerformed(evt);
+                                        getData2();
                                         BtnCetakHasilLabActionPerformed(null);
                                         break;
                                 }  
