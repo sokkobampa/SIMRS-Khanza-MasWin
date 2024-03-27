@@ -32,9 +32,14 @@ import simrskhanza.DlgCariPeriksaLab;
 import simrskhanza.DlgCariPeriksaRadiologi;
 import simrskhanza.DlgCariPoli;
 import inventory.DlgPemberianObat;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import javax.swing.Timer;
 import javax.swing.event.DocumentEvent;
 import simrskhanza.DlgCariPeriksaLabPA;
 import simrskhanza.DlgCariCaraBayar;
@@ -52,7 +57,7 @@ import simrskhanza.DlgTagihanOperasi;
 public class DlgBilingRalan extends javax.swing.JDialog {
     private DefaultTableModel tabModeRwJlDr;
     private final DefaultTableModel tabModeTambahan,tabModePotongan,tabModeAkunBayar,tabModeAkunPiutang,tabModeLab,tabModeRad,tabModeApotek;
-    private boolean sukses=false;
+    private boolean sukses=false, waktu=false;
     private sekuel Sequel=new sekuel();
     private validasi Valid=new validasi();
     private Jurnal jur=new Jurnal();
@@ -73,7 +78,7 @@ public class DlgBilingRalan extends javax.swing.JDialog {
             Operasi_Ralan="",tampilkan_ppnobat_ralan="",rincianoperasi="",centangobatralan="No",
             sqlpscekbilling="select count(billing.no_rawat) from billing where billing.no_rawat=?",
             sqlpsreg="select reg_periksa.tgl_registrasi,reg_periksa.no_rkm_medis,reg_periksa.kd_poli,reg_periksa.no_rawat,"+
-                     "reg_periksa.biaya_reg,current_time() as jam,reg_periksa.umurdaftar,reg_periksa.sttsumur "+
+                     "reg_periksa.biaya_reg,reg_periksa.jam_reg,reg_periksa.umurdaftar,reg_periksa.sttsumur "+
                      "from reg_periksa where reg_periksa.no_rawat=?",
             sqlpscaripoli="select poliklinik.nm_poli from poliklinik where poliklinik.kd_poli=?",
             sqlpscarialamat="select concat(pasien.alamat,', ',kelurahan.nm_kel,', ',kecamatan.nm_kec,', ',kabupaten.nm_kab) from pasien "+
@@ -685,6 +690,7 @@ public class DlgBilingRalan extends javax.swing.JDialog {
         } catch (Exception e) {
             System.out.println("Notif : "+e);
         }
+        jam2();
     }
 
     
@@ -1775,7 +1781,7 @@ public class DlgBilingRalan extends javax.swing.JDialog {
         jLabel4.setPreferredSize(new java.awt.Dimension(65, 23));
         panelGlass1.add(jLabel4);
 
-        DTPTgl.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "12-08-2023 01:32:33" }));
+        DTPTgl.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "26-03-2024 09:48:10" }));
         DTPTgl.setDisplayFormat("dd-MM-yyyy HH:mm:ss");
         DTPTgl.setName("DTPTgl"); // NOI18N
         DTPTgl.setOpaque(false);
@@ -3240,7 +3246,7 @@ private void MnPoliActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:
 }//GEN-LAST:event_MnPoliActionPerformed
 
 private void BtnCariActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnCariActionPerformed
-        isRawat();
+         isRawat();
 }//GEN-LAST:event_BtnCariActionPerformed
 
 private void BtnCariKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_BtnCariKeyPressed
@@ -3854,6 +3860,7 @@ private void MnPeriksaLabActionPerformed(java.awt.event.ActionEvent evt) {//GEN-
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
         try {
+            System.out.println("No. Rawat : " + TNoRw.getText());
             if(Valid.daysOld("./cache/akunpiutang.iyem")>6){
                 tampilAkunPiutang3();
             }
@@ -4146,6 +4153,7 @@ private void MnPeriksaLabActionPerformed(java.awt.event.ActionEvent evt) {//GEN-
         }
         
         if(i<=0){
+            waktu = true;
              prosesCariReg();    
              if((chkLaborat.isSelected()==true)||(chkTarifDokter.isSelected()==true)||(chkTarifPrm.isSelected()==true)||(chkRadiologi.isSelected()==true)){
                  tabModeRwJlDr.addRow(new Object[]{true,"Tindakan",":","",null,null,null,null,"Ralan Dokter"});
@@ -4236,6 +4244,7 @@ private void MnPeriksaLabActionPerformed(java.awt.event.ActionEvent evt) {//GEN-
              isHitung(); 
              status="belum";
          }else if(i>0){
+             waktu = false;
              Valid.SetTgl2(DTPTgl,Sequel.cariIsi("select concat(nota_jalan.tanggal,' ',nota_jalan.jam) from nota_jalan where nota_jalan.no_rawat='"+TNoRw.getText()+"'"));
              Valid.tabelKosong(tabModeRwJlDr);
              try{                
@@ -4416,7 +4425,7 @@ private void MnPeriksaLabActionPerformed(java.awt.event.ActionEvent evt) {//GEN-
                          
                     umurdaftar=rsreg.getString("umurdaftar")+rsreg.getString("sttsumur");
                     tgl_registrasi=rsreg.getString("tgl_registrasi");
-                    tabModeRwJlDr.addRow(new Object[]{true,"Tanggal & Jam",": "+rsreg.getString("tgl_registrasi")+" "+rsreg.getString("jam"),"",null,null,null,null,"-"});
+                    tabModeRwJlDr.addRow(new Object[]{true,"Tanggal & Jam",": "+rsreg.getString("tgl_registrasi")+" "+rsreg.getString("jam_reg"),"",null,null,null,null,"-"});
                     tabModeRwJlDr.addRow(new Object[]{true,"No.RM",": "+TNoRM.getText(),"",null,null,null,null,"-"});
                     tabModeRwJlDr.addRow(new Object[]{true,"Nama Pasien",": "+TPasien.getText()+" ("+rsreg.getString("umurdaftar")+rsreg.getString("sttsumur")+")","",null,null,null,null,"-"});
                     pscarialamat=koneksi.prepareStatement(sqlpscarialamat); 
@@ -5707,6 +5716,7 @@ private void MnPeriksaLabActionPerformed(java.awt.event.ActionEvent evt) {//GEN-
     }
     
     private void isSimpan(){
+        waktu = false;
         if(notaralan.equals("Yes")){
             chkLaborat.setSelected(true);
             chkRadiologi.setSelected(true);    
@@ -6081,5 +6091,16 @@ private void MnPeriksaLabActionPerformed(java.awt.event.ActionEvent evt) {//GEN-
         }
     }
     
-    
+    private void jam2() {
+        ActionListener taskPerformer = new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                Date now = Calendar.getInstance().getTime();
+                if (waktu) {
+                    DTPTgl.setDate(now);
+                }
+            }
+        };
+        new Timer(1000, taskPerformer).start();
+    }
 }
