@@ -82,7 +82,7 @@ public class Jurnal {
                                 }
 
                                 if (sukses == true) {
-                                    Sequel.executeRawSmc(false
+                                    Sequel.executeRawSmc(false,
                                         "insert into detailjurnal "
                                             + "select ? as no_jurnal, tampjurnal_rvpbpjs.kd_rek, tampjurnal_rvpbpjs.debet, tampjurnal_rvpbpjs.kredit "
                                             + "from tampjurnal_rvpbpjs",
