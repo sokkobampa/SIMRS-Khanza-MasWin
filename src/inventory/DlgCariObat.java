@@ -222,9 +222,9 @@ public final class DlgCariObat extends javax.swing.JDialog {
         }) {
             @Override
             public boolean isCellEditable(int rowIndex, int colIndex) {
-                return colIndex == 0
+                return ! (colIndex == 0
                     || colIndex == 2
-                    || colIndex == 3;
+                    || colIndex == 3);
             }
             Class[] types = new Class[] {
                 java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class,
