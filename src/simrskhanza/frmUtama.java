@@ -747,6 +747,7 @@ import laporan.DlgJumlahPengunjungRalanPolri;
 import laporan.DlgJumlahPengunjungRalanTNI;
 import laporan.DlgKIPPasienRalan;
 import laporan.DlgKIPPasienRanap;
+import laporan.DlgKepatuhanKelengkapanKeselamatanBedah;
 import laporan.DlgKlasifikasiPasienPerBangsal;
 import laporan.DlgLamaPelayananPasien;
 import laporan.DlgLaporanPenyakitPolri;
@@ -22340,6 +22341,17 @@ private void MnGantiPasswordBtnLogActionPerformed(java.awt.event.ActionEvent evt
         aplikasi.setVisible(true);
         this.setCursor(Cursor.getDefaultCursor());
     }
+    
+    private void btnKepatuhanKelengkapanKeselamatanBedahActionPerformed(java.awt.event.ActionEvent evt) {                                            
+        isTutup();
+        this.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
+        DlgKepatuhanKelengkapanKeselamatanBedah aplikasi=new DlgKepatuhanKelengkapanKeselamatanBedah(this,false);
+        aplikasi.setSize(PanelUtama.getWidth(),PanelUtama.getHeight());
+        aplikasi.setLocationRelativeTo(PanelUtama);
+        aplikasi.setVisible(true);
+        DlgHome.dispose();
+        this.setCursor(Cursor.getDefaultCursor());
+    }
             
     /**
     * @param args the command line arguments
@@ -23031,7 +23043,7 @@ private void MnGantiPasswordBtnLogActionPerformed(java.awt.event.ActionEvent evt
             btnMasterMasalahKeperawatanNeonatus,btnMasterRencanaKeperawatanNeonatus,btnPenilaianAwalKeperawatanRanapNeonatus,btnKirimObservationRadiologiSatuSehat,
             btnKirimDiagnosticReportSatuSehat,btnHasilEndoskopiTelinga,btnMappingLaboratSatuSehat,btnKirimServiceRequestLabPKSatuSehat,btnKirimServiceRequestLabMBSatuSehat,
             btnKirimSpecimenLabPKSatuSehat,btnKirimSpecimenLabMBSatuSehat,btnKirimObservationLabPKSatuSehat,btnKirimObservationLabMBSatuSehat,btnKirimDiagnosticReportLabPKSatuSehat,
-            btnKirimDiagnosticReportLabMBSatuSehat;
+            btnKirimDiagnosticReportLabMBSatuSehat,btnKepatuhanKelengkapanKeselamatanBedah;
     
     public void isWall(){
         try{            
@@ -25033,6 +25045,11 @@ private void MnGantiPasswordBtnLogActionPerformed(java.awt.event.ActionEvent evt
             
             if(akses.getstatus_data_rm()==true){  
                 Panelmenu.add(btnStatusDataRM);                 
+                jmlmenu++;
+            }
+            
+            if(akses.getkepatuhan_kelengkapan_keselamatan_bedah()==true){  
+                Panelmenu.add(btnKepatuhanKelengkapanKeselamatanBedah);                 
                 jmlmenu++;
             }
             
@@ -30130,6 +30147,11 @@ private void MnGantiPasswordBtnLogActionPerformed(java.awt.event.ActionEvent evt
         
         if(akses.getstatus_data_rm()==true){  
             Panelmenu.add(btnStatusDataRM);                 
+            jmlmenu++;
+        }
+        
+        if(akses.getkepatuhan_kelengkapan_keselamatan_bedah()==true){  
+            Panelmenu.add(btnKepatuhanKelengkapanKeselamatanBedah);                 
             jmlmenu++;
         }
         
@@ -35966,6 +35988,13 @@ private void MnGantiPasswordBtnLogActionPerformed(java.awt.event.ActionEvent evt
         if(akses.getstatus_data_rm()==true){  
             if(btnStatusDataRM.getText().toLowerCase().trim().contains(TCari.getText().toLowerCase().trim())){
                 Panelmenu.add(btnStatusDataRM);                 
+                jmlmenu++;
+            }                
+        }
+        
+        if(akses.getkepatuhan_kelengkapan_keselamatan_bedah()==true){  
+            if(btnKepatuhanKelengkapanKeselamatanBedah.getText().toLowerCase().trim().contains(TCari.getText().toLowerCase().trim())){
+                Panelmenu.add(btnKepatuhanKelengkapanKeselamatanBedah);                 
                 jmlmenu++;
             }                
         }
@@ -44933,5 +44962,13 @@ private void MnGantiPasswordBtnLogActionPerformed(java.awt.event.ActionEvent evt
         btnHasilEndoskopiTelinga.setName("btnHasilEndoskopiTelinga"); 
         btnHasilEndoskopiTelinga.setPreferredSize(new java.awt.Dimension(200, 90));
         btnHasilEndoskopiTelinga.addActionListener(this::btnHasilEndoskopiTelingaActionPerformed);
+        
+        btnKepatuhanKelengkapanKeselamatanBedah = new widget.ButtonBig();
+        btnKepatuhanKelengkapanKeselamatanBedah.setIcon(new javax.swing.ImageIcon(getClass().getResource("/48x48/6008657_avatar_job_medical_occupation_people_icon.png"))); 
+        btnKepatuhanKelengkapanKeselamatanBedah.setText("Kepatuhan Kelengkapan Keselamatan Bedah");
+        btnKepatuhanKelengkapanKeselamatanBedah.setIconTextGap(0);
+        btnKepatuhanKelengkapanKeselamatanBedah.setName("btnKepatuhanKelengkapanKeselamatanBedah");
+        btnKepatuhanKelengkapanKeselamatanBedah.setPreferredSize(new java.awt.Dimension(200, 90));
+        btnKepatuhanKelengkapanKeselamatanBedah.addActionListener(this::btnKepatuhanKelengkapanKeselamatanBedahActionPerformed);
     }
 }
