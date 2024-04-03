@@ -107,7 +107,7 @@ public class frmUtama extends javax.swing.JFrame {
             param.put("kontakrs",akses.getkontakrs());
             param.put("emailrs",akses.getemailrs());
             Valid.reportQuerySmc("rptAntriLoket.jasper", "report", "::[ Antrian Loket ]::", param,
-                "select date_format(tanggal, '%d-%m-%Y') as tanggal, lpad(nomor, greatest(length(nomor), 3), '0') as nomor, jam from antriloketcetak_smc where nomor = ?",
+                "select date_format(tanggal, '%d-%m-%Y') as tanggal, lpad(nomor, greatest(length(nomor), 3), '0') as nomor, jam from antriloketcetak_smc where nomor = ? and tanggal = current_date()",
                 String.valueOf(Integer.parseInt(LabelNomor.getText()))
             );
             autonomer();
@@ -122,7 +122,7 @@ public class frmUtama extends javax.swing.JFrame {
                 param.put("kontakrs",akses.getkontakrs());
                 param.put("emailrs",akses.getemailrs());
                 Valid.reportQuerySmc("rptAntriLoket.jasper", "report", "::[ Antrian Loket ]::", param,
-                    "select date_format(tanggal, '%d-%m-%Y') as tanggal, lpad(nomor, greatest(length(nomor), 3), '0') as nomor, jam from antriloketcetak_smc where nomor = ?",
+                    "select date_format(tanggal, '%d-%m-%Y') as tanggal, lpad(nomor, greatest(length(nomor), 3), '0') as nomor, jam from antriloketcetak_smc where nomor = ? and tanggal = current_date()",
                     String.valueOf(Integer.parseInt(LabelNomor.getText()))
                 );
                 autonomer();
@@ -137,7 +137,7 @@ public class frmUtama extends javax.swing.JFrame {
                     param.put("kontakrs",akses.getkontakrs());
                     param.put("emailrs",akses.getemailrs());
                     Valid.reportQuerySmc("rptAntriLoket.jasper", "report", "::[ Antrian Loket ]::", param,
-                        "select date_format(tanggal, '%d-%m-%Y') as tanggal, lpad(nomor, greatest(length(nomor), 3), '0') as nomor, jam from antriloketcetak_smc where nomor = ?",
+                        "select date_format(tanggal, '%d-%m-%Y') as tanggal, lpad(nomor, greatest(length(nomor), 3), '0') as nomor, jam from antriloketcetak_smc where nomor = ? and tanggal = current_date()",
                         String.valueOf(Integer.parseInt(LabelNomor.getText()))
                     );
                     autonomer();

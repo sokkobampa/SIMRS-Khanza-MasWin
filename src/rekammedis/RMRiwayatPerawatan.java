@@ -3116,7 +3116,25 @@ private void BtnPasienKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event
                         "<td valign='top' width='18%'>No.Rawat</td>"+
                         "<td valign='top' width='1%' align='center'>:</td>"+
                         "<td valign='top' width='79%'>"+rs.getString("no_rawat")+"</td>"+
-                      "</tr>"+
+                      "</tr>");
+                    if (rs.getString("status_lanjut").equals("Ranap")) {
+                        htmlContent.append(
+                            "<tr class='isi'>"+ 
+                                "<td valign='top' width='2%'></td>"+
+                                "<td valign='top' width='18%'>No. SEP</td>"+
+                                "<td valign='top' width='1%' align='center'>:</td>"+
+                                "<td valign='top' width='79%'>"+Sequel.cariIsiSmc("select no_sep from bridging_sep where no_rawat = ? and jnspelayanan = '1'", rs.getString("no_rawat"))+"</td>"+
+                            "</tr>");
+                    } else if (rs.getString("status_lanjut").equals("Ralan")) {
+                        htmlContent.append(
+                            "<tr class='isi'>"+ 
+                                "<td valign='top' width='2%'></td>"+
+                                "<td valign='top' width='18%'>No. SEP</td>"+
+                                "<td valign='top' width='1%' align='center'>:</td>"+
+                                "<td valign='top' width='79%'>"+Sequel.cariIsiSmc("select no_sep from bridging_sep where no_rawat = ? and jnspelayanan = '2'", rs.getString("no_rawat"))+"</td>"+
+                            "</tr>");
+                    }
+                    htmlContent.append(
                       "<tr class='isi'>"+ 
                         "<td valign='top' width='2%'></td>"+
                         "<td valign='top' width='18%'>No.Registrasi</td>"+

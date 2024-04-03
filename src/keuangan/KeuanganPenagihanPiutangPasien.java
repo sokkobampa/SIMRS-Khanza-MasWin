@@ -1270,11 +1270,12 @@ private void MnDetailPiutangActionPerformed(java.awt.event.ActionEvent evt) {//G
     }//GEN-LAST:event_cmbStatusKeyPressed
 
     private void TanggalItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_TanggalItemStateChanged
-        Sequel.cariIsi("select to_days('"+Valid.SetTgl(TanggalTempo.getSelectedItem()+"")+"')-to_days('"+Valid.SetTgl(Tanggal.getSelectedItem()+"")+"')",Tempo);   
+        Tempo.setText(Sequel.cariIsiSmc("select to_days(?) - to_days(?)", Valid.SetTgl(TanggalTempo.getSelectedItem().toString()), Valid.SetTgl(evt.getItem().toString())));
+        Valid.autoNomorSmc(NoPenagihan, "PP", "penagihan_piutang", "no_tagihan", 3, "0", evt.getItem());
     }//GEN-LAST:event_TanggalItemStateChanged
 
     private void TanggalTempoItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_TanggalTempoItemStateChanged
-        Sequel.cariIsi("select to_days('"+Valid.SetTgl(TanggalTempo.getSelectedItem()+"")+"')-to_days('"+Valid.SetTgl(Tanggal.getSelectedItem()+"")+"')",Tempo);   
+        Tempo.setText(Sequel.cariIsiSmc("select to_days(?) - to_days(?)", Valid.SetTgl(evt.getItem().toString()), Valid.SetTgl(Tanggal.getSelectedItem().toString())));
     }//GEN-LAST:event_TanggalTempoItemStateChanged
 
     private void TabRawatMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TabRawatMouseClicked
