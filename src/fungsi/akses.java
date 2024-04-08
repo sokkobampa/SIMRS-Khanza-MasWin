@@ -226,7 +226,7 @@ public final class akses {
             satu_sehat_kirim_observation_radiologi=false,satu_sehat_kirim_diagnosticreport_radiologi=false,hasil_endoskopi_telinga=false,satu_sehat_mapping_lab=false,
             satu_sehat_kirim_servicerequest_lab=false,satu_sehat_kirim_servicerequest_labmb=false,satu_sehat_kirim_specimen_lab=false,satu_sehat_kirim_specimen_labmb=false,
             satu_sehat_kirim_observation_lab=false,satu_sehat_kirim_observation_labmb=false,satu_sehat_kirim_diagnosticreport_lab=false,satu_sehat_kirim_diagnosticreport_labmb=false,
-            kepatuhan_kelengkapan_keselamatan_bedah=false,nilai_piutang_perjenis_bayar_per_bulan=false;
+            kepatuhan_kelengkapan_keselamatan_bedah=false,nilai_piutang_perjenis_bayar_per_bulan=false,ringkasan_piutang_jenis_bayar=false,penilaian_pasien_imunitas_rendah=false;
     
     public static void setData(String user, String pass) {
         try {        
@@ -1281,6 +1281,8 @@ public final class akses {
                         akses.satu_sehat_kirim_diagnosticreport_labmb=true;
                         akses.kepatuhan_kelengkapan_keselamatan_bedah=true;
                         akses.nilai_piutang_perjenis_bayar_per_bulan=true;
+                        akses.ringkasan_piutang_jenis_bayar=true;
+                        akses.penilaian_pasien_imunitas_rendah=true;
                     }else if(rs2.getRow()>=1){   
                         rs2.beforeFirst();
                         rs2.next();
@@ -2319,6 +2321,8 @@ public final class akses {
                         akses.satu_sehat_kirim_diagnosticreport_labmb=rs2.getBoolean("satu_sehat_kirim_diagnosticreport_labmb");
                         akses.kepatuhan_kelengkapan_keselamatan_bedah=rs2.getBoolean("kepatuhan_kelengkapan_keselamatan_bedah");
                         akses.nilai_piutang_perjenis_bayar_per_bulan=rs2.getBoolean("nilai_piutang_perjenis_bayar_per_bulan");
+                        akses.ringkasan_piutang_jenis_bayar=rs2.getBoolean("ringkasan_piutang_jenis_bayar");
+                        akses.penilaian_pasien_imunitas_rendah=rs2.getBoolean("penilaian_pasien_imunitas_rendah");
                     }else if((rs.getRow()==0)&&(rs2.getRow()==0)){
                         akses.kode="";                  
                         akses.penyakit= false;
@@ -3355,6 +3359,8 @@ public final class akses {
                         akses.satu_sehat_kirim_diagnosticreport_labmb=false;
                         akses.kepatuhan_kelengkapan_keselamatan_bedah=false;
                         akses.nilai_piutang_perjenis_bayar_per_bulan=false;
+                        akses.ringkasan_piutang_jenis_bayar=false;
+                        akses.penilaian_pasien_imunitas_rendah=false;
                     }
                 } catch (Exception e) {
                     System.out.println("Notifikasi : "+e);
@@ -4414,6 +4420,8 @@ public final class akses {
         akses.satu_sehat_kirim_diagnosticreport_labmb=false;
         akses.kepatuhan_kelengkapan_keselamatan_bedah=false;
         akses.nilai_piutang_perjenis_bayar_per_bulan=false;
+        akses.ringkasan_piutang_jenis_bayar=false;
+        akses.penilaian_pasien_imunitas_rendah=false;
     }
     
     public static int getjml1() {return akses.jml1;}    
@@ -5489,4 +5497,6 @@ public final class akses {
     public static boolean getsatu_sehat_kirim_diagnosticreport_labmb(){return akses.satu_sehat_kirim_diagnosticreport_labmb;}
     public static boolean getkepatuhan_kelengkapan_keselamatan_bedah(){return akses.kepatuhan_kelengkapan_keselamatan_bedah;}
     public static boolean getnilai_piutang_perjenis_bayar_per_bulan(){return akses.nilai_piutang_perjenis_bayar_per_bulan;}
+    public static boolean getringkasan_piutang_jenis_bayar(){return akses.ringkasan_piutang_jenis_bayar;}
+    public static boolean getpenilaian_pasien_imunitas_rendah(){return akses.penilaian_pasien_imunitas_rendah;}
 }   
