@@ -73,6 +73,7 @@ import rekammedis.RMDataAsuhanGizi;
 import rekammedis.RMDataCatatanCekGDS;
 import rekammedis.RMDataCatatanKeperawatanRanap;
 import rekammedis.RMDataCatatanKeseimbanganCairan;
+import rekammedis.RMDataCatatanObservasiCHBP;
 import rekammedis.RMDataCatatanObservasiRanap;
 import rekammedis.RMDataCatatanObservasiRanapKebidanan;
 import rekammedis.RMDataCatatanObservasiRanapPostPartum;
@@ -4652,6 +4653,7 @@ public final class DlgRawatInap extends javax.swing.JDialog {
         if(evt.getKeyCode()==KeyEvent.VK_PAGE_DOWN){
             isRawat();
             isPsien();
+            jenisbayar=Sequel.cariIsi("select reg_periksa.kd_pj from reg_periksa where reg_periksa.no_rawat=?",TNoRw.getText());
         }else{         
             if(TabRawat.getSelectedIndex()==0){
                 Valid.pindah(evt,DTPTgl,KdDok);
@@ -6945,7 +6947,7 @@ private void BtnEditKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
             this.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
             DlgCopyResep daftar=new DlgCopyResep(null,false);
             daftar.isCek();
-            daftar.setRM(TNoRw.getText(),TNoRM.getText(),KdDok.getText(),Sequel.cariIsi("select reg_periksa.kd_pj from reg_periksa where reg_periksa.no_rawat=?",TNoRw.getText()),"ranap");
+            daftar.setRM(TNoRw.getText(),TNoRM.getText(),KdDok.getText(),jenisbayar,"ranap");
             daftar.tampil();
             daftar.setSize(internalFrame1.getWidth(),internalFrame1.getHeight());
             daftar.setLocationRelativeTo(internalFrame1);
@@ -8646,6 +8648,24 @@ private void BtnEditKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
         }
     }
     
+    private void BtnCatatanObservasiCHBPActionPerformed(java.awt.event.ActionEvent evt) {
+        if(TPasien.getText().trim().equals("")||TNoRw.getText().trim().equals("")){
+            JOptionPane.showMessageDialog(null,"Maaf, Silahkan anda pilih dulu dengan menklik data pada table...!!!");
+            TCari.requestFocus();
+        }else{
+            this.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
+            RMDataCatatanObservasiCHBP form=new RMDataCatatanObservasiCHBP(null,false);
+            form.isCek();
+            form.setSize(internalFrame1.getWidth()-20,internalFrame1.getHeight()-20);
+            form.setLocationRelativeTo(internalFrame1);
+            form.setVisible(true);
+            form.emptTeks();
+            form.setNoRm(TNoRw.getText(),DTPCari2.getDate());
+            form.tampil();
+            this.setCursor(Cursor.getDefaultCursor());
+        }
+    }
+    
     /**
     * @param args the command line arguments
     */
@@ -8975,7 +8995,7 @@ private void BtnEditKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
     private widget.Table tbRawatPr;
     // End of variables declaration//GEN-END:variables
     private widget.Button BtnSkorBromagePascaAnestesi,BtnPenilaianPreInduksi,BtnHasilPemeriksaanUSGUrologi,BtnHasilPemeriksaanUSGGynecologi,BtnHasilPemeriksaanEKG,BtnHasilPemeriksaanUSGNeonatus,BtnHasilEndoskopiFaringLaring,BtnHasilEndoskopiHidung,BtnHasilEndoskopiTelinga,
-                          BtnAwalKeperawatanNeonatus,BtnPenilaianPasienImunitasRendah,BtnCatatanKeseimbanganCairan;
+                          BtnAwalKeperawatanNeonatus,BtnPenilaianPasienImunitasRendah,BtnCatatanKeseimbanganCairan,BtnCatatanObservasiCHBP;
     
     public void tampilDr() {
         Valid.tabelKosong(tabModeDr);
@@ -8985,24 +9005,20 @@ private void BtnEditKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                    "concat(rawat_inap_dr.kd_jenis_prw,' ',jns_perawatan_inap.nm_perawatan),rawat_inap_dr.kd_dokter,dokter.nm_dokter,"+
                    "rawat_inap_dr.tgl_perawatan,rawat_inap_dr.jam_rawat,rawat_inap_dr.biaya_rawat,rawat_inap_dr.kd_jenis_prw, " +
                    "rawat_inap_dr.tarif_tindakandr,rawat_inap_dr.kso,rawat_inap_dr.material,rawat_inap_dr.bhp,rawat_inap_dr.menejemen "+
-                   "from pasien inner join reg_periksa inner join jns_perawatan_inap inner join "+
-                   "dokter inner join rawat_inap_dr "+
-                   "on rawat_inap_dr.no_rawat=reg_periksa.no_rawat "+
-                   "and reg_periksa.no_rkm_medis=pasien.no_rkm_medis "+
-                   "and rawat_inap_dr.kd_jenis_prw=jns_perawatan_inap.kd_jenis_prw "+
-                   "and rawat_inap_dr.kd_dokter=dokter.kd_dokter "+
+                   "from pasien inner join reg_periksa on reg_periksa.no_rkm_medis=pasien.no_rkm_medis "+
+                   "inner join rawat_inap_dr on rawat_inap_dr.no_rawat=reg_periksa.no_rawat "+
+                   "inner join jns_perawatan_inap on rawat_inap_dr.kd_jenis_prw=jns_perawatan_inap.kd_jenis_prw "+
+                   "inner join dokter on rawat_inap_dr.kd_dokter=dokter.kd_dokter "+
                    "where rawat_inap_dr.tgl_perawatan between ? and ? order by rawat_inap_dr.no_rawat,rawat_inap_dr.tgl_perawatan,rawat_inap_dr.jam_rawat desc");
             }else{
                 ps=koneksi.prepareStatement("select rawat_inap_dr.no_rawat,reg_periksa.no_rkm_medis,pasien.nm_pasien,"+
                    "concat(rawat_inap_dr.kd_jenis_prw,' ',jns_perawatan_inap.nm_perawatan),rawat_inap_dr.kd_dokter,dokter.nm_dokter,"+
                    "rawat_inap_dr.tgl_perawatan,rawat_inap_dr.jam_rawat,rawat_inap_dr.biaya_rawat,rawat_inap_dr.kd_jenis_prw, " +
                    "rawat_inap_dr.tarif_tindakandr,rawat_inap_dr.kso,rawat_inap_dr.material,rawat_inap_dr.bhp,rawat_inap_dr.menejemen "+
-                   "from pasien inner join reg_periksa inner join jns_perawatan_inap inner join "+
-                   "dokter inner join rawat_inap_dr "+
-                   "on rawat_inap_dr.no_rawat=reg_periksa.no_rawat "+
-                   "and reg_periksa.no_rkm_medis=pasien.no_rkm_medis "+
-                   "and rawat_inap_dr.kd_jenis_prw=jns_perawatan_inap.kd_jenis_prw "+
-                   "and rawat_inap_dr.kd_dokter=dokter.kd_dokter "+
+                   "from pasien inner join reg_periksa on reg_periksa.no_rkm_medis=pasien.no_rkm_medis "+
+                   "inner join rawat_inap_dr on rawat_inap_dr.no_rawat=reg_periksa.no_rawat "+
+                   "inner join jns_perawatan_inap on rawat_inap_dr.kd_jenis_prw=jns_perawatan_inap.kd_jenis_prw "+
+                   "inner join dokter on rawat_inap_dr.kd_dokter=dokter.kd_dokter "+
                    "where rawat_inap_dr.tgl_perawatan between ? and ? and reg_periksa.no_rkm_medis like ? and "+
                    "(rawat_inap_dr.no_rawat like ? or reg_periksa.no_rkm_medis like ? or pasien.nm_pasien like ? or "+
                    "jns_perawatan_inap.nm_perawatan like ? or rawat_inap_dr.kd_dokter like ? or dokter.nm_dokter like ?) "+
@@ -9074,25 +9090,21 @@ private void BtnEditKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                    "concat(rawat_inap_pr.kd_jenis_prw,' ',jns_perawatan_inap.nm_perawatan),rawat_inap_pr.nip,petugas.nama,"+
                    "rawat_inap_pr.tgl_perawatan,rawat_inap_pr.jam_rawat,rawat_inap_pr.biaya_rawat,rawat_inap_pr.kd_jenis_prw, " +
                    "rawat_inap_pr.tarif_tindakanpr,rawat_inap_pr.kso,rawat_inap_pr.material,rawat_inap_pr.bhp,rawat_inap_pr.menejemen "+
-                   "from pasien inner join reg_periksa inner join jns_perawatan_inap inner join "+
-                   "petugas inner join rawat_inap_pr "+
-                   "on rawat_inap_pr.no_rawat=reg_periksa.no_rawat "+
-                   "and reg_periksa.no_rkm_medis=pasien.no_rkm_medis "+
-                   "and rawat_inap_pr.kd_jenis_prw=jns_perawatan_inap.kd_jenis_prw "+
-                   "and rawat_inap_pr.nip=petugas.nip where  "+
-                    "rawat_inap_pr.tgl_perawatan between ? and ? order by rawat_inap_pr.no_rawat,rawat_inap_pr.tgl_perawatan,rawat_inap_pr.jam_rawat desc"); 
+                   "from pasien inner join reg_periksa on reg_periksa.no_rkm_medis=pasien.no_rkm_medis "+
+                   "inner join rawat_inap_pr on rawat_inap_pr.no_rawat=reg_periksa.no_rawat "+
+                   "inner join jns_perawatan_inap on rawat_inap_pr.kd_jenis_prw=jns_perawatan_inap.kd_jenis_prw "+
+                   "inner join petugas on rawat_inap_pr.nip=petugas.nip "+
+                   "where rawat_inap_pr.tgl_perawatan between ? and ? order by rawat_inap_pr.no_rawat,rawat_inap_pr.tgl_perawatan,rawat_inap_pr.jam_rawat desc"); 
             }else{
                 ps2=koneksi.prepareStatement("select rawat_inap_pr.no_rawat,reg_periksa.no_rkm_medis,pasien.nm_pasien,"+
                    "concat(rawat_inap_pr.kd_jenis_prw,' ',jns_perawatan_inap.nm_perawatan),rawat_inap_pr.nip,petugas.nama,"+
                    "rawat_inap_pr.tgl_perawatan,rawat_inap_pr.jam_rawat,rawat_inap_pr.biaya_rawat,rawat_inap_pr.kd_jenis_prw, " +
                    "rawat_inap_pr.tarif_tindakanpr,rawat_inap_pr.kso,rawat_inap_pr.material,rawat_inap_pr.bhp,rawat_inap_pr.menejemen "+
-                   "from pasien inner join reg_periksa inner join jns_perawatan_inap inner join "+
-                   "petugas inner join rawat_inap_pr "+
-                   "on rawat_inap_pr.no_rawat=reg_periksa.no_rawat "+
-                   "and reg_periksa.no_rkm_medis=pasien.no_rkm_medis "+
-                   "and rawat_inap_pr.kd_jenis_prw=jns_perawatan_inap.kd_jenis_prw "+
-                   "and rawat_inap_pr.nip=petugas.nip where  "+
-                   "rawat_inap_pr.tgl_perawatan between ? and ? and reg_periksa.no_rkm_medis like ? and "+
+                   "from pasien inner join reg_periksa on reg_periksa.no_rkm_medis=pasien.no_rkm_medis "+
+                   "inner join rawat_inap_pr on rawat_inap_pr.no_rawat=reg_periksa.no_rawat "+
+                   "inner join jns_perawatan_inap on rawat_inap_pr.kd_jenis_prw=jns_perawatan_inap.kd_jenis_prw "+
+                   "inner join petugas on rawat_inap_pr.nip=petugas.nip "+
+                   "where rawat_inap_pr.tgl_perawatan between ? and ? and reg_periksa.no_rkm_medis like ? and "+
                    "(rawat_inap_pr.no_rawat like ? or reg_periksa.no_rkm_medis like ? or pasien.nm_pasien like ? or "+
                    "jns_perawatan_inap.nm_perawatan like ? or rawat_inap_pr.nip like ? or petugas.nama like ?) "+
                    "order by rawat_inap_pr.no_rawat,rawat_inap_pr.tgl_perawatan,rawat_inap_pr.jam_rawat desc"); 
@@ -9166,20 +9178,22 @@ private void BtnEditKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                    "concat(rawat_inap_drpr.kd_jenis_prw,' ',jns_perawatan_inap.nm_perawatan),rawat_inap_drpr.kd_dokter,dokter.nm_dokter,"+
                    "rawat_inap_drpr.nip,petugas.nama,rawat_inap_drpr.tgl_perawatan,rawat_inap_drpr.jam_rawat,rawat_inap_drpr.biaya_rawat,rawat_inap_drpr.kd_jenis_prw, " +
                    "rawat_inap_drpr.tarif_tindakandr,rawat_inap_drpr.tarif_tindakanpr,rawat_inap_drpr.kso,rawat_inap_drpr.material,rawat_inap_drpr.bhp,rawat_inap_drpr.menejemen "+
-                   "from pasien inner join reg_periksa inner join jns_perawatan_inap inner join "+
-                   "dokter inner join rawat_inap_drpr inner join petugas on rawat_inap_drpr.no_rawat=reg_periksa.no_rawat "+
-                   "and reg_periksa.no_rkm_medis=pasien.no_rkm_medis and rawat_inap_drpr.kd_jenis_prw=jns_perawatan_inap.kd_jenis_prw "+
-                   "and rawat_inap_drpr.kd_dokter=dokter.kd_dokter and rawat_inap_drpr.nip=petugas.nip "+
+                   "from pasien inner join reg_periksa on reg_periksa.no_rkm_medis=pasien.no_rkm_medis "+
+                   "inner join rawat_inap_drpr on rawat_inap_drpr.no_rawat=reg_periksa.no_rawat "+
+                   "inner join jns_perawatan_inap on rawat_inap_drpr.kd_jenis_prw=jns_perawatan_inap.kd_jenis_prw "+
+                   "inner join dokter on rawat_inap_drpr.kd_dokter=dokter.kd_dokter "+
+                   "inner join petugas on rawat_inap_drpr.nip=petugas.nip "+
                    "where rawat_inap_drpr.tgl_perawatan between ? and ? order by rawat_inap_drpr.no_rawat,rawat_inap_drpr.tgl_perawatan,rawat_inap_drpr.jam_rawat desc");
             }else{
                 ps3=koneksi.prepareStatement("select rawat_inap_drpr.no_rawat,reg_periksa.no_rkm_medis,pasien.nm_pasien,"+
                    "concat(rawat_inap_drpr.kd_jenis_prw,' ',jns_perawatan_inap.nm_perawatan),rawat_inap_drpr.kd_dokter,dokter.nm_dokter,"+
                    "rawat_inap_drpr.nip,petugas.nama,rawat_inap_drpr.tgl_perawatan,rawat_inap_drpr.jam_rawat,rawat_inap_drpr.biaya_rawat,rawat_inap_drpr.kd_jenis_prw, " +
                    "rawat_inap_drpr.tarif_tindakandr,rawat_inap_drpr.tarif_tindakanpr,rawat_inap_drpr.kso,rawat_inap_drpr.material,rawat_inap_drpr.bhp,rawat_inap_drpr.menejemen "+
-                   "from pasien inner join reg_periksa inner join jns_perawatan_inap inner join "+
-                   "dokter inner join rawat_inap_drpr inner join petugas on rawat_inap_drpr.no_rawat=reg_periksa.no_rawat "+
-                   "and reg_periksa.no_rkm_medis=pasien.no_rkm_medis and rawat_inap_drpr.kd_jenis_prw=jns_perawatan_inap.kd_jenis_prw "+
-                   "and rawat_inap_drpr.kd_dokter=dokter.kd_dokter and rawat_inap_drpr.nip=petugas.nip "+
+                   "from pasien inner join reg_periksa on reg_periksa.no_rkm_medis=pasien.no_rkm_medis "+
+                   "inner join rawat_inap_drpr on rawat_inap_drpr.no_rawat=reg_periksa.no_rawat "+
+                   "inner join jns_perawatan_inap on rawat_inap_drpr.kd_jenis_prw=jns_perawatan_inap.kd_jenis_prw "+
+                   "inner join dokter on rawat_inap_drpr.kd_dokter=dokter.kd_dokter "+
+                   "inner join petugas on rawat_inap_drpr.nip=petugas.nip "+
                    "where rawat_inap_drpr.tgl_perawatan between ? and ? and reg_periksa.no_rkm_medis like ? and "+
                    "(rawat_inap_drpr.no_rawat like ? or reg_periksa.no_rkm_medis like ? or pasien.nm_pasien like ? or "+
                    "jns_perawatan_inap.nm_perawatan like ? or rawat_inap_drpr.kd_dokter like ? or dokter.nm_dokter like ? or "+
@@ -9707,6 +9721,10 @@ private void BtnEditKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
         if(akses.getbalance_cairan()==true){
             tinggi=tinggi+24;
         }
+        BtnCatatanObservasiCHBP.setVisible(akses.getcatatan_observasi_ranap_postpartum());   
+        if(akses.getcatatan_observasi_chbp()==true){
+            tinggi=tinggi+24;
+        }
         
         FormMenu.setPreferredSize(new Dimension(195,(tinggi+10)));
         
@@ -9890,9 +9908,9 @@ private void BtnEditKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                     "pemeriksaan_obstetri_ranap.kualitas_mnt,pemeriksaan_obstetri_ranap.kualitas_dtk,pemeriksaan_obstetri_ranap.fluksus,pemeriksaan_obstetri_ranap.albus, " +
                     "pemeriksaan_obstetri_ranap.vulva,pemeriksaan_obstetri_ranap.portio,pemeriksaan_obstetri_ranap.dalam, pemeriksaan_obstetri_ranap.tebal, pemeriksaan_obstetri_ranap.arah, pemeriksaan_obstetri_ranap.pembukaan," +
                     "pemeriksaan_obstetri_ranap.penurunan, pemeriksaan_obstetri_ranap.denominator, pemeriksaan_obstetri_ranap.ketuban, pemeriksaan_obstetri_ranap.feto " +
-                    "from pasien inner join reg_periksa inner join pemeriksaan_obstetri_ranap "+
-                    "on pemeriksaan_obstetri_ranap.no_rawat=reg_periksa.no_rawat and reg_periksa.no_rkm_medis=pasien.no_rkm_medis where  "+
-                    "pemeriksaan_obstetri_ranap.tgl_perawatan between ? and ? order by pemeriksaan_obstetri_ranap.no_rawat,pemeriksaan_obstetri_ranap.tgl_perawatan,pemeriksaan_obstetri_ranap.jam_rawat desc");
+                    "from pasien inner join reg_periksa on reg_periksa.no_rkm_medis=pasien.no_rkm_medis "+
+                    "inner join pemeriksaan_obstetri_ranap on pemeriksaan_obstetri_ranap.no_rawat=reg_periksa.no_rawat "+
+                    "where pemeriksaan_obstetri_ranap.tgl_perawatan between ? and ? order by pemeriksaan_obstetri_ranap.no_rawat,pemeriksaan_obstetri_ranap.tgl_perawatan,pemeriksaan_obstetri_ranap.jam_rawat desc");
             }else{
                 ps5=koneksi.prepareStatement("select pemeriksaan_obstetri_ranap.no_rawat,reg_periksa.no_rkm_medis,pasien.nm_pasien,"+
                     "pemeriksaan_obstetri_ranap.tgl_perawatan,pemeriksaan_obstetri_ranap.jam_rawat,pemeriksaan_obstetri_ranap.tinggi_uteri,pemeriksaan_obstetri_ranap.janin,pemeriksaan_obstetri_ranap.letak, " +
@@ -9900,14 +9918,10 @@ private void BtnEditKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                     "pemeriksaan_obstetri_ranap.kualitas_mnt,pemeriksaan_obstetri_ranap.kualitas_dtk,pemeriksaan_obstetri_ranap.fluksus,pemeriksaan_obstetri_ranap.albus, " +
                     "pemeriksaan_obstetri_ranap.vulva,pemeriksaan_obstetri_ranap.portio,pemeriksaan_obstetri_ranap.dalam, pemeriksaan_obstetri_ranap.tebal, pemeriksaan_obstetri_ranap.arah, pemeriksaan_obstetri_ranap.pembukaan," +
                     "pemeriksaan_obstetri_ranap.penurunan, pemeriksaan_obstetri_ranap.denominator, pemeriksaan_obstetri_ranap.ketuban, pemeriksaan_obstetri_ranap.feto " +
-                    "from pasien inner join reg_periksa inner join pemeriksaan_obstetri_ranap "+
-                    "on pemeriksaan_obstetri_ranap.no_rawat=reg_periksa.no_rawat and reg_periksa.no_rkm_medis=pasien.no_rkm_medis where  "+
-                    "pemeriksaan_obstetri_ranap.tgl_perawatan between ? and ? and reg_periksa.no_rkm_medis like ? and pemeriksaan_obstetri_ranap.no_rawat like ? or "+
-                    "pemeriksaan_obstetri_ranap.tgl_perawatan between ? and ? and reg_periksa.no_rkm_medis like ? and reg_periksa.no_rkm_medis like ? or "+
-                    "pemeriksaan_obstetri_ranap.tgl_perawatan between ? and ? and reg_periksa.no_rkm_medis like ? and pasien.nm_pasien like ? or  "+
-                    "pemeriksaan_obstetri_ranap.tgl_perawatan between ? and ? and reg_periksa.no_rkm_medis like ? and pemeriksaan_obstetri_ranap.tinggi_uteri like ? or "+
-                    "pemeriksaan_obstetri_ranap.tgl_perawatan between ? and ? and reg_periksa.no_rkm_medis like ? and pemeriksaan_obstetri_ranap.janin like ? or "+
-                    "pemeriksaan_obstetri_ranap.tgl_perawatan between ? and ? and reg_periksa.no_rkm_medis like ? and pemeriksaan_obstetri_ranap.letak like ? "+
+                    "from pasien inner join reg_periksa on reg_periksa.no_rkm_medis=pasien.no_rkm_medis "+
+                    "inner join pemeriksaan_obstetri_ranap on pemeriksaan_obstetri_ranap.no_rawat=reg_periksa.no_rawat "+
+                    "where pemeriksaan_obstetri_ranap.tgl_perawatan between ? and ? and reg_periksa.no_rkm_medis like ? and "+
+                    "(pemeriksaan_obstetri_ranap.no_rawat like ? or reg_periksa.no_rkm_medis like ? or pasien.nm_pasien like ? or pemeriksaan_obstetri_ranap.tinggi_uteri like ? or pemeriksaan_obstetri_ranap.janin like ? or pemeriksaan_obstetri_ranap.letak like ?) "+
                     "order by pemeriksaan_obstetri_ranap.no_rawat,pemeriksaan_obstetri_ranap.tgl_perawatan,pemeriksaan_obstetri_ranap.jam_rawat desc");
             }
                 
@@ -9920,26 +9934,11 @@ private void BtnEditKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                     ps5.setString(2,Valid.SetTgl(DTPCari2.getSelectedItem()+""));
                     ps5.setString(3,"%"+TCariPasien.getText()+"%");
                     ps5.setString(4,"%"+TCari.getText().trim()+"%");
-                    ps5.setString(5,Valid.SetTgl(DTPCari1.getSelectedItem()+""));
-                    ps5.setString(6,Valid.SetTgl(DTPCari2.getSelectedItem()+""));
-                    ps5.setString(7,"%"+TCariPasien.getText()+"%");
+                    ps5.setString(5,"%"+TCari.getText().trim()+"%");
+                    ps5.setString(6,"%"+TCari.getText().trim()+"%");
+                    ps5.setString(7,"%"+TCari.getText().trim()+"%");
                     ps5.setString(8,"%"+TCari.getText().trim()+"%");
-                    ps5.setString(9,Valid.SetTgl(DTPCari1.getSelectedItem()+""));
-                    ps5.setString(10,Valid.SetTgl(DTPCari2.getSelectedItem()+""));
-                    ps5.setString(11,"%"+TCariPasien.getText()+"%");
-                    ps5.setString(12,"%"+TCari.getText().trim()+"%");
-                    ps5.setString(13,Valid.SetTgl(DTPCari1.getSelectedItem()+""));
-                    ps5.setString(14,Valid.SetTgl(DTPCari2.getSelectedItem()+""));
-                    ps5.setString(15,"%"+TCariPasien.getText()+"%");
-                    ps5.setString(16,"%"+TCari.getText().trim()+"%");
-                    ps5.setString(17,Valid.SetTgl(DTPCari1.getSelectedItem()+""));
-                    ps5.setString(18,Valid.SetTgl(DTPCari2.getSelectedItem()+""));
-                    ps5.setString(19,"%"+TCariPasien.getText()+"%");
-                    ps5.setString(20,"%"+TCari.getText().trim()+"%");
-                    ps5.setString(21,Valid.SetTgl(DTPCari1.getSelectedItem()+""));
-                    ps5.setString(22,Valid.SetTgl(DTPCari2.getSelectedItem()+""));
-                    ps5.setString(23,"%"+TCariPasien.getText()+"%");
-                    ps5.setString(24,"%"+TCari.getText().trim()+"%");
+                    ps5.setString(9,"%"+TCari.getText().trim()+"%");
                 }
                     
                 rs=ps5.executeQuery();
@@ -10027,40 +10026,21 @@ private void BtnEditKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                     "pemeriksaan_ginekologi_ranap.portio_inspekulo,pemeriksaan_ginekologi_ranap.sondage,pemeriksaan_ginekologi_ranap.portio_dalam,pemeriksaan_ginekologi_ranap.bentuk, " +
                     "pemeriksaan_ginekologi_ranap.cavum_uteri,pemeriksaan_ginekologi_ranap.mobilitas,pemeriksaan_ginekologi_ranap.ukuran, pemeriksaan_ginekologi_ranap.nyeri_tekan, pemeriksaan_ginekologi_ranap.adnexa_kanan, pemeriksaan_ginekologi_ranap.adnexa_kiri," +
                     "pemeriksaan_ginekologi_ranap.cavum_douglas " +
-                    "from pasien inner join reg_periksa inner join pemeriksaan_ginekologi_ranap "+
-                    "on pemeriksaan_ginekologi_ranap.no_rawat=reg_periksa.no_rawat and reg_periksa.no_rkm_medis=pasien.no_rkm_medis where  "+
-                    "pemeriksaan_ginekologi_ranap.tgl_perawatan between ? and ? and reg_periksa.no_rkm_medis like ? and pemeriksaan_ginekologi_ranap.no_rawat like ? or "+
-                    "pemeriksaan_ginekologi_ranap.tgl_perawatan between ? and ? and reg_periksa.no_rkm_medis like ? and reg_periksa.no_rkm_medis like ? or "+
-                    "pemeriksaan_ginekologi_ranap.tgl_perawatan between ? and ? and reg_periksa.no_rkm_medis like ? and pasien.nm_pasien like ? or  "+
-                    "pemeriksaan_ginekologi_ranap.tgl_perawatan between ? and ? and reg_periksa.no_rkm_medis like ? and pemeriksaan_ginekologi_ranap.inspeksi like ? or "+
-                    "pemeriksaan_ginekologi_ranap.tgl_perawatan between ? and ? and reg_periksa.no_rkm_medis like ? and pemeriksaan_ginekologi_ranap.inspeksi_vulva like ? or "+
-                    "pemeriksaan_ginekologi_ranap.tgl_perawatan between ? and ? and reg_periksa.no_rkm_medis like ? and pemeriksaan_ginekologi_ranap.inspekulo_gine like ? "+
+                    "from pasien inner join reg_periksa on reg_periksa.no_rkm_medis=pasien.no_rkm_medis "+
+                    "inner join pemeriksaan_ginekologi_ranap on pemeriksaan_ginekologi_ranap.no_rawat=reg_periksa.no_rawat "+
+                    "where pemeriksaan_ginekologi_ranap.tgl_perawatan between ? and ? and reg_periksa.no_rkm_medis like ? and "+
+                    "(pemeriksaan_ginekologi_ranap.no_rawat like ? or reg_periksa.no_rkm_medis like ? or pasien.nm_pasien like ? or pemeriksaan_ginekologi_ranap.inspeksi like ? or pemeriksaan_ginekologi_ranap.inspeksi_vulva like ? or pemeriksaan_ginekologi_ranap.inspekulo_gine like ?) "+
                     "order by pemeriksaan_ginekologi_ranap.no_rawat,pemeriksaan_ginekologi_ranap.tgl_perawatan,pemeriksaan_ginekologi_ranap.jam_rawat desc");
             try {
                 ps6.setString(1,Valid.SetTgl(DTPCari1.getSelectedItem()+""));
                 ps6.setString(2,Valid.SetTgl(DTPCari2.getSelectedItem()+""));
                 ps6.setString(3,"%"+TCariPasien.getText()+"%");
                 ps6.setString(4,"%"+TCari.getText().trim()+"%");
-                ps6.setString(5,Valid.SetTgl(DTPCari1.getSelectedItem()+""));
-                ps6.setString(6,Valid.SetTgl(DTPCari2.getSelectedItem()+""));
-                ps6.setString(7,"%"+TCariPasien.getText()+"%");
+                ps6.setString(5,"%"+TCari.getText().trim()+"%");
+                ps6.setString(6,"%"+TCari.getText().trim()+"%");
+                ps6.setString(7,"%"+TCari.getText().trim()+"%");
                 ps6.setString(8,"%"+TCari.getText().trim()+"%");
-                ps6.setString(9,Valid.SetTgl(DTPCari1.getSelectedItem()+""));
-                ps6.setString(10,Valid.SetTgl(DTPCari2.getSelectedItem()+""));
-                ps6.setString(11,"%"+TCariPasien.getText()+"%");
-                ps6.setString(12,"%"+TCari.getText().trim()+"%");
-                ps6.setString(13,Valid.SetTgl(DTPCari1.getSelectedItem()+""));
-                ps6.setString(14,Valid.SetTgl(DTPCari2.getSelectedItem()+""));
-                ps6.setString(15,"%"+TCariPasien.getText()+"%");
-                ps6.setString(16,"%"+TCari.getText().trim()+"%");
-                ps6.setString(17,Valid.SetTgl(DTPCari1.getSelectedItem()+""));
-                ps6.setString(18,Valid.SetTgl(DTPCari2.getSelectedItem()+""));
-                ps6.setString(19,"%"+TCariPasien.getText()+"%");
-                ps6.setString(20,"%"+TCari.getText().trim()+"%");
-                ps6.setString(21,Valid.SetTgl(DTPCari1.getSelectedItem()+""));
-                ps6.setString(22,Valid.SetTgl(DTPCari2.getSelectedItem()+""));
-                ps6.setString(23,"%"+TCariPasien.getText()+"%");
-                ps6.setString(24,"%"+TCari.getText().trim()+"%");
+                ps6.setString(9,"%"+TCari.getText().trim()+"%");
                 
                 rs=ps6.executeQuery();
                 while(rs.next()) {
@@ -10305,6 +10285,19 @@ private void BtnEditKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
         BtnCatatanKeseimbanganCairan.setRoundRect(false);
         BtnCatatanKeseimbanganCairan.addActionListener(this::BtnCatatanKeseimbanganCairanActionPerformed);
         
+        BtnCatatanObservasiCHBP = new widget.Button();
+        BtnCatatanObservasiCHBP.setIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/item.png"))); 
+        BtnCatatanObservasiCHBP.setText("Observasi CHBP");
+        BtnCatatanObservasiCHBP.setFocusPainted(false);
+        BtnCatatanObservasiCHBP.setFont(new java.awt.Font("Tahoma", 0, 11)); 
+        BtnCatatanObservasiCHBP.setGlassColor(new java.awt.Color(255, 255, 255));
+        BtnCatatanObservasiCHBP.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        BtnCatatanObservasiCHBP.setMargin(new java.awt.Insets(1, 1, 1, 1));
+        BtnCatatanObservasiCHBP.setName("BtnCatatanObservasiCHBP"); 
+        BtnCatatanObservasiCHBP.setPreferredSize(new java.awt.Dimension(190, 23));
+        BtnCatatanObservasiCHBP.setRoundRect(false);
+        BtnCatatanObservasiCHBP.addActionListener(this::BtnCatatanObservasiCHBPActionPerformed);
+        
         FormMenu.add(BtnRiwayat);
         FormMenu.add(BtnResepObat);
         FormMenu.add(BtnCopyResep);
@@ -10362,6 +10355,7 @@ private void BtnEditKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
         FormMenu.add(BtnCatatanObservasiRanap);
         FormMenu.add(BtnCatatanObservasiRanapKebidanan);
         FormMenu.add(BtnCatatanObservasiRanapPostPartum);
+        FormMenu.add(BtnCatatanObservasiCHBP);
         FormMenu.add(BtnCatatanKeseimbanganCairan);
         FormMenu.add(BtnFollowUpDBD);
         FormMenu.add(BtnCatatanKeperawatan);
