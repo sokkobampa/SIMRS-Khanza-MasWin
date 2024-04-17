@@ -96,7 +96,7 @@ public final class DlgCariObat extends javax.swing.JDialog {
     private JsonNode response;
     private ApiPcare api=new ApiPcare();
     private String[] arrSplit;
-    private boolean sukses=true, lanjut = true, adaObatKronis = false, VALIDASIRESEPKRONIS = koneksiDB.VALIDASIRESEPKRONIS();
+    private boolean sukses=true, lanjut = true, adaObatKronis = false, cekKolomObatKronis = false, cekKolomObatRacikanKronis = false, VALIDASIRESEPKRONIS = koneksiDB.VALIDASIRESEPKRONIS();
     
     /** Creates new form DlgPenyakit
      * @param parent
@@ -1244,6 +1244,15 @@ public final class DlgCariObat extends javax.swing.JDialog {
             } catch (java.lang.NullPointerException e) {
             }
             
+            if (! cekKolomObatKronis) {
+                for (int i = 0; i < tbObat.getRowCount(); i++) {
+                    cekKolomObatKronis = Boolean.parseBoolean(tbObat.getValueAt(i, 19).toString());
+                    if (cekKolomObatKronis) {
+                        break;
+                    }
+                }
+            }
+            DTPObatKronisSelanjutnya.setEnabled(cekKolomObatKronis || cekKolomObatRacikanKronis);
             if(evt.getClickCount()==2){
                 if(akses.getform().equals("DlgPemberianObat")){
                     dispose();
@@ -1950,7 +1959,7 @@ private void JeniskelasKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:even
                     aturanpakai.setLocationRelativeTo(internalFrame1);
                     aturanpakai.setVisible(true);
                 }else if(i==3){
-                    if(tbObatRacikan.getValueAt(tbObatRacikan.getSelectedRow(),1).equals("")){
+                    if(tbObatRacikan.getValueAt(tbObatRacikan.getSelectedRow(),1).toString().equals("")){
                         JOptionPane.showMessageDialog(null,"Silahkan masukkan nama racikan..!!");
                         tbObatRacikan.requestFocus();
                     }else{
@@ -2116,19 +2125,15 @@ private void JeniskelasKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:even
                 getDatadetailobatracikan();
             } catch (Exception e) {
             }
-            
-            boolean cekKolomObatKronis;
-            
-            for (int i = 0; i < tbDetailObatRacikan.getRowCount(); i++) {
-                cekKolomObatKronis = Boolean.parseBoolean(tbDetailObatRacikan.getValueAt(i, 19).toString());
-                
-                DTPObatKronisSelanjutnya.setEnabled(cekKolomObatKronis);
-                
-                // stop loop apabila ada obat kronis yang harus disimpan
-                if (cekKolomObatKronis) {
-                    break;
+            if (! cekKolomObatRacikanKronis) {
+                for (int i = 0; i < tbDetailObatRacikan.getRowCount(); i++) {
+                    cekKolomObatRacikanKronis = Boolean.parseBoolean(tbDetailObatRacikan.getValueAt(i, 19).toString());
+                    if (cekKolomObatRacikanKronis) {
+                        break;
+                    }
                 }
             }
+            DTPObatKronisSelanjutnya.setEnabled(cekKolomObatKronis || cekKolomObatRacikanKronis);
         }
     }//GEN-LAST:event_tbDetailObatRacikanMouseClicked
 
