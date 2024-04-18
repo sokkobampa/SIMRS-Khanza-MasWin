@@ -2762,15 +2762,21 @@ private void BtnHapusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRS
                     }
                 }
                 
-                if(sukses==true){
+                // Jaga-jaga, commit / rollback segera sebelum autoCommit dinyalakan
+                if (sukses) {
+                    Sequel.Commit();
                     isReset();
                     emptTeks();
+                } else {
+                    Sequel.RollBack();
+                }
+                koneksi.setAutoCommit(true);
+                
+                if (sukses) {
                     JOptionPane.showMessageDialog(null,"Proses simpan selesai...!");
-                }else{
+                } else {
                     JOptionPane.showMessageDialog(null,"Proses simpan gagal...!");
                 }
-                koneksi.setAutoCommit(true);                    
-                
             } catch (Exception e) {
                 System.out.println(e);
             }  
