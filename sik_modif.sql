@@ -130,8 +130,8 @@ ALTER TABLE `skdp_bpjs` MODIFY COLUMN IF EXISTS `terapi` varchar(50) NOT NULL AF
 CREATE TABLE IF NOT EXISTS `tampjurnal_rvpbpjs`  (
   `kd_rek` char(15) NOT NULL,
   `nm_rek` varchar(100) NULL DEFAULT NULL,
-  `debet` double NULL DEFAULT NULL,
-  `kredit` double NULL DEFAULT NULL,
+  `debet` double NOT NULL,
+  `kredit` double NOT NULL,
   PRIMARY KEY (`kd_rek`) USING HASH,
   INDEX `nm_rek`(`nm_rek`) USING HASH,
   INDEX `debet`(`debet`) USING HASH,
@@ -141,8 +141,8 @@ CREATE TABLE IF NOT EXISTS `tampjurnal_rvpbpjs`  (
 CREATE TABLE IF NOT EXISTS `tampjurnal_smc`  (
   `kd_rek` char(15) NOT NULL,
   `nm_rek` varchar(100) NULL DEFAULT NULL,
-  `debet` double NULL DEFAULT NULL,
-  `kredit` double NULL DEFAULT NULL,
+  `debet` double NOT NULL,
+  `kredit` double NOT NULL,
   `user_id` varchar(20) NOT NULL,
   `ip` varchar(25) NOT NULL,
   PRIMARY KEY (`kd_rek`, `user_id`, `ip`) USING HASH
