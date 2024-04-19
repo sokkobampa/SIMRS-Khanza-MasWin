@@ -824,7 +824,7 @@ private void KdKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TKdKey
     }//GEN-LAST:event_formWindowOpened
 
     private void TglJurnalItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_TglJurnalItemStateChanged
-        Valid.autoNomorSmc(NoJur, "JR", "jurnal", "no_jurnal", 6, "0", TglJurnal.getSelectedItem());
+        Valid.autoNomorSmc(NoJur, "JR", "jurnal", "no_jurnal", 6, "0", evt.getItem());
     }//GEN-LAST:event_TglJurnalItemStateChanged
 
     /**
