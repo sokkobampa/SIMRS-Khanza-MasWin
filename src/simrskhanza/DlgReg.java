@@ -237,7 +237,7 @@ public final class DlgReg extends javax.swing.JDialog {
     private ResultSet rs;
     private int pilihan=0,i=0,kuota=0,jmlparsial=0;
     private boolean ceksukses=false;
-    private String nosisrute="",aktifkanparsial="no",BASENOREG="",finger="",
+    private String nosisrute="",aktifkanparsial="no",BASENOREG="",finger="",TANGGALMUNDUR="yes",
             URUTNOREG="",status="Baru",order="reg_periksa.tgl_registrasi,reg_periksa.jam_reg desc",alamatperujuk="-",aktifjadwal="",IPPRINTERTRACER="",umur="0",sttsumur="Th",terbitsep="",
             validasiregistrasi=Sequel.cariIsi("select set_validasi_registrasi.wajib_closing_kasir from set_validasi_registrasi"),
             validasicatatan=Sequel.cariIsi("select set_validasi_catatan.tampilkan_catatan from set_validasi_catatan"),norawatdipilih="",normdipilih="",variabel="";
@@ -393,7 +393,7 @@ public final class DlgReg extends javax.swing.JDialog {
             "P","No.Rawat","Tanggal","Jam","Kd.Dokter","Dokter Rujukan","Nomer RM",
             "Pasien","J.K.","Umur","Poliklinik Rujukan","Jenis Bayar","Penanggung Jawab",
             "Alamat P.J.","Hubungan P.J.","Status","No.Telp","Stts Rawat","Kode Poli","Kode PJ"
-        }){
+            }){
              @Override public boolean isCellEditable(int rowIndex, int colIndex){
                 boolean a = false;
                 if (colIndex==0) {
@@ -888,45 +888,47 @@ public final class DlgReg extends javax.swing.JDialog {
         DlgCatatan.setSize(595,34);        
                 
         try {
-            try {
-                aktifjadwal=koneksiDB.JADWALDOKTERDIREGISTRASI();
-            } catch (Exception e) {
-                aktifjadwal="nonaktif";
+            aktifjadwal=koneksiDB.JADWALDOKTERDIREGISTRASI();
+        } catch (Exception e) {
+            aktifjadwal="nonaktif";
+        }
+
+        try {
+            IPPRINTERTRACER=koneksiDB.IPPRINTERTRACER();
+        } catch (Exception e) {
+            IPPRINTERTRACER="127.0.0.1";
+        }
+
+        try {
+            URUTNOREG=koneksiDB.URUTNOREG();
+        } catch (Exception e) {
+            URUTNOREG="dokter";
+        }
+
+        try {
+            BASENOREG=koneksiDB.BASENOREG();
+        } catch (Exception e) {
+            BASENOREG="registrasi";
+        }
+
+        try {
+            TANGGALMUNDUR=koneksiDB.TANGGALMUNDUR();
+        } catch (Exception e) {
+            TANGGALMUNDUR="yes";
+        }
+
+        try {
+            aktifkanparsial=koneksiDB.AKTIFKANBILLINGPARSIAL();
+        } catch (Exception e) {
+            aktifkanparsial="no";
+        }
+
+        try {
+            if(koneksiDB.MENUTRANSPARAN().equals("yes")){
+                DlgCatatan.setOpacity(0.77f);
             }
-            
-            try {
-                IPPRINTERTRACER=koneksiDB.IPPRINTERTRACER();
-            } catch (Exception e) {
-                IPPRINTERTRACER="127.0.0.1";
-            }
-            
-            try {
-                URUTNOREG=koneksiDB.URUTNOREG();
-            } catch (Exception e) {
-                URUTNOREG="dokter";
-            }
-            
-            try {
-                BASENOREG=koneksiDB.BASENOREG();
-            } catch (Exception e) {
-                BASENOREG="registrasi";
-            }
-            
-            try {
-                aktifkanparsial=koneksiDB.AKTIFKANBILLINGPARSIAL();
-            } catch (Exception e) {
-                aktifkanparsial="no";
-            }
-                
-            try {
-                if(koneksiDB.MENUTRANSPARAN().equals("yes")){
-                    DlgCatatan.setOpacity(0.77f);
-                }
-            } catch (Exception e) {
-                System.out.println("Notif Tansparant : "+e);
-            }
-        } catch (Exception ex) {
-            System.out.println("Notif Load XML : "+ex);
+        } catch (Exception e) {
+            System.out.println("Notif Tansparant : "+e);
         }
         
         ChkInput.setSelected(false);
@@ -7236,10 +7238,19 @@ public final class DlgReg extends javax.swing.JDialog {
     private void BtnHapusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnHapusActionPerformed
         for(i=0;i<tbPetugas.getRowCount();i++){ 
             if(tbPetugas.getValueAt(i,0).toString().equals("true")){
-                if(Sequel.meghapustf("reg_periksa","no_rawat",tbPetugas.getValueAt(i,2).toString())==true){
-                    tabMode.removeRow(i);
-                    i--;
-                }
+                if(akses.getkode().equals("Admin Utama")){
+                    if(Sequel.meghapustf("reg_periksa","no_rawat",tbPetugas.getValueAt(i,2).toString())==true){
+                        tabMode.removeRow(i);
+                        i--;
+                    }
+                }else{
+                    if(Sequel.cekTanggal48jam(tbPetugas.getValueAt(i,3).toString()+" "+tbPetugas.getValueAt(i,4).toString(),Sequel.ambiltanggalsekarang())==true){
+                        if(Sequel.meghapustf("reg_periksa","no_rawat",tbPetugas.getValueAt(i,2).toString())==true){
+                            tabMode.removeRow(i);
+                            i--;
+                        }
+                    }
+                }   
             }
         }
         
@@ -7377,37 +7388,18 @@ public final class DlgReg extends javax.swing.JDialog {
                 if (Sequel.cariRegistrasi(TNoRw.getText()) > 0) {
                     JOptionPane.showMessageDialog(rootPane,"Data billing sudah terverifikasi, data tidak boleh diubah.\nSilahkan hubungi bagian kasir/keuangan ..!!");
                     TCari.requestFocus();
-                } else {
-                    if (akses.getedit_registrasi()) {
-                        if (Sequel.mengupdatetfSmc("reg_periksa",
-                            "no_reg = ?, tgl_registrasi = ?, jam_reg = ?, kd_dokter = ?, no_rkm_medis = ?, kd_poli = ?, p_jawab = ?, almt_pj = ?, biaya_reg = ?, hubunganpj = ?, stts_daftar = ?, kd_pj = ?, umurdaftar = ?, sttsumur = ?", "no_rawat = ?",
-                            TNoReg.getText(), Valid.SetTgl(DTPReg.getSelectedItem().toString()), Valid.setWaktuSmc(CmbJam, CmbMenit, CmbDetik), KdDokter.getText(), TNoRM.getText(), kdpoli.getText(), TPngJwb.getText(), TAlmt.getText(), TBiaya.getText(), THbngn.getText(), TStatus.getText(), kdpnj.getText(), umur, sttsumur, TNoRw.getText()
-                        )) {
-                            tabMode.setValueAt(TNoReg.getText(),tbPetugas.getSelectedRow(),1);
-                            tabMode.setValueAt(TNoRw.getText(),tbPetugas.getSelectedRow(),2);
-                            tabMode.setValueAt(Valid.SetTgl(DTPReg.getSelectedItem()+""),tbPetugas.getSelectedRow(),3);
-                            tabMode.setValueAt(Valid.setWaktuSmc(CmbJam, CmbMenit, CmbDetik),tbPetugas.getSelectedRow(),4);
-                            tabMode.setValueAt(KdDokter.getText(),tbPetugas.getSelectedRow(),5);
-                            tabMode.setValueAt(TDokter.getText(),tbPetugas.getSelectedRow(),6);
-                            tabMode.setValueAt(TNoRM.getText(),tbPetugas.getSelectedRow(),7);
-                            tabMode.setValueAt(TPasien.getText(),tbPetugas.getSelectedRow(),8);
-                            tabMode.setValueAt(JK.getText(),tbPetugas.getSelectedRow(),9);
-                            tabMode.setValueAt(umur+" "+sttsumur,tbPetugas.getSelectedRow(),10);
-                            tabMode.setValueAt(TPoli.getText(),tbPetugas.getSelectedRow(),11);
-                            tabMode.setValueAt(nmpnj.getText(),tbPetugas.getSelectedRow(),12);
-                            tabMode.setValueAt(TPngJwb.getText(),tbPetugas.getSelectedRow(),13);
-                            tabMode.setValueAt(TAlmt.getText(),tbPetugas.getSelectedRow(),14);
-                            tabMode.setValueAt(THbngn.getText(),tbPetugas.getSelectedRow(),15);
-                            tabMode.setValueAt(Valid.SetAngka(Double.parseDouble(TBiaya.getText())),tbPetugas.getSelectedRow(),16);
-                            tabMode.setValueAt(TStatus.getText(),tbPetugas.getSelectedRow(),17);
-                            tabMode.setValueAt(NoTelp.getText(),tbPetugas.getSelectedRow(),18);
-                            tabMode.setValueAt(kdpoli.getText(),tbPetugas.getSelectedRow(),21);
-                            tabMode.setValueAt(kdpnj.getText(),tbPetugas.getSelectedRow(),22);
-                            emptTeks();
+                }else{
+                    if(akses.getkode().equals("Admin Utama")){
+                        ganti();
+                    }else{
+                        if(akses.getedit_registrasi()==true){
+                            if(Sequel.cekTanggal48jam(tbPetugas.getValueAt(tbPetugas.getSelectedRow(),3).toString()+" "+tbPetugas.getValueAt(tbPetugas.getSelectedRow(),4).toString(),Sequel.ambiltanggalsekarang())==true){
+                                ganti();
+                            }
+                        }else{
+                            JOptionPane.showMessageDialog(rootPane,"Maaf hak akses anda dibatasi, silahkan konfirmasi kepada admin..!!! ");
+                            TCari.requestFocus();
                         }
-                    } else {
-                        JOptionPane.showMessageDialog(rootPane,"Maaf hak akses anda dibatasi, silahkan konfirmasi kepada admin..!!! ");
-                        TCari.requestFocus();
                     }
                 }
             }
@@ -16022,6 +16014,17 @@ private void MnLaporanRekapKunjunganBulananPoliActionPerformed(java.awt.event.Ac
         MnHasilPemeriksaanEKG.setEnabled(akses.gethasil_pemeriksaan_ekg());
         MnPenatalaksanaanTerapiOkupasi.setEnabled(akses.getpenatalaksanaan_terapi_okupasi());
         MnCatatanKeseimbanganCairan.setEnabled(akses.getbalance_cairan());
+        
+        if(TANGGALMUNDUR.equals("no")){
+            if(!akses.getkode().equals("Admin Utama")){
+                DTPReg.setEditable(false);
+                DTPReg.setEnabled(false);
+                ChkJln.setEnabled(false);
+                CmbJam.setEnabled(false);
+                CmbMenit.setEnabled(false);
+                CmbDetik.setEnabled(false);
+            }
+        }
     }
     
     private void isNumber(){         
@@ -16745,5 +16748,37 @@ private void MnLaporanRekapKunjunganBulananPoliActionPerformed(java.awt.event.Ac
         MnRMCatatanMonitoring.add(MnCatatanKeseimbanganCairan);
         MnRMCatatanMonitoring.add(MnCatatanObservasiIGD);
         MnRMCatatanMonitoring.add(MnCatatanObservasiCHBP);
+    }
+    
+    private void ganti(){
+        if(Sequel.queryu2tf("update reg_periksa set no_rawat=?,no_reg=?,tgl_registrasi=?,jam_reg=?,kd_dokter=?,no_rkm_medis=?,kd_poli=?,"+
+                            "p_jawab=?,almt_pj=?,biaya_reg=?,hubunganpj=?,stts_daftar=?,kd_pj=?,umurdaftar=?,sttsumur=? where no_rawat=?",16,
+            new String[]{
+                TNoRw.getText(),TNoReg.getText(),Valid.SetTgl(DTPReg.getSelectedItem()+""),CmbJam.getSelectedItem()+":"+CmbMenit.getSelectedItem()+":"+CmbDetik.getSelectedItem(),
+                KdDokter.getText(),TNoRM.getText(),kdpoli.getText(),TPngJwb.getText(),TAlmt.getText(),TBiaya.getText(),THbngn.getText(),
+                TStatus.getText(),kdpnj.getText(),umur,sttsumur,tbPetugas.getValueAt(tbPetugas.getSelectedRow(),2).toString()
+            })==true){
+            tabMode.setValueAt(TNoReg.getText(),tbPetugas.getSelectedRow(),1);
+            tabMode.setValueAt(TNoRw.getText(),tbPetugas.getSelectedRow(),2);
+            tabMode.setValueAt(Valid.SetTgl(DTPReg.getSelectedItem()+""),tbPetugas.getSelectedRow(),3);
+            tabMode.setValueAt(CmbJam.getSelectedItem()+":"+CmbMenit.getSelectedItem()+":"+CmbDetik.getSelectedItem(),tbPetugas.getSelectedRow(),4);
+            tabMode.setValueAt(KdDokter.getText(),tbPetugas.getSelectedRow(),5);
+            tabMode.setValueAt(TDokter.getText(),tbPetugas.getSelectedRow(),6);
+            tabMode.setValueAt(TNoRM.getText(),tbPetugas.getSelectedRow(),7);
+            tabMode.setValueAt(TPasien.getText(),tbPetugas.getSelectedRow(),8);
+            tabMode.setValueAt(JK.getText(),tbPetugas.getSelectedRow(),9);
+            tabMode.setValueAt(umur+" "+sttsumur,tbPetugas.getSelectedRow(),10);
+            tabMode.setValueAt(TPoli.getText(),tbPetugas.getSelectedRow(),11);
+            tabMode.setValueAt(nmpnj.getText(),tbPetugas.getSelectedRow(),12);
+            tabMode.setValueAt(TPngJwb.getText(),tbPetugas.getSelectedRow(),13);
+            tabMode.setValueAt(TAlmt.getText(),tbPetugas.getSelectedRow(),14);
+            tabMode.setValueAt(THbngn.getText(),tbPetugas.getSelectedRow(),15);
+            tabMode.setValueAt(Valid.SetAngka(Double.parseDouble(TBiaya.getText())),tbPetugas.getSelectedRow(),16);
+            tabMode.setValueAt(TStatus.getText(),tbPetugas.getSelectedRow(),17);
+            tabMode.setValueAt(NoTelp.getText(),tbPetugas.getSelectedRow(),18);
+            tabMode.setValueAt(kdpoli.getText(),tbPetugas.getSelectedRow(),21);
+            tabMode.setValueAt(kdpnj.getText(),tbPetugas.getSelectedRow(),22);
+            emptTeks();
+        }
     }
 }

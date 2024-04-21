@@ -1388,4 +1388,14 @@ public class koneksiDB {
         }
         return var;
     }
+    
+    public static String TANGGALMUNDUR(){
+        try{
+            prop.loadFromXML(new FileInputStream("setting/database.xml"));
+            var=prop.getProperty("TANGGALMUNDUR");
+        }catch(Exception e){
+            var="yes"; 
+        }
+        return var;
+    }
 }
