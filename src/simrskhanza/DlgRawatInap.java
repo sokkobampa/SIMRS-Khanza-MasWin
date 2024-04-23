@@ -11,20 +11,16 @@
  */
 package simrskhanza;
 
-import rekammedis.RMRiwayatPerawatan;
-import surat.SuratKontrol;
-import keuangan.DlgCariPerawatanRanap;
-import keuangan.DlgCariPerawatanRanap2;
-import inventory.DlgPemberianObat;
 import fungsi.WarnaTable;
+import fungsi.akses;
 import fungsi.batasInput;
 import fungsi.koneksiDB;
 import fungsi.sekuel;
 import fungsi.validasi;
-import fungsi.akses;
 import inventory.DlgCariObat2;
 import inventory.DlgCariObat3;
 import inventory.DlgCopyResep;
+import inventory.DlgPemberianObat;
 import inventory.DlgPeresepanDokter;
 import inventory.DlgPermintaanResepPulang;
 import inventory.DlgPermintaanStokPasien;
@@ -53,6 +49,8 @@ import javax.swing.event.DocumentEvent;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableColumn;
 import kepegawaian.DlgCariPegawai;
+import keuangan.DlgCariPerawatanRanap;
+import keuangan.DlgCariPerawatanRanap2;
 import keuangan.Jurnal;
 import laporan.DlgBerkasRawat;
 import laporan.DlgDiagnosaPenyakit;
@@ -95,10 +93,10 @@ import rekammedis.RMKonselingFarmasi;
 import rekammedis.RMMonitoringAldrettePascaAnestesi;
 import rekammedis.RMMonitoringBromagePascaAnestesi;
 import rekammedis.RMMonitoringStewardPascaAnestesi;
-import rekammedis.RMPemantauanMEOWS;
-import rekammedis.RMPemantauanPEWS;
 import rekammedis.RMPemantauanEWSD;
 import rekammedis.RMPemantauanEWSNeonatus;
+import rekammedis.RMPemantauanMEOWS;
+import rekammedis.RMPemantauanPEWS;
 import rekammedis.RMPengkajianRestrain;
 import rekammedis.RMPenilaianAwalKeperawatanKebidananRanap;
 import rekammedis.RMPenilaianAwalKeperawatanRanap;
@@ -131,6 +129,7 @@ import rekammedis.RMPenilaianTambahanPerilakuKekerasan;
 import rekammedis.RMPenilaianUlangNyeri;
 import rekammedis.RMPerencanaanPemulangan;
 import rekammedis.RMRekonsiliasiObat;
+import rekammedis.RMRiwayatPerawatan;
 import rekammedis.RMSignInSebelumAnastesi;
 import rekammedis.RMSignOutSebelumMenutupLuka;
 import rekammedis.RMSkriningNutrisiAnak;
@@ -138,6 +137,7 @@ import rekammedis.RMSkriningNutrisiDewasa;
 import rekammedis.RMSkriningNutrisiLansia;
 import rekammedis.RMTimeOutSebelumInsisi;
 import rekammedis.RMTransferPasienAntarRuang;
+import surat.SuratKontrol;
 
 /**
  *
@@ -9376,25 +9376,6 @@ private void BtnEditKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                 cmbDtk.setEnabled(false);
             }
         }
-    }
-    
-    private void jam2() {
-        ActionListener taskPerformer = new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                Date now = Calendar.getInstance().getTime();
-                if (ChkJln.isSelected()) {
-                    String jam = new SimpleDateFormat("HH:mm:ss").format(now);
-                    
-                    DTPTgl.setDate(now);
-                    cmbJam.setSelectedItem(jam.substring(0, 2));
-                    cmbMnt.setSelectedItem(jam.substring(3, 5));
-                    cmbDtk.setSelectedItem(jam.substring(6, 8));
-                }
-            }
-        };
-        
-        new Timer(1000, taskPerformer).start();
     }
     
     private void jam2() {
