@@ -194,7 +194,7 @@ public final class DlgPeresepanDokter extends javax.swing.JDialog {
                 "Komposisi","Kategori Obat"
             }){
              @Override public boolean isCellEditable(int rowIndex, int colIndex){
-                if (colIndex == 9 || colIndex == 12 || colIndex == 13) {
+                if (colIndex == 9 || colIndex == 11 || colIndex == 12 || colIndex == 13) {
                     return true;
                 }
                 
