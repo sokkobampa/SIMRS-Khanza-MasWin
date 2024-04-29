@@ -433,8 +433,27 @@ public final class DlgPeriksaRadiologi extends javax.swing.JDialog {
             aktifkanparsial="no";
         }
         
-        KodePj.setText(Sequel.cariIsi("select set_pjlab.kd_dokterrad from set_pjlab"));
-        NmDokterPj.setText(dokter.tampil3(KodePj.getText()));
+        try {
+            pssetpj=koneksi.prepareStatement("select set_pjlab.kd_dokterrad from set_pjlab");
+            try {   
+                rssetpj=pssetpj.executeQuery();
+                while(rssetpj.next()){
+                    KodePj.setText(rssetpj.getString(1));
+                    NmDokterPj.setText(dokter.tampil3(rssetpj.getString(1)));
+                }
+            } catch (Exception e) {
+                System.out.println(e);
+            } finally{
+                if(rssetpj!=null){
+                    rssetpj.close();
+                }
+                if(pssetpj!=null){
+                    pssetpj.close();
+                }
+            }
+        } catch (Exception e) {
+            System.out.println(e);
+        }
     }
 
     /** This method is called from within the constructor to
