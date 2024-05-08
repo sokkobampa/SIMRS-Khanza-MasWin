@@ -148,8 +148,6 @@ CREATE TABLE IF NOT EXISTS `tampjurnal_smc`  (
   PRIMARY KEY (`kd_rek`, `user_id`, `ip`) USING HASH
 ) ENGINE = MEMORY CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Fixed;
 
-ALTER TABLE `tokoopname` MODIFY COLUMN IF EXISTS `kode_brng` varchar(10) NOT NULL FIRST;
-
 ALTER TABLE `transfer_pasien_antar_ruang` MODIFY COLUMN IF EXISTS `diagnosa_utama` varchar(100) NULL DEFAULT NULL AFTER `ruang_selanjutnya`;
 
 ALTER TABLE `user` ADD COLUMN IF NOT EXISTS `edit_hapus_spo_medis` enum('true','false') NULL DEFAULT NULL AFTER `penatalaksanaan_terapi_okupasi`;
