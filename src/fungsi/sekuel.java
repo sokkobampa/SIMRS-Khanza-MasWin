@@ -459,28 +459,23 @@ public final class sekuel {
         return output;
     }
     
-    public void executeRawSmc(String sql, String... values)
-    {
+    public boolean executeRawSmc(String sql, String... values) {
+        boolean output = true;
         String track = sql;
-        try {
-            ps = connect.prepareStatement(sql);
-            try {
-                for (int i = 0; i < values.length; i++) {
-                    ps.setString(i + 1, values[i]);
-                    track = track.replaceFirst("\\?", "'" + values[i] + "'");
-                }
-                ps.executeUpdate();
-                SimpanTrack(track);
-            } catch (Exception e) {
-                System.out.println("Notif : " + e);
-            } finally {
-                if (ps != null) {
-                    ps.close();
-                }
+        
+        try (PreparedStatement ps = connect.prepareStatement(sql)) {
+            for (int i = 0; i < values.length; i++) {
+                ps.setString(i + 1, values[i]);
+                track = track.replaceFirst("\\?", "'" + values[i] + "'");
             }
+            ps.executeUpdate();
+            SimpanTrack(track);
         } catch (Exception e) {
             System.out.println("Notif : " + e);
+            output = false;
         }
+        
+        return output;
     }
     
     public void deleteTemporary()
