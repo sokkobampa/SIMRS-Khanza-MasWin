@@ -68,11 +68,9 @@ public class koneksiDB {
         return connection;        
     }
     
-    public static String raw(String propertyName)
-    {
+    public static String raw(String propertyName) {
         try {
             prop.loadFromXML(new FileInputStream("setting/database.xml"));
-            
             return prop.getProperty(propertyName);
         } catch (Exception e) {
             return null;
